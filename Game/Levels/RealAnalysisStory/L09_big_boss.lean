@@ -20,6 +20,7 @@ Congratulations! You've learned many fundamental tactics for mathematical reason
 - `choose value hypothesisOnValue using ExistentialHypothesis ` for extracting information from existence statements in hypotheses
 
 Here's a little \"Universal/Existential Quantifier Cheat Sheet\":
+
 |           | ∀        | ∃      |
 |-----------|----------|--------|
 | **⊢**  | `intro`    | `use`    |
