@@ -1,4 +1,4 @@
-# Real Analysis Game
+# Real Analysis, The Game
 
 This is a game for [lean4game](https://github.com/leanprover-community/lean4game/).
 
