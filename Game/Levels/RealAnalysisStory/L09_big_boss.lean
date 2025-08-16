@@ -23,7 +23,7 @@ Here's a little \"Universal/Existential Quantifier Cheat Sheet\":
 
 |           | ∀        | ∃      |
 |-----------|----------|--------|
-| **⊢**  | `intro`    | `use`    |
+| **Goal**  | `intro`    | `use`    |
 | **Hypothesis** | `specialize` | `choose` |
 
 Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!
