@@ -34,15 +34,16 @@ Given a function `f` and information about its behavior, prove a complex stateme
 This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned.
 
 **Extra Challenge**
-If you want to really challenge yourself, play this level \"blind\". Write the goal down on paper, close the computer, solve it by hand, keeping track *in your mind* of what happens to the game board after each command, and only once you’ve worked it all out, open the computer and see if Lean accepts your solution.
-Why would this be a good thing to do?
+If you want to *really* challenge yourself, play this level \"blind\". Write the assumptions and goal down on paper, close the computer, solve it by hand, keeping track *in your mind* of what happens to the game board after each command, and only once you’ve worked it all out, open the computer and see if Lean accepts your solution.
+
+Why do you think that this would this be a good thing to do?
 
 In general, I hope your *goal* in taking this course is to make your \"Real Analysis Brain Muscles\" stronger. By the end, you should be *really good* at
 solving Real Analysis problems on paper, where you don't have Lean showing
 you the Goal State after every move.
-More broadly, the purpose of learning to solve Real Analysis problems is to learn to *think*, clearly, precisely. Strengthening your ability to work with pen and paper (or just mentally) directly transfers to research contexts where you're exploring ideas, sketching arguments, or presenting to others.
+More broadly, the purpose of learning to solve Real Analysis problems is to learn to *think*, clearly, precisely. Strengthening your ability to work with pen and paper (or just mentally) directly transfers to *any* other context where you're exploring ideas, wrestling with complicated arguments, or trying to communicate clearly to others.
 
-An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs (though that's nice), it's in the cognitive transformation that happens when you struggle through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively.
+An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively.
 "
 
 /-- **BIG BOSS LEVEL**: This problem requires all the tactics you've learned! -/
