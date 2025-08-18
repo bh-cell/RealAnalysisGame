@@ -85,4 +85,12 @@ You've just completed a genuinely sophisticated mathematical argument! This kind
 **You are now ready to begin your journey to rigorous calculus!**
 
 Welcome to the Introduction to Formal Real Analysis. 🎓
+
+**Epilogue**
+
+Before we continue with more Real Analysis and more Lean, let’s pause to note a few interesting things about working formally.
+
+Working interactively in a theorem prover is tremendously fun and I hope leads to rapid gains, immediate feedback, and clarity of thought. Imagine trying to learn chess by just reading through algebraic notation - 1.e4 e5 2.Nf3 Nf6 3.Bb5 a6 - sure, all the information is technically there, but isn't it so much easier to learn by actually looking at a chess board and seeing how the position changes after each move? In mathematics, it would be extraordinarily tedious to manually rewrite the entire goal state after every tactic application, keeping track of all the hypotheses and their relationships by hand. A theorem prover does this bookkeeping for you automatically, letting you focus on the mathematical content rather than the clerical work.
+
+This is, as we've already noted, a double-edged sword. We still want to train our brains to \"see\" a mental model of the goal state evolving - good chess players can visualize many moves ahead precisely because they've learned to maintain multiple mental game boards simultaneously. But until you develop that skill, and even after you have it, there's immense value in being able to instantly generate the current \"game board\" of your proof state. The immediate feedback helps you understand the consequences of each logical move, building the very intuition that will eventually let you work more independently. It's the difference between learning to navigate by always checking your GPS versus eventually developing an internal sense of direction - both have their place, and the former helps develop the latter.
 "
