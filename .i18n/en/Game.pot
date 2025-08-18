@@ -1,7 +1,7 @@
 msgid ""
-msgstr "Project-Id-Version: Game v4.21.0\n"
+msgstr "Project-Id-Version: Game v4.22.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-15\n"
+"POT-Creation-Date: 2025-08-16\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -29,12 +29,12 @@ msgid "# Welcome to Real Analysis, The Game!\n"
 "**\"Level 1: The Story of Real Analysis\"**, and good luck!"
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "intermediate goal solved! 🎉"
-msgstr ""
-
 #: Game.Levels.RealAnalysisStory
 msgid "Level 1: The Story of Real Analysis"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "intermediate goal solved! 🎉"
 msgstr ""
 
 #: Game.Levels.RealAnalysisStory.L08_obtain
@@ -45,8 +45,16 @@ msgstr ""
 msgid "The `use` tactic provides a specific value to prove an existence statement."
 msgstr ""
 
+#: Game.Levels.RealAnalysisStory.L07_specialize
+msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
+msgstr ""
+
 #: Game
 msgid "Learn real analysis through the historical crises that forced mathematicians to rebuild calculus from the ground up in the 19th century."
+msgstr ""
+
+#: Game.Levels.RealAnalysisStory.L08_obtain
+msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
 msgstr ""
 
 #: Game.Levels.NewtonsCalculationOfPi.L01_the_problem
@@ -165,35 +173,12 @@ msgid "Great! You've learned the `specialize` tactic.\n"
 "Last lesson in Level 1 coming up."
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L09_big_boss
-msgid "# The Final Challenge\n"
-"\n"
-"Congratulations! You've learned many fundamental tactics for mathematical reasoning in Lean:\n"
-"- `exact hypothesisName` for when a hypothesis matches the goal exactly\n"
-"- `rfl` for reflexivity (proving `X = X`)\n"
-"- `rewrite [hypothesisName]` for rewriting using equalities\n"
-"- `ring_nf` for algebraic manipulation\n"
-"- `use` for providing witnesses to existence statements in goals\n"
-"- `intro` for handling universal quantifiers in goals\n"
-"- `specialize` for applying universal statements to specific values in hypotheses\n"
-"- `choose value hypothesisOnValue using ExistentialHypothesis ` for extracting information from existence statements in hypotheses\n"
-"\n"
-"Here's a little \"Universal/Existential Quantifier Cheat Sheet\":\n"
-"|           | ∀        | ∃      |\n"
-"|-----------|----------|--------|\n"
-"| **⊢**  | `intro`    | `use`    |\n"
-"| **Hypothesis** | `specialize` | `choose` |\n"
-"\n"
-"Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!\n"
-"\n"
-"**The Challenge:**\n"
-"Given a function `f` and information about its behavior, prove a complex statement that involves existence, universals, algebra, and rewriting.\n"
-"\n"
-"This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned."
-msgstr ""
-
 #: Game.Levels.RealAnalysisStory.L00_the_problem
 msgid "The `exact` tactic solves a goal when one of the hypotheses is *exactly* the same as the goal. The syntax is `exact hypothesis_name`"
+msgstr ""
+
+#: Game.Levels.RealAnalysisStory.L02_rfl
+msgid "Write `rfl` since we're proving that something equals itself."
 msgstr ""
 
 #: Game.Levels.RealAnalysisStory.L02_rfl
@@ -258,6 +243,10 @@ msgstr ""
 msgid "Perfect! You've completed your first Lean proof involving real numbers.\n"
 "\n"
 "Remember: the `exact` tactic is used when you have exactly what you need to prove the goal. Look at the top right: your list of tactics now includes `exact`, and if you forget how it works or what it does, just click on it for a reminder."
+msgstr ""
+
+#: Game.Levels.RealAnalysisStory.L04_ring_nf
+msgid "Write `ring_nf` to expand and simplify both sides algebraically."
 msgstr ""
 
 #: Game.Levels.NewtonsCalculationOfPi.L01_the_problem
@@ -349,12 +338,28 @@ msgstr ""
 msgid "Every mathematical expression equals itself."
 msgstr ""
 
+#: Game.Levels.RealAnalysisStory.L05_use
+msgid "Write `use 42`, but with `42` replaced by the correct answer. Then how should you finish?"
+msgstr ""
+
 #: Game.Levels.RealAnalysisStory.L08_obtain
 msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
 msgstr ""
 
+#: Game.Levels.RealAnalysisStory.L03_rw
+msgid "Type `rewrite [Bob]` to replace `x` with `2` in the goal. Then what?"
+msgstr ""
+
 #: Game.Levels.RealAnalysisStory.L04_ring_nf
 msgid "The `ring_nf` tactic puts both sides of an equation into a standard algebraic form and checks if they're equal."
+msgstr ""
+
+#: Game.Levels.RealAnalysisStory.L06_intro
+msgid "Use `intro ε` to introduce the variable, then `intro hε` to introduce the hypothesis `ε > 0`. Then how do you solve the goal?"
+msgstr ""
+
+#: Game.Levels.RealAnalysisStory.L07_specialize
+msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
 msgstr ""
 
 #: Game.Levels.RealAnalysisStory.L02_rfl
@@ -429,6 +434,10 @@ msgid "# 🎉 VICTORY! 🎉\n"
 "Welcome to the Introduction to Formal Real Analysis. 🎓"
 msgstr ""
 
+#: Game.Levels.RealAnalysisStory.L00_the_problem
+msgid "Write `exact h` since the hypothesis `h` is exactly what we want to prove."
+msgstr ""
+
 #: Game.Levels.RealAnalysisStory.L05_use
 msgid "# Proving existence\n"
 "\n"
@@ -479,6 +488,11 @@ msgstr ""
 msgid "There exists a real number that makes this binomial expansion work."
 msgstr ""
 
+#: Game.Levels.RealAnalysisStory.L08_obtain
+msgid "If you're struggling to prove that `2 ^ 2 = 4`, it's\n"
+"a basic fact in a *ring*..."
+msgstr ""
+
 #: Game.Levels.RealAnalysisStory.L05_use
 msgid "The use tactic"
 msgstr ""
@@ -502,6 +516,34 @@ msgstr ""
 
 #: Game.Levels.RealAnalysisStory.L03_rw
 msgid "The `rewrite` tactic replaces the left-hand side of an equality with the right-hand side in the goal. The syntax is `rewrite [hypothesis_name1, hypothesis_name2, etc]`."
+msgstr ""
+
+#: Game.Levels.RealAnalysisStory.L09_big_boss
+msgid "# The Final Challenge\n"
+"\n"
+"Congratulations! You've learned many fundamental tactics for mathematical reasoning in Lean:\n"
+"- `exact hypothesisName` for when a hypothesis matches the goal exactly\n"
+"- `rfl` for reflexivity (proving `X = X`)\n"
+"- `rewrite [hypothesisName]` for rewriting using equalities\n"
+"- `ring_nf` for algebraic manipulation\n"
+"- `use` for providing witnesses to existence statements in goals\n"
+"- `intro` for handling universal quantifiers in goals\n"
+"- `specialize` for applying universal statements to specific values in hypotheses\n"
+"- `choose value hypothesisOnValue using ExistentialHypothesis ` for extracting information from existence statements in hypotheses\n"
+"\n"
+"Here's a little \"Universal/Existential Quantifier Cheat Sheet\":\n"
+"\n"
+"|           | ∀        | ∃      |\n"
+"|-----------|----------|--------|\n"
+"| **Goal**  | `intro`    | `use`    |\n"
+"| **Hypothesis** | `specialize` | `choose` |\n"
+"\n"
+"Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!\n"
+"\n"
+"**The Challenge:**\n"
+"Given a function `f` and information about its behavior, prove a complex statement that involves existence, universals, algebra, and rewriting.\n"
+"\n"
+"This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned."
 msgstr ""
 
 #: Game.Levels.RealAnalysisStory.L08_obtain

@@ -17,7 +17,7 @@ Congratulations! You've learned many fundamental tactics for mathematical reason
 - `use` for providing witnesses to existence statements in goals
 - `intro` for handling universal quantifiers in goals
 - `specialize` for applying universal statements to specific values in hypotheses
-- `choose value hypothesisOnValue using ExistentialHypothesis ` for extracting information from existence statements in hypotheses
+- `choose value hypothesisOnValue using ExistentialHypothesis` for extracting information from existence statements in hypotheses
 
 Here's a little \"Universal/Existential Quantifier Cheat Sheet\":
 
@@ -28,11 +28,21 @@ Here's a little \"Universal/Existential Quantifier Cheat Sheet\":
 
 Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!
 
-**The Challenge:**
+**World 1 Big Boss**
 Given a function `f` and information about its behavior, prove a complex statement that involves existence, universals, algebra, and rewriting.
 
 This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned.
 
+**Extra Challenge**
+If you want to really challenge yourself, play this level \"blind\". Write the goal down on paper, close the computer, solve it by hand, keeping track *in your mind* of what happens to the game board after each command, and only once you’ve worked it all out, open the computer and see if Lean accepts your solution.
+Why would this be a good thing to do?
+
+In general, I hope your *goal* in taking this course is to make your \"Real Analysis Brain Muscles\" stronger. By the end, you should be *really good* at
+solving Real Analysis problems on paper, where you don't have Lean showing
+you the Goal State after every move.
+More broadly, the purpose of learning to solve Real Analysis problems is to learn to *think*, clearly, precisely. Strengthening your ability to work with pen and paper (or just mentally) directly transfers to research contexts where you're exploring ideas, sketching arguments, or presenting to others.
+
+An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs (though that's nice), it's in the cognitive transformation that happens when you struggle through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively.
 "
 
 /-- **BIG BOSS LEVEL**: This problem requires all the tactics you've learned! -/
