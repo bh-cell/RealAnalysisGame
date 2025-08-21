@@ -28,8 +28,7 @@ Socrates: Well, nothing really. Quick: what's a derivative?
 Simplicio: Easy! If I have a function $f : \\R \\to \\R$ and it's differentiable at $x$, then the
 derivative is $f'(x) := \\lim_{h \\to 0}\\frac{f(x+h) - f(x)}{h}$. This represents the \"instantaneous\" slope
 of the graph of the function $y=f(x)$ at the point $(x, f(x))$.
-
-<img src=\"https://raw.githubusercontent.com/AlexKontorovich/RealAnalysisGame/main/RealAnalysisGame/images/Deriv.png\"/>
+[![derivative](data/g/local/RealAnalysisTheGame/images/Deriv.jpg)](https://en.wikipedia.org/wiki/Derivative)
 
 Socrates: Very good! And tell me please, what is an integral?
 
@@ -37,7 +36,7 @@ Simplicio: That's easy, too! If you want to integrate our function $f$ along an
 interval, $[a, b]$, say, you pretend that you have infinitely many, infinitely small rectangles, work out their
 areas as base times height, and add them up:
 $\\int_a^b f(x)dx := \\lim_{N\\to\\infty} \\sum_{j=1}^N \\frac{b-a}{N} f\\left(a + j\\frac{b-a}{N}\\right)$
-
+[![integral](data/g/local/RealAnalysisTheGame/images/Integral.jpg)](https://en.wikipedia.org/wiki/Integral)
 
 Socrates: Great. And what are the two Fundamental Theorems of Calculus?
 
@@ -62,6 +61,7 @@ Socrates: Hmm yes, I see. I agree that that's an OK way to think of it, for a wh
 was quite uncomfortable with such words), and Leibniz (who was more care-free here), the two 17th century inventors of
 calculus (if you don't count people like the ancient Greeks Eudoxus and Archimedes, or the 14th century Indian Madhava... but this isn't a history lesson). Leibniz taught the Bernoulli
 brothers (the world's \"first AP Calc students\"!), who taught, among others, the Marquis de l'Hopital, and the great Leonhard Euler (the first \"Calc native\"), who taught the rest of us. All was going quite well... and then came the 19th Century.
+[![NewtonLeibnizEudoxusArchimedesMadhavaBernoulliEuler](data/g/local/RealAnalysisTheGame/images/People.jpg)](https://en.wikipedia.org/wiki/History_of_calculus)
 
 Simplicio: Huh? What happened in the 19th Century?
 
