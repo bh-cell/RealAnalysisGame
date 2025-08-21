@@ -68,7 +68,7 @@ Statement (f : ℝ → ℝ) (h_existential : ∃ (a : ℝ), f (a) = 3) (h_univer
 Conclusion "
 # 🎉 VICTORY! 🎉
 
-**Incredible!** You've defeated the Big Boss and mastered all the fundamental tactics of mathematical reasoning!
+You've defeated the Big Boss and mastered all the fundamental tactics of mathematical reasoning!
 
 **Let's see what you just accomplished:**
 
