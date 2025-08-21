@@ -28,7 +28,7 @@ Socrates: Well, nothing really. Quick: what's a derivative?
 Simplicio: Easy! If I have a function $f : \\R \\to \\R$ and it's differentiable at $x$, then the
 derivative is $f'(x) := \\lim_{h \\to 0}\\frac{f(x+h) - f(x)}{h}$. This represents the \"instantaneous\" slope
 of the graph of the function $y=f(x)$ at the point $(x, f(x))$.
-[![derivative](data/g/local/RealAnalysisGame/images/Deriv.jpg)](https://en.wikipedia.org/wiki/Derivative)
+[![derivative](data/g/alexkontorovich/realanalysisgame/images/Deriv.jpg)](https://en.wikipedia.org/wiki/Derivative)
 
 Socrates: Very good! And tell me please, what is an integral?
 
@@ -36,7 +36,7 @@ Simplicio: That's easy, too! If you want to integrate our function $f$ along an
 interval, $[a, b]$, say, you pretend that you have infinitely many, infinitely small rectangles, work out their
 areas as base times height, and add them up:
 $\\int_a^b f(x)dx := \\lim_{N\\to\\infty} \\sum_{j=1}^N \\frac{b-a}{N} f\\left(a + j\\frac{b-a}{N}\\right)$
-[![integral](data/g/local/RealAnalysisGame/images/Integral.jpg)](https://en.wikipedia.org/wiki/Integral)
+[![integral](data/g/alexkontorovich/realanalysisgame/images/Integral.jpg)](https://en.wikipedia.org/wiki/Integral)
 
 Socrates: Great. And what are the two Fundamental Theorems of Calculus?
 
@@ -61,17 +61,17 @@ Socrates: Hmm yes, I see. I agree that that's an OK way to think of it, for a wh
 was quite uncomfortable with such words), and Leibniz (who was more care-free here), the two 17th century inventors of
 calculus (if you don't count people like the ancient Greeks Eudoxus and Archimedes, or the 14th century Indian Madhava... but this isn't a history lesson). Leibniz taught the Bernoulli
 brothers (the world's \"first AP Calc students\"!), who taught, among others, the Marquis de l'Hopital, and the great Leonhard Euler (the first \"Calc native\"), who taught the rest of us. All was going quite well... and then came the 19th Century.
-[![NewtonLeibnizEudoxusArchimedesMadhavaBernoulliEuler](data/g/local/RealAnalysisGame/images/People.jpg)](https://en.wikipedia.org/wiki/History_of_calculus)
+[![NewtonLeibnizEudoxusArchimedesMadhavaBernoulliEuler](data/g/alexkontorovich/realanalysisgame/images/People.jpg)](https://en.wikipedia.org/wiki/History_of_calculus)
 
 Simplicio: Huh? What happened in the 19th Century?
 
 Socrates: Well you see, a guy named Augustin-Louis Cauchy came along (roughly in the 1810s), and started making a fuss that we weren't really doing things perfectly \"rigorously\".
 He set out to reprove the theorems of calculus using precise definitions rather than hand-waving.
 He was making great progress, including proving statements like: the limit of continuous functions is continuous.
-[![Cauchy](data/g/local/RealAnalysisGame/images/Cauchy.jpg)](https://en.wikipedia.org/wiki/Augustin-Louis_Cauchy)
+[![Cauchy](data/g/alexkontorovich/realanalysisgame/images/Cauchy.jpg)](https://en.wikipedia.org/wiki/Augustin-Louis_Cauchy)
 
 Simplicio: Sure, that sounds perfectly reasonable. A limit is a continuous process, so you do that to
-continuous functions, and of course in the end you should get something continuous, too. No?
+continuous functions, and of course in the end you should get something continuous, too.  No?
 
 
 Socrates: Well, the problem is that around the same time, a guy named Joseph Fourier was going around claiming
@@ -82,7 +82,7 @@ Simplicio: What?!
 Socrates: Look for yourself: Here's a graph of $\\sum_{n=1}^{100}\\frac1n \\sin(nx)$. As you take 100
 out to infinity, Fourier claims that this will get
 closer and closer to a sawtooth function!
-[![Fourier](data/g/local/RealAnalysisGame/images/Fourier.jpg)](https://en.wikipedia.org/wiki/Joseph_Fourier)
+[![Fourier](data/g/alexkontorovich/realanalysisgame/images/Fourier.jpg)](https://en.wikipedia.org/wiki/Joseph_Fourier)
 
 Simplicio: Whoa. Wait, I can think of an even easier example: just look at the simplest family of
 polynomials, $f_n(x) = x^n$, on the unit interval $[0,1]$. When you take high powers of any point
@@ -99,7 +99,7 @@ we don't even know what the real numbers *are*!
 
 Simplicio: What? What do you mean, what are they? Here they are right here: There's zero, and one, and $-2$, and $\\frac35$, and
 $\\sqrt 2$, and $e$ and $\\pi$. What's the problem?
-[![RealNumbers](data/g/local/RealAnalysisGame/images/RealLine.png)](https://en.wikipedia.org/wiki/Real_number)
+[![RealNumbers](data/g/alexkontorovich/realanalysisgame/images/RealLine.png)](https://en.wikipedia.org/wiki/Real_number)
 
 Socrates: Well, do you remember that you need something called the Intermediate Value Theorem
 in calculus?
