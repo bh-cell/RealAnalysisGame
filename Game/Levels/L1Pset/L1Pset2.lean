@@ -57,8 +57,12 @@ the fact: `huv : ∀ (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v)`.
 Something like this (if not exactly this)
 will be useful to you in solving this problem.
 "
-/- The `have` tactic does... -/
---TacticDoc have
+/-- The `have` tactic has the following
+syntax: `have NewHypothesisName (Assumptions) : Claim := by GiveTheProof`.
+This creates a new hypothesis called
+`NewHypothesisName : ∀ (Assumptions), ClaimHolds`.
+ -/
+TacticDoc «have»
 
 /-- Solve the problem -/
 Statement (x y : ℝ) (h1 : x ^ 2 + y ^ 2 = 2)
@@ -72,7 +76,7 @@ Statement (x y : ℝ) (h1 : x ^ 2 + y ^ 2 = 2)
   rewrite [h2]
   ring_nf
 
---NewTactic have
+NewTactic «have»
 
 Conclusion "Did you end up using `huv`?
 And then `specialize`ing it with `u` and `v` replaced, respectively, by `x` and `y`?
