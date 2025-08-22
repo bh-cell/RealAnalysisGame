@@ -1,7 +1,7 @@
-import Game.Levels.NewtonsCalculationOfPi.L01_the_problem
+import Game.Levels.L2NewtonsCalculationOfPi.L01_the_problem
 
 World "NewtonsCalculationOfPi"
-Title "Newton's π Computation"
+Title "Lecture 2: Newton's Computation of π"
 
 Introduction "
 # The Mathematical Revolution of 1666

@@ -8,541 +8,22 @@ msgstr "Project-Id-Version: Game v4.22.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: Game.Levels.RealAnalysisStory.L03_rw
+#: Game.Levels.L1RealAnalysisStory.L03_rw
 msgid "The rw tactic"
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L00_the_problem
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "If we know that $x = 5$, then we can prove that $x = 5$."
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory
-msgid "Level 1: The Story of Real Analysis"
+#: Game.Levels.L1Pset.L1Pset2
+msgid "Did you end up using `huv`?\n"
+"And then `specialize`ing it with `u` and `v` replaced, respectively, by `x` and `y`?\n"
+"Or did you think of going via the more direct route:\n"
+"`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "intermediate goal solved! 🎉"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L08_obtain
-msgid "The obtain tactic"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L05_use
-msgid "The `use` tactic provides a specific value to prove an existence statement."
-msgstr ""
-
-#: Game
-msgid "# Welcome to Real Analysis, The Game!\n"
-"\n"
-"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
-"or better yet, send a PR to\n"
-"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
-"\n"
-"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
-"and basic Point-Set Topology.\n"
-"\n"
-"To get started, click on\n"
-"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L07_specialize
-msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
-msgstr ""
-
-#: Game
-msgid "Learn real analysis through the historical crises that forced mathematicians to rebuild calculus from the ground up in the 19th century."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L08_obtain
-msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
-msgstr ""
-
-#: Game.Levels.NewtonsCalculationOfPi.L01_the_problem
-msgid "Newton's plan:\n"
-"\n"
-"1. Find a curve whose area under it equals π/6\n"
-"2. Expand that curve as an infinite series\n"
-"3. Integrate the series term by term\n"
-"4. Compute π from the resulting infinite sum\n"
-"\n"
-"Sounds impossible? Let's see how Newton pulled it off...\n"
-"\n"
-"**Next:** The geometric setup that makes it all work."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L04_ring_nf
-msgid "Excellent! You've learned the `ring_nf` tactic.\n"
-"\n"
-"This tactic is incredibly powerful for algebraic manipulations. It automatically handles all the tedious algebra that would take many steps to do by hand.\n"
-"\n"
-"Your toolkit now includes:\n"
-"- `exact hypothesis_name` for when a hypothesis exactly matches your goal\n"
-"- `rfl` for proving something equals itself\n"
-"- `rewrite [hypothesis_name]` for rewriting using equalities\n"
-"- `ring_nf` for algebraic simplifications and expansions\n"
-"\n"
-"As we move into real analysis proper, you'll find that `ring_nf` is invaluable for dealing with polynomial expressions, which appear everywhere in calculus!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L09_big_boss
-msgid "Big Boss: The Ultimate Tactic Challenge"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L02_rfl
-msgid "Excellent! You've learned the `rfl` tactic.\n"
-"\n"
-"The key difference:\n"
-"- Use `exact hypothesis_name` when you have a hypothesis that matches your goal exactly\n"
-"- Use `rfl` when you need to prove that something equals itself\n"
-"\n"
-"These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
-msgstr ""
-
-#: Game.Levels.NewtonsCalculationOfPi
-msgid "# The Mathematical Revolution of 1666\n"
-"\n"
-"Now that you've mastered the basic tactics of mathematical reasoning, let's dive into the story that will motivate everything we do in real analysis.\n"
-"\n"
-"This world tells the tale of Newton's amazing calculation of π - how a 23-year-old genius transformed a mysterious geometric constant into an infinite series of easily obtained fractions. But more importantly, we'll see how this brilliant calculation exposed the shaky foundations of mathematics.\n"
-"\n"
-"Newton's method worked, but we did not have the tools to rigorously prove *why*, until the late 19th century.\n"
-"\n"
-"**In this world, you'll learn:**\n"
-"- How Newton actually computed π using infinite series\n"
-"- Why his method was both brilliant and problematic\n"
-"- How this connects to the foundational issues we'll resolve later"
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "level completed with warnings… 🎭"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L02_rfl
-msgid "The `rfl` tactic proves goals of the form `A = A` where both sides are *identical*."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L04_ring_nf
-msgid "The binomial expansion: $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L07_specialize
-msgid "# Using universal statements\n"
-"\n"
-"Now let's learn the flip side of `intro`. You have already learned that:\n"
-"- if you have `∃` in the goal, you write `use` to provide a specific value. And\n"
-"- if you have `∀` in the goal, you write `intro` to introduce an arbitrary variable\n"
-"\n"
-"But what if you have `∀` in a *hypothesis* and you want to use it for a particular value?\n"
-"\n"
-"For a concrete example, suppose you have:\n"
-"- A positive real number `t`; that is, a real number `t`, together with a hypothesis, say, `t_pos` that `t > 0`\n"
-"- A function `f : ℝ → ℝ`\n"
-"- A hypothesis `hf : ∀ x > 0, f (x) = x^2`, meaning \"for all x positive, f (x) equals x²\". (Note that you *have* to put a space after `f` before `(x)` or else Lean will be very angry with you! In fact, Lean will often drop unnecessary parentheses, so you'll see `f x` instead of `f (x)` -- and again, definitely *not* `f(x)`.)\n"
-"- And you want to prove the goal `f (t) = t^2`.\n"
-"\n"
-"Can you use `exact hf`? No! The hypothesis `hf` says \"for all positive x, f (x) = x²\" but the goal asks specifically about `f (t) = t²`. They're not *exactly* the same.\n"
-"\n"
-"This is where the `specialize` command comes in. You can write `specialize hf t` to specialize the statement `hf` to the particular value `t`. This transforms `hf` from \"∀ x > 0, f (x) = x²\" into \"t > 0 → f (t) = t²\". Just like we had to `intro` multiple times (once for the dummy variable name, and again to name the hypothesis), we can specialize multiple times; so you can now write `specialize hf t_pos`. Or you can kill two birds with one stone via: `specialize hf t t_pos`.\n"
-"\n"
-"I'm sure you can solve the goal from there yourself!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L06_intro
-msgid "The intro tactic"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L07_specialize
-msgid "Great! You've learned the `specialize` tactic.\n"
-"\n"
-"Notice what happened:\n"
-"1. Initially, `hf : ∀ x > 0, f (x) = x^2` was a universal statement\n"
-"2. `specialize hf t` transformed it into `hf : t > 0 → f (t) = t ^ 2`\n"
-"3. Another `specialize` command, namely `specialize hf t_pos` turned the\n"
-"hypothesis `hf` into `hf : f (t) = t ^ 2`\n"
-"4. And finally, `exact hf` worked because the hypothesis exactly matched the goal.\n"
-"\n"
-"The pattern is:\n"
-"- `intro` when you have `∀` in the goal (\"introduce an arbitrary term...\")\n"
-"- `specialize` when you have `∀` in a hypothesis (\"apply the hypothesis to specific value...\")\n"
-"\n"
-"This is fundamental in real analysis when working with:\n"
-"- Function properties that hold \"for all x\"\n"
-"- Limit definitions involving \"for all ε > 0\"\n"
-"- Continuity statements\n"
-"\n"
-"Last lesson in Level 1 coming up."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L00_the_problem
-msgid "The `exact` tactic solves a goal when one of the hypotheses is *exactly* the same as the goal. The syntax is `exact hypothesis_name`"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L02_rfl
-msgid "Write `rfl` since we're proving that something equals itself."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L02_rfl
-msgid "The rfl tactic"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L06_intro
-msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
-msgstr ""
-
-#: Game.Levels.NewtonsCalculationOfPi
-msgid "Newton's π Computation"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L09_big_boss
-msgid "# The Final Challenge\n"
-"\n"
-"Congratulations! You've learned many fundamental tactics for mathematical reasoning in Lean:\n"
-"- `exact hypothesisName` for when a hypothesis matches the goal exactly\n"
-"- `rfl` for reflexivity (proving `X = X`)\n"
-"- `rewrite [hypothesisName]` for rewriting using equalities\n"
-"- `ring_nf` for algebraic manipulation\n"
-"- `use` for providing witnesses to existence statements in goals\n"
-"- `intro` for handling universal quantifiers in goals\n"
-"- `specialize` for applying universal statements to specific values in hypotheses\n"
-"- `choose value hypothesisOnValue using ExistentialHypothesis` for extracting information from existence statements in hypotheses\n"
-"\n"
-"Here's a little \"Universal/Existential Quantifier Cheat Sheet\":\n"
-"\n"
-"|           | ∀        | ∃      |\n"
-"|-----------|----------|--------|\n"
-"| **Goal**  | `intro`    | `use`    |\n"
-"| **Hypothesis** | `specialize` | `choose` |\n"
-"\n"
-"Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!\n"
-"\n"
-"**World 1 Big Boss**\n"
-"Given a function `f` and information about its behavior, prove a complex statement that involves existence, universals, algebra, and rewriting.\n"
-"\n"
-"This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned.\n"
-"\n"
-"**Extra Challenge**\n"
-"If you want to *really* challenge yourself, play this level \"blind\". Write the assumptions and goal down on paper, close the computer, solve it by hand, keeping track *in your mind* of what happens to the game board after each command, and only once you’ve worked it all out, open the computer and see if Lean accepts your solution.\n"
-"\n"
-"Why do you think that this would this be a good thing to do?\n"
-"\n"
-"In general, I hope your *goal* in taking this course is to make your \"Real Analysis Brain Muscles\" stronger. By the end, you should be *really good* at\n"
-"solving Real Analysis problems on paper, where you don't have Lean showing\n"
-"you the Goal State after every move.\n"
-"More broadly, the purpose of learning to solve Real Analysis problems is to learn to *think*, clearly, precisely. Strengthening your ability to work with pen and paper (or just mentally) directly transfers to *any* other context where you're exploring ideas, wrestling with complicated arguments, or trying to communicate clearly to others.\n"
-"\n"
-"An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L06_intro
-msgid "# Universal statements\n"
-"\n"
-"In mathematics, we often need to prove statements that are true \"for all\" values of some variable. For example, we might want to prove: \"for all $\\varepsilon > 0$, we have $(\\varepsilon + 1)^2 = (\\varepsilon + 1)^2$.\"\n"
-"(Of course the condition that `ε` be positive is mathematically superfluous, and is only here for pedagogical purposes.)\n"
-"\n"
-"If you're thinking that `rfl` will do the trick, that's a good idea, but it won't work, because the goal isn't (yet) an equality. So we need to do something else first.\n"
-"\n"
-"In Lean, as in mathematics, \"for all\" is written using `∀`; this is called the *universal quantifier*, and is gotten by typing \\forall, that is, backslash, then `forall`, then a space. In Lean, this goal looks like so:\n"
-"\n"
-"`∀ ε > 0, (ε + 1)^2 = (ε + 1)^2`.\n"
-"\n"
-"(Note that to write an epsilon in Lean, you just type \\\\e, that is, backslash, then `e`, then space.)\n"
-"\n"
-"To prove a \"for all\" statement, you need to show that it's true for an arbitrary element. In English, you would say: give me an arbitrary `ε`, and give me the fact that it's positive (we can give that fact a name, like `hε`, since it's a hypothesis about `ε`, or perhaps an even more descriptive name like `ε_pos`, since the hypothesis is the positivity of `ε`). Note that `ε` here is a dummy variable, and we could choose to name it something else on the fly. In English, we might say: give me some `ε`, but I want to call it `Alice`; then give me the fact that `Alice` is positive, and my goal will be to prove that `(Alice + 1)^2 = (Alice + 1)^2`. If we were more polite, we might replace \"give me\" above with \"introduce\", like:\n"
-"introduce an `ε`, and introduce the fact, call it `hε`, that `ε` is positive.\n"
-"\n"
-"In Lean, the syntax for this is the command `intro`, followed by whatever name you want to give a dummy variable or a hypothesis.\n"
-"\n"
-"So: when you see a goal that starts with `∀`, you can write `intro` to \"introduce\" the variable. For example:\n"
-"- `intro ε` introduces the variable ε. But look at the goal state now! It changes to: `ε > 0 → (ε + 1)^2 = (ε + 1)^2`. So we're not done introducing things.\n"
-"- Then `intro hε` introduces the hypothesis that `ε > 0` (and again, you can call the hypothesis whatever you want; try `intro ε_pos` instead).\n"
-"\n"
-"After using `intro` twice, the goal will become one that you\n"
-"should know how to solve.\n"
-"\n"
-"If you want to be really slick, you can combine the two `intro` commands into\n"
-"one: `intro ε hε`. But don't feel obliged."
-msgstr ""
-
-#: Game
-msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
-"\n"
-"## About this Course\n"
-"\n"
-"This course follows the historical crises that forced mathematicians to rebuild\n"
-"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
-"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
-"\n"
-"## Credits\n"
-"\n"
-"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
-"* **Interactive Implementation:** Lean 4 Game Engine\n"
-"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, etc."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L00_the_problem
-msgid "Perfect! You've completed your first Lean proof involving real numbers.\n"
-"\n"
-"Remember: the `exact` tactic is used when you have exactly what you need to prove the goal. Look at the top right: your list of tactics now includes `exact`, and if you forget how it works or what it does, just click on it for a reminder."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L04_ring_nf
-msgid "Write `ring_nf` to expand and simplify both sides algebraically."
-msgstr ""
-
-#: Game.Levels.NewtonsCalculationOfPi.L01_the_problem
-msgid "Newton's Problem: Computing π"
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L03_rw
-msgid "# Rewriting with equalities\n"
-"\n"
-"Now let's learn about rewriting. Suppose you have a hypothesis called `Bob : x = 2`, and your goal is to prove that `x + y = 2 + y`.\n"
-"\n"
-"Can you use `rfl`? No, because the two sides of the goal (`x + y` and `2 + y`) are not *identically* the same.\n"
-"\n"
-"Can you use `exact Bob`? No, because `Bob` says `x = 2`, which is not *exactly* what the goal is asking for.\n"
-"\n"
-"But you can use the hypothesis `Bob` to *rewrite* the goal. Since `Bob` tells us that `x = 2`, we can replace `x` with `2` in our goal.\n"
-"\n"
-"In Lean, if you have a hypothesis which is an equality, and you want to replace the *left hand side* of that equality with the *right hand side* in your goal, you use the `rewrite` tactic. The syntax is:\n"
-"\n"
-"`rewrite [hypothesis_name]`\n"
-"\n"
-"Unfortunately, those square brackets are part of the Lean syntax, and there's nothing you or I can do about them right now. Just remember: `rewrite [Bob]` means \"use the equality in `Bob` to rewrite the goal.\"\n"
-"\n"
-"After you rewrite, you're not done. But you should know how to finish from there.\n"
-"\n"
-"Try it out!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L04_ring_nf
-msgid "# Algebraic manipulations\n"
-"\n"
-"Now let's learn about algebraic simplification. Suppose you need to prove that $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$.\n"
-"\n"
-"This is true by the basic laws of algebra - expanding the left side using the distributive law, commutativity, associativity, etc. But doing this by hand would be extremely tedious.\n"
-"\n"
-"Fortunately, Lean has a powerful tactic called `ring_nf` (\"ring normal form\") that can automatically perform algebraic manipulations like:\n"
-"- Expanding products\n"
-"- Collecting like terms\n"
-"- Rearranging using commutativity and associativity\n"
-"- Applying the distributive law\n"
-"\n"
-"When you have an algebraic identity involving addition, subtraction, and multiplication, `ring_nf` can often prove it automatically.\n"
-"\n"
-"Try it out on this classic binomial expansion!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L09_big_boss
-msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L07_specialize
-msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L08_obtain
-msgid "Excellent! You've learned the `choose` tactic for working with existence in hypotheses.\n"
-"\n"
-"Notice the complete pattern:\n"
-"1. `choose c hc using h` unpacked the hypothesis into a specific value `c` and proof `hc : f c = 2`\n"
-"2. `use c` provided this same value as our witness for the goal\n"
-"3. `rewrite [hc]` rewrote `f c` as `2` in the goal, changing it to `2^2 = 4`\n"
-"4. `ring_nf` verified that `2 ^ 2 = 4`\n"
-"\n"
-"The symmetry is beautiful:\n"
-"- `use` when you have `∃` in the goal (\"here's my specific example\")\n"
-"- `choose` when you have `∃` in a hypothesis (\"let me unpack this existence claim\")\n"
-"\n"
-"This completes your basic logical toolkit! In real analysis, you'll use `obtain` constantly when working with:\n"
-"- Limit definitions (\"given ε > 0, there exists δ > 0...\")\n"
-"- Intermediate Value Theorem (\"there exists c such that f(c) = 0\")\n"
-"- Existence theorems throughout analysis\n"
-"\n"
-"You're now ready to tackle real mathematical proofs!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L06_intro
-msgid "For all positive real numbers, this algebraic identity holds."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L07_specialize
-msgid "If a function of `x` always equals `x²`, then it equals `t²` when evaluated at `t`."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L02_rfl
-msgid "Every mathematical expression equals itself."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L05_use
-msgid "Write `use 42`, but with `42` replaced by the correct answer. Then how should you finish?"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L08_obtain
-msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L03_rw
-msgid "Type `rewrite [Bob]` to replace `x` with `2` in the goal. Then what?"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L04_ring_nf
-msgid "The `ring_nf` tactic puts both sides of an equation into a standard algebraic form and checks if they're equal."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L06_intro
-msgid "Use `intro ε` to introduce the variable, then `intro hε` to introduce the hypothesis `ε > 0`. Then how do you solve the goal?"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L07_specialize
-msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L02_rfl
-msgid "# When things are identical to themselves\n"
-"\n"
-"Sometimes in mathematics, we need to prove that something equals itself. For example, we might need to prove that $x^2 + 2y = x^2 + 2y$.\n"
-"\n"
-"This isn't quite the same as our previous exercise. There, we had a hypothesis `h` that told us `x = 5`, and we used `exact h` to prove the goal `x = 5`.\n"
-"\n"
-"But now we don't have any hypothesis that says `x^2 + 2y = x^2 + 2y`. We're just being asked to prove that some expression equals itself. We can't say `exact something` because there's no `something`.\n"
-"\n"
-"Instead, we will use what mathematicians call the *reflexive property* of equality: everything is equal to itself. In Lean, if you get to a situation where you're trying to prove an equality, and the two things on both sides are *identical*, then the syntax is to give the command `rfl` (short for \"reflexivity\").\n"
-"\n"
-"Try it out!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L00_the_problem
-msgid "# Theorem Prover Software\n"
-"\n"
-"In this course, we will be using a \"proof assistant\" called Lean. This is software that checks that our proofs prove *exactly* what we\n"
-"claim they prove. It has other really cool pedagogical features that we'll get to later.\n"
-"It will take a little while to get used to the syntax, so until we're comfortable, we'll intersperse exercises teaching Lean with exercises teaching Real Analysis. Pretty soon all the exercises will just be about Real Analysis.\n"
-"\n"
-"\n"
-"For this first exercise, we have a hypothesis that we called `h` (but we could've called it anything, like `x_eq_5`, or `Alice`) that says a real number `x` equals 5. Our goal is to prove that `x` equals 5.\n"
-"This shouldn't be very hard, but if you don't know\n"
-"the command, you'll be out of luck. Our goal is to\n"
-"prove *exactly* the same statement as one of the hypotheses.\n"
-"To solve that goal, the syntax is to write `exact`, then a space, and then the name of the hypothesis which exactly matches the goal."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L06_intro
-msgid "Excellent! You've learned the `intro` tactic for universal statements.\n"
-"\n"
-"Notice what happened:\n"
-"1. `intro ε` introduced the arbitrary real number ε\n"
-"2. `intro hε` introduced the hypothesis `hε : ε > 0`\n"
-"3. The goal became `(ε + 1)^2 = (ε + 1)^2`\n"
-"4. `rfl` solved the goal, by the reflexive property of the equals sign.\n"
-"\n"
-"The `intro` tactic is absolutely crucial in real analysis. You'll use it constantly to:\n"
-"- Handle \"for all ε > 0\" statements in limit definitions\n"
-"- Introduce arbitrary points in domain/range proofs\n"
-"- Work with function definitions\n"
-"\n"
-"This pattern of `intro` followed by algebraic manipulation is everywhere in analysis!"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L04_ring_nf
-msgid "The ring_nf tactic"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L00_the_problem
-msgid "Write `exact h` since the hypothesis `h` is exactly what we want to prove."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L05_use
-msgid "# Proving existence\n"
-"\n"
-"Sometimes in mathematics, you need to prove that something exists. For example, suppose I wanted to ask you what the binomial coefficient in front of $x^2y^2$ is\n"
-"in the expansion of $(x+y)^4$; how would I do it? Lean can't ask questions,\n"
-"it can only prove theorems! So the way I would ask this is:\n"
-"  prove that there exists a real number $c$ such that\n"
-"\n"
-"  $(x+y)^4 = x^4 + 4x^3y + cx^2y^2 + 4xy^3 + y^4$.\n"
-"\n"
-"  The way to prove that such a number\n"
-"  exists is to exhibit it, that is, tell me which number to *use*,\n"
-"  and then prove that that number indeed satisfies the equation.\n"
-"\n"
-"This is called an *existential statement*. In Lean, as in mathematics,\n"
-"existence is written using `∃` (read: \"there exists\").\n"
-"This symbol is called the *existential quantifier*, and is written in Lean by typing \\exists, that is, a backslash, then the word `exists`, and then a space.\n"
-"So this goal would look in Lean like so:\n"
-"\n"
-"`∃ (c : ℝ), (x + y)^4 = x^4 + 4*x^3*y + c*x^2*y^2 + 4*x*y^3 + y^4`\n"
-"\n"
-"To prove an existence statement, you need to provide a specific value that works. This is where the `use` tactic comes in.\n"
-"\n"
-"If you think you know what value of `c` would work, you can write `use 42` (or with `42` replaced by whatever number you think is right). Lean will then substitute that value and ask you to prove that the resulting equation is true.\n"
-"\n"
-"Try writing `use`, then a space, and then a number. Do you see what to do after that?"
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L03_rw
-msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
-msgstr ""
-
-#: Game
-msgid "An Introduction to Formal Real Analysis"
-msgstr ""
-
-#: Game.Levels.NewtonsCalculationOfPi.L01_the_problem
-msgid "# Cambridge, 1666: The Plague Year\n"
-"\n"
-"Isaac Newton, age 23, is home from  Cambridge, quarantining to escape an outbreak of the Plague, when he decides to invent calculus. (And what did you manage to accomplish during your COVID quarantine?..) In his mother's farmhouse\n"
-"in Woolsthorpe, he's about to revolutionize mathematics.\n"
-"\n"
-"Newton starts to mess around with the Binomial Theorem. He knows Pascal's triangle,\n"
-"like everybody else, but decides to do something crazy with it."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L05_use
-msgid "There exists a real number that makes this binomial expansion work."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L09_big_boss
-msgid "# 🎉 VICTORY! 🎉\n"
-"\n"
-"You've defeated the Big Boss and mastered all the fundamental tactics of mathematical reasoning!\n"
-"\n"
-"**Let's see what you just accomplished:**\n"
-"\n"
-"1. **`choose a ha using h_existential`** - Extracted the witness `a` and fact that `f (a) = 3` from the hypothesis\n"
-"2. **`use a`** - Chose `a` as your witness for the existence statement in the goal\n"
-"3. **`intro y hy`** - Handled the universal quantifier \"for all y > 0\" in the goal\n"
-"4. **`specialize h_universal y hy`** - Applied the universal property to your specific value in the hypothesis\n"
-"5. **`rewrite [h_universal]`** - Used the specialized fact to rewrite the goal\n"
-"6. **`rewrite [ha]`** - Used the original fact that `f (a) = 3` to also rewrite the goal\n"
-"7. **`ring_nf`** - Verified finally that `(f y + 9) ^ 2 = (f y + 3 ^ 2) ^ 2`\n"
-"\n"
-"You've just completed a genuinely sophisticated mathematical argument! This kind of multi-step reasoning, combining existence statements, universal properties, and algebraic manipulation, is exactly what you'll encounter throughout real analysis.\n"
-"\n"
-"**You are now ready to begin your journey to rigorous calculus!**\n"
-"\n"
-"Welcome to the Introduction to Formal Real Analysis. 🎓\n"
-"\n"
-"**Epilogue**\n"
-"\n"
-"Before we continue with more Real Analysis and more Lean, let’s pause to note a few interesting things about working formally.\n"
-"\n"
-"Working interactively in a theorem prover is tremendously fun and I hope leads to rapid gains, immediate feedback, and clarity of thought. Imagine trying to learn chess by just reading through algebraic notation - 1.e4 e5 2.Nf3 Nf6 3.Bb5 a6 - sure, all the information is technically there, but isn't it so much easier to learn by actually looking at a chess board and seeing how the position changes after each move? In mathematics, it would be extraordinarily tedious to manually rewrite the entire goal state after every tactic application, keeping track of all the hypotheses and their relationships by hand. A theorem prover does this bookkeeping for you automatically, letting you focus on the mathematical content rather than the clerical work.\n"
-"\n"
-"This is, as we've already noted, a double-edged sword. We still want to train our brains to \"see\" a mental model of the goal state evolving - good chess players can visualize many moves ahead precisely because they've learned to maintain multiple mental game boards simultaneously. But until you develop that skill, and even after you have it, there's immense value in being able to instantly generate the current \"game board\" of your proof state. The immediate feedback helps you understand the consequences of each logical move, building the very intuition that will eventually let you work more independently. It's the difference between learning to navigate by always checking your GPS versus eventually developing an internal sense of direction - both have their place, and the former helps develop the latter."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory.L08_obtain
-msgid "If you're struggling to prove that `2 ^ 2 = 4`, it's\n"
-"a basic fact in a *ring*..."
-msgstr ""
-
-#: Game.Levels.RealAnalysisStory
+#: Game.Levels.L1RealAnalysisStory
 msgid "# A First Course in Real Analysis\n"
 "\n"
 "You may want to pull the left-most slider all the way to the right; what follows is a discussion\n"
@@ -602,7 +83,7 @@ msgid "# A First Course in Real Analysis\n"
 "[![Cauchy](data/g/local/RealAnalysisGame/images/Cauchy.jpg)](https://en.wikipedia.org/wiki/Augustin-Louis_Cauchy)\n"
 "\n"
 "Simplicio: Sure, that sounds perfectly reasonable. A limit is a continuous process, so you do that to\n"
-"continuous functions, and of course in the end you should get something continuous, too. No?\n"
+"continuous functions, and of course in the end you should get something continuous, too.  No?\n"
 "\n"
 "\n"
 "Socrates: Well, the problem is that around the same time, a guy named Joseph Fourier was going around claiming\n"
@@ -668,15 +149,722 @@ msgid "# A First Course in Real Analysis\n"
 "Socrates: Ah! Now, my friend, we are ready to begin."
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L05_use
+#: GameServer.RpcHandlers
+msgid "intermediate goal solved! 🎉"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
+msgid "The obtain tactic"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
+msgid "The `use` tactic provides a specific value to prove an existence statement."
+msgstr ""
+
+#: Game
+msgid "# Welcome to Real Analysis, The Game!\n"
+"\n"
+"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
+"or better yet, send a PR to\n"
+"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"\n"
+"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
+"and basic Point-Set Topology.\n"
+"\n"
+"To get started, click on\n"
+"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset1
+msgid "# Problem 1"
+msgstr ""
+
+#: Game
+msgid "Learn real analysis through the historical crises that forced mathematicians to rebuild calculus from the ground up in the 19th century."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
+msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_the_problem
+msgid "Newton's plan:\n"
+"\n"
+"1. Find a curve whose area under it equals π/6\n"
+"2. Expand that curve as an infinite series\n"
+"3. Integrate the series term by term\n"
+"4. Compute π from the resulting infinite sum\n"
+"\n"
+"Sounds impossible? Let's see how Newton pulled it off...\n"
+"\n"
+"**Next:** The geometric setup that makes it all work."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "Excellent! You've learned the `ring_nf` tactic.\n"
+"\n"
+"This tactic is incredibly powerful for algebraic manipulations. It automatically handles all the tedious algebra that would take many steps to do by hand.\n"
+"\n"
+"Your toolkit now includes:\n"
+"- `exact hypothesis_name` for when a hypothesis exactly matches your goal\n"
+"- `rfl` for proving something equals itself\n"
+"- `rewrite [hypothesis_name]` for rewriting using equalities\n"
+"- `ring_nf` for algebraic simplifications and expansions\n"
+"\n"
+"As we move into real analysis proper, you'll find that `ring_nf` is invaluable for dealing with polynomial expressions, which appear everywhere in calculus!"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset2
+msgid "Problem 2"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L09_big_boss
+msgid "Big Boss: The Ultimate Tactic Challenge"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L09_big_boss
+msgid "# 🎉 VICTORY! 🎉\n"
+"\n"
+"You've defeated the Big Boss and mastered all the fundamental tactics of mathematical reasoning!\n"
+"\n"
+"**Let's see what you just accomplished:**\n"
+"\n"
+"1. **`choose a ha using h_existential`** - Extracted the witness `a` and fact that `f (a) = 3` from the hypothesis\n"
+"2. **`use a`** - Chose `a` as your witness for the existence statement in the goal\n"
+"3. **`intro y hy`** - Handled the universal quantifier \"for all y > 0\" in the goal\n"
+"4. **`specialize h_universal y hy`** - Applied the universal property to your specific value in the hypothesis\n"
+"5. **`rewrite [h_universal]`** - Used the specialized fact to rewrite the goal\n"
+"6. **`rewrite [ha]`** - Used the original fact that `f (a) = 3` to also rewrite the goal\n"
+"7. **`ring_nf`** - Verified finally that `(f y + 9) ^ 2 = (f y + 3 ^ 2) ^ 2`\n"
+"\n"
+"You've just completed a genuinely sophisticated mathematical argument! This kind of multi-step reasoning, combining existence statements, universal properties, and algebraic manipulation, is exactly what you'll encounter throughout real analysis.\n"
+"\n"
+"**You are now ready to begin your journey to rigorous calculus!**\n"
+"\n"
+"Welcome to the Introduction to Formal Real Analysis. 🎓\n"
+"\n"
+"**Epilogue**\n"
+"\n"
+"Before we continue with more Real Analysis and more Lean, let’s pause to note a few interesting things about working formally.\n"
+"Using a theorem prover interactively is (I hope) tremendously fun and (I hope) leads to rapid gains, immediate feedback, and clarity of thought.\n"
+"\n"
+"Imagine trying to learn chess by just reading through algebraic notation - 1.e4 e5 2.Nf3 Nf6 3.Bb5 a6 - sure, all the information is technically there, but isn't it so much easier to learn by actually looking at a chess board and seeing how the position changes after each move? In mathematics, it would be extraordinarily tedious to manually write on the blackboard the entire goal state after every move, keeping track of all the hypotheses and their relationships by hand. A theorem prover does this bookkeeping for you automatically, letting you focus on the mathematical content rather than the clerical work.\n"
+"\n"
+"But! This is, as we've already noted, a double-edged sword. We still want to train our brains to \"see\" a mental model of the goal state evolving - good chess players can visualize many moves ahead precisely because they've learned to maintain multiple mental game boards simultaneously. But until you develop that skill, and even after you have it, there's immense value in being able to instantly generate the current \"game board\" of your proof state. The immediate feedback helps you understand the consequences of each logical move, building the very intuition that will eventually let you work more independently. It's the difference between learning to navigate by always checking your GPS versus eventually developing an internal sense of direction - both have their place, and the former helps develop the latter."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "Excellent! You've learned the `rfl` tactic.\n"
+"\n"
+"The key difference:\n"
+"- Use `exact hypothesis_name` when you have a hypothesis that matches your goal exactly\n"
+"- Use `rfl` when you need to prove that something equals itself\n"
+"\n"
+"These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi
+msgid "# The Mathematical Revolution of 1666\n"
+"\n"
+"Now that you've mastered the basic tactics of mathematical reasoning, let's dive into the story that will motivate everything we do in real analysis.\n"
+"\n"
+"This world tells the tale of Newton's amazing calculation of π - how a 23-year-old genius transformed a mysterious geometric constant into an infinite series of easily obtained fractions. But more importantly, we'll see how this brilliant calculation exposed the shaky foundations of mathematics.\n"
+"\n"
+"Newton's method worked, but we did not have the tools to rigorously prove *why*, until the late 19th century.\n"
+"\n"
+"**In this world, you'll learn:**\n"
+"- How Newton actually computed π using infinite series\n"
+"- Why his method was both brilliant and problematic\n"
+"- How this connects to the foundational issues we'll resolve later"
+msgstr ""
+
+#: Game.Levels.L1PsetIntro
+msgid "# Problem Set 1\n"
+"\n"
+"Just because it's a problem set doesn't mean\n"
+"you can't learn new things..."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset2
+#: Game.Levels.L1Pset.L1Pset3
+#: Game.Levels.L1Pset.L1Pset4
+#: Game.Levels.L1Pset.L1Pset5
+msgid "Solve the problem"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed with warnings… 🎭"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "The `rfl` tactic proves goals of the form `A = A` where both sides are *identical*."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset4
+msgid "# Problem 4\n"
+"\n"
+"This problem looks very similar to the previous one, but without a few hints, it\n"
+"may cause great difficulty. The issue is that, last time, you likely called `specialize h1 0`, and turned `h1` into:\n"
+"\n"
+"`h1 : g (0 + 1) = g (0) + 3`\n"
+"\n"
+"If you do that now, the original `h1` will be gone, and you won't have a way of accessing it to bootstrap from `g (1)` to `g (2)`. So what should you do?\n"
+"\n"
+"Observe that `have` can perform the same\n"
+"role as `specialize` (and much more)! Try starting this proof with:\n"
+"\n"
+"`have h3 : g (0 + 1) = g (0) + 3 := by exact h1 0`\n"
+"\n"
+"This will not affect the original statement\n"
+"of `h1`, but will instead add a *new* hypothesis, `h3`, which amounts to the\n"
+"desired fact that `g (0 + 1) = g (0) + 3`.\n"
+"Notice what's happening in the proof: `h1` says: for all `x`, `g (x + 1) = g (x) + 3`.\n"
+"So `h1` is really a *function* whose input\n"
+"is a real number `x`, and whose output is a\n"
+"*proof* of the fact that, for this value of `x`, `g (x + 1) = g (x) + 3` holds. So when\n"
+"we feed `0` into `h1`, it has the same effect\n"
+"as it did when we `specialize`d, which\n"
+"is `exact`ly what we claimed in the `have` statement.\n"
+"\n"
+"Now you should be able to solve this problem."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "The binomial expansion: $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "# Using universal statements\n"
+"\n"
+"Now let's learn the flip side of `intro`. You have already learned that:\n"
+"- if you have `∃` in the goal, you write `use` to provide a specific value. And\n"
+"- if you have `∀` in the goal, you write `intro` to introduce an arbitrary variable\n"
+"\n"
+"But what if you have `∀` in a *hypothesis* and you want to use it for a particular value?\n"
+"\n"
+"For a concrete example, suppose you have:\n"
+"- A positive real number `t`; that is, a real number `t`, together with a hypothesis, say, `t_pos` that `t > 0`\n"
+"- A function `f : ℝ → ℝ`\n"
+"- A hypothesis `hf : ∀ x > 0, f (x) = x^2`, meaning \"for all x positive, f (x) equals x²\". (Note that you *have* to put a space after `f` before `(x)` or else Lean will be very angry with you! In fact, Lean will often drop unnecessary parentheses, so you'll see `f x` instead of `f (x)` -- and again, definitely *not* `f(x)`.)\n"
+"- And you want to prove the goal `f (t) = t^2`.\n"
+"\n"
+"Can you use `exact hf`? No! The hypothesis `hf` says \"for all positive x, f (x) = x²\" but the goal asks specifically about `f (t) = t²`. They're not *exactly* the same.\n"
+"\n"
+"This is where the `specialize` command comes in. You can write `specialize hf t` to specialize the statement `hf` to the particular value `t`. This transforms `hf` from \"∀ x > 0, f (x) = x²\" into \"t > 0 → f (t) = t²\". Just like we had to `intro` multiple times (once for the dummy variable name, and again to name the hypothesis), we can specialize multiple times; so you can now write `specialize hf t_pos`. Or you can kill two birds with one stone via: `specialize hf t t_pos`.\n"
+"\n"
+"I'm sure you can solve the goal from there yourself!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "The intro tactic"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset4
+msgid "Problem 4"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "Great! You've learned the `specialize` tactic.\n"
+"\n"
+"Notice what happened:\n"
+"1. Initially, `hf : ∀ x > 0, f (x) = x^2` was a universal statement\n"
+"2. `specialize hf t` transformed it into `hf : t > 0 → f (t) = t ^ 2`\n"
+"3. Another `specialize` command, namely `specialize hf t_pos` turned the\n"
+"hypothesis `hf` into `hf : f (t) = t ^ 2`\n"
+"4. And finally, `exact hf` worked because the hypothesis exactly matched the goal.\n"
+"\n"
+"The pattern is:\n"
+"- `intro` when you have `∀` in the goal (\"introduce an arbitrary term...\")\n"
+"- `specialize` when you have `∀` in a hypothesis (\"apply the hypothesis to specific value...\")\n"
+"\n"
+"This is fundamental in real analysis when working with:\n"
+"- Function properties that hold \"for all x\"\n"
+"- Limit definitions involving \"for all ε > 0\"\n"
+"- Continuity statements\n"
+"\n"
+"Last lesson in Level 1 coming up."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "The `exact` tactic solves a goal when one of the hypotheses is *exactly* the same as the goal. The syntax is `exact hypothesis_name`"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "Write `rfl` since we're proving that something equals itself."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "The rfl tactic"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L09_big_boss
+msgid "# The Final Challenge\n"
+"\n"
+"Congratulations! You've learned many fundamental tactics for mathematical reasoning in Lean:\n"
+"- `exact hypothesisName` for when a hypothesis matches the goal exactly\n"
+"- `rfl` for reflexivity (proving `X = X`)\n"
+"- `rewrite [hypothesisName]` for rewriting using equalities\n"
+"- `ring_nf` for algebraic manipulation\n"
+"- `use` for providing witnesses to existence statements in goals\n"
+"- `intro` for handling universal quantifiers in goals\n"
+"- `specialize` for applying universal statements to specific values in hypotheses\n"
+"- `choose value hypothesisOnValue using ExistentialHypothesis` for extracting information from existence statements in hypotheses\n"
+"\n"
+"Here's a little \"Universal/Existential Quantifier Cheat Sheet\":\n"
+"\n"
+"|           | ∀        | ∃      |\n"
+"|-----------|----------|--------|\n"
+"| **Goal**  | `intro`    | `use`    |\n"
+"| **Hypothesis** | `specialize` | `choose` |\n"
+"\n"
+"Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!\n"
+"\n"
+"**World 1 Big Boss**\n"
+"Given a function `f` and information about its behavior, prove a complex statement that involves existence, universals, algebra, and rewriting.\n"
+"\n"
+"This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned.\n"
+"\n"
+"**Extra Challenge**\n"
+"If you want to *really* challenge yourself, play this level \"blind\". Write the assumptions and goal down on paper, close the computer, solve it by hand, keeping track *in your mind* of what happens to the game board after each command, and only once you’ve worked it all out, open the computer and see if Lean accepts your solution.\n"
+"\n"
+"Why do you think that this would this be a good thing to do?\n"
+"\n"
+"In general, I hope your *goal* in taking this course is to make your \"Real Analysis Brain Muscles\" stronger. By the end, you should be *really good* at\n"
+"solving Real Analysis problems on paper, where you don't have Lean showing\n"
+"you the Goal State after every move.\n"
+"More broadly, the purpose of learning to solve Real Analysis problems is to learn to *think*, clearly, precisely. Strengthening your ability to work with pen and paper (or just mentally) directly transfers to *any* other context where you're exploring ideas, wrestling with complicated arguments, or trying to communicate clearly to others.\n"
+"\n"
+"An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "# Universal statements\n"
+"\n"
+"In mathematics, we often need to prove statements that are true \"for all\" values of some variable. For example, we might want to prove: \"for all $\\varepsilon > 0$, we have $(\\varepsilon + 1)^2 = (\\varepsilon + 1)^2$.\"\n"
+"(Of course the condition that `ε` be positive is mathematically superfluous, and is only here for pedagogical purposes.)\n"
+"\n"
+"If you're thinking that `rfl` will do the trick, that's a good idea, but it won't work, because the goal isn't (yet) an equality. So we need to do something else first.\n"
+"\n"
+"In Lean, as in mathematics, \"for all\" is written using `∀`; this is called the *universal quantifier*, and is gotten by typing \\forall, that is, backslash, then `forall`, then a space. In Lean, this goal looks like so:\n"
+"\n"
+"`∀ ε > 0, (ε + 1)^2 = (ε + 1)^2`.\n"
+"\n"
+"(Note that to write an epsilon in Lean, you just type \\\\e, that is, backslash, then `e`, then space.)\n"
+"\n"
+"To prove a \"for all\" statement, you need to show that it's true for an arbitrary element. In English, you would say: give me an arbitrary `ε`, and give me the fact that it's positive (we can give that fact a name, like `hε`, since it's a hypothesis about `ε`, or perhaps an even more descriptive name like `ε_pos`, since the hypothesis is the positivity of `ε`). Note that `ε` here is a dummy variable, and we could choose to name it something else on the fly. In English, we might say: give me some `ε`, but I want to call it `Alice`; then give me the fact that `Alice` is positive, and my goal will be to prove that `(Alice + 1)^2 = (Alice + 1)^2`. If we were more polite, we might replace \"give me\" above with \"introduce\", like:\n"
+"introduce an `ε`, and introduce the fact, call it `hε`, that `ε` is positive.\n"
+"\n"
+"In Lean, the syntax for this is the command `intro`, followed by whatever name you want to give a dummy variable or a hypothesis.\n"
+"\n"
+"So: when you see a goal that starts with `∀`, you can write `intro` to \"introduce\" the variable. For example:\n"
+"- `intro ε` introduces the variable ε. But look at the goal state now! It changes to: `ε > 0 → (ε + 1)^2 = (ε + 1)^2`. So we're not done introducing things.\n"
+"- Then `intro hε` introduces the hypothesis that `ε > 0` (and again, you can call the hypothesis whatever you want; try `intro ε_pos` instead).\n"
+"\n"
+"After using `intro` twice, the goal will become one that you\n"
+"should know how to solve.\n"
+"\n"
+"If you want to be really slick, you can combine the two `intro` commands into\n"
+"one: `intro ε hε`. But don't feel obliged."
+msgstr ""
+
+#: Game
+msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
+"\n"
+"## About this Course\n"
+"\n"
+"This course follows the historical crises that forced mathematicians to rebuild\n"
+"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
+"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
+"\n"
+"## Credits\n"
+"\n"
+"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
+"* **Interactive Implementation:** Lean 4 Game Engine\n"
+"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, etc."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "Perfect! You've completed your first Lean proof involving real numbers.\n"
+"\n"
+"Remember: the `exact` tactic is used when you have exactly what you need to prove the goal. Look at the top right: your list of tactics now includes `exact`, and if you forget how it works or what it does, just click on it for a reminder."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset1
+#: Game.Levels.L1Pset.L1Pset3
+#: Game.Levels.L1Pset.L1Pset4
+#: Game.Levels.L1Pset.L1Pset5
+msgid "Done."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "Write `ring_nf` to expand and simplify both sides algebraically."
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_the_problem
+msgid "Newton's Problem: Computing π"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset3
+msgid "# Problem 3\n"
+"\n"
+"You've just learned to add any necessary\n"
+"auxiliary\n"
+"facts to the list of hypotheses via the\n"
+"`have` tactic.\n"
+"In this problem,\n"
+"you might find the following new idea useful.\n"
+"\n"
+"You already know that if you\n"
+"have a hypothesis `h : X = Y`, and the Goal\n"
+"contains `X`, then if you `rewrite [h]`,\n"
+"then any instances of `X` in the goal\n"
+"get replaced by `Y`.\n"
+"But what if you have another hypothesis `h2`,\n"
+"and you want to replace `X`'s in `h2` by `Y`s, what should you do then?\n"
+"Elementary, my dear Watson:\n"
+"you simply write\n"
+"\n"
+"`rewrite [h] at h2`.\n"
+"\n"
+"So the syntax is `rewrite [h]` as before, then\n"
+"the word `at`, and finally the name of the\n"
+"hypothesis where you want the rewriting to happen.\n"
+"Similarly, you can say `ring_nf at h2`,\n"
+"and any algebra in hypothesis `h2` will be put into normal form.\n"
+"\n"
+"Now you should be able to solve this problem!"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset3
+msgid "Problem 3"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "# Rewriting with equalities\n"
+"\n"
+"Now let's learn about rewriting. Suppose you have a hypothesis called `Bob : x = 2`, and your goal is to prove that `x + y = 2 + y`.\n"
+"\n"
+"Can you use `rfl`? No, because the two sides of the goal (`x + y` and `2 + y`) are not *identically* the same.\n"
+"\n"
+"Can you use `exact Bob`? No, because `Bob` says `x = 2`, which is not *exactly* what the goal is asking for.\n"
+"\n"
+"But you can use the hypothesis `Bob` to *rewrite* the goal. Since `Bob` tells us that `x = 2`, we can replace `x` with `2` in our goal.\n"
+"\n"
+"In Lean, if you have a hypothesis which is an equality, and you want to replace the *left hand side* of that equality with the *right hand side* in your goal, you use the `rewrite` tactic. The syntax is:\n"
+"\n"
+"`rewrite [hypothesis_name]`\n"
+"\n"
+"Unfortunately, those square brackets are part of the Lean syntax, and there's nothing you or I can do about them right now. Just remember: `rewrite [Bob]` means \"use the equality in `Bob` to rewrite the goal.\"\n"
+"\n"
+"After you rewrite, you're not done. But you should know how to finish from there.\n"
+"\n"
+"Try it out!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "# Algebraic manipulations\n"
+"\n"
+"Now let's learn about algebraic simplification. Suppose you need to prove that $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$.\n"
+"\n"
+"This is true by the basic laws of algebra - expanding the left side using the distributive law, commutativity, associativity, etc. But doing this by hand would be extremely tedious.\n"
+"\n"
+"Fortunately, Lean has a powerful tactic called `ring_nf` (\"ring normal form\") that can automatically perform algebraic manipulations like:\n"
+"- Expanding products\n"
+"- Collecting like terms\n"
+"- Rearranging using commutativity and associativity\n"
+"- Applying the distributive law\n"
+"\n"
+"When you have an algebraic identity involving addition, subtraction, and multiplication, `ring_nf` can often prove it automatically.\n"
+"\n"
+"Try it out on this classic binomial expansion!"
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi
+msgid "Lecture 2: Newton's Computation of π"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L09_big_boss
+msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
+msgid "Excellent! You've learned the `choose` tactic for working with existence in hypotheses.\n"
+"\n"
+"Notice the complete pattern:\n"
+"1. `choose c hc using h` unpacked the hypothesis into a specific value `c` and proof `hc : f c = 2`\n"
+"2. `use c` provided this same value as our witness for the goal\n"
+"3. `rewrite [hc]` rewrote `f c` as `2` in the goal, changing it to `2^2 = 4`\n"
+"4. `ring_nf` verified that `2 ^ 2 = 4`\n"
+"\n"
+"The symmetry is beautiful:\n"
+"- `use` when you have `∃` in the goal (\"here's my specific example\")\n"
+"- `choose` when you have `∃` in a hypothesis (\"let me unpack this existence claim\")\n"
+"\n"
+"This completes your basic logical toolkit! In real analysis, you'll use `obtain` constantly when working with:\n"
+"- Limit definitions (\"given ε > 0, there exists δ > 0...\")\n"
+"- Intermediate Value Theorem (\"there exists c such that f(c) = 0\")\n"
+"- Existence theorems throughout analysis\n"
+"\n"
+"You're now ready to tackle real mathematical proofs!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "For all positive real numbers, this algebraic identity holds."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "If a function of `x` always equals `x²`, then it equals `t²` when evaluated at `t`."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset1
+msgid "Problem 1"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "Every mathematical expression equals itself."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
+msgid "Write `use 42`, but with `42` replaced by the correct answer. Then how should you finish?"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset1
+msgid "Given that f(n) = 2*n + 1 for all positive n, prove there exists some a such that f(3) = a"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
+msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "Type `rewrite [Bob]` to replace `x` with `2` in the goal. Then what?"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "The `ring_nf` tactic puts both sides of an equation into a standard algebraic form and checks if they're equal."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory
+msgid "Lecture 1: The Story of Real Analysis"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "Use `intro ε` to introduce the variable, then `intro hε` to introduce the hypothesis `ε > 0`. Then how do you solve the goal?"
+msgstr ""
+
+#: Game.Levels.L1PsetIntro
+msgid "Pset 1"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "# When things are identical to themselves\n"
+"\n"
+"Sometimes in mathematics, we need to prove that something equals itself. For example, we might need to prove that $x^2 + 2y = x^2 + 2y$.\n"
+"\n"
+"This isn't quite the same as our previous exercise. There, we had a hypothesis `h` that told us `x = 5`, and we used `exact h` to prove the goal `x = 5`.\n"
+"\n"
+"But now we don't have any hypothesis that says `x^2 + 2y = x^2 + 2y`. We're just being asked to prove that some expression equals itself. We can't say `exact something` because there's no `something`.\n"
+"\n"
+"Instead, we will use what mathematicians call the *reflexive property* of equality: everything is equal to itself. In Lean, if you get to a situation where you're trying to prove an equality, and the two things on both sides are *identical*, then the syntax is to give the command `rfl` (short for \"reflexivity\").\n"
+"\n"
+"Try it out!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "# Theorem Prover Software\n"
+"\n"
+"In this course, we will be using a \"proof assistant\" called Lean. This is software that checks that our proofs prove *exactly* what we\n"
+"claim they prove. It has other really cool pedagogical features that we'll get to later.\n"
+"It will take a little while to get used to the syntax, so until we're comfortable, we'll intersperse exercises teaching Lean with exercises teaching Real Analysis. Pretty soon all the exercises will just be about Real Analysis.\n"
+"\n"
+"\n"
+"For this first exercise, we have a hypothesis that we called `h` (but we could've called it anything, like `x_eq_5`, or `Alice`) that says a real number `x` equals 5. Our goal is to prove that `x` equals 5.\n"
+"This shouldn't be very hard, but if you don't know\n"
+"the command, you'll be out of luck. Our goal is to\n"
+"prove *exactly* the same statement as one of the hypotheses.\n"
+"To solve that goal, the syntax is to write `exact`, then a space, and then the name of the hypothesis which exactly matches the goal."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "Excellent! You've learned the `intro` tactic for universal statements.\n"
+"\n"
+"Notice what happened:\n"
+"1. `intro ε` introduced the arbitrary real number ε\n"
+"2. `intro hε` introduced the hypothesis `hε : ε > 0`\n"
+"3. The goal became `(ε + 1)^2 = (ε + 1)^2`\n"
+"4. `rfl` solved the goal, by the reflexive property of the equals sign.\n"
+"\n"
+"The `intro` tactic is absolutely crucial in real analysis. You'll use it constantly to:\n"
+"- Handle \"for all ε > 0\" statements in limit definitions\n"
+"- Introduce arbitrary points in domain/range proofs\n"
+"- Work with function definitions\n"
+"\n"
+"This pattern of `intro` followed by algebraic manipulation is everywhere in analysis!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "The ring_nf tactic"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "Write `exact h` since the hypothesis `h` is exactly what we want to prove."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
+msgid "# Proving existence\n"
+"\n"
+"Sometimes in mathematics, you need to prove that something exists. For example, suppose I wanted to ask you what the binomial coefficient in front of $x^2y^2$ is\n"
+"in the expansion of $(x+y)^4$; how would I do it? Lean can't ask questions,\n"
+"it can only prove theorems! So the way I would ask this is:\n"
+"  prove that there exists a real number $c$ such that\n"
+"\n"
+"  $(x+y)^4 = x^4 + 4x^3y + cx^2y^2 + 4xy^3 + y^4$.\n"
+"\n"
+"  The way to prove that such a number\n"
+"  exists is to exhibit it, that is, tell me which number to *use*,\n"
+"  and then prove that that number indeed satisfies the equation.\n"
+"\n"
+"This is called an *existential statement*. In Lean, as in mathematics,\n"
+"existence is written using `∃` (read: \"there exists\").\n"
+"This symbol is called the *existential quantifier*, and is written in Lean by typing \\exists, that is, a backslash, then the word `exists`, and then a space.\n"
+"So this goal would look in Lean like so:\n"
+"\n"
+"`∃ (c : ℝ), (x + y)^4 = x^4 + 4*x^3*y + c*x^2*y^2 + 4*x*y^3 + y^4`\n"
+"\n"
+"To prove an existence statement, you need to provide a specific value that works. This is where the `use` tactic comes in.\n"
+"\n"
+"If you think you know what value of `c` would work, you can write `use 42` (or with `42` replaced by whatever number you think is right). Lean will then substitute that value and ask you to prove that the resulting equation is true.\n"
+"\n"
+"Try writing `use`, then a space, and then a number. Do you see what to do after that?"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
+msgstr ""
+
+#: Game
+msgid "An Introduction to Formal Real Analysis"
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_the_problem
+msgid "# Cambridge, 1666: The Plague Year\n"
+"\n"
+"Isaac Newton, age 23, is home from  Cambridge, quarantining to escape an outbreak of the Plague, when he decides to invent calculus. (And what did you manage to accomplish during your COVID quarantine?..) In his mother's farmhouse\n"
+"in Woolsthorpe, he's about to revolutionize mathematics.\n"
+"\n"
+"Newton starts to mess around with the Binomial Theorem. He knows Pascal's triangle,\n"
+"like everybody else, but decides to do something crazy with it."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset5
+msgid "# Problem 5\n"
+"\n"
+"You've learned about adding hypotheses with `have`, and that you can call tactics not\n"
+"just to act on the Goal, but  also on hypotheses, via adding `at HypothesisName`.\n"
+"You also know that calling the `rewrite` tactic on a hypothesis `h : X = Y` takes the *left hand side* `X` and replaces it by `Y`. But what if you needed instead to replace `Y`'s by `X`'s? We call that \"backwards rewriting\". The syntax for that is:\n"
+"\n"
+"`rewrite [← h]`\n"
+"\n"
+"or\n"
+"\n"
+"`rewrite [← h] at h2`\n"
+"\n"
+"to do it at some other hypothesis, `h2`. You get the backwards arrow by typing \\left,\n"
+"that is, the backslash, then the word `left`, and then a space.\n"
+"\n"
+"You will likely find that useful in this problem."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
+msgid "There exists a real number that makes this binomial expansion work."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
+msgid "If you're struggling to prove that `2 ^ 2 = 4`, it's\n"
+"a basic fact in a *ring*..."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "The use tactic"
 msgstr ""
 
-#: Game.Levels.NewtonsCalculationOfPi.L01_the_problem
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_the_problem
 msgid "This level has no proof - it's pure exposition."
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L03_rw
+#: Game.Levels.L1Pset.L1Pset2
+msgid "# Problem 2\n"
+"\n"
+"You will likely have a hard time solving this problem as is.\n"
+"You surely can work out what value of\n"
+"`c` you need. But if you try\n"
+"`ring_nf`, you won't have control over\n"
+"how the \"normal form\" chooses to\n"
+"express things. In fact, the\n"
+"left-hand side, `(x + y) ^ 2` will\n"
+"turn into `x * y * 2 + x ^ 2 + y ^ 2`,\n"
+"which is parsed in this order:\n"
+"\n"
+"`(((x * y) * 2) + x ^ 2) + y ^ 2`\n"
+"\n"
+"This means that you *will* be able to\n"
+"`rewrite [h2]` successfully,\n"
+"but then you will *not* be able to rewrite by `h1`, because the (invisible) parentheses  go the wrong way. (Hint: If you want to know how things are grouped but don't see parentheses, you can hover your cursor over the text in the Goal State, and Lean will show you the groupings. Try it!)\n"
+"\n"
+"Now, in natural language, there are times when you might want to\n"
+"record an auxiliary fact: \"let's\n"
+"*have* the fact that such and such ...\". The Lean\n"
+"syntax for this is as follows:\n"
+"\n"
+"`have NewFactName (Assumptions) : Conclusion := by Proof`\n"
+"\n"
+"That is, you first write `have`; then give\n"
+"the new hypothesis a name; then include any\n"
+"assumptions, like `(x : ℝ)`, meaning, `x`\n"
+"is a real number, etc (the symbol `ℝ` is written with a backslash, then capital `R`, then space); then you put a colon,\n"
+"and then state the conclusion; then you\n"
+"put a colon-equals; and finally you give the proof.\n"
+"\n"
+"For example, if you wanted to declare\n"
+"the new fact that, say, for any real `u` and `v`,\n"
+"\n"
+"`(u + v) ^ 2 = (u ^ 2 + v ^ 2) + 2 * (u * v)`\n"
+"\n"
+"and you wanted to call this fact `huv` (a hypothesis on `u` and `v`),\n"
+"and you wanted to prove this fact by\n"
+"invoking the ring normal form tactic,\n"
+" then you would give Lean the command:\n"
+"\n"
+"`have huv (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v) := by ring_nf`\n"
+"\n"
+"This will add to your list of hypotheses\n"
+"the fact: `huv : ∀ (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v)`.\n"
+"\n"
+"Something like this (if not exactly this)\n"
+"will be useful to you in solving this problem."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
 msgid "Great! You've learned the `rewrite` tactic.\n"
 "\n"
 "Notice what happened: after you typed `rewrite [Bob]`, the goal changed from `x + y = 2 + y` to `2 + y = 2 + y`. Then you needed to type `rfl` to finish the proof, since both sides were now identical.\n"
@@ -689,11 +877,15 @@ msgid "Great! You've learned the `rewrite` tactic.\n"
 "The `rewrite` tactic is incredibly powerful and you'll use it constantly in real analysis!"
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L03_rw
+#: Game.Levels.L1RealAnalysisStory.L03_rw
 msgid "The `rewrite` tactic replaces the left-hand side of an equality with the right-hand side in the goal. The syntax is `rewrite [hypothesis_name1, hypothesis_name2, etc]`."
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L08_obtain
+#: Game.Levels.L1Pset.L1Pset5
+msgid "Problem 5"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
 msgid "# Extracting information from existential quantifiers\n"
 "\n"
 "Now let's learn the counterpart to `use`. You know that if you have `∃` in the goal, you write `use` to provide a specific value.\n"
@@ -716,11 +908,11 @@ msgid "# Extracting information from existential quantifiers\n"
 "You should be able to figure out how to solve the goal from here."
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L00_the_problem
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "Introduction to Lean"
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L05_use
+#: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "\n"
 "Notice what happened:\n"
@@ -739,11 +931,11 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `use` for existence proofs"
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L07_specialize
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The specialize tactic"
 msgstr ""
 
-#: Game.Levels.RealAnalysisStory.L08_obtain
+#: Game.Levels.L1RealAnalysisStory.L08_obtain
 msgid "The `choose` tactic extracts a witness from an existence statement in a hypothesis."
 msgstr ""
 
