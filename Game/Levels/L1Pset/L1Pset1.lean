@@ -8,7 +8,7 @@ Title "Problem 1"
 
 Introduction "# Problem 1"
 
-/-- Given that f(n) = 2*n + 1 for all positive n, prove there exists some a such that f(3) = a -/
+/-- Given that `f (u) = 2 * u + 1` for all `u`, prove that there exists some `a` such that `f (3) = a`. -/
 Statement (f : ℝ → ℝ) (h : ∀ u, f (u) = 2 * u + 1) :
   ∃ a, f (3) = a := by
   use 7

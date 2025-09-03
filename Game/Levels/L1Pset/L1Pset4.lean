@@ -14,10 +14,10 @@ may cause great difficulty. The issue is that, last time, you likely called `spe
 
 `h1 : g (0 + 1) = g (0) + 3`
 
-If you do that now, the original `h1` will be gone, and you won't have a way of accessing it to bootstrap from `g (1)` to `g (2)`. So what should you do?
+If you do that now, the original `h1` will be *gone*, and you won't have a way of accessing *again* it to bootstrap from `g (1)` to `g (2)`. So what should you do?
 
 Observe that `have` can perform the same
-role as `specialize` (and much more)! Try starting this proof with:
+role as `specialize` (and much more)! Try starting your solution with:
 
 `have h3 : g (0 + 1) = g (0) + 3 := by exact h1 0`
 
@@ -29,8 +29,8 @@ So `h1` is really a *function* whose input
 is a real number `x`, and whose output is a
 *proof* of the fact that, for this value of `x`, `g (x + 1) = g (x) + 3` holds. So when
 we feed `0` into `h1`, it has the same effect
-as it did when we `specialize`d, which
-is `exact`ly what we claimed in the `have` statement.
+as it did when we `specialize`d, thus giving a proof of
+ `exact`ly what was claimed in the `have` statement.
 
 Now you should be able to solve this problem.
 "

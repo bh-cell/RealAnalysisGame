@@ -23,8 +23,8 @@ then any instances of `X` in the goal
 get replaced by `Y`.
 But what if you have another hypothesis `h2`,
 and you want to replace `X`'s in `h2` by `Y`s, what should you do then?
-Elementary, my dear Watson:
-you simply write
+Elementary, my dear Watson!
+You simply type:
 
 `rewrite [h] at h2`.
 
