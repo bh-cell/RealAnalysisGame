@@ -1,6 +1,7 @@
 import GameServer
 
 import Game.CustomTactic.Rw  -- weaker `rw` which behaves like Lean's `rewrite` tactic (i.e. uses no `rfl`)
+import Game.CustomTactic.Linarith -- modified `linarith` tactic
 
 /-! Use this file to add things that should be available in all levels.
 
