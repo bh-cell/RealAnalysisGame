@@ -12,9 +12,9 @@ After conquering the constant sequence, let's up our game: if a sequence converg
 
 ## The Factory Scaling Challenge
 
-Imagine our factory worker receives a challenge from the engineer: 'I want you to double all your output, but maintain the same quality standards.' How should the factory respond?
+Imagine our Machinist receives a challenge from the Engineer: 'Please double all the lengths, but maintain the same quality standards.' How should the Machinist respond?
 
-If the engineer demands the doubled output be within $\\varepsilon$ of $2L$, the factory worker can't just demand that the original process meet tolerance $\\varepsilon$, because
+If the Engineer demands the doubled lengths be within $\\varepsilon$ of $2L$, the Machinist can't just demand that the original process meet the original tolerance $\\varepsilon$, because
 
 `|2 * a (n) - 2 * L| < 2 * ε`,
 
@@ -64,9 +64,9 @@ The reason this works is that `abs_mul` is secretly a *function* that takes two 
 `SomethingLongAndComplicated` and `SomethingElse`,
 and produces `exact`ly the proof we're looking for.
 But because Lean is smart, it allows you to just put underscores
-and save some time.
+and save some key strokes.
 
-**Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic (like `ring_nf`), which proves inequalities involving \"linear arithmetic\" on the hypotheses. For example,
+**Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,
 if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,
 and your Goal is to prove that `2 * X ≤ Z`, then
 simply calling `linarith [h₁, h₂]` will do the trick.
@@ -107,7 +107,7 @@ TheoremDoc abs_mul as "abs_mul" in "Theorems"
 NewTheorem abs_mul
 
 /-- Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.
-This is the factory worker's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!' -/
+This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!' -/
 Statement (a b : ℕ → ℝ) (L : ℝ)
     (h : SeqLim a L) (b_scaled : ∀ n, b n = 2 * a n) :
     SeqLim b (2 * L) := by

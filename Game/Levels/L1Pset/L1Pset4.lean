@@ -14,7 +14,7 @@ may cause great difficulty. The issue is that, last time, you likely called `spe
 
 `h1 : g (0 + 1) = g (0) + 3`
 
-If you do that now, the original `h1` will be *gone*, and you won't have a way of accessing *again* it to bootstrap from `g (1)` to `g (2)`. So what should you do?
+If you do that now, the original `h1` will be *gone*, and you won't have a way of accessing it *again* to bootstrap from `g (1)` to `g (2)`. So what should you do?
 
 Observe that `have` can perform the same
 role as `specialize` (and much more)! Try starting your solution with:

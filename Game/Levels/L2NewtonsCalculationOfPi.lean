@@ -2,6 +2,7 @@ import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 import Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
 import Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
 
+
 World "NewtonsCalculationOfPi"
 Title "Lecture 2: Newton's Computation of π"
 
@@ -36,7 +37,7 @@ $(1+x)^n = \\sum_{k=0}^{\\infty} \\binom{n}{k} x^k$
 
 **SIMPLICIO:** Huh? You can’t use binomial coefficients. How do you choose 3 things from -1 things, that makes no sense!
 
-**SOCRATES:** Ok, sure, but so many great discoveries in mathematics occur when you realize a way to **break the rules**, and follow some pattern **past** its intended limit (no calculus pun intended…). Put yourself in Newton’s shoes, if you can; what might a genius like him come up with?
+**SOCRATES:** Ok, sure, but so many great discoveries in mathematics occur when you realize a way to **break the rules**, and follow some pattern **past** its intended... limit (no pun intended…). Put yourself in Newton’s shoes, if you can; what might a genius like him come up with?
 
 **SIMPLICIO:** Well, we do have this other formula for binomial coefficients, not in terms of combinatorics, but just as factorials, $\\binom{n}{k} = \\frac{n!}{k! (n-k)!}$. That still doesn’t help because what the heck is $(-1)!$ supposed to be?! Oh, but wait! We can also write this as:
 
@@ -54,7 +55,8 @@ And in this way, we “bypass” the issue of dealing with $(-1)!$, and just go 
 
 **SIMPLICIO:** Argh! It's so easy to make a silly mistake.
 After writing down the formula, I should have
-checked that I got the right start and end. Is this better?
+checked that I got the right start and end values;
+the counter $\\ell$ should go from $0$ to $k-1$, not from $1$ to $k$.  Is this better?
 
 $\\binom{n}{k} = \\frac{1}{k!}\\prod_{\\ell=0}^{k-1}(n-\\ell)$.
 
@@ -286,7 +288,7 @@ which is off by two parts in $100,000$ from the true estimate $\\pi \\approx 3.1
 Here's a nice YouTube video by Veritasium that discusses this whole saga (right-click to get it to pop up in a new tab):
 [![Veritasium Video](https://img.youtube.com/vi/gMlf1ELvRzc/maxresdefault.jpg)](https://youtu.be/gMlf1ELvRzc)
 
- In fact, a series similar to this one was discovered two centuries earlier, by the Indian mathematician Madhava of Sangamagrama. And it would take two more centuries until mathematicians figured out how to rigorously justify all of these reorderings, limit swaps, etc, etc.
+ In fact, a series for $\\pi$ similar to this one was discovered two centuries earlier, by the Indian mathematician Madhava of Sangamagrama. And it would take two more centuries until mathematicians figured out how to rigorously justify all of these reorderings, limit swaps, etc, etc.
 
 **SIMPLICIO:** Ok, ok; you've convinced me! On with some actual Real Analysis please.
 
