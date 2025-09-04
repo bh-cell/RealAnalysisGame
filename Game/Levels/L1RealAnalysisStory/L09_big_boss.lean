@@ -28,7 +28,7 @@ Here's a little \"Universal/Existential Quantifier Cheat Sheet\":
 
 Now it's time for your first **Big Boss** - a problem that requires you to use almost ALL of these tactics in a single proof!
 
-**World 1 Big Boss**
+**Lecture 1 Big Boss**
 Given a function `f` and information about its behavior, prove a complex statement that involves existence, universals, algebra, and rewriting.
 
 This is what real mathematical proofs look like - a careful orchestration of multiple reasoning steps. You've got this! Use everything you've learned.
@@ -49,20 +49,13 @@ An LLM could easily work through all these Lean levels by pattern matching and l
 /-- **BIG BOSS LEVEL**: This problem requires all the tactics you've learned! -/
 Statement (f : ℝ → ℝ) (h_existential : ∃ (a : ℝ), f (a) = 3) (h_universal : ∀ x > 0, f (x + 1) = f (x) + 9) :
   ∃ (b : ℝ), ∀ y > 0, f (y + 1)^2 = (f (y) + (f b)^2)^2 := by
-  -- Step 1: Extract the witness from the existence hypothesis
   choose a ha using h_existential
-  -- Step 2: We'll use a as our witness for b
   use a
-  -- Step 3: Introduce the universal quantifier
   intro y
   intro hy
-  -- Step 4: Apply the universal property to our specific value a
   specialize h_universal y hy
-  -- Step 5: Rewrite using what we learned about g(a + 1)
   rewrite [h_universal]
-  -- Step 6: Rewrite using what we know about g(a)
   rewrite [ha]
-  -- Step 7: Simplify the algebra
   ring_nf
 
 Conclusion "

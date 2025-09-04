@@ -59,5 +59,5 @@ This is fundamental in real analysis when working with:
 - Limit definitions involving \"for all ε > 0\"
 - Continuity statements
 
-Last lesson in Level 1 coming up.
+Last lesson in Lecture 1 coming up.
 "

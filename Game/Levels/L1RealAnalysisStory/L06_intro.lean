@@ -57,6 +57,12 @@ Notice what happened:
 3. The goal became `(ε + 1)^2 = (ε + 1)^2`
 4. `rfl` solved the goal, by the reflexive property of the equals sign.
 
+You might have noticed something interesting: we used `intro` in two seemingly different ways -- first to introduce an \"Object\" (the real number `ε`), and second to introduce an \"Assumption\" or hypothesis (that `ε > 0`). In Lean's underlying logic (\"dependent type theory\"), there's actually a deep unity here that mathematicians call the *Curry-Howard correspondence*: propositions are \"Types\", and proofs are \"Terms\" of those Types. This means that introducing a hypothesis is really just introducing a term of a certain type, just like introducing a variable.
+
+But here's an even more mind-bending perspective: our entire Statement is really a *function*! Its inputs are first an `ε : ℝ`, then a proof that `ε > 0`, and its output is a proof that `(ε + 1)^2 = (ε + 1)^2`. When we write `intro ε` and `intro h`, we're literally defining this function by saying \"given these inputs, here's how to compute the output.\" In this view, all of mathematics -- from the simplest definitions to proofs of the deepest theorems -- is secretly just **functions** transforming inputs into outputs!
+
+This beautiful connection between logic and computation underlies much of modern proof assistants, though we won't dive into the details in this course -- it's perfectly fine if you didn't follow the last two paragraphs! For now, just appreciate that `intro` works uniformly whether you're introducing mathematical objects or logical assumptions, and that every proof you write is secretly a program!
+
 The `intro` tactic is absolutely crucial in real analysis. You'll use it constantly to:
 - Handle \"for all ε > 0\" statements in limit definitions
 - Introduce arbitrary points in domain/range proofs

@@ -1,4 +1,6 @@
-import Game.Levels.L2NewtonsCalculationOfPi.L01_Newton
+import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+import Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+import Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
 
 World "NewtonsCalculationOfPi"
 Title "Lecture 2: Newton's Computation of π"
