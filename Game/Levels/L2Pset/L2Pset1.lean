@@ -1,6 +1,5 @@
 import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Linarith
+import Game.CustomTactic.Linarith
 
 World "L2Pset"
 Level 1

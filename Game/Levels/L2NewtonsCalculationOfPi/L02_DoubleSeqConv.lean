@@ -1,5 +1,5 @@
 import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-import Mathlib.Tactic.Linarith
+import Game.CustomTactic.Linarith
 
 World "NewtonsCalculationOfPi"
 Level 2
@@ -70,11 +70,6 @@ and save some key strokes.
 if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,
 and your Goal is to prove that `2 * X ≤ Z`, then
 simply calling `linarith [h₁, h₂]` will do the trick.
-(Note: Lean does *not* require you to
-specify which hypotheses `linarith` should combine; it will simply try using all the available hypotheses.
-But for the purposes of our pedagogical exercise,
-I will not consider your proof complete without the
-specification!)
 
 ## Your Strategic Approach
 
@@ -135,7 +130,7 @@ Statement (a b : ℕ → ℝ) (L : ℝ)
   rewrite [abs_factor]
   specialize hN n hn
   norm_num
-  linarith [hN] -- linarith only [hN]
+  linarith [hN]
 
 Conclusion "
 # 🎉 Brilliant Work! 🎉
