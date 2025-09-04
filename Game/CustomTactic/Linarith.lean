@@ -13,3 +13,5 @@ elab_rules (kind := Game.linarith) : tactic
     let args ← ((args.map (TSepArray.getElems)).getD {}).mapM (elabLinarithArg `linarith)
     let cfg := (← elabLinarithConfig cfg).updateReducibility bang.isSome
     commitIfNoEx do liftMetaFinishingTactic <| Linarith.linarith true args.toList cfg
+  | `(tactic| linarith $[!%$bang]? $cfg:optConfig only%$o $[[$args,*]]?) =>
+    throwError "In this game, `linarith` has no `only` keyword!"
