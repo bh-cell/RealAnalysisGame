@@ -23,7 +23,7 @@ Deactivate local version with `lake update -R`.
 def RemoteGameServer : Dependency := {
   name := `GameServer
   scope := "hhu-adam"
-  src? := DependencySrc.git "https://github.com/leanprover-community/lean4game.git" stableLeanVersion "server"
+  src? := DependencySrc.git "https://github.com/leanprover-community/lean4game.git" "bump-v4.23.0" "server" -- TODO
   version? := none
   opts := ∅
 }
@@ -39,7 +39,8 @@ open Lean in
   : Elab.Command.CommandElabM Unit)
 
 -- Use latest stable mathlib
-require "leanprover-community" / mathlib @ git stableLeanVersion
+-- require "leanprover-community" / mathlib @ git stableLeanVersion
+require mathlib from git "https://github.com/hrmacbeth/mathlib4" @ "fieldsimp-ineq"
 
 package Game where
   /- Used in all cases. -/
