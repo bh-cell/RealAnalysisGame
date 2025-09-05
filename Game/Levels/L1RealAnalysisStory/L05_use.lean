@@ -59,7 +59,7 @@ The `use` tactic is fundamental in real analysis. You'll need it to:
 - Provide counterexamples
 
 Your growing toolkit:
-- `exact`, `rfl`, `rewrite` for basic equality reasoning
+- `apply`, `rfl`, `rewrite` for basic equality reasoning
 - `ring_nf` for algebraic manipulation
 - `use` for existence proofs
 "

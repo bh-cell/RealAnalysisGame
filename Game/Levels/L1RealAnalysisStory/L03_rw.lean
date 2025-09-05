@@ -12,7 +12,7 @@ Now let's learn about rewriting. Suppose you have a hypothesis called `Bob : x =
 
 Can you use `rfl`? No, because the two sides of the goal (`x + y` and `2 + y`) are not *identically* the same.
 
-Can you use `exact Bob`? No, because `Bob` says `x = 2`, which is not *exactly* what the goal is asking for.
+Can you use `apply Bob`? No, because `Bob` says `x = 2`, which is not what the goal is asking for.
 
 But you can use the hypothesis `Bob` to *rewrite* the goal. Since `Bob` tells us that `x = 2`, we can replace `x` with `2` in our goal.
 
@@ -44,7 +44,7 @@ Great! You've learned the `rewrite` tactic.
 Notice what happened: after you typed `rewrite [Bob]`, the goal changed from `x + y = 2 + y` to `2 + y = 2 + y`. Then you needed to type `rfl` to finish the proof, since both sides were now identical.
 
 So far you've learned:
-- `exact hypothesis_name` when a hypothesis exactly matches your goal
+- `apply hypothesis_name` when a hypothesis matches your goal
 - `rfl` when you need to prove something equals itself
 - `rewrite [hypothesis_name]` when you want to use an equality to rewrite your goal
 

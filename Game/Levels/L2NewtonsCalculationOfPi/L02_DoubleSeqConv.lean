@@ -48,23 +48,14 @@ This is exactly what we can get from the convergence of $a$!
 **Absolute Value of Products**:
 You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:
 $$|x \\cdot y| = |x| \\cdot |y|$$
-Here's a special Lean trick: When `x` and `y` are complicated expressions, but Lean should be able to
-\"just figure out from context\" what they are, you
-can save your fingers some effort by writing `_`'s instead.
-That is, if you want to, say, add a hypothesis that
-`|SomethingLongAndComplicated * SomethingElse| =
-|SomethingLongAndComplicated| * |SomethingElse|`,
-you can do it like this:
+To use this theorem, you may find it convenient to
+make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,
 
-`have NewFact : |SomethingLongAndComplicated * SomethingElse| =
-|SomethingLongAndComplicated| * |SomethingElse| :=
-by exact abs_mul _ _`
+`have NewFact : |Something * SomethingElse| =
+|Something| * |SomethingElse| :=
+by apply abs_mul`
 
-The reason this works is that `abs_mul` is secretly a *function* that takes two inputs, in this case
-`SomethingLongAndComplicated` and `SomethingElse`,
-and produces `exact`ly the proof we're looking for.
-But because Lean is smart, it allows you to just put underscores
-and save some key strokes.
+and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).
 
 **Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,
 if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,
@@ -126,8 +117,8 @@ Statement (a b : ℕ → ℝ) (L : ℝ)
   Hint (strict := true) (hidden := true) "Factor out the 2: `have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf`"
   have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf
   rewrite [factor]
-  Hint (hidden := true) (strict := true) "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by exact abs_mul _ _`"
-  have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by exact abs_mul _ _
+  Hint (hidden := true) (strict := true) "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
+  have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul
   rewrite [abs_factor]
   specialize hN n hn
   norm_num

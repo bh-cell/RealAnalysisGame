@@ -23,7 +23,7 @@ specialize hb n
 rewrite [hb]
 have : c * a n - c * L = c * (a n - L) := by ring_nf
 rewrite [this]
-have : |c * (a n - L)| = |c| * |(a n - L)| := by exact abs_mul _ _
+have : |c * (a n - L)| = |c| * |(a n - L)| := by apply abs_mul
 rewrite [this]
 specialize hN n hn
 refine (lt_div_iff₀' ?_).mp hN

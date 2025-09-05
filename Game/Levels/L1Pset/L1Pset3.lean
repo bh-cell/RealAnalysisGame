@@ -44,9 +44,9 @@ Statement (g : ℝ → ℝ) (h1 : ∀ x, g (x + 1) = g (x) + 3)
   g (1) = 8 := by
   have h3 : g (0 + 1) = g (0) + 3 := by
     specialize h1 0
-    exact h1
+    apply h1
   rewrite [h2] at h3
   ring_nf at h3
-  exact h3
+  apply h3
 
 Conclusion "Done."

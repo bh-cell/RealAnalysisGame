@@ -40,7 +40,7 @@ Excellent! You've learned the `ring_nf` tactic.
 This tactic is incredibly powerful for algebraic manipulations. It automatically handles all the tedious algebra that would take many steps to do by hand.
 
 Your toolkit now includes:
-- `exact hypothesis_name` for when a hypothesis exactly matches your goal
+- `apply hypothesis_name` for when a hypothesis matches your goal
 - `rfl` for proving something equals itself
 - `rewrite [hypothesis_name]` for rewriting using equalities
 - `ring_nf` for algebraic simplifications and expansions

@@ -20,7 +20,7 @@ For a concrete example, suppose you have:
 - A hypothesis `hf : ∀ x > 0, f (x) = x^2`, meaning \"for all x positive, f (x) equals x²\". (Note that you *have* to put a space after `f` before `(x)` or else Lean will be very angry with you! In fact, Lean will often drop unnecessary parentheses, so you'll see `f x` instead of `f (x)` -- and again, definitely *not* `f(x)`.)
 - And you want to prove the goal `f (t) = t^2`.
 
-Can you use `exact hf`? No! The hypothesis `hf` says \"for all positive x, f (x) = x²\" but the goal asks specifically about `f (t) = t²`. They're not *exactly* the same.
+Can you use `apply hf`? No! The hypothesis `hf` says \"for all positive x, f (x) = x²\" but the goal asks specifically about `f (t) = t²`. They're not  the same.
 
 This is where the `specialize` command comes in. You can write `specialize hf t` to specialize the statement `hf` to the particular value `t`. This transforms `hf` from \"∀ x > 0, f (x) = x²\" into \"t > 0 → f (t) = t²\". Just like we had to `intro` multiple times (once for the dummy variable name, and again to name the hypothesis), we can specialize multiple times; so you can now write `specialize hf t_pos`. Or you can kill two birds with one stone via: `specialize hf t t_pos`.
 
@@ -36,7 +36,7 @@ Statement (t : ℝ) (t_pos : t > 0) (f : ℝ → ℝ) (hf : ∀ x > 0, f (x) = x
   specialize hf t
   Hint (hidden := true) "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
   specialize hf t_pos
-  exact hf
+  apply hf
 
 NewTactic specialize
 
@@ -48,7 +48,7 @@ Notice what happened:
 2. `specialize hf t` transformed it into `hf : t > 0 → f (t) = t ^ 2`
 3. Another `specialize` command, namely `specialize hf t_pos` turned the
 hypothesis `hf` into `hf : f (t) = t ^ 2`
-4. And finally, `exact hf` worked because the hypothesis exactly matched the goal.
+4. And finally, `apply hf` worked because the hypothesis matched the goal.
 
 The pattern is:
 - `intro` when you have `∀` in the goal (\"introduce an arbitrary term...\")

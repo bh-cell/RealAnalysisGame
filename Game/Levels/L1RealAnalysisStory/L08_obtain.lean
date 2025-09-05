@@ -16,7 +16,7 @@ But suppose you have a *hypothesis* that says \"there exists a real number `c` s
 
 And say you want to prove that \"there exists a real number `c` such that `(f c)^2 = 4`\".
 
-Again, you can't just say `exact h` because these are different statements.
+Again, you can't just say `apply h` because these are different statements.
 If you know from `h` that at least one such `c` exists, how do you *choose* one?
  The name of this command is... `choose`.
 

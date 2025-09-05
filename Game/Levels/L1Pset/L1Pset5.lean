@@ -33,6 +33,6 @@ Statement (p : ℝ → ℝ) (h1 : ∀ t, p (t) = t ^ 2 + 2 * t)
   use 15
   specialize h1 x
   rewrite [← h1]
-  exact h2
+  apply h2
 
 Conclusion "Done."

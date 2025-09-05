@@ -10,7 +10,7 @@ Introduction "
 # The Final Challenge
 
 Congratulations! You've learned many fundamental tactics for mathematical reasoning in Lean:
-- `exact hypothesisName` for when a hypothesis matches the goal exactly
+- `apply hypothesisName` for when a hypothesis matches the goal
 - `rfl` for reflexivity (proving `X = X`)
 - `rewrite [hypothesisName]` for rewriting using equalities
 - `ring_nf` for algebraic manipulation

@@ -19,7 +19,7 @@ If you do that now, the original `h1` will be *gone*, and you won't have a way o
 Observe that `have` can perform the same
 role as `specialize` (and much more)! Try starting your solution with:
 
-`have h3 : g (0 + 1) = g (0) + 3 := by exact h1 0`
+`have h3 : g (0 + 1) = g (0) + 3 := by apply h1 0`
 
 This will not affect the original statement
 of `h1`, but will instead add a *new* hypothesis, `h3`, which amounts to the
@@ -30,7 +30,7 @@ is a real number `x`, and whose output is a
 *proof* of the fact that, for this value of `x`, `g (x + 1) = g (x) + 3` holds. So when
 we feed `0` into `h1`, it has the same effect
 as it did when we `specialize`d, thus giving a proof of
- `exact`ly what was claimed in the `have` statement.
+ exactly what was claimed in the `have` statement.
 
 Now you should be able to solve this problem.
 "
@@ -40,12 +40,12 @@ Statement (g : ℝ → ℝ) (h1 : ∀ x, g (x + 1) = g (x) + 3)
  (h2 : g (0) = 5)
  :
   g (2) = 11 := by
-  have h3 : g (0 + 1) = g (0) + 3 := by exact h1 0
+  have h3 : g (0 + 1) = g (0) + 3 := by apply h1 0
   rewrite [h2] at h3
   ring_nf at h3
   specialize h1 1
   rewrite [h3] at h1
   ring_nf at h1
-  exact h1
+  apply h1
 
 Conclusion "Done."

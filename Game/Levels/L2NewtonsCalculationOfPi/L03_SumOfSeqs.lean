@@ -30,13 +30,14 @@ We want to prove that $c$ converges to $L + M$.
 You'll only need one new theorem:
 
 **The triangle inequality**: The theorem `abs_add` states that `|x + y| ≤ |x| + |y|` for any real numbers `x` and `y`. This is crucial for our tolerance-splitting strategy.
-Again, when `x` and `y` are complicated expressions, the same Lean time-saving trick applies here; you can write:
+Again, when you want to use it in practice, you can always add
+a new hypothesis:
 
-`have NewInequality : |SomethingLongAndComplicated + SomethingElse| ≤
-|SomethingLongAndComplicated| + |SomethingElse| :=
-by exact abs_add _ _`
+`have NewInequality : |Something + SomethingElse| ≤
+|Something| + |SomethingElse| :=
+by apply abs_add`
 
-and Lean will figure out what the underscores are supposed to be.
+and then `rewrite [NewInequality]`.
 
 ## Your Strategic Approach
 
@@ -91,7 +92,7 @@ Statement SumLim (a b c : ℕ → ℝ) (L M : ℝ)
   specialize hNa ineq_a
   specialize hNb ineq_b
   have ineq : |a n - L + (b n - M)| ≤
-    |a n - L| + |(b n - M)| := by exact abs_add _ _
+    |a n - L| + |(b n - M)| := by apply abs_add
   linarith [hNa, hNb, ineq]
 
 
