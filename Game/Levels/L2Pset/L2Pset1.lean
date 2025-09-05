@@ -1,4 +1,4 @@
-import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+import Game.Levels.L2NewtonsCalculationOfPi
 import Game.CustomTactic.Linarith
 
 World "L2Pset"

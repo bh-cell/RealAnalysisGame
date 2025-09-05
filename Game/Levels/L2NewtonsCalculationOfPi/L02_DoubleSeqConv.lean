@@ -101,6 +101,7 @@ TheoremDoc abs_mul as "abs_mul" in "Theorems"
 
 NewTheorem abs_mul
 
+
 /-- Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.
 This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!' -/
 Statement (a b : ℕ → ℝ) (L : ℝ)

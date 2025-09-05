@@ -1001,6 +1001,35 @@ msgstr ""
 msgid "The obtain tactic"
 msgstr ""
 
+#: Game
+msgid "# Welcome to Real Analysis, The Game!\n"
+"\n"
+"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
+"or better yet, send a PR to\n"
+"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"\n"
+"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
+"and basic Point-Set Topology.\n"
+"\n"
+"To get started, click on\n"
+"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset1
+#: Game.Levels.L2Pset.L2Pset1
+msgid "# Problem 1"
+msgstr ""
+
+#: Game.Levels.L2Pset.L2Pset2
+msgid "For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `ProdLim` says that if\n"
+"there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n * b n` (that is, `c` is the product of the sequences), then `SeqLim c (L * M)` holds."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset2
+#: Game.Levels.L2Pset.L2Pset2
+msgid "Problem 2"
+msgstr ""
+
 #: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
 msgid "# Level 2: Doubling Convergence\n"
 "\n"
@@ -1066,11 +1095,6 @@ msgid "# Level 2: Doubling Convergence\n"
 "if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
 "and your Goal is to prove that `2 * X ≤ Z`, then\n"
 "simply calling `linarith [h₁, h₂]` will do the trick.\n"
-"(Note: Lean does *not* require you to\n"
-"specify which hypotheses `linarith` should combine; it will simply try using all the available hypotheses.\n"
-"But for the purposes of our pedagogical exercise,\n"
-"I will not consider your proof complete without the\n"
-"specification!)\n"
 "\n"
 "## Your Strategic Approach\n"
 "\n"
@@ -1090,35 +1114,6 @@ msgid "# Level 2: Doubling Convergence\n"
 "- Integration (where Riemann sums involve scaling by partition widths)\n"
 "\n"
 "The ability to manage how constants affect convergence is fundamental to all of analysis!"
-msgstr ""
-
-#: Game
-msgid "# Welcome to Real Analysis, The Game!\n"
-"\n"
-"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
-"or better yet, send a PR to\n"
-"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
-"\n"
-"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
-"and basic Point-Set Topology.\n"
-"\n"
-"To get started, click on\n"
-"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
-msgstr ""
-
-#: Game.Levels.L1Pset.L1Pset1
-#: Game.Levels.L2Pset.L2Pset1
-msgid "# Problem 1"
-msgstr ""
-
-#: Game.Levels.L2Pset.L2Pset2
-msgid "For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `ProdLim` says that if\n"
-"there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n * b n` (that is, `c` is the product of the sequences), then `SeqLim c (L * M)` holds."
-msgstr ""
-
-#: Game.Levels.L1Pset.L1Pset2
-#: Game.Levels.L2Pset.L2Pset2
-msgid "Problem 2"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset2
