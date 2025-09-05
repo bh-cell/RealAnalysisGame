@@ -37,7 +37,7 @@ the new hypothesis a name; then include any
 assumptions, like `(x : ℝ)`, meaning, `x`
 is a real number, etc (the symbol `ℝ` is written with a backslash, then capital `R`, then space); then you put a colon,
 and then state the conclusion; then you
-put a colon-equals; and finally you give the proof.
+put a colon-equals and the word `by`; and finally you give the proof.
 
 For example, if you wanted to declare
 the new fact that, say, for any real `u` and `v`,

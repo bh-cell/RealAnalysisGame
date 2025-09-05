@@ -37,7 +37,8 @@ We want to prove that $b$ converges to $2 \\cdot L$.
 ## Key Insight: Inverse Tolerance Scaling
 
 The crucial observation is that:
-$$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = |2 \\cdot (a(n) - L)| = 2 \\cdot |a(n) - L|$$
+
+$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = 2 \\cdot |a(n) - L|$
 
 So if we want $|b(n) - 2L| < \\varepsilon$, we need $2 \\cdot |a(n) - L| < \\varepsilon$, which means $|a(n) - L| < \\varepsilon/2$.
 
@@ -47,7 +48,9 @@ This is exactly what we can get from the convergence of $a$!
 
 **Absolute Value of Products**:
 You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:
-$$|x \\cdot y| = |x| \\cdot |y|$$
+
+$|x \\cdot y| = |x| \\cdot |y|$.
+
 To use this theorem, you may find it convenient to
 make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,
 
@@ -111,17 +114,24 @@ Statement (a b : ℕ → ℝ) (L : ℝ)
   choose N hN using h
   use N
   intro n hn
-  Hint (hidden := true) "Apply the scaling hypothesis: `specialize b_scaled n` then `rewrite [b_scaled]`"
   specialize b_scaled n
   rewrite [b_scaled]
-  Hint (strict := true) (hidden := true) "Factor out the 2: `have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf`"
+  clear b b_scaled eps_half_pos
+  Hint (strict := true) (hidden := true) "You can't use `abs_mul` just yet, because you don't have a product of things inside the absolute values! So first factor out the 2: `have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf`"
   have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf
   rewrite [factor]
+  clear factor
   Hint (hidden := true) (strict := true) "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
   have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul
   rewrite [abs_factor]
+  clear abs_factor
   specialize hN n hn
+  clear hn
+  Hint (hidden := true) (strict := true) "The `linarith` tactic won't work
+  yet, because it'll get stuck on that `|2|`; do you remember what to do
+  to normalize the numerical value to just `2`?"
   norm_num
+  Hint (hidden := true) (strict := true) "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
   linarith [hN]
 
 Conclusion "

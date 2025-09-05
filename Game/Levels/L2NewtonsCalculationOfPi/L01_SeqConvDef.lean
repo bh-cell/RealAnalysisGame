@@ -184,7 +184,8 @@ You showed that if a sequence always outputs the same value `L`, then it converg
    - `intro ε hε` handled 'for every ε > 0'
    - `use 1` provided the witness `N` (any number works!)
    - `intro n hn` handled '∀ n ≥ N'
-   - Then algebraic manipulation showed that `|a n - L| = |L - L| = 0 < ε`
+   - Then algebraic manipulation showed that `|a n - L| = |L - L| = |0|`
+   - Then numerical normalization gave that `|0| = 0`, and `hε` finally proved that `|a n - L| < ε`.
 
 **The Beautiful Simplicity:**
 This is the Machinist's dream scenario—no matter how demanding the engineer's tolerance requirements, the constant factory can satisfy them instantly. There's no trade-off between precision and effort because the output is already perfect!
