@@ -26,7 +26,7 @@ You may (or may not) find that useful in this problem.
 "
 
 /-- Solve the problem -/
-Statement {x : ℝ} (p : ℝ → ℝ) (h1 : ∀ t, p (t) = t ^ 2 + 2 * t)
+Statement (p : ℝ → ℝ) (x : ℝ) (h1 : ∀ t, p (t) = t ^ 2 + 2 * t)
  (h2 : p (x) = 15)
  :
   ∃ b, x ^ 2 + 2 * x = b := by
