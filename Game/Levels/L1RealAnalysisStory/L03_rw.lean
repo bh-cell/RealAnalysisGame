@@ -1,5 +1,4 @@
-import GameServer
-import Mathlib.Data.Real.Basic
+import Game.Metadata
 
 World "RealAnalysisStory"
 Level 3

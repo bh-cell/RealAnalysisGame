@@ -1,6 +1,6 @@
 import Game.Levels.L2NewtonsCalculationOfPi
 import Game.CustomTactic.Linarith
-import Mathlib.Tactics.FieldSimp
+import Mathlib.Tactic.FieldSimp
 
 World "L2Pset"
 Level 1

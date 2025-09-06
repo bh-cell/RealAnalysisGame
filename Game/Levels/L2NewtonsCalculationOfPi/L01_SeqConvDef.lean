@@ -1,6 +1,5 @@
-import GameServer
-import Mathlib.Data.Real.Basic
-import Mathlib.Tactic.Ring
+import Game.Metadata
+
 
 World "NewtonsCalculationOfPi"
 Level 1
@@ -120,11 +119,10 @@ and you want to convert it to plain old `0`, try calling `norm_num`.
 Ok, get to it!
 "
 
+
 /-- The `change` tactic changes a goal to something definitionally equal to it. If the definition of `X` is `Y`, that is, `X := Y`, and the Goal is `X`, you can write `change Y` and the Goal will change to `Y`. You can also
 do this at a hypothesis; if you have a hypothesis `h : X`, you can write `change Y at h`, and `h` will change to `h : Y`. -/
 TacticDoc change
-
-NewTactic change
 
 /-- For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`. -/
 DefinitionDoc SeqLim as "SeqLim"
@@ -137,8 +135,7 @@ def SeqLim (a : ℕ → ℝ) (L : ℝ) : Prop :=
 /-- The `norm_num` tactic can normalize numerical constants and functions of them. -/
 TacticDoc norm_num
 
-NewTactic norm_num
-
+NewTactic change norm_num
 
 /--
 For any sequence `a : ℕ → ℝ` and constant `L : ℝ`, and
