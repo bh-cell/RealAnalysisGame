@@ -1,12 +1,12 @@
 import Game.Metadata
-import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+import Game.Levels.L2PsetIntro
 
-World "NewtonsCalculationOfPi"
-Level 2
+World "Lecture3"
+Level 1
 Title "Doubling a Convergent Sequence"
 
 Introduction "
-# Level 2: Doubling Convergence
+# Level 1: Doubling Convergence
 
 After conquering the constant sequence, let's up our game: if a sequence converges, then doubling that sequence also converges, and converges to double the original limit.
 

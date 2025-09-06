@@ -1,8 +1,7 @@
-import Game.Metadata
-import Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+import Game.Levels.L3Levels.L02_DoubleSeqConv
 
-World "NewtonsCalculationOfPi"
-Level 3
+World "Lecture3"
+Level 2
 Title "Big Boss: The Sum of Convergent Sequences"
 
 Introduction "

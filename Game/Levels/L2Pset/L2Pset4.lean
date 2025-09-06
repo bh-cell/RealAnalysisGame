@@ -1,5 +1,4 @@
 import Game.Levels.L2Pset.L2Pset1
-import Mathlib.Analysis.RCLike.Basic
 
 open Nat
 

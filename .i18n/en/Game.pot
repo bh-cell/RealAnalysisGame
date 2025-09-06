@@ -19,7 +19,11 @@ msgid "Did you end up using `huv`?\n"
 "`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Lecture
+msgid "Lecture 3: More fun with Sequences"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants."
 msgstr ""
 
@@ -39,7 +43,7 @@ msgstr ""
 msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "You can't use `abs_mul` just yet, because you don't have a product of things inside the absolute values! So first factor out the 2: `have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf`"
 msgstr ""
 
@@ -51,7 +55,7 @@ msgstr ""
 msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "# 🎉 Brilliant Work! 🎉\n"
 "\n"
 "You've mastered your first true theorem of analysis! Let's celebrate what you accomplished and understand the deeper patterns.\n"
@@ -178,7 +182,13 @@ msgid "# 🎉 VICTORY! 🎉\n"
 "But! This is, as we've already noted, a double-edged sword. We still want to train our brains to \"see\" a mental model of the goal state evolving - good chess players can visualize many moves ahead precisely because they've learned to maintain multiple mental game boards simultaneously. But until you develop that skill, and even after you have it, there's immense value in being able to instantly generate the current \"game board\" of your proof state. The immediate feedback helps you understand the consequences of each logical move, building the very intuition that will eventually let you work more independently. It's the difference between learning to navigate by always checking your GPS versus eventually developing an internal sense of direction - both have their place, and the former helps develop the latter."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
+#: Game.Levels.L3Lecture
+msgid "# More on sequences\n"
+"\n"
+"Let's get to it!"
+msgstr ""
+
+#: Game.Levels.L3Levels.L03_SumOfSeqs
 msgid "For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `SumLim` says that if\n"
 "there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n + b n` (that is, `c` is the sum of the sequences), then `SeqLim c (L + M)` holds."
 msgstr ""
@@ -220,13 +230,13 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "The `linarith` tactic won't work\n"
 "yet, because it'll get stuck on that `|2|`; do you remember what to do\n"
 "to normalize the numerical value to just `2`?"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
+#: Game.Levels.L3Levels.L03_SumOfSeqs
 msgid "Prove that the sum of two convergent sequences converges to the sum of their limits.\n"
 "This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!'"
 msgstr ""
@@ -394,7 +404,7 @@ msgid "# Level 1: The Main Definition\n"
 "Ok, get to it!"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "Start by unfolding the definition: `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |b n - 2 * L| < ε`"
 msgstr ""
 
@@ -406,7 +416,7 @@ msgstr ""
 msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
 msgstr ""
 
@@ -418,7 +428,7 @@ msgstr ""
 msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
+#: Game.Levels.L3Levels.L03_SumOfSeqs
 msgid "# Lecture 2 **Big Boss**: Adding Convergent Sequences\n"
 "\n"
 "Now that we've had some experience with the definition of convergence, let's tackle this world's Big Boss. One of the most fundamental ideas in analysis is that 'nice operations preserve convergence.' If two sequences each converge, then their sum also converges, and converges to the sum of their limits.\n"
@@ -470,7 +480,7 @@ msgstr ""
 msgid "Write `ring_nf` to expand and simplify both sides algebraically."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.\n"
 "This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!'"
 msgstr ""
@@ -484,23 +494,23 @@ msgid "Prove that the constant sequence converges to its constant value.\n"
 "This is the Machinist's dream scenario: we're already producing exactly what's required!"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi
-msgid "Lecture 2: Newton's Computation of π"
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
+msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
 msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
-msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
+#: Game.Levels.L2NewtonsCalculationOfPi
+msgid "Lecture 2: Newton's Computation of π"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
+#: Game.Levels.L3Levels.L03_SumOfSeqs
 msgid "# 🎉 Outstanding! 🎉\n"
 "\n"
 "You've just proven one of the fundamental theorems of analysis! Let's celebrate what you accomplished and understand why this result is so powerful.\n"
@@ -632,7 +642,7 @@ msgid "# The Final Challenge\n"
 "An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "Doubling a Convergent Sequence"
 msgstr ""
 
@@ -679,6 +689,10 @@ msgstr ""
 msgid "For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`."
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
+msgid "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The specialize tactic"
 msgstr ""
@@ -687,16 +701,12 @@ msgstr ""
 msgid "Introduction to Lean"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
-msgid "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
+msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_obtain
 msgid "The `choose` tactic extracts a witness from an existence statement in a hypothesis."
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
-msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
 
 #: Game
@@ -729,7 +739,7 @@ msgstr ""
 msgid "The obtain tactic"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
 msgstr ""
 
@@ -851,6 +861,10 @@ msgstr ""
 msgid "Problem 4"
 msgstr ""
 
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+msgid "While you may see `0 < ε` in the goal and `ε > 0` in the hypothesis `hε`, Lean will still know that these two things are exactly the same..."
+msgstr ""
+
 #: Game.Levels.L2PsetIntro
 msgid "# Problem Set 2\n"
 "\n"
@@ -862,10 +876,6 @@ msgid "# Problem Set 2\n"
 "- (iv) `lim (a / b) = L / M`, as long as `M ≠ 0`.\n"
 "\n"
 "Can you guess what the problem set is? :)"
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-msgid "While you may see `0 < ε` in the goal and `ε > 0` in the hypothesis `hε`, Lean will still know that these two things are exactly the same..."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory
@@ -1449,7 +1459,7 @@ msgstr ""
 msgid "Lecture 1: The Story of Real Analysis"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
+#: Game.Levels.L3Levels.L03_SumOfSeqs
 msgid "Big Boss: The Sum of Convergent Sequences"
 msgstr ""
 
@@ -1529,6 +1539,86 @@ msgid "# 🎉 Excellent Work! 🎉\n"
 "\n"
 "Therefore, for any $n \\geq N$, we have $|a(n) - L| = 0 < \\varepsilon$, which proves convergence.\n"
 "**QED**"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
+msgid "# Level 1: Doubling Convergence\n"
+"\n"
+"After conquering the constant sequence, let's up our game: if a sequence converges, then doubling that sequence also converges, and converges to double the original limit.\n"
+"\n"
+"## The Factory Scaling Challenge\n"
+"\n"
+"Imagine our Machinist receives a challenge from the Engineer: 'Please double all the lengths, but maintain the same quality standards.' How should the Machinist respond?\n"
+"\n"
+"If the Engineer demands the doubled lengths be within $\\varepsilon$ of $2L$, the Machinist can't just demand that the original process meet the original tolerance $\\varepsilon$, because\n"
+"\n"
+"`|2 * a (n) - 2 * L| < 2 * ε`,\n"
+"\n"
+"not `ε`. Instead, we must be more clever. Can you think of what to do?\n"
+"\n"
+"That's right, the `ε` in the original process\n"
+"is *arbitrary*, so we can play with it!\n"
+"If we could get the original process can guarantee output within $\\varepsilon/2$ of $L$, then doubling that output will be within $\\varepsilon$ of $2L$.\n"
+"\n"
+"This is the key insight: **when scaling by a constant, we need to scale our tolerance demands inversely**.\n"
+"\n"
+"## The Mathematical Setup\n"
+"\n"
+"Suppose we have:\n"
+"- A sequence $a : \\mathbb{N} \\to \\mathbb{R}$ that converges to $L$\n"
+"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ with the property that $b(n) = 2 \\cdot a(n)$ for all $n$\n"
+"\n"
+"We want to prove that $b$ converges to $2 \\cdot L$.\n"
+"\n"
+"## Key Insight: Inverse Tolerance Scaling\n"
+"\n"
+"The crucial observation is that:\n"
+"\n"
+"$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = 2 \\cdot |a(n) - L|$\n"
+"\n"
+"So if we want $|b(n) - 2L| < \\varepsilon$, we need $2 \\cdot |a(n) - L| < \\varepsilon$, which means $|a(n) - L| < \\varepsilon/2$.\n"
+"\n"
+"This is exactly what we can get from the convergence of $a$!\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"**Absolute Value of Products**:\n"
+"You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:\n"
+"\n"
+"$|x \\cdot y| = |x| \\cdot |y|$.\n"
+"\n"
+"To use this theorem, you may find it convenient to\n"
+"make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,\n"
+"\n"
+"`have NewFact : |Something * SomethingElse| =\n"
+"|Something| * |SomethingElse| :=\n"
+"by apply abs_mul`\n"
+"\n"
+"and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).\n"
+"\n"
+"**Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,\n"
+"if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
+"and your Goal is to prove that `2 * X ≤ Z`, then\n"
+"simply calling `linarith [h₁, h₂]` will do the trick.\n"
+"\n"
+"## Your Strategic Approach\n"
+"\n"
+"1. Unfold the definition of convergence for the goal\n"
+"2. Given any $\\varepsilon > 0$, use the convergence of $a$ with tolerance $\\varepsilon/2$. You may find it useful to separately prove the inequality `0 < ε / 2` -- which\n"
+"tactic do you think will help with that?\n"
+"3. Extract the witness $N$ from the convergence of $a$\n"
+"4. Use the same $N$ for your sequence $b$\n"
+"5. Apply the scaling hypothesis and use `abs_mul` to relate $|b(n) - 2L|$ to $|a(n) - L|$\n"
+"6. Use the convergence bound for $a$ to conclude\n"
+"\n"
+"## Why This Pattern Matters\n"
+"\n"
+"This proof introduces the important technique of **inverse scaling** for tolerances. When you scale a sequence by a constant $c$, you need to scale your tolerance demands by $1/c$. This principle will appear again when you study:\n"
+"- Products of sequences (where both factors contribute to the error)\n"
+"- Derivatives (where the limit definition involves scaling by $h$)\n"
+"- Integration (where Riemann sums involve scaling by partition widths)\n"
+"\n"
+"The ability to manage how constants affect convergence is fundamental to all of analysis!"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
@@ -1614,87 +1704,7 @@ msgid "Excellent! You've learned the `rfl` tactic.\n"
 "These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
-msgid "# Level 2: Doubling Convergence\n"
-"\n"
-"After conquering the constant sequence, let's up our game: if a sequence converges, then doubling that sequence also converges, and converges to double the original limit.\n"
-"\n"
-"## The Factory Scaling Challenge\n"
-"\n"
-"Imagine our Machinist receives a challenge from the Engineer: 'Please double all the lengths, but maintain the same quality standards.' How should the Machinist respond?\n"
-"\n"
-"If the Engineer demands the doubled lengths be within $\\varepsilon$ of $2L$, the Machinist can't just demand that the original process meet the original tolerance $\\varepsilon$, because\n"
-"\n"
-"`|2 * a (n) - 2 * L| < 2 * ε`,\n"
-"\n"
-"not `ε`. Instead, we must be more clever. Can you think of what to do?\n"
-"\n"
-"That's right, the `ε` in the original process\n"
-"is *arbitrary*, so we can play with it!\n"
-"If we could get the original process can guarantee output within $\\varepsilon/2$ of $L$, then doubling that output will be within $\\varepsilon$ of $2L$.\n"
-"\n"
-"This is the key insight: **when scaling by a constant, we need to scale our tolerance demands inversely**.\n"
-"\n"
-"## The Mathematical Setup\n"
-"\n"
-"Suppose we have:\n"
-"- A sequence $a : \\mathbb{N} \\to \\mathbb{R}$ that converges to $L$\n"
-"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ with the property that $b(n) = 2 \\cdot a(n)$ for all $n$\n"
-"\n"
-"We want to prove that $b$ converges to $2 \\cdot L$.\n"
-"\n"
-"## Key Insight: Inverse Tolerance Scaling\n"
-"\n"
-"The crucial observation is that:\n"
-"\n"
-"$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = 2 \\cdot |a(n) - L|$\n"
-"\n"
-"So if we want $|b(n) - 2L| < \\varepsilon$, we need $2 \\cdot |a(n) - L| < \\varepsilon$, which means $|a(n) - L| < \\varepsilon/2$.\n"
-"\n"
-"This is exactly what we can get from the convergence of $a$!\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"**Absolute Value of Products**:\n"
-"You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:\n"
-"\n"
-"$|x \\cdot y| = |x| \\cdot |y|$.\n"
-"\n"
-"To use this theorem, you may find it convenient to\n"
-"make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,\n"
-"\n"
-"`have NewFact : |Something * SomethingElse| =\n"
-"|Something| * |SomethingElse| :=\n"
-"by apply abs_mul`\n"
-"\n"
-"and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).\n"
-"\n"
-"**Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,\n"
-"if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
-"and your Goal is to prove that `2 * X ≤ Z`, then\n"
-"simply calling `linarith [h₁, h₂]` will do the trick.\n"
-"\n"
-"## Your Strategic Approach\n"
-"\n"
-"1. Unfold the definition of convergence for the goal\n"
-"2. Given any $\\varepsilon > 0$, use the convergence of $a$ with tolerance $\\varepsilon/2$. You may find it useful to separately prove the inequality `0 < ε / 2` -- which\n"
-"tactic do you think will help with that?\n"
-"3. Extract the witness $N$ from the convergence of $a$\n"
-"4. Use the same $N$ for your sequence $b$\n"
-"5. Apply the scaling hypothesis and use `abs_mul` to relate $|b(n) - 2L|$ to $|a(n) - L|$\n"
-"6. Use the convergence bound for $a$ to conclude\n"
-"\n"
-"## Why This Pattern Matters\n"
-"\n"
-"This proof introduces the important technique of **inverse scaling** for tolerances. When you scale a sequence by a constant $c$, you need to scale your tolerance demands by $1/c$. This principle will appear again when you study:\n"
-"- Products of sequences (where both factors contribute to the error)\n"
-"- Derivatives (where the limit definition involves scaling by $h$)\n"
-"- Integration (where Riemann sums involve scaling by partition widths)\n"
-"\n"
-"The ability to manage how constants affect convergence is fundamental to all of analysis!"
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
+#: Game.Levels.L3Levels.L02_DoubleSeqConv
 msgid "Also try unfolding the definition in `h`: `change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h`"
 msgstr ""
 
@@ -1721,6 +1731,6 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `use` for existence proofs"
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L03_SumOfSeqs
+#: Game.Levels.L3Levels.L03_SumOfSeqs
 msgid "For any real numbers `x` and `y`, we have `|x + y| ≤ |x| + |y|`."
 msgstr ""

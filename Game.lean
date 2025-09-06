@@ -2,6 +2,9 @@ import Game.Levels.L1RealAnalysisStory
 import Game.Levels.L1PsetIntro
 import Game.Levels.L2NewtonsCalculationOfPi
 import Game.Levels.L2PsetIntro
+import Game.Levels.L3Lecture
+
+-- Dependency L1Pset → NewtonsCalculationOfPi
 
 -- Here's what we'll put on the title screen
 Title "An Introduction to Formal Real Analysis"

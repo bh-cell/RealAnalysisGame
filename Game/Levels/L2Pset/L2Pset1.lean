@@ -1,6 +1,5 @@
+import Game.Metadata
 import Game.Levels.L2NewtonsCalculationOfPi
-import Game.CustomTactic.Linarith
-import Mathlib.Tactic.FieldSimp
 
 World "L2Pset"
 Level 1
@@ -27,8 +26,10 @@ rewrite [this]
 have : |c * (a n - L)| = |c| * |(a n - L)| := by apply abs_mul
 rewrite [this]
 specialize hN n hn
-refine (lt_div_iff₀' ?_).mp hN
-positivity
+field_simp at hN
+have : |a n - L| * |c| = |c| * |a n - L| := by ring_nf
+rewrite [← this]
+apply hN
 
 
 Conclusion "Done."
