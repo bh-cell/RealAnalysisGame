@@ -9,6 +9,10 @@ Title "Problem 2"
 Introduction "
 # Problem 2
 
+In this problem you are asked to show that there is some `c` so that `(x + y) ^ 2 = c`, given that
+`x * y = 1` and `x ^ 2 + y ^ 2 = 2`. Of course you can say `use (x + y) ^ 2`, but that's obviously
+not the point; the value of `c` that you choose should *not* involve `x` and `y`!
+
 You will likely have a hard time solving this problem as is.
 You surely can work out what value of
 `c` you need. But if you try

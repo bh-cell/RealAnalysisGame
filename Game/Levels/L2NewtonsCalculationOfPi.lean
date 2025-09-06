@@ -189,12 +189,23 @@ Newton's computation of $\\pi$.
 
 Now, suppose you wanted to compute something like $\\sqrt 3$ -- can you think of a way of doing it using this formula?
 
-**SIMPLICIO:** Ok, sure, $3$ is near $4$, which I know is a perfect square,
-and presumably I should be trying to use the identity for $\\sqrt {1+x}$. Ah! We can write
+**SIMPLICIO:** Hmm the function is $\\sqrt {1+x}$, so I guess I want to set $x=2$. Then I get:
+
+$\\sqrt {1+2} = 1 + \\frac{1}{2}(2) - \\frac{1}{8}(2)^2 + \\frac{1}{16}(2)^3 -
+\\frac{5}{128}(2)^4 + \\cdots$
+
+Adding up these five terms comes out to $11/8 = 1.375$, not so close to $\\sqrt3\\approx1.73$. And the individual terms
+are not so small, for instance, the last one, $\\frac{5}{128}(2)^4 = 5/8 = 0.625$.
+
+**SOCRATES:** Well, sure, if you set $x$ to be large, like $x > 1$, then the powers of $x$ are also larger and larger (and exponentially so!)... Can you think of something else you could do?
+
+**SIMPLICIO:**
+Ah, I think I see! I know that
+$3$ is near $4$, which is a perfect square. So what if we write
 
 $\\sqrt 3 = \\sqrt{4-1} = \\sqrt{4(1-\\frac14)}=2\\sqrt{1-\\frac14}$
 
-So now if I apply our formula with $x=-1/4$, I guess I'll get:
+So now if I apply our formula with $x=-1/4$ (which is less than one!), I guess I'll get:
 
 $\\sqrt3 \\approx 2\\left(
 1 + \\frac{1}{2}(-1/4) - \\frac{1}{8}(-1/4)^2 + \\frac{1}{16}(-1/4)^3 -
@@ -288,7 +299,15 @@ which is off by two parts in $100,000$ from the true estimate $\\pi \\approx 3.1
 Here's a nice YouTube video by Veritasium that discusses this whole saga (right-click to get it to pop up in a new tab):
 [![Veritasium Video](https://img.youtube.com/vi/gMlf1ELvRzc/maxresdefault.jpg)](https://youtu.be/gMlf1ELvRzc)
 
- In fact, a series for $\\pi$ similar to this one was discovered two centuries earlier, by the Indian mathematician Madhava of Sangamagrama. And it would take two more centuries until mathematicians figured out how to rigorously justify all of these reorderings, limit swaps, etc, etc.
+ In fact, a series for $\\pi$ similar to this one was discovered two centuries earlier, by the Indian mathematician Madhava of Sangamagrama.
+ And it would take two more centuries until mathematicians figured out how to rigorously justify Newton's work. To do so, they had to figure out:
+
+- What it meant for a sequence of real numbers $a_0, a_1, a_2,\\dots$ to converge?
+- What it meant for a series (that is, sequence of partial sums) $a_0 + a_1 + a_2 +\\cdots$ to converge, and could we sum these numbers in any order we like,
+- What it meant for a series involving a variable, like a power series $a_0 + a_1  x + a_2  x^2+\\cdots$ to converge, and if so, what kind of function it converged to,
+- When can we interchange limits with integrals, like integrating term by term, $\\int(a_0 + a_1  x + a_2  x^2+)dx\\cdots \\overset{?}=\\int \\, a_0\\, dx+\\int \\, a_1  x\\, dx+\\int\\, a_2  x^2\\, dx+\\cdots$,
+
+Etc, etc. We have a lot of work to do!
 
 **SIMPLICIO:** Ok, ok; you've convinced me! On with some actual Real Analysis please.
 
