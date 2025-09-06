@@ -1,6 +1,4 @@
-import GameServer
-import Mathlib.Data.Real.Basic
-import Mathlib.Tactic.Ring
+import Game.Metadata
 
 World "RealAnalysisStory"
 Level 4

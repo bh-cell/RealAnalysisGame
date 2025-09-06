@@ -1,3 +1,4 @@
+import Game.Metadata
 import Game.Levels.L2NewtonsCalculationOfPi.L02_DoubleSeqConv
 
 World "NewtonsCalculationOfPi"

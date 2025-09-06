@@ -1,5 +1,5 @@
+import Game.Metadata
 import Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-import Game.CustomTactic.Linarith
 
 World "NewtonsCalculationOfPi"
 Level 2
