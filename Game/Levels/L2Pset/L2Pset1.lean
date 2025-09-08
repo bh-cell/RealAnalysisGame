@@ -1,35 +1,49 @@
 import Game.Metadata
-import Game.Levels.L2NewtonsCalculationOfPi
 
 World "L2Pset"
 Level 1
 Title "Problem 1"
 
-Introduction "# Problem 1"
+Introduction "# Problem 1
 
-/-- Prove that if `c` is a nonzero constant and `lim a = L`, and `b (n) = c * a (n)` for all `n`, then `lim b = c * L`. -/
-Statement (c : ℝ) (hc : c ≠ 0) (a : ℕ → ℝ) (L : ℝ)
-    (ha : SeqLim a L) (b : ℕ → ℝ)
-    (hb : ∀ n, b n = c * a n) :
-    SeqLim b (c * L) := by
-change ∀ ε > 0, ∃ N, ∀ n ≥ N, |b n - c * L| < ε
-intro ε hε
-have thing : 0 < ε * |c|⁻¹ := by positivity
-specialize ha (ε * |c|⁻¹) thing
-choose N hN using ha
-use N
-intro n hn
-specialize hb n
-rewrite [hb]
-have : c * a n - c * L = c * (a n - L) := by ring_nf
-rewrite [this]
-have : |c * (a n - L)| = |c| * |(a n - L)| := by apply abs_mul
-rewrite [this]
-specialize hN n hn
-field_simp at hN
-have : |a n - L| * |c| = |c| * |a n - L| := by ring_nf
-rewrite [← this]
-apply hN
+We found in Lecture 2 that Newton's Binomial Theorem gave the expansion
+
+$
+\\sqrt{1+x}\\approx
+1
++\\frac{1}{2}x
+-\\frac{1}{8}x^2
++\\frac{1}{16}x^3
+-\\frac{5 x^4}{128}+\\cdots
+$
+
+to fourth order.
+Work out the next term in the expansion. This will be a constant `c` with the property that the polynomial
+
+$\\left(1  +\\frac{1}{2}x
+-\\frac{1}{8}x^2
++\\frac{1}{16}x^3
+-\\frac{5 x^4}{128} + c \\cdot x^5 \\right)^2 - (1 + x)$
+
+only has terms $x ^ 6$ or higher. (We don't *yet* have a way of saying that in Lean, so I have to give you the expansion explicitly.)
+"
+
+/-- Find the correct constant. -/
+Statement  :
+   ∃ c, ∀ (x : ℝ),
+   (1 + x / 2 - x ^ 2 / 8 + x ^ 3 / 16
+   - 5 * x ^ 4 / 128 + c * x ^ 5) ^ 2
+   - (1 + x)
+    =
+    x ^ 6 * (
+    21 / 512 - 3 * x / 256
+    + 81 * x ^ 2 / 16384 - 35 * x ^ 3 / 16384
+    + 49 * x ^ 4 / 65536)
+    := by
+  use 7 / 256
+  intro x
+  ring_nf
+
 
 
 Conclusion "Done."

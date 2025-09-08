@@ -1,8 +1,8 @@
-import Game.Levels.L2Pset.L2Pset1
+import Game.Levels.L3Pset.L3Pset1
 
 open Nat
 
-World "L2Pset"
+World "L3Pset"
 Level 4
 Title "Problem 4"
 
@@ -22,7 +22,7 @@ example (x y : ℝ) (x_pos : 0 < x) (y_pos : 0 < y) : ∃ N : ℕ, y < x * N := 
   have : y ≤ x * ⌈ y / x ⌉₊ := by exact (div_le_iff₀' x_pos).mp this
 -- rw [← mul_lt_mul_left cpos] at h
   push_cast
-  ring_nf
+--  ring_nf
   linarith [this, x_pos]
 
 

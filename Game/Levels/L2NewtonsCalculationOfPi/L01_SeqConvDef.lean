@@ -156,7 +156,7 @@ Statement ConstLim (a : ℕ → ℝ) (L : ℝ) (a_const : ∀ n, a n = L) : SeqL
   specialize a_const n
   rewrite [a_const]
   ring_nf
-  clear hn a_const n
+  clear hn a_const n a L
   Hint (hidden := true) "This is where you might find it useful to call `norm_num` and normalize `|0|` to `0`."
   norm_num
   Hint (hidden := true) "While you may see `0 < ε` in the goal and `ε > 0` in the hypothesis `hε`, Lean will still know that these two things are exactly the same..."

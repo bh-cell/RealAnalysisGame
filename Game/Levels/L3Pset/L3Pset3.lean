@@ -1,6 +1,6 @@
 import Game.Levels.L2Pset.L2Pset1
 
-World "L2Pset"
+World "L3Pset"
 Level 3
 Title "Problem 3"
 

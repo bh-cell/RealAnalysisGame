@@ -2,18 +2,19 @@ import Game.Levels.L1RealAnalysisStory
 import Game.Levels.L1PsetIntro
 import Game.Levels.L2NewtonsCalculationOfPi
 import Game.Levels.L2PsetIntro
-import Game.Levels.L3Lecture
+--import Game.Levels.L3Lecture
+--import Game.Levels.L3PsetIntro
 
--- Dependency L1Pset → NewtonsCalculationOfPi
+Dependency NewtonsCalculationOfPi → L2Pset
 
 -- Here's what we'll put on the title screen
-Title "An Introduction to Formal Real Analysis"
+Title "An Introduction to (Formal) Real Analysis"
 
 Introduction "
 # Welcome to Real Analysis, The Game!
 
 This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,
-or better yet, send a PR to
+or better yet, post a PR/issue to
 https://github.com/AlexKontorovich/RealAnalysisGame.
 
 This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,
@@ -37,7 +38,7 @@ like ε-δ definitions became necessary and how to use them to do advanced calcu
 
 * **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu
 * **Interactive Implementation:** Lean 4 Game Engine
-* **Mathematical Content:** Following Rudin, Stein-Shakarchi, etc.
+* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc.
 "
 
 /-! Information to be displayed on the servers landing page. -/

@@ -8,8 +8,7 @@ Introduction "
 # Problem 2
 
 In this problem you are asked to show that there is some `c` so that `(x + y) ^ 2 = c`, given that
-`x * y = 1` and `x ^ 2 + y ^ 2 = 2`. Of course you can say `use (x + y) ^ 2`, but that's obviously
-not the point; the value of `c` that you choose should *not* involve `x` and `y`!
+`x * y = 1` and `x ^ 2 + y ^ 2 = 2`.
 
 You will likely have a hard time solving this problem as is.
 You surely can work out what value of
@@ -66,12 +65,15 @@ This creates a new hypothesis called
  -/
 TacticDoc «have»
 
-/-- Solve the problem -/
-Statement (x y : ℝ) (h1 : x ^ 2 + y ^ 2 = 2)
-(h2 : x * y = 1)
- :
- ∃ c, (x + y) ^ 2 = c := by
+/-- Show that there exists a constant `c` so that, for any real numbers `x` and `y` with `x ^ 2 + y ^ 2 = 2` and `x * y = 1`, we have `(x + y) ^ 2 = c`. -/
+Statement :
+ ∃ c, ∀ x y : ℝ, x ^ 2 + y ^ 2 = 2 → x * y = 1 → (x + y) ^ 2 = c := by
   use 4
+  intro x y
+  Hint (hidden := true) "If you're stuck at this point, let me remind you that, in a previous level, the Goal was: `∀ ε > 0, BlahBlah`, and
+  after `intro ε`, the Goal became `ε > 0 → BlahBlah`.
+  Then what did you do?..."
+  intro h1 h2
   have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf
   rewrite [hxy]
   rewrite [h1]

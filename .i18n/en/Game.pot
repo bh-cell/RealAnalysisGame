@@ -1,34 +1,18 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-06\n"
+"POT-Creation-Date: 2025-09-07\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: Game.Levels.L2PsetIntro
-msgid "Pset 2 NOT YET READY"
-msgstr ""
-
 #: Game.Levels.L1Pset.L1Pset2
 msgid "Did you end up using `huv`?\n"
 "And then `specialize`ing it with `u` and `v` replaced, respectively, by `x` and `y`?\n"
 "Or did you think of going via the more direct route:\n"
 "`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
-msgstr ""
-
-#: Game.Levels.L3Lecture
-msgid "Lecture 3: More fun with Sequences"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants."
-msgstr ""
-
-#: Game.Levels.L2Pset.L2Pset1
-msgid "Prove that if `c` is a nonzero constant and `lim a = L`, and `b (n) = c * a (n)` for all `n`, then `lim b = c * L`."
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -43,8 +27,10 @@ msgstr ""
 msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "You can't use `abs_mul` just yet, because you don't have a product of things inside the absolute values! So first factor out the 2: `have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf`"
+#: Game.Levels.L1Pset.L1Pset2
+msgid "If you're stuck at this point, let me remind you that, in a previous level, the Goal was: `∀ ε > 0, BlahBlah`, and\n"
+"after `intro ε`, the Goal became `ε > 0 → BlahBlah`.\n"
+"Then what did you do?..."
 msgstr ""
 
 #: Game
@@ -55,100 +41,8 @@ msgstr ""
 msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "# 🎉 Brilliant Work! 🎉\n"
-"\n"
-"You've mastered your first true theorem of analysis! Let's celebrate what you accomplished and understand the deeper patterns.\n"
-"\n"
-"**What you just proved:**\n"
-"If a sequence converges to a limit, then any constant multiple of that sequence converges to the constant multiple of the limit. In factory terms: 'If I can meet quality standards, I can also meet those same standards when scaling my output—I just need to be more precise with my inputs!'\n"
-"\n"
-"**The Elegant Strategy:**\n"
-"Your proof used the **inverse scaling** principle:\n"
-"1. **Tolerance inversion**: To achieve tolerance ε for doubled output, demand tolerance ε/2 for original input\n"
-"2. **Algebraic factoring**: `2 * a n - 2 * L = 2 * (a n - L)` revealed the structure\n"
-"3. **Absolute value scaling**: `|2 * x| = |2| * |x|`, followed by `norm_num`, converted the factored form to the needed bound\n"
-"4. **Linear arithmetic**: The final `linarith [hN]` combined `2 * |a n - L| < 2 * (ε / 2) = ε`\n"
-"\n"
-"## Check in, in Natural Language\n"
-"\n"
-"Let's again step back from the formal Lean proof and understand what we just proved in plain English.\n"
-"\n"
-"**Theorem (in natural language):** If a sequence of real numbers converges to some limit, then the sequence formed by doubling each term converges to double the original limit.\n"
-"\n"
-"**Proof:** Suppose sequence $a_n$ converges to $L$, and we want to show that $b_n = 2 \\cdot a_n$ converges to $2L$.\n"
-"\n"
-"By definition, we need to show that for any tolerance $\\varepsilon > 0$, we can find a point $N$ such that for all $n \\geq N$, we have $|b_n - 2L| < \\varepsilon$.\n"
-"\n"
-"Here's the key insight: Since $a_n$ converges to $L$, we can make $|a_n - L|$ arbitrarily small. Specifically, we can find an $N$ such that $|a_n - L| < \\varepsilon/2$ for all $n \\geq N$.\n"
-"\n"
-"Now, for any $n \\geq N$:\n"
-"$$|b_n - 2L| = |2a_n - 2L| = |2(a_n - L)| = 2|a_n - L| < 2 \\cdot \\frac{\\varepsilon}{2} = \\varepsilon$$\n"
-"\n"
-"Therefore, $b_n$ converges to $2L$, completing the proof.\n"
-"**QED**\n"
-"\n"
-"So what do you think? Do you prefer the natural langauge version, or the formal version? (It's a real question! Please tell me.)"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
 msgid "Big Boss: The Ultimate Tactic Challenge"
-msgstr ""
-
-#: Game.Levels.L1Pset.L1Pset2
-msgid "# Problem 2\n"
-"\n"
-"In this problem you are asked to show that there is some `c` so that `(x + y) ^ 2 = c`, given that\n"
-"`x * y = 1` and `x ^ 2 + y ^ 2 = 2`. Of course you can say `use (x + y) ^ 2`, but that's obviously\n"
-"not the point; the value of `c` that you choose should *not* involve `x` and `y`!\n"
-"\n"
-"You will likely have a hard time solving this problem as is.\n"
-"You surely can work out what value of\n"
-"`c` you need. But if you try\n"
-"`ring_nf`, you won't have control over\n"
-"how the \"normal form\" chooses to\n"
-"express things. In fact, the\n"
-"left-hand side, `(x + y) ^ 2` will\n"
-"turn into `x * y * 2 + x ^ 2 + y ^ 2`,\n"
-"which is parsed in this order:\n"
-"\n"
-"`(((x * y) * 2) + x ^ 2) + y ^ 2`\n"
-"\n"
-"This means that you *will* be able to\n"
-"`rewrite [h2]` successfully,\n"
-"but then you will *not* be able to rewrite by `h1`, because the (invisible) parentheses  go the wrong way. (Hint: If you want to know how things are grouped but don't see parentheses, you can hover your cursor over the text in the Goal State, and Lean will show you the groupings. Try it!)\n"
-"\n"
-"Now, in natural language, there are times when you might want to\n"
-"record an auxiliary fact: \"let's\n"
-"*have* the fact that such and such ...\". The Lean\n"
-"syntax for this is as follows:\n"
-"\n"
-"`have NewFactName (Assumptions) : Conclusion := by Proof`\n"
-"\n"
-"That is, you first write `have`; then give\n"
-"the new hypothesis a name; then include any\n"
-"assumptions, like `(x : ℝ)`, meaning, `x`\n"
-"is a real number, etc (the symbol `ℝ` is written with a backslash, then capital `R`, then space); then you put a colon,\n"
-"and then state the conclusion; then you\n"
-"put a colon-equals and the word `by`; and finally you give the proof.\n"
-"\n"
-"For example, if you wanted to declare\n"
-"the new fact that, say, for any real `u` and `v`,\n"
-"\n"
-"`(u + v) ^ 2 = (u ^ 2 + v ^ 2) + 2 * (u * v)`\n"
-"\n"
-"and you wanted to call this fact `huv` (a hypothesis on `u` and `v`),\n"
-"and you wanted to prove this fact by\n"
-"invoking the ring normal form tactic,\n"
-" then you would give Lean the command:\n"
-"\n"
-"`have huv (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v) := by ring_nf`\n"
-"\n"
-"This will add to your list of hypotheses\n"
-"the fact: `huv : ∀ (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v)`.\n"
-"\n"
-"Something like this (if not exactly this)\n"
-"will be useful to you in solving this problem."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
@@ -180,17 +74,6 @@ msgid "# 🎉 VICTORY! 🎉\n"
 "Imagine trying to learn chess by just reading through algebraic notation - 1.e4 e5 2.Nf3 Nf6 3.Bb5 a6 - sure, all the information is technically there, but isn't it so much easier to learn by actually looking at a chess board and seeing how the position changes after each move? In mathematics, it would be extraordinarily tedious to manually write on the blackboard the entire goal state after every move, keeping track of all the hypotheses and their relationships by hand. A theorem prover does this bookkeeping for you automatically, letting you focus on the mathematical content rather than the clerical work.\n"
 "\n"
 "But! This is, as we've already noted, a double-edged sword. We still want to train our brains to \"see\" a mental model of the goal state evolving - good chess players can visualize many moves ahead precisely because they've learned to maintain multiple mental game boards simultaneously. But until you develop that skill, and even after you have it, there's immense value in being able to instantly generate the current \"game board\" of your proof state. The immediate feedback helps you understand the consequences of each logical move, building the very intuition that will eventually let you work more independently. It's the difference between learning to navigate by always checking your GPS versus eventually developing an internal sense of direction - both have their place, and the former helps develop the latter."
-msgstr ""
-
-#: Game.Levels.L3Lecture
-msgid "# More on sequences\n"
-"\n"
-"Let's get to it!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L03_SumOfSeqs
-msgid "For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `SumLim` says that if\n"
-"there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n + b n` (that is, `c` is the sum of the sequences), then `SeqLim c (L + M)` holds."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset4
@@ -230,15 +113,10 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "The `linarith` tactic won't work\n"
-"yet, because it'll get stuck on that `|2|`; do you remember what to do\n"
-"to normalize the numerical value to just `2`?"
-msgstr ""
-
-#: Game.Levels.L3Levels.L03_SumOfSeqs
-msgid "Prove that the sum of two convergent sequences converges to the sum of their limits.\n"
-"This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!'"
+#: Game.Levels.L2PsetIntro
+msgid "# Problem Set 2\n"
+"\n"
+"This is problem set 2."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
@@ -404,20 +282,12 @@ msgid "# Level 1: The Main Definition\n"
 "Ok, get to it!"
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Start by unfolding the definition: `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |b n - 2 * L| < ε`"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "Write `rfl` since we're proving that something equals itself."
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
@@ -428,61 +298,8 @@ msgstr ""
 msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
 msgstr ""
 
-#: Game.Levels.L3Levels.L03_SumOfSeqs
-msgid "# Lecture 2 **Big Boss**: Adding Convergent Sequences\n"
-"\n"
-"Now that we've had some experience with the definition of convergence, let's tackle this world's Big Boss. One of the most fundamental ideas in analysis is that 'nice operations preserve convergence.' If two sequences each converge, then their sum also converges, and converges to the sum of their limits.\n"
-"\n"
-"This might seem obvious at first -- after all, if $a(n)$ is getting close to $L$ and $b(n)$ is getting close to $M$, shouldn't $a(n) + b(n)$ get close to $L + M$? While the intuition is correct, making this rigorous requires some clever maneuvering with our epsilon-N definition.\n"
-"\n"
-"**Lecture 2 Big Boss**\n"
-"Here's the key insight: if an engineer demands that our combined output be within $\\varepsilon$ of the target $L + M$, we can't just demand that each factory independently meet the full tolerance $\\varepsilon$. Instead, we need to be clever about how we allocate our 'tolerance budget.'\n"
-"\n"
-"Think of it this way: if the first factory can guarantee its output is within $\\varepsilon/2$ of $L$, and the second factory can guarantee its output is within $\\varepsilon/2$ of $M$, then by the triangle inequality, their sum will be within $\\varepsilon$ of $L + M$. This is the heart of the proof!\n"
-"\n"
-"## The Mathematical Setup\n"
-"\n"
-"Suppose we have:\n"
-"- A sequence $a : \\mathbb{N} \\to \\mathbb{R}$ that converges to $L$\n"
-"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ that converges to $M$\n"
-"- A sequence $c : \\mathbb{N} \\to \\mathbb{R}$ with the property that $c(n) = a(n) + b(n)$ for all $n$\n"
-"\n"
-"We want to prove that $c$ converges to $L + M$.\n"
-"\n"
-"## New Tool\n"
-"\n"
-"You'll only need one new theorem:\n"
-"\n"
-"**The triangle inequality**: The theorem `abs_add` states that `|x + y| ≤ |x| + |y|` for any real numbers `x` and `y`. This is crucial for our tolerance-splitting strategy.\n"
-"Again, when you want to use it in practice, you can always add\n"
-"a new hypothesis:\n"
-"\n"
-"`have NewInequality : |Something + SomethingElse| ≤\n"
-"|Something| + |SomethingElse| :=\n"
-"by apply abs_add`\n"
-"\n"
-"and then `rewrite [NewInequality]`.\n"
-"\n"
-"## Your Strategic Approach\n"
-"\n"
-"- Start by unfolding the definitions of `SeqLim` in the Goal and hypotheses. I recommend you give your dummy variables different names, so as not to get confused later.\n"
-"- Given any `ε > 0`, use the convergence of `a` to get an `Na` that works for `ε / 2`.\n"
-"- Similarly, use the convergence of `b` to get an `Nb` that works for `ε / 2`\n"
-"- You might think that it would be a good idea at this point to `use max Na Nb`, that is, take the larger of the two for `N`. But we don't care how big `N` is! Can you\n"
-"think of another way to achieve the same objective? (Hint:\n"
-" I haven't told you how to use the `max` function, but I bet you can come up with another function for which you already have everything you need at your disposal...)\n"
-"- Use the triangle inequality to combine the two half-tolerances\n"
-"\n"
-"This proof embodies a fundamental principle in analysis: when dealing with sums, we often need to 'divide and conquer' by splitting our error tolerance between the components."
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
 msgid "Write `ring_nf` to expand and simplify both sides algebraically."
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.\n"
-"This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!'"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
@@ -492,10 +309,6 @@ msgstr ""
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "Prove that the constant sequence converges to its constant value.\n"
 "This is the Machinist's dream scenario: we're already producing exactly what's required!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
@@ -510,46 +323,47 @@ msgstr ""
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
 
-#: Game.Levels.L3Levels.L03_SumOfSeqs
-msgid "# 🎉 Outstanding! 🎉\n"
-"\n"
-"You've just proven one of the fundamental theorems of analysis! Let's celebrate what you accomplished and understand why this result is so powerful.\n"
-"\n"
-"**Why This Matters:**\n"
-"This theorem and others like it are the foundation for all of calculus! Every time we differentiate or integrate a sum, we're implicitly using arguments of this kind.\n"
-"\n"
-"**The Deeper Insight:**\n"
-"Notice how the proof required more than just intuition. The 'obvious' fact that sums of convergent sequences converge needed careful epsilon management. This is the hallmark of rigorous analysis: making intuitive ideas completely precise.\n"
-"\n"
-"## Check in, in Natural Language\n"
-"\n"
-"Yet again, let's step back from the formal Lean proof and understand what we just proved in plain English.\n"
-"\n"
-"**Theorem (in natural language):** If two sequences of real numbers converge to their respective limits, then the sequence formed by adding corresponding terms also converges, and its limit is the sum of the original limits.\n"
-"\n"
-"**Proof:** Suppose sequences $a(n)$ and $b(n)$ converge to $L$ and $M$ respectively, and we want to show that $c(n) = a(n) + b(n)$ converges to $L + M$.\n"
-"\n"
-"By definition, we need to show that for any tolerance $\\varepsilon > 0$, we can find a point $N$ such that for all $n \\geq N$, we have $|c(n) - (L + M)| < \\varepsilon$.\n"
-"\n"
-"Since $a(n)$ converges to $L$, we can find $N_1$ such that $|a(n) - L| < \\varepsilon/2$ for all $n \\geq N_1$.\n"
-"Since $b(n)$ converges to $M$, we can find $N_2$ such that $|b(n) - M| < \\varepsilon/2$ for all $n \\geq N_2$.\n"
-"\n"
-"Let $N = N_1 + N_2$ (any number that's at least as large as both $N_1$ and $N_2$ would work). Then for any $n \\geq N$:\n"
-"\n"
-"$$|c(n) - (L + M)| = |(a(n) + b(n)) - (L + M)| = |(a(n) - L) + (b(n) - M)|$$\n"
-"\n"
-"By the triangle inequality, this is at most:\n"
-"$$|a(n) - L| + |b(n) - M| < \\frac{\\varepsilon}{2} + \\frac{\\varepsilon}{2} = \\varepsilon$$\n"
-"\n"
-"Therefore, $c(n)$ converges to $L + M$. **QED**"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L08_obtain
 msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
 msgstr ""
 
-#: Game.Levels.L2Pset.L2Pset2
-msgid "# Problem 2"
+#: Game
+msgid "# Welcome to Real Analysis, The Game!\n"
+"\n"
+"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
+"or better yet, post a PR/issue to\n"
+"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"\n"
+"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
+"and basic Point-Set Topology.\n"
+"\n"
+"To get started, click on\n"
+"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+msgstr ""
+
+#: Game.Levels.L2Pset.L2Pset1
+msgid "# Problem 1\n"
+"\n"
+"We found in Lecture 2 that Newton's Binomial Theorem gave the expansion\n"
+"\n"
+"$\n"
+"\\sqrt{1+x}\\approx\n"
+"1\n"
+"+\\frac{1}{2}x\n"
+"-\\frac{1}{8}x^2\n"
+"+\\frac{1}{16}x^3\n"
+"-\\frac{5 x^4}{128}+\\cdots\n"
+"$\n"
+"\n"
+"to fourth order.\n"
+"Work out the next term in the expansion. This will be a constant `c` with the property that the polynomial\n"
+"\n"
+"$\\left(1  +\\frac{1}{2}x\n"
+"-\\frac{1}{8}x^2\n"
+"+\\frac{1}{16}x^3\n"
+"-\\frac{5 x^4}{128} + c \\cdot x^5 \\right)^2 - (1 + x)$\n"
+"\n"
+"only has terms $x ^ 6$ or higher. (We don't *yet* have a way of saying that in Lean, so I have to give you the expansion explicitly.)"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
@@ -642,14 +456,6 @@ msgid "# The Final Challenge\n"
 "An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Doubling a Convergent Sequence"
-msgstr ""
-
-#: Game
-msgid "An Introduction to Formal Real Analysis"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "There exists a real number that makes this binomial expansion work."
 msgstr ""
@@ -689,10 +495,6 @@ msgstr ""
 msgid "For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The specialize tactic"
 msgstr ""
@@ -701,8 +503,8 @@ msgstr ""
 msgid "Introduction to Lean"
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
+#: Game.Levels.L1Pset.L1Pset2
+msgid "Show that there exists a constant `c` so that, for any real numbers `x` and `y` with `x ^ 2 + y ^ 2 = 2` and `x * y = 1`, we have `(x + y) ^ 2 = c`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_obtain
@@ -735,40 +537,36 @@ msgid "# When things are identical to themselves\n"
 "Try it out!"
 msgstr ""
 
+#: Game
+msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
+"\n"
+"## About this Course\n"
+"\n"
+"This course follows the historical crises that forced mathematicians to rebuild\n"
+"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
+"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
+"\n"
+"## Credits\n"
+"\n"
+"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
+"* **Interactive Implementation:** Lean 4 Game Engine\n"
+"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L08_obtain
 msgid "The obtain tactic"
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
-msgstr ""
-
-#: Game
-msgid "# Welcome to Real Analysis, The Game!\n"
-"\n"
-"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
-"or better yet, send a PR to\n"
-"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
-"\n"
-"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
-"and basic Point-Set Topology.\n"
-"\n"
-"To get started, click on\n"
-"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
-msgstr ""
-
 #: Game.Levels.L1Pset.L1Pset1
-#: Game.Levels.L2Pset.L2Pset1
 msgid "# Problem 1"
-msgstr ""
-
-#: Game.Levels.L2Pset.L2Pset2
-msgid "For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `ProdLim` says that if\n"
-"there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n * b n` (that is, `c` is the product of the sequences), then `SeqLim c (L * M)` holds."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "The `apply` tactic solves a goal when one of the hypotheses is the same as the goal. The syntax is `apply hypothesis_name`"
+msgstr ""
+
+#: Game
+msgid "An Introduction to (Formal) Real Analysis"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
@@ -814,7 +612,6 @@ msgid "# Extracting information from existential quantifiers\n"
 "You should be able to figure out how to solve the goal from here."
 msgstr ""
 
-#: Game.Levels.L1Pset.L1Pset2
 #: Game.Levels.L1Pset.L1Pset3
 #: Game.Levels.L1Pset.L1Pset4
 #: Game.Levels.L1Pset.L1Pset5
@@ -853,8 +650,67 @@ msgid "For any sequence `a : ℕ → ℝ` and constant `L : ℝ`, and\n"
 "proves that `SeqLim a L`, that is, the (constant) sequence `a` converges to `L`."
 msgstr ""
 
+#: Game.Levels.L1Pset.L1Pset2
+msgid "# Problem 2\n"
+"\n"
+"In this problem you are asked to show that there is some `c` so that `(x + y) ^ 2 = c`, given that\n"
+"`x * y = 1` and `x ^ 2 + y ^ 2 = 2`.\n"
+"\n"
+"You will likely have a hard time solving this problem as is.\n"
+"You surely can work out what value of\n"
+"`c` you need. But if you try\n"
+"`ring_nf`, you won't have control over\n"
+"how the \"normal form\" chooses to\n"
+"express things. In fact, the\n"
+"left-hand side, `(x + y) ^ 2` will\n"
+"turn into `x * y * 2 + x ^ 2 + y ^ 2`,\n"
+"which is parsed in this order:\n"
+"\n"
+"`(((x * y) * 2) + x ^ 2) + y ^ 2`\n"
+"\n"
+"This means that you *will* be able to\n"
+"`rewrite [h2]` successfully,\n"
+"but then you will *not* be able to rewrite by `h1`, because the (invisible) parentheses  go the wrong way. (Hint: If you want to know how things are grouped but don't see parentheses, you can hover your cursor over the text in the Goal State, and Lean will show you the groupings. Try it!)\n"
+"\n"
+"Now, in natural language, there are times when you might want to\n"
+"record an auxiliary fact: \"let's\n"
+"*have* the fact that such and such ...\". The Lean\n"
+"syntax for this is as follows:\n"
+"\n"
+"`have NewFactName (Assumptions) : Conclusion := by Proof`\n"
+"\n"
+"That is, you first write `have`; then give\n"
+"the new hypothesis a name; then include any\n"
+"assumptions, like `(x : ℝ)`, meaning, `x`\n"
+"is a real number, etc (the symbol `ℝ` is written with a backslash, then capital `R`, then space); then you put a colon,\n"
+"and then state the conclusion; then you\n"
+"put a colon-equals and the word `by`; and finally you give the proof.\n"
+"\n"
+"For example, if you wanted to declare\n"
+"the new fact that, say, for any real `u` and `v`,\n"
+"\n"
+"`(u + v) ^ 2 = (u ^ 2 + v ^ 2) + 2 * (u * v)`\n"
+"\n"
+"and you wanted to call this fact `huv` (a hypothesis on `u` and `v`),\n"
+"and you wanted to prove this fact by\n"
+"invoking the ring normal form tactic,\n"
+" then you would give Lean the command:\n"
+"\n"
+"`have huv (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v) := by ring_nf`\n"
+"\n"
+"This will add to your list of hypotheses\n"
+"the fact: `huv : ∀ (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v)`.\n"
+"\n"
+"Something like this (if not exactly this)\n"
+"will be useful to you in solving this problem."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
 msgid "The binomial expansion: $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$."
+msgstr ""
+
+#: Game.Levels.L2PsetIntro
+msgid "Pset 2"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset4
@@ -863,19 +719,6 @@ msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "While you may see `0 < ε` in the goal and `ε > 0` in the hypothesis `hε`, Lean will still know that these two things are exactly the same..."
-msgstr ""
-
-#: Game.Levels.L2PsetIntro
-msgid "# Problem Set 2\n"
-"\n"
-"The so-called Algebraic Limit Theorem for sequences says that: if `a` and `b` are two sequences, `a b : ℕ → ℝ`, and `L` and `M` are two real numbers, with `lim a = L` and `lim b = M`, then:\n"
-"\n"
-"- (i) for any constant `c`, `lim c * a = c * L` (you already proved this in the special case `c = 2`, and the general case is similar -- with one catch; can you tell what it is?)\n"
-"- (ii) `lim (a + b) = L + M` (you already proved this as well)\n"
-"- (iii) `lim (a * b) = L * M`, and\n"
-"- (iv) `lim (a / b) = L / M`, as long as `M ≠ 0`.\n"
-"\n"
-"Can you guess what the problem set is? :)"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory
@@ -1034,22 +877,6 @@ msgid "# Universal statements\n"
 "\n"
 "If you want to be really slick, you can combine the two `intro` commands into\n"
 "one: `intro ε hε`. But don't feel obliged."
-msgstr ""
-
-#: Game
-msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
-"\n"
-"## About this Course\n"
-"\n"
-"This course follows the historical crises that forced mathematicians to rebuild\n"
-"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
-"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
-"\n"
-"## Credits\n"
-"\n"
-"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
-"* **Interactive Implementation:** Lean 4 Game Engine\n"
-"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, etc."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
@@ -1459,8 +1286,9 @@ msgstr ""
 msgid "Lecture 1: The Story of Real Analysis"
 msgstr ""
 
-#: Game.Levels.L3Levels.L03_SumOfSeqs
-msgid "Big Boss: The Sum of Convergent Sequences"
+#: Game.Levels.L2Pset.L2Pset1
+#: Game.Levels.L2Pset.L2Pset2
+msgid "Find the correct constant."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
@@ -1541,86 +1369,6 @@ msgid "# 🎉 Excellent Work! 🎉\n"
 "**QED**"
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "# Level 1: Doubling Convergence\n"
-"\n"
-"After conquering the constant sequence, let's up our game: if a sequence converges, then doubling that sequence also converges, and converges to double the original limit.\n"
-"\n"
-"## The Factory Scaling Challenge\n"
-"\n"
-"Imagine our Machinist receives a challenge from the Engineer: 'Please double all the lengths, but maintain the same quality standards.' How should the Machinist respond?\n"
-"\n"
-"If the Engineer demands the doubled lengths be within $\\varepsilon$ of $2L$, the Machinist can't just demand that the original process meet the original tolerance $\\varepsilon$, because\n"
-"\n"
-"`|2 * a (n) - 2 * L| < 2 * ε`,\n"
-"\n"
-"not `ε`. Instead, we must be more clever. Can you think of what to do?\n"
-"\n"
-"That's right, the `ε` in the original process\n"
-"is *arbitrary*, so we can play with it!\n"
-"If we could get the original process can guarantee output within $\\varepsilon/2$ of $L$, then doubling that output will be within $\\varepsilon$ of $2L$.\n"
-"\n"
-"This is the key insight: **when scaling by a constant, we need to scale our tolerance demands inversely**.\n"
-"\n"
-"## The Mathematical Setup\n"
-"\n"
-"Suppose we have:\n"
-"- A sequence $a : \\mathbb{N} \\to \\mathbb{R}$ that converges to $L$\n"
-"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ with the property that $b(n) = 2 \\cdot a(n)$ for all $n$\n"
-"\n"
-"We want to prove that $b$ converges to $2 \\cdot L$.\n"
-"\n"
-"## Key Insight: Inverse Tolerance Scaling\n"
-"\n"
-"The crucial observation is that:\n"
-"\n"
-"$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = 2 \\cdot |a(n) - L|$\n"
-"\n"
-"So if we want $|b(n) - 2L| < \\varepsilon$, we need $2 \\cdot |a(n) - L| < \\varepsilon$, which means $|a(n) - L| < \\varepsilon/2$.\n"
-"\n"
-"This is exactly what we can get from the convergence of $a$!\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"**Absolute Value of Products**:\n"
-"You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:\n"
-"\n"
-"$|x \\cdot y| = |x| \\cdot |y|$.\n"
-"\n"
-"To use this theorem, you may find it convenient to\n"
-"make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,\n"
-"\n"
-"`have NewFact : |Something * SomethingElse| =\n"
-"|Something| * |SomethingElse| :=\n"
-"by apply abs_mul`\n"
-"\n"
-"and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).\n"
-"\n"
-"**Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,\n"
-"if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
-"and your Goal is to prove that `2 * X ≤ Z`, then\n"
-"simply calling `linarith [h₁, h₂]` will do the trick.\n"
-"\n"
-"## Your Strategic Approach\n"
-"\n"
-"1. Unfold the definition of convergence for the goal\n"
-"2. Given any $\\varepsilon > 0$, use the convergence of $a$ with tolerance $\\varepsilon/2$. You may find it useful to separately prove the inequality `0 < ε / 2` -- which\n"
-"tactic do you think will help with that?\n"
-"3. Extract the witness $N$ from the convergence of $a$\n"
-"4. Use the same $N$ for your sequence $b$\n"
-"5. Apply the scaling hypothesis and use `abs_mul` to relate $|b(n) - 2L|$ to $|a(n) - L|$\n"
-"6. Use the convergence bound for $a$ to conclude\n"
-"\n"
-"## Why This Pattern Matters\n"
-"\n"
-"This proof introduces the important technique of **inverse scaling** for tolerances. When you scale a sequence by a constant $c$, you need to scale your tolerance demands by $1/c$. This principle will appear again when you study:\n"
-"- Products of sequences (where both factors contribute to the error)\n"
-"- Derivatives (where the limit definition involves scaling by $h$)\n"
-"- Integration (where Riemann sums involve scaling by partition widths)\n"
-"\n"
-"The ability to manage how constants affect convergence is fundamental to all of analysis!"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
 msgid "The ring_nf tactic"
 msgstr ""
@@ -1691,7 +1439,16 @@ msgid "# Using universal statements\n"
 msgstr ""
 
 #: Game.Levels.L2Pset.L2Pset2
-msgid "Prove that the product of two convergent sequences converges to the product of their limits."
+msgid "# Problem 2\n"
+"\n"
+"Do the same for the exponent $3/2$. Find constants `c`, `d`, and `e` so that:\n"
+"\n"
+"$(1 + \\frac32 x + c \\cdot x^2 + d \\cdot x^3 + e \\cdot x^4)^2 - (1 + x) ^ 3$\n"
+"\n"
+"has only terms of degree five or higher.\n"
+"\n"
+"Hint: when you have multiple existential quantifiers, you can just write a single `use`\n"
+"and separate the answers by a comma, like so: `use 6, 7, 42` (in place of: `use 6`, then `use 7`, then `use 42`)."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
@@ -1702,10 +1459,6 @@ msgid "Excellent! You've learned the `rfl` tactic.\n"
 "- Use `rfl` when you need to prove that something equals itself\n"
 "\n"
 "These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_DoubleSeqConv
-msgid "Also try unfolding the definition in `h`: `change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h`"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset5
@@ -1729,8 +1482,4 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `apply`, `rfl`, `rewrite` for basic equality reasoning\n"
 "- `ring_nf` for algebraic manipulation\n"
 "- `use` for existence proofs"
-msgstr ""
-
-#: Game.Levels.L3Levels.L03_SumOfSeqs
-msgid "For any real numbers `x` and `y`, we have `|x + y| ≤ |x| + |y|`."
 msgstr ""
