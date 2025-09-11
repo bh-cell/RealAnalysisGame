@@ -302,7 +302,7 @@ Here's a nice YouTube video by Veritasium that discusses this whole saga (right-
 - What it meant for a sequence of real numbers $a_0, a_1, a_2,\\dots$ to converge?
 - What it meant for a series (that is, sequence of partial sums) $a_0 + a_1 + a_2 +\\cdots$ to converge, and could we sum these numbers in any order we like,
 - What it meant for a series involving a variable, like a power series $a_0 + a_1  x + a_2  x^2+\\cdots$ to converge, and if so, what kind of function it converged to,
-- When can we interchange limits with integrals, like integrating term by term, $\\int(a_0 + a_1  x + a_2  x^2+)dx\\cdots \\overset{?}=\\int \\, a_0\\, dx+\\int \\, a_1  x\\, dx+\\int\\, a_2  x^2\\, dx+\\cdots$,
+- When can we interchange limits with integrals, like integrating term by term, $\\int(a_0 + a_1  x + a_2  x^2+\\cdots)dx \\overset{?}=\\int \\, a_0\\, dx+\\int \\, a_1  x\\, dx+\\int\\, a_2  x^2\\, dx+\\cdots$,
 
 Etc, etc. We have a lot of work to do!
 
