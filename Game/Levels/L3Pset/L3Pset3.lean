@@ -1,4 +1,4 @@
-import Game.Levels.L2Pset.L2Pset1
+import Game.Levels.L3Pset.L3Pset2
 
 World "L3Pset"
 Level 3
@@ -6,39 +6,38 @@ Title "Problem 3"
 
 Introduction "# Problem 3"
 
-def IsBddBy (a : ℕ → ℝ) (M : ℝ) : Prop := ∀ n, |a n| ≤ M
 
-def IsBdd (a : ℕ → ℝ) : Prop := ∃ M, IsBddBy a M
-
-/-- Prove that the product of two convergent sequences converges to the product of their limits. -/
-Statement (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) : IsBdd a := by
-  change ∃ M, ∀ n, |a n| ≤ M
-  change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - L| < ε at ha
-
-  -- Get N such that |a n - L| < 1 for n ≥ N
-  obtain ⟨N, hN⟩ := ha 1 (by norm_num : (1 : ℝ) > 0)
-
-  -- Define M as the maximum of |L| + 1 and the maximum of |a i| for i < N
-  let finite_max : ℝ := sorry --Finset.sup (Finset.range N) (fun i => |a i|₊)
-  use max (|L| + 1) finite_max
-
-  -- intro n
-  -- -- Case split: n < N or n ≥ N
-  -- by_cases h : n < N
-  -- · -- Case: n < N
-  --   apply le_max_of_le_right
-  --   exact Finset.le_sup'_of_le (Finset.mem_range.mpr h) le_rfl
-
-  -- · -- Case: n ≥ N
-  --   push_neg at h
-  --   -- Use triangle inequality: |a n| ≤ |a n - L| + |L|
-  --   calc |a n|
-  --     = |(a n - L) + L|         := by ring_nf
-  --     _ ≤ |a n - L| + |L|       := abs_add _ _
-  --     _ < 1 + |L|               := by linarith [hN n h]
-  --     _ = |L| + 1               := by ring
-  --     _ ≤ max (|L| + 1) finite_max := le_max_left _ _
-
-  sorry
+/-- Prove this. -/
+Statement (a : ℕ → ℝ) (ha : ∀ n, a n = (3 * n + (-1) ^ n) / (2 * n + 5)) :
+    SeqConv a := by
+use 3 / 2
+intro ε hε
+choose N hN using ArchProp (by bound : 0 < 4 * ε / 17)
+have Npos : (0 : ℝ) < N := by sorry --- positivity -- bound --linarith
+field_simp at hN
+use N
+intro n hn
+specialize ha n
+rewrite [ha]
+have : ((3 : ℝ) * n + (-1) ^ n) / (2 * n + 5) - 3 / 2 =
+  ((-1) ^ n * 2 - 15) / (2 * (2 * n + 5))
+  := by field_simp; ring_nf
+rewrite [this]
+have : |((-1 : ℝ) ^ n * 2 - 15) / (2 * (2 * ↑n + 5))| =
+  |((-1 : ℝ) ^ n * 2 - 15)|
+   /
+   |((2 : ℝ) * (2 * ↑n + 5))| := by apply abs_div
+rewrite [this]
+have h' : |(-1) ^ n * 2 - 15| ≤ 17 := by sorry -- bound FAILS
+have : (N : ℝ) ≤ n := by exact_mod_cast hn
+have : 0 < (2 : ℝ) * (2 * n + 5) := by bound
+have : |(2 : ℝ) * (2 * n + 5)| = (2 : ℝ) * (2 * n + 5) := by apply abs_of_pos this
+rewrite [this]
+have hh : (2 : ℝ) * (2 * N) ≤ (2 : ℝ) * (2 * n + 5) := by bound
+have hhh : 0 < (2 : ℝ) * (2 * N) := by nlinarith
+have hh' : |(-1 : ℝ) ^ n * 2 - 15| / (2 * (2 * n + 5)) ≤
+  17 / ((2 : ℝ) * (2 * N)) := by field_simp; sorry --bound --nlinarith
+have : (17 : ℝ) / (2 * (2 * N)) < ε := by field_simp; bound
+linarith [hh', this]
 
 Conclusion "Done."

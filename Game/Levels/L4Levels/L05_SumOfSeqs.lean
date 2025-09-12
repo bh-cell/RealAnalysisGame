@@ -1,17 +1,17 @@
-import Game.Levels.L3Levels.L02_DoubleSeqConv
+import Game.Levels.L3Levels.L04_DoubleSeqConv
 
 World "Lecture3"
-Level 2
+Level 5
 Title "Big Boss: The Sum of Convergent Sequences"
 
 Introduction "
-# Lecture 2 **Big Boss**: Adding Convergent Sequences
+# Lecture 3 **Big Boss**: Adding Convergent Sequences
 
 Now that we've had some experience with the definition of convergence, let's tackle this world's Big Boss. One of the most fundamental ideas in analysis is that 'nice operations preserve convergence.' If two sequences each converge, then their sum also converges, and converges to the sum of their limits.
 
 This might seem obvious at first -- after all, if $a(n)$ is getting close to $L$ and $b(n)$ is getting close to $M$, shouldn't $a(n) + b(n)$ get close to $L + M$? While the intuition is correct, making this rigorous requires some clever maneuvering with our epsilon-N definition.
 
-**Lecture 2 Big Boss**
+**Lecture 3 Big Boss**
 Here's the key insight: if an engineer demands that our combined output be within $\\varepsilon$ of the target $L + M$, we can't just demand that each factory independently meet the full tolerance $\\varepsilon$. Instead, we need to be clever about how we allocate our 'tolerance budget.'
 
 Think of it this way: if the first factory can guarantee its output is within $\\varepsilon/2$ of $L$, and the second factory can guarantee its output is within $\\varepsilon/2$ of $M$, then by the triangle inequality, their sum will be within $\\varepsilon$ of $L + M$. This is the heart of the proof!
@@ -25,19 +25,6 @@ Suppose we have:
 
 We want to prove that $c$ converges to $L + M$.
 
-## New Tool
-
-You'll only need one new theorem:
-
-**The triangle inequality**: The theorem `abs_add` states that `|x + y| ≤ |x| + |y|` for any real numbers `x` and `y`. This is crucial for our tolerance-splitting strategy.
-Again, when you want to use it in practice, you can always add
-a new hypothesis:
-
-`have NewInequality : |Something + SomethingElse| ≤
-|Something| + |SomethingElse| :=
-by apply abs_add`
-
-and then `rewrite [NewInequality]`.
 
 ## Your Strategic Approach
 
@@ -52,10 +39,6 @@ think of another way to achieve the same objective? (Hint:
 This proof embodies a fundamental principle in analysis: when dealing with sums, we often need to 'divide and conquer' by splitting our error tolerance between the components.
 "
 
-/-- For any real numbers `x` and `y`, we have `|x + y| ≤ |x| + |y|`. -/
-TheoremDoc abs_add as "abs_add" in "Theorems"
-
-NewTheorem abs_add
 
 /-- For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `SumLim` says that if
 there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n + b n` (that is, `c` is the sum of the sequences), then `SeqLim c (L + M)` holds. -/
@@ -87,13 +70,13 @@ Statement SumLim (a b c : ℕ → ℝ) (L M : ℝ)
   rewrite [thing]
   specialize hNa n
   specialize hNb n
-  have ineq_a : Na ≤ n := by linarith [hn]
-  have ineq_b : Nb ≤ n := by linarith [hn]
+  have ineq_a : Na ≤ n := by bound -- linarith [hn]
+  have ineq_b : Nb ≤ n := by bound -- linarith [hn]
   specialize hNa ineq_a
   specialize hNb ineq_b
   have ineq : |a n - L + (b n - M)| ≤
     |a n - L| + |(b n - M)| := by apply abs_add
-  linarith [hNa, hNb, ineq]
+  bound --linarith [hNa, hNb, ineq]
 
 
 Conclusion "

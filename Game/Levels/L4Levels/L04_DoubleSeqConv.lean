@@ -1,8 +1,7 @@
-import Game.Metadata
-import Game.Levels.L2NewtonsCalculationOfPi
+import Game.Levels.L3Levels.L03_NonConverge
 
 World "Lecture3"
-Level 1
+Level 4
 Title "Doubling a Convergent Sequence"
 
 Introduction "
@@ -60,11 +59,6 @@ by apply abs_mul`
 
 and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).
 
-**Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,
-if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,
-and your Goal is to prove that `2 * X ≤ Z`, then
-simply calling `linarith [h₁, h₂]` will do the trick.
-
 ## Your Strategic Approach
 
 1. Unfold the definition of convergence for the goal
@@ -85,10 +79,7 @@ This proof introduces the important technique of **inverse scaling** for toleran
 The ability to manage how constants affect convergence is fundamental to all of analysis!
 "
 
-/-- The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants. -/
-TacticDoc linarith
 
-NewTactic linarith
 
 /-- For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`. -/
 TheoremDoc abs_mul as "abs_mul" in "Theorems"
@@ -109,7 +100,7 @@ Statement (a b : ℕ → ℝ) (L : ℝ)
   Hint (hidden := true) "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
   specialize h (ε / 2)
   Hint (hidden := true) (strict := true) "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
-  have eps_half_pos : 0 < ε / 2 := by linarith [hε]
+  have eps_half_pos : 0 < ε / 2 := by bound --linarith [hε]
   specialize h eps_half_pos
   choose N hN using h
   use N
@@ -132,7 +123,7 @@ Statement (a b : ℕ → ℝ) (L : ℝ)
   to normalize the numerical value to just `2`?"
   norm_num
   Hint (hidden := true) (strict := true) "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
-  linarith [hN]
+  bound --linarith [hN]
 
 Conclusion "
 # 🎉 Brilliant Work! 🎉

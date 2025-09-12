@@ -1,12 +1,18 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-07\n"
+"POT-Creation-Date: 2025-09-12\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Prove the \\\"Archimedean Property\\\"\n"
+"that no matter how small `ε > 0` may be,\n"
+"there is always a natural number `N` with `1 / ε < N`."
+msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset2
 msgid "Did you end up using `huv`?\n"
@@ -15,8 +21,34 @@ msgid "Did you end up using `huv`?\n"
 "`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
 msgstr ""
 
+#: Game.Levels.L3Lecture
+msgid "Lecture 3: More fun with Sequences"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants."
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "This is a good time to record the fact that `1 / ε ≤ ⌈1 / ε⌉₊`.\n"
+"You can do that with: `have fact : 1 / ε ≤ ⌈1 / ε⌉₊ := by bound`. The `bound` tactic can solve inequalities like this."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "The `field_simp` tactic tries to clear denominators, if it can figure out that the denominators are non-zero (or in the case of inequalities, positive)."
+msgstr ""
+
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "You might think that the `bound` tactic\n"
+"would also be able to solve `1 / ε < ↑(⌈1 / ε⌉₊ + 1)`, but No!\n"
+"That's because the addition `⌈1 / ε⌉₊ + 1` happens as **natural numbers**, and only then is the result cast to the reals; so the\n"
+"`fact` that was just proved is not useful to `bound`. Instead try: `push_cast` to get the casting to push down as far as possible.\n"
+"The Goal will change to `1 / ε < ↑⌈1 / ε⌉₊ + 1`, where now the\n"
+"ceiling is cast to the reals, and then the real number `1` is added."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L05_use
@@ -37,12 +69,16 @@ msgstr ""
 msgid "Learn real analysis through the historical crises that forced mathematicians to rebuild calculus from the ground up in the 19th century."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
+#: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
 msgid "Big Boss: The Ultimate Tactic Challenge"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Given `ε` and the fact that `0 < ε`, the theorem `ArchProp` claims the existence of `N : ℕ` so that `1 / ε < N`. This is a formalization of the classical Archimedean Property."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
@@ -117,6 +153,10 @@ msgstr ""
 msgid "# Problem Set 2\n"
 "\n"
 "This is problem set 2."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Now we need `1 / n < ε`. First establish that everything is positive. Start with: `have f3 : 0 < 1 / ε := by bound`"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
@@ -282,6 +322,10 @@ msgid "# Level 1: The Main Definition\n"
 "Ok, get to it!"
 msgstr ""
 
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "And now the `bound` tactic will do the trick."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "Write `rfl` since we're proving that something equals itself."
 msgstr ""
@@ -323,7 +367,15 @@ msgstr ""
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "The `exact_mod_cast` tactic is similar to `apply`, except it automatically handles type coercions that would otherwise require manual casting."
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "The `push_cast` tactic handles coercions between number types, particularly useful when working with natural numbers that need to be treated as real numbers (or integers, or rationals)."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
 msgstr ""
 
@@ -366,6 +418,10 @@ msgid "# Problem 1\n"
 "only has terms $x ^ 6$ or higher. (We don't *yet* have a way of saying that in Lean, so I have to give you the expansion explicitly.)"
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Clear denominators in the goal: `field_simp`"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset3
 msgid "# Problem 3\n"
 "\n"
@@ -403,6 +459,62 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "As usual, compare to what's written in textbooks:\n"
+"\n"
+"## Natural Language Proof of `1 / n → 0`\n"
+"\n"
+"**Theorem**: The sequence `a(n) = 1 / n` converges to `0`.\n"
+"\n"
+"**Proof**:\n"
+"Let `ε > 0` be given. We need to find `N : ℕ` such that for all `n ≥ N`, we have `|1 / n - 0| < ε`.\n"
+"\n"
+"**Finding N**: Since `ε > 0`, we have `1 / ε > 0`. By the Archimedean Property, there exists a natural number `N` such that `1 / ε < N`. We choose this value of `N`, and use it.\n"
+"\n"
+"**Verification**: Now let `n ≥ N` be given. We need to show that `|1 / n| < ε`.\n"
+"\n"
+"Since `1 / ε < N` and `N ≤ n`, we have `1 / ε < n`. Since both `1 / ε` and `n` are positive, taking reciprocals reverses the inequality: `1 / n < ε`.\n"
+"\n"
+"Therefore, `|1 / n - 0| = |1 / n| = 1 / n < ε`, which completes the proof. □\n"
+"\n"
+"## What We Just Accomplished\n"
+"\n"
+"This proof demonstrates several key concepts:\n"
+"\n"
+"1. **The power of the Archimedean Property**: Without it, we couldn't guarantee the existence of a suitable `N`.\n"
+"\n"
+"2. **The `ε`-`N` definition in action**: We explicitly constructed `N` in terms of `ε`, showing the quantifier structure `∀ε ∃N ∀n`.\n"
+"\n"
+"3. **Rigorous inequality manipulation**: What seems \"obvious\" requires careful attention to positivity and type casting.\n"
+"\n"
+"4. **The bridge between intuition and formality**: The intuitive idea that \"`1 / n` gets arbitrarily small\" becomes a precise mathematical statement."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Multiply the inequality `N ≤ n` by ε: `have f4 : N * ε ≤ n * ε := by bound`"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "Excellent! You've learned the `choose` tactic for working with existence in hypotheses.\n"
+"\n"
+"Notice the complete pattern:\n"
+"1. `choose c hc using h` unpacked the hypothesis into a specific value `c` and proof `hc : f c = 2`\n"
+"2. `use c` provided this same value as our witness for the goal\n"
+"3. `rewrite [hc]` rewrote `f c` as `2` in the goal, changing it to `2^2 = 4`\n"
+"4. `ring_nf` verified that `2 ^ 2 = 4`\n"
+"\n"
+"The symmetry is beautiful:\n"
+"- `use` when you have `∃` in the goal (\"here's my specific example\")\n"
+"- `choose` when you have `∃` in a hypothesis (\"let me unpack this existence claim\")\n"
+"\n"
+"This completes your basic logical toolkit! In real analysis, you'll use `choose` constantly when working with:\n"
+"- Limit definitions (\"given ε > 0, there exists δ > 0...\")\n"
+"- Intermediate Value Theorem (\"there exists c such that f(c) = 0\")\n"
+"- Existence theorems throughout analysis\n"
+"\n"
+"You're now ready to tackle real mathematical proofs!"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
@@ -460,7 +572,11 @@ msgstr ""
 msgid "There exists a real number that makes this binomial expansion work."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "We need to find `N`. Use the Archimedean Property: there exists `N` such that `1 / ε < N`. Try: `have f1 : ∃ (N : ℕ), 1 / ε < N := by apply ArchProp hε`"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "If you're struggling to prove that `2 ^ 2 = 4`, it's\n"
 "a basic fact in a *ring*..."
 msgstr ""
@@ -487,6 +603,10 @@ msgid "Excellent! You've learned the `ring_nf` tactic.\n"
 "As we move into real analysis proper, you'll find that `ring_nf` is invaluable for dealing with polynomial expressions, which appear everywhere in calculus!"
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Since 1 / ε < N, we get N > 0: `have Npos : (0 : ℝ) < N := by linarith [f3, eps_inv_lt_N]`. Again we need to be specific about the casting."
+msgstr ""
+
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "The `norm_num` tactic can normalize numerical constants and functions of them."
 msgstr ""
@@ -507,12 +627,57 @@ msgstr ""
 msgid "Show that there exists a constant `c` so that, for any real numbers `x` and `y` with `x ^ 2 + y ^ 2 = 2` and `x * y = 1`, we have `(x + y) ^ 2 = c`."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Archimedean Property"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Try `use ⌈1 / ε⌉₊ + 1`. Of course you can use other values of `N`, but then I won't be able to give you more hints..."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "The `choose` tactic extracts a witness from an existence statement in a hypothesis."
 msgstr ""
 
 #: Game
 msgid "A First Course in Real Analysis"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Let's compare now to the purely natural language proof:\n"
+"\n"
+"## Natural Language Proof of the Archimedean Property\n"
+"\n"
+"**Theorem**: For any positive real number ε > 0, there exists a natural number N such that 1 / ε < N.\n"
+"\n"
+"**Proof**:\n"
+"Let ε > 0 be given. We need to find a natural number N such that 1 / ε < N.\n"
+"\n"
+"Use the value N = ⌈1 / ε⌉₊ + 1, where ⌈·⌉₊ denotes the natural number ceiling function.\n"
+"\n"
+"Since ε > 0, we have 1 / ε > 0. By the definition of the natural number ceiling function, we know that:\n"
+"\n"
+"1 / ε ≤ ⌈1 / ε⌉₊\n"
+"\n"
+"Now, since ⌈1 / ε⌉₊ is a natural number and N = ⌈1 / ε⌉₊ + 1, we have:\n"
+"\n"
+"⌈1 / ε⌉₊ < ⌈1 / ε⌉₊ + 1 = N\n"
+"\n"
+"Combining these inequalities, we get that:\n"
+"\n"
+"1 / ε ≤ ⌈1 / ε⌉₊ < N\n"
+"\n"
+"Therefore, 1 / ε < N, which completes the proof. □\n"
+"\n"
+"**Significance**: The Archimedean Property is fundamental to analysis because it ensures that the real numbers have no \"infinite\" or \"infinitesimal\" elements. It guarantees that we can always find natural numbers large enough to dominate any given positive real number when we take their reciprocals. This property is essential for many limit processes and is equivalent to the completeness of the real numbers in certain formulations of real analysis.\n"
+"\n"
+"## Review of Common Pitfalls\n"
+"\n"
+"- **Don't use the regular ceiling function `⌈·⌉`** - it returns integers, not natural numbers!\n"
+"- **Watch out for casting issues** - if `bound` isn't working, try `push_cast` first\n"
+"- **The addition `⌈1 / ε⌉₊ + 1` happens in `ℕ`**, then gets cast to `ℝ` - this is why we need `push_cast`\n"
+"\n"
+"**Historical Note**: While often attributed to Archimedes (c. 287-212 BCE), this property was likely known to Eudoxus (c. 408-355 BCE) and appears in Euclid's *Elements*. Archimedes used a version of this principle in his method of exhaustion, particularly in calculating areas and volumes by approximating them with polygons of increasing numbers of sides."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
@@ -521,6 +686,11 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "If we know that $x = 5$, then we can prove that $x = 5$."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Presumably you know that you\n"
+"should `choose N hN using f1` at this stage. But maybe you'd like to give `hN` a more descriptive name (so that I can keep giving you hints). Try `choose N eps_inv_lt_N using f1`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
@@ -535,6 +705,10 @@ msgid "# When things are identical to themselves\n"
 "Instead, we will use what mathematicians call the *reflexive property* of equality: everything is equal to itself. In Lean, if you get to a situation where you're trying to prove an equality, and the two things on both sides are *identical*, then the syntax is to give the command `rfl` (short for \"reflexivity\").\n"
 "\n"
 "Try it out!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "The choose tactic"
 msgstr ""
 
 #: Game
@@ -553,20 +727,21 @@ msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
 "* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
-msgid "The obtain tactic"
-msgstr ""
-
 #: Game.Levels.L1Pset.L1Pset1
 msgid "# Problem 1"
+msgstr ""
+
+#: Game
+msgid "An Introduction to (Formal) Real Analysis"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "The `apply` tactic solves a goal when one of the hypotheses is the same as the goal. The syntax is `apply hypothesis_name`"
 msgstr ""
 
-#: Game
-msgid "An Introduction to (Formal) Real Analysis"
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Again, you presumably you know\n"
+"now to do `intro n hn`. But let's also give `hn` the more descriptive name `n_ge_N`. So that I can keep giving you hints, try `intro n n_ge_N`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
@@ -589,7 +764,7 @@ msgstr ""
 msgid "Problem 2"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
+#: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "# Extracting information from existential quantifiers\n"
 "\n"
 "Now let's learn the counterpart to `use`. You know that if you have `∃` in the goal, you write `use` to provide a specific value.\n"
@@ -610,6 +785,11 @@ msgid "# Extracting information from existential quantifiers\n"
 "You need to give a name to both the value of `c`, and to the hypothesis with which `c` is bundled. Here we named it `hc` (a hypothesis about `c`).\n"
 "\n"
 "You should be able to figure out how to solve the goal from here."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Prove that the sequence `a(n) = 1 / n` converges to 0.\n"
+"This is our first substantive limit proof, requiring the Archimedean Property."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
@@ -711,6 +891,10 @@ msgstr ""
 
 #: Game.Levels.L2PsetIntro
 msgid "Pset 2"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Combine everything with `linarith [eps_inv_lt_N, f4]`"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset4
@@ -849,6 +1033,138 @@ msgid "# A First Course in Real Analysis\n"
 "**SOCRATES:** Ah! Now, my friend, we are ready to begin."
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Simplify the absolute value: `have f2 : |1 / (n : ℝ)| = 1 / n := by bound`. Note the explicit casting to the reals, so this is not a statement about natural numbers!"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Also clear denominators in our key inequality: `field_simp at eps_inv_lt_N`"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "# Level 2: Our First Real Limit\n"
+"\n"
+"*Congratulations!* You've just proved the Archimedean Property. Now let's use it to prove something genuinely interesting: our first non-trivial limit.\n"
+"\n"
+"## The Goal: Proving that `1 / n → 0`\n"
+"\n"
+"We want to prove that the sequence `a(n) = 1 / n` converges to `0` as `n` approaches infinity. This is intuitively obvious—as `n` gets larger, `1 / n` gets smaller and approaches `0`. But how do we make this rigorous using the `ε`-`N` definition of limits?\n"
+"\n"
+"**Theorem**: The sequence `a(n) = 1 / n` converges to `0`.\n"
+"\n"
+"This might seem straightforward, but let's see it as a test of the definition.\n"
+"\n"
+"## Recall: The Definition of Sequential Convergence\n"
+"\n"
+"A sequence `a : ℕ → ℝ` converges to a limit `L` (written `SeqLim a L`) if:\n"
+"\n"
+"**For every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, `|a(n) - L| < ε`**\n"
+"\n"
+"In formal notation: `∀ ε > 0, ∃ N, ∀ n ≥ N, |a(n) - L| < ε`\n"
+"\n"
+"For our specific case with `a(n) = 1 / n` and `L = 0`, this becomes:\n"
+"`∀ ε > 0, ∃ N, ∀ n ≥ N, |1 / n - 0| < ε`\n"
+"\n"
+"## The Natural Language Proof Strategy\n"
+"\n"
+"Here's how we'll prove this step by step:\n"
+"\n"
+"**Step 1**: Let `ε > 0` be given. (This will correspond to `intro ε hε`)\n"
+"\n"
+"**Step 2**: We need to find `N` such that for all `n ≥ N`, we have `1 / n < ε`.\n"
+"\n"
+"**Key insight**: We need `1 / n < ε`, which is equivalent to `1 / ε < n` (since both sides are positive). So we need `n` to be larger than `1 / ε`.\n"
+"When our Engineer requests the tolerance of `ε = 1/100`, the Machinist replies, ok, I can do that, but I'll need `N = 1 / ε = 100` days in my factory.\n"
+"\n"
+"\n"
+"**Step 3**: That's exactly why we developed the Archimedean Property! It tells us that there exists some natural number `N` such that `1 / ε < N`.\n"
+"Rather than reproving that from scratch, we can simply quote this fact;\n"
+"then\n"
+"we'll choose such an `N` and use it.\n"
+"\n"
+"**Step 4**: Now let `n ≥ N` be given. We have:\n"
+"- `1 / ε < N` (by our choice of `N`)\n"
+"- `N ≤ n` (by assumption)\n"
+"- Therefore: `1 / ε < N ≤ n`, so `1 / ε < n`\n"
+"- Taking reciprocals (and flipping the inequality): `1 / n < ε`\n"
+"\n"
+"**Step 5**: Since `|1 / n - 0| = |1 / n| = 1 / n < ε`, we're done! □\n"
+"\n"
+"## The Lean Implementation Challenges\n"
+"\n"
+"### Challenge 1: Cross-Multiplying Fractions\n"
+"Our key step is showing that `1 / n < ε`. In paper mathematics, we'd simply cross-multiply to get `1 < n * ε`. But Lean is very careful about division by zero, so we can't just cross-multiply willy-nilly.\n"
+"\n"
+"**The Problem**: We want to go from `1 / n < ε` to `1 < n * ε`, but this is only valid if `n > 0` and `ε > 0`.\n"
+"\n"
+"**Solution**: The `field_simp` tactic handles this automatically! It will clear denominators by cross-multiplying, but only after it can verify that all denominators are positive (or at least non-zero).\n"
+"\n"
+"### Challenge 2: Linear Arithmetic\n"
+"Once we've cleared the fractions, we need to combine various inequalities like:\n"
+"- `1 / ε < N` (from the Archimedean Property)\n"
+"- `N ≤ n` (our assumption)\n"
+"- `1 < n * ε` (our goal after clearing denominators)\n"
+"\n"
+"For some reason, the `bound` tactic doesn't always handle these linear combinations well, especially when they involve multiplication by variables.\n"
+"\n"
+"**Solution**: The `linarith` tactic is specifically designed for linear arithmetic. It can take a list of hypotheses and solve goals that follow from linear combinations of those hypotheses.\n"
+"\n"
+"### Challenge 3: Explicit Type Casting\n"
+"Remember those mysterious up arrows `↑` from the last level? They're back! When we write `1 / n`, Lean sees this as `1 / ↑n` where `n` starts as a natural number but needs to be cast as a real number.\n"
+"\n"
+"Sometimes we have to be specific about what type of casting to use. The expression `1 / ↑n` could be ambiguous—are we casting to integers, rationals, reals, or something else?\n"
+"\n"
+"**Solution**: Instead of an up arrow, we can specify the casting explicitly with this syntax: `(n : ℝ)`. This tells Lean exactly what type we want to cast `n` to, in this case, the reals. This eliminates ambiguity and makes your proofs more precise.\n"
+"\n"
+"### Challenge 4: Casting in Tactic Applications\n"
+"Sometimes you want to apply a tactic or theorem, but the types don't quite match because of casting issues. For example, you might have the hypothesis that `N ≤ n` where `n, N` are naturals, but `bound` or `linarith` are searching for a proof that `(N : ℝ) ≤ (n : ℝ)` as reals.\n"
+"\n"
+"**Solution**: The `exact_mod_cast` tactic is like `apply`, but it automatically handles the type coercions for you. If you're trying to prove `(N : ℝ) ≤ (n : ℝ)`, and you have the hypothesis `h : N ≤ n` (as naturals), then you can write: `exact_mod_cast h`. Lean will look at `h`\n"
+"and realize, oh it's exactly what you're trying to prove, but just\n"
+"cast to a different number system; and it'll figure out the proof from there.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"- **`field_simp`**: Clears denominators by cross-multiplying, but only when it can prove the denominators are non-zero. This is the key to handling fractional inequalities safely.\n"
+"\n"
+"- **Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful, general tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,\n"
+"if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
+"and your Goal is to prove that `2 * X ≤ Z`, then\n"
+"simply calling `linarith [h₁, h₂]` will do the trick. So add as many inequality hypotheses to your Game Board as you may need, and then call `linarith` on them to prove a Goal. I find that `linarith` is best called at the very end, when you've assembled all your facts and are ready to close a Goal (but it has many other uses as well, as you'll see).\n"
+"\n"
+"- **Explicit casting `(n : ℝ)`**: Tells Lean exactly what type to use, eliminating ambiguity in expressions like `1 / n`. You only need to cast\n"
+"once in any expression, and Lean will automatically cast everything else.\n"
+"For example, you can say `(0 : ℝ) < N`, and Lean will figure out that\n"
+"the `0` you mean is a real number, and so, to compare that with `N`,\n"
+"the latter too must be cast to the reals.\n"
+"\n"
+"- **`exact_mod_cast`**: Automatically handles type coercions between different number types (ℕ, ℤ, ℚ, ℝ), when the Goal is *exactly*\n"
+"what you're trying to prove, just needs to get coerced.\n"
+"\n"
+"\n"
+"## Pro Tips for This Level\n"
+"\n"
+"1. **Use `change`** to convert `SeqLim a 0` to its definition\n"
+"2. **Apply the Archimedean Property** to get the existence of an `N`\n"
+"3. **Use `choose`** to extract the `N` from the existential statement\n"
+"4. **Establish positivity first** before using `field_simp`\n"
+"5. **Work step by step** - don't try to do everything at once!\n"
+"\n"
+"## What Makes This Non-Trivial?\n"
+"\n"
+"Unlike the constant sequence (which was essentially definitional), this proof requires:\n"
+"- **The Archimedean Property** to find a suitable `N`\n"
+"- **Careful type management** between `ℕ` and `ℝ`\n"
+"- **Positivity arguments** to handle division\n"
+"- **Inequality manipulation** to connect our bounds\n"
+"\n"
+"This is a perfect example of how even \"obvious\" mathematical facts require sophisticated machinery to prove rigorously!"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Therefore `n > 0`; try: `have npos : (0 : ℝ) < n := by linarith [Npos, N_le_n]`"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "# Universal statements\n"
 "\n"
@@ -879,6 +1195,14 @@ msgid "# Universal statements\n"
 "one: `intro ε hε`. But don't feel obliged."
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Start by converting to the definition of sequential convergence using `change`."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "First Real Limit"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset1
 #: Game.Levels.L1Pset.L1Pset3
 #: Game.Levels.L1Pset.L1Pset4
@@ -890,6 +1214,17 @@ msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "The Convergence of a Sequence"
+msgstr ""
+
+#: Game.Levels.L3Lecture
+msgid "# More on sequences\n"
+"\n"
+"In Lecture 2, we learned the definition of a sequence `a : ℕ → ℝ` converging to a limit `L`: for any tolerance\n"
+"`ε > 0`, there exists a time `N`, so that, for any point after that time, `n ≥ N`, we are within the tolerance, `|a n - L| < ε`.\n"
+"\n"
+"We also learned how to do something completely trivial with it, namely, show that the constant sequence converges, with that constant as its limit.\n"
+"\n"
+"Let's step it up a notch, shall we?"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi
@@ -1202,6 +1537,10 @@ msgstr ""
 msgid "level completed! 🎉"
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Cast the inequality `n ≥ N` to reals, so that `linarith` can see and access it: `have N_le_n : (N : ℝ) ≤ n := by exact_mod_cast n_ge_N`"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "Write `apply h` since the hypothesis `h` is  what we want to prove."
 msgstr ""
@@ -1226,27 +1565,6 @@ msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "This is where you might find it useful to call `norm_num` and normalize `|0|` to `0`."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L08_obtain
-msgid "Excellent! You've learned the `choose` tactic for working with existence in hypotheses.\n"
-"\n"
-"Notice the complete pattern:\n"
-"1. `choose c hc using h` unpacked the hypothesis into a specific value `c` and proof `hc : f c = 2`\n"
-"2. `use c` provided this same value as our witness for the goal\n"
-"3. `rewrite [hc]` rewrote `f c` as `2` in the goal, changing it to `2^2 = 4`\n"
-"4. `ring_nf` verified that `2 ^ 2 = 4`\n"
-"\n"
-"The symmetry is beautiful:\n"
-"- `use` when you have `∃` in the goal (\"here's my specific example\")\n"
-"- `choose` when you have `∃` in a hypothesis (\"let me unpack this existence claim\")\n"
-"\n"
-"This completes your basic logical toolkit! In real analysis, you'll use `obtain` constantly when working with:\n"
-"- Limit definitions (\"given ε > 0, there exists δ > 0...\")\n"
-"- Intermediate Value Theorem (\"there exists c such that f(c) = 0\")\n"
-"- Existence theorems throughout analysis\n"
-"\n"
-"You're now ready to tackle real mathematical proofs!"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
@@ -1451,6 +1769,71 @@ msgid "# Problem 2\n"
 "and separate the answers by a comma, like so: `use 6, 7, 42` (in place of: `use 6`, then `use 7`, then `use 42`)."
 msgstr ""
 
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "# Level 1: The Archimedean Property\n"
+"\n"
+"The so-called Archimedean Property (which I think is originally due to Eudoxus, and appears already in Euclid's Elements Book V) is a fundamental property of the real numbers that captures the intuitive notion that there are no \"infinitely large\" or \"infinitesimally small\" positive real numbers.\n"
+"\n"
+"More precisely, it states that no matter how small `ε > 0` is, there is always a natural number `N` so that `1 / N` is even smaller than `ε` (and of course positive). Equivalently, we can state it as: for any positive real number `ε`, there exists a natural number `N` such that `1 / ε < N`.\n"
+"\n"
+"*Why does this matter?* The Archimedean Property is one of the most fundamental properties distinguishing the real numbers from other number systems. Without it, we could have \"infinitely large\" or \"infinitesimally small\" positive numbers, which would break most of calculus and analysis.\n"
+"\n"
+"Our goal will be to prove the following:\n"
+"\n"
+"**Theorem (ArchProp)**: For any `ε : ℝ` with `0 < ε`, there exists `N : ℕ` such that `1 / ε < N`.\n"
+"\n"
+"This is mathematically \"obvious\" to most people—if you have a positive number ε, no matter how small, you can always find a natural number large enough that 1 / ε is smaller than it. But how do you actually formalize this in Lean?\n"
+"\n"
+"## The Natural Language Proof Strategy\n"
+"\n"
+"First, let's think about this in natural language. The key insight is that we need to provide a specific natural number `N` that works.\n"
+"\n"
+"A natural choice would be to use something related to the ceiling function. The ceiling function `x ↦ ⌈x⌉` rounds any real number up to the nearest integer. However, there's a subtle issue here: the standard ceiling function takes values in integers `ℤ`, but we need values in `ℕ` (the natural numbers). These are *not* the same thing!!\n"
+"\n"
+"Fortunately, Lean provides the \"natural number ceiling function\" written `x ↦ ⌈x⌉₊`, which takes any real number and returns a natural number.\n"
+"(You can write these symbols using `\\lceil`, `\\rceil`, and `\\_+`. Or if you're lazy like me, just copy and paste them from elsewhere.)\n"
+" For negative inputs, this function returns `0`. For example, `⌈-3.14⌉₊ = 0` and `⌈3.14⌉₊ = 4`.\n"
+"\n"
+"Now our strategy becomes clear:\n"
+"- **Choice of N**: Use `N = ⌈1 / ε⌉₊ + 1`\n"
+"- **Why this works**: We have the \"key inequality\": `1 / ε ≤ ⌈1 / ε⌉₊`, which holds by the definition of the ceiling function\n"
+"- **Getting strict inequality**: Adding 1 gives us `1 / ε < ⌈1 / ε⌉₊ + 1`\n"
+"\n"
+"## The Lean Implementation Challenges\n"
+"\n"
+"In Lean, the first two steps of our natural language proof work fine, but then we encounter the issue of **type coercion** (\"casting\" between different number types). We'll discuss this in more detail later, but again it has to do with the fact that `ℕ`, `ℤ`, `ℚ`, and `ℝ` are all different kinds of things, and we need to be able to move numbers up the \"sophistication\" heirarchy, with natural numbers being the simplest objects and the reals being the most complicated (so much so that we keep postponing their construction).\n"
+"\n"
+"For example, notice that when we'll write our `have` statement to establish the key inequality:\n"
+"\n"
+"`have fact : 1 / ε ≤ ⌈1 / ε⌉₊ := by WhateverTheProofIs`\n"
+"\n"
+"Lean will record it as:\n"
+"\n"
+"`fact : 1 / ε ≤ ↑⌈1 / ε⌉₊`\n"
+"\n"
+"Notice the mysterious up arrow `↑`. This represents a coercion function from natural numbers to real numbers:\n"
+"\n"
+"↑ : ℕ → ℝ\n"
+"\n"
+"This is because `ℕ`, `ℤ`, `ℚ`, and `ℝ` are all **different** types in Lean's type system (and really, in mathematics, as we'll see when we construct the real numbers)! Even though we think of natural numbers as being \"contained\" in the real numbers, formally they are distinct types of things, and Lean needs explicit coercion functions to convert between them.\n"
+"\n"
+"*Think of it this way*: the natural number `3 : ℕ` and the fraction `3 / 1 : ℚ` and the real number `3.000 : ℝ` are different objects that just happen to represent the same mathematical value.\n"
+"\n"
+"The `push_cast` tactic helps manage these coercions, kind of like `ring_nf` but for casting instead of ring operations.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"- `⌈ ⬝ ⌉₊`: The natural number ceiling function\n"
+"- `push_cast`: Tactic that handles coercions between number types\n"
+"- `bound`: Solves many routine inequalities\n"
+"\n"
+"The `bound` tactic can solve many \"trivial\" inequalities once the types are properly aligned.\n"
+"\n"
+"## Hint:\n"
+"\n"
+"If you get stuck and don't see a Hint, try backtracking until you do."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "Excellent! You've learned the `rfl` tactic.\n"
 "\n"
@@ -1459,6 +1842,10 @@ msgid "Excellent! You've learned the `rfl` tactic.\n"
 "- Use `rfl` when you need to prove that something equals itself\n"
 "\n"
 "These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "The `bound` tactic can solve many \\\"trivial\\\" inequalities involving standard functions and basic arithmetic."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset5

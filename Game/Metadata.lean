@@ -7,6 +7,8 @@ import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.FieldSimp
 import Mathlib.Analysis.RCLike.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Base
+--import Mathlib.Tactic.Cases -- CasesPrime???
 
 
 /-! Use this file to add things that should be available in all levels.
