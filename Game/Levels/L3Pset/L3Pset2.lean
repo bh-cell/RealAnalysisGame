@@ -4,11 +4,17 @@ World "L3Pset"
 Level 2
 Title "Problem 2"
 
-Introduction "# Problem 2"
+Introduction "# Problem 2
 
-/-- Prove this. -/
+Prove that the sequence `(n + 1) / n` has a limit, say, `L`, and determine what it is.
+
+We haven't yet learned a good way to use the theorem `OneOverNLimZero`
+that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)
+"
+
+/-- Prove that the sequence `(n + 1) / n` has a limit `L` and determine what it is. -/
 Statement (a : ℕ → ℝ) (ha : ∀ n, a n = (n + 1) / n) :
-    SeqConv a := by
+    ∃ L, SeqLim a L := by
 use 1
 intro ε hε
 choose N hN using ArchProp hε
@@ -28,5 +34,6 @@ field_simp
 field_simp at hN
 have : ε * N ≤ ε * n := by bound
 linarith [hN, this]
+
 
 Conclusion "Done."

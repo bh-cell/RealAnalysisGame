@@ -137,10 +137,15 @@ TacticDoc exact_mod_cast
 
 NewTactic linarith field_simp exact_mod_cast
 
+/-- If `a n = 1 / n`, then `SeqLim a 0`; that is, the sequence
+`1 / n` converges to zero. -/
+TheoremDoc OneOverNLimZero as "OneOverNLimZero" in "Theorems"
+
+
 /-- Prove that the sequence `a(n) = 1 / n` converges to 0.
 This is our first substantive limit proof, requiring the Archimedean Property.
 -/
-Statement (a : ℕ → ℝ) (ha : ∀ n, a n = 1 / n) : SeqLim a 0 := by
+Statement OneOverNLimZero (a : ℕ → ℝ) (ha : ∀ n, a n = 1 / n) : SeqLim a 0 := by
   Hint (hidden := true) "Start by converting to the definition of sequential convergence using `change`."
   change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - 0| < ε
   intro ε hε

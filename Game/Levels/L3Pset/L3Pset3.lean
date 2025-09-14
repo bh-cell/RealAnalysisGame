@@ -4,40 +4,41 @@ World "L3Pset"
 Level 3
 Title "Problem 3"
 
-Introduction "# Problem 3"
+Introduction "# Problem 3
 
+Determine what the limit of the sequence `1 / n ^ 2` is, and prove it.
 
-/-- Prove this. -/
-Statement (a : ℕ → ℝ) (ha : ∀ n, a n = (3 * n + (-1) ^ n) / (2 * n + 5)) :
-    SeqConv a := by
-use 3 / 2
+Hints you may find useful:
+- We have yet to learn about dealing with the square-root function.
+So see if you can be even lazier in your choice of parameters...
+- If you know that `h : 0 < N` holds in the *natural* numbers, then you can prove that that `1 ≤ N` simply by `apply`ing `h`, that is: `have h' : 1 ≤ N := by apply h`. (This would not work for an inequality in the real numbers, since it's in general not true!)
+"
+
+/-- Determine what the limit of the sequence `1 / n ^ 2` is, and prove it. -/
+Statement (a : ℕ → ℝ) (ha : ∀ n, a n = 1 / n ^ 2) :
+    ∃ L, SeqLim a L := by
+use 0
 intro ε hε
-choose N hN using ArchProp (by bound : 0 < 4 * ε / 17)
-have Npos : (0 : ℝ) < N := by sorry --- positivity -- bound --linarith
+choose N hN using ArchProp hε
+have OneOverε : 0 < 1 / ε := by bound
+have Npos : (0 : ℝ) < N := by linarith [hN, OneOverε]
 field_simp at hN
 use N
 intro n hn
 specialize ha n
 rewrite [ha]
-have : ((3 : ℝ) * n + (-1) ^ n) / (2 * n + 5) - 3 / 2 =
-  ((-1) ^ n * 2 - 15) / (2 * (2 * n + 5))
-  := by field_simp; ring_nf
-rewrite [this]
-have : |((-1 : ℝ) ^ n * 2 - 15) / (2 * (2 * ↑n + 5))| =
-  |((-1 : ℝ) ^ n * 2 - 15)|
-   /
-   |((2 : ℝ) * (2 * ↑n + 5))| := by apply abs_div
-rewrite [this]
-have h' : |(-1) ^ n * 2 - 15| ≤ 17 := by sorry -- bound FAILS
-have : (N : ℝ) ≤ n := by exact_mod_cast hn
-have : 0 < (2 : ℝ) * (2 * n + 5) := by bound
-have : |(2 : ℝ) * (2 * n + 5)| = (2 : ℝ) * (2 * n + 5) := by apply abs_of_pos this
-rewrite [this]
-have hh : (2 : ℝ) * (2 * N) ≤ (2 : ℝ) * (2 * n + 5) := by bound
-have hhh : 0 < (2 : ℝ) * (2 * N) := by nlinarith
-have hh' : |(-1 : ℝ) ^ n * 2 - 15| / (2 * (2 * n + 5)) ≤
-  17 / ((2 : ℝ) * (2 * N)) := by field_simp; sorry --bound --nlinarith
-have : (17 : ℝ) / (2 * (2 * N)) < ε := by field_simp; bound
-linarith [hh', this]
+have f1 : (1 : ℝ) / n ^ 2 - 0 = 1 / n ^ 2 := by ring_nf
+rewrite [f1]
+have f2 : |(1 : ℝ) / n ^ 2| = 1 / n ^ 2 := by bound
+rewrite [f2]
+have hn' : (N : ℝ) ≤ n := by exact_mod_cast hn
+have f3 : (0 : ℝ) < n := by linarith [Npos, hn']
+field_simp
+have Npos' : 0 < N := by exact_mod_cast Npos
+have NgeOne : 1 ≤ N := by apply Npos'
+have NgeOne' : (1 : ℝ) ≤ N := by exact_mod_cast NgeOne
+have f4 : 1 < ε * N * N := by bound
+have f5 : ε * N * N ≤ ε * n * n := by bound
+linarith [f4, f5]
 
 Conclusion "Done."

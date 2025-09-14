@@ -3,7 +3,7 @@ import Game.Levels.L1PsetIntro
 import Game.Levels.L2NewtonsCalculationOfPi
 import Game.Levels.L2PsetIntro
 import Game.Levels.L3Lecture
---import Game.Levels.L3PsetIntro
+import Game.Levels.L3PsetIntro
 --import Game.Levels.L4Lecture
 --import Game.Levels.L5Lecture
 

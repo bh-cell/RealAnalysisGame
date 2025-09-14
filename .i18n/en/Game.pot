@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12\n"
+"POT-Creation-Date: 2025-09-14\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -161,6 +161,15 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "The intro tactic"
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset2
+msgid "# Problem 2\n"
+"\n"
+"Prove that the sequence `(n + 1) / n` has a limit, say, `L`, and determine what it is.\n"
+"\n"
+"We haven't yet learned a good way to use the theorem `OneOverNLimZero`\n"
+"that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
@@ -342,11 +351,16 @@ msgstr ""
 msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
 msgstr ""
 
+#: Game.Levels.L3Pset.L3Pset2
+msgid "Prove that the sequence `(n + 1) / n` has a limit `L` and determine what it is."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
 msgid "Write `ring_nf` to expand and simplify both sides algebraically."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
+#: Game.Levels.L3Pset.L3Pset3
 msgid "Problem 3"
 msgstr ""
 
@@ -373,6 +387,10 @@ msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "The `push_cast` tactic handles coercions between number types, particularly useful when working with natural numbers that need to be treated as real numbers (or integers, or rationals)."
+msgstr ""
+
+#: Game.Levels.L3PsetIntro
+msgid "Pset 3"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
@@ -419,7 +437,42 @@ msgid "# Problem 1\n"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
+msgid "As usual, compare to what's written in textbooks:\n"
+"\n"
+"## Natural Language Proof of `1 / n → 0`\n"
+"\n"
+"**Theorem**: The sequence `a(n) = 1 / n` converges to `0`.\n"
+"\n"
+"**Proof**:\n"
+"Let `ε > 0` be given. We need to find `N : ℕ` such that for all `n ≥ N`, we have `|1 / n - 0| < ε`.\n"
+"\n"
+"Since `ε > 0`, we have `1 / ε > 0`. By the Archimedean Property, there exists a natural number `N` such that `1 / ε < N`. We choose this value of `N`, and use it.\n"
+"\n"
+"Now let `n ≥ N` be given. We need to show that `|1 / n| < ε`.\n"
+"\n"
+"Since `1 / ε < N` and `N ≤ n`, we have that `1 / ε < n`. Since both `1 / ε` and `n` are positive, taking reciprocals reverses the inequality: `1 / n < ε`.\n"
+"\n"
+"Therefore, `|1 / n - 0| = |1 / n| = 1 / n < ε`, which completes the proof. □\n"
+"\n"
+"## What We Just Accomplished\n"
+"\n"
+"This proof demonstrates several key concepts:\n"
+"\n"
+"1. **The power of the Archimedean Property**: Without it, we couldn't guarantee the existence of a suitable `N`.\n"
+"\n"
+"2. **The `ε`-`N` definition in action**: We explicitly constructed `N` in terms of `ε`, showing the quantifier structure `∀ε, ∃N, ∀n`.\n"
+"\n"
+"3. **Rigorous inequality manipulation**: What seems \"obvious\" requires careful attention to positivity and type casting.\n"
+"\n"
+"4. **The bridge between intuition and formality**: The intuitive idea that \"`1 / n` gets arbitrarily small\" becomes a precise mathematical statement."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
 msgid "Clear denominators in the goal: `field_simp`"
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset1
+msgid "Prove the full Archimedean Property."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
@@ -462,37 +515,6 @@ msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you 
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
-msgid "As usual, compare to what's written in textbooks:\n"
-"\n"
-"## Natural Language Proof of `1 / n → 0`\n"
-"\n"
-"**Theorem**: The sequence `a(n) = 1 / n` converges to `0`.\n"
-"\n"
-"**Proof**:\n"
-"Let `ε > 0` be given. We need to find `N : ℕ` such that for all `n ≥ N`, we have `|1 / n - 0| < ε`.\n"
-"\n"
-"**Finding N**: Since `ε > 0`, we have `1 / ε > 0`. By the Archimedean Property, there exists a natural number `N` such that `1 / ε < N`. We choose this value of `N`, and use it.\n"
-"\n"
-"**Verification**: Now let `n ≥ N` be given. We need to show that `|1 / n| < ε`.\n"
-"\n"
-"Since `1 / ε < N` and `N ≤ n`, we have `1 / ε < n`. Since both `1 / ε` and `n` are positive, taking reciprocals reverses the inequality: `1 / n < ε`.\n"
-"\n"
-"Therefore, `|1 / n - 0| = |1 / n| = 1 / n < ε`, which completes the proof. □\n"
-"\n"
-"## What We Just Accomplished\n"
-"\n"
-"This proof demonstrates several key concepts:\n"
-"\n"
-"1. **The power of the Archimedean Property**: Without it, we couldn't guarantee the existence of a suitable `N`.\n"
-"\n"
-"2. **The `ε`-`N` definition in action**: We explicitly constructed `N` in terms of `ε`, showing the quantifier structure `∀ε ∃N ∀n`.\n"
-"\n"
-"3. **Rigorous inequality manipulation**: What seems \"obvious\" requires careful attention to positivity and type casting.\n"
-"\n"
-"4. **The bridge between intuition and formality**: The intuitive idea that \"`1 / n` gets arbitrarily small\" becomes a precise mathematical statement."
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
 msgid "Multiply the inequality `N ≤ n` by ε: `have f4 : N * ε ≤ n * ε := by bound`"
 msgstr ""
 
@@ -520,6 +542,10 @@ msgstr ""
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "The `change` tactic changes a goal to something definitionally equal to it. If the definition of `X` is `Y`, that is, `X := Y`, and the Goal is `X`, you can write `change Y` and the Goal will change to `Y`. You can also\n"
 "do this at a hypothesis; if you have a hypothesis `h : X`, you can write `change Y at h`, and `h` will change to `h : Y`."
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset3
+msgid "Determine what the limit of the sequence `1 / n ^ 2` is, and prove it."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
@@ -603,6 +629,18 @@ msgid "Excellent! You've learned the `ring_nf` tactic.\n"
 "As we move into real analysis proper, you'll find that `ring_nf` is invaluable for dealing with polynomial expressions, which appear everywhere in calculus!"
 msgstr ""
 
+#: Game.Levels.L3Pset.L3Pset4
+msgid "# Problem 4\n"
+"\n"
+"Here's an even more involved limit problem. We've had luck getting `bound` to prove `|X| ≤ X`, especially when there's a hypothesis `h : 0 ≤ X` already available in the list of assumptions. But I've found it not to be reliable, unfortunately. So let me give you one more theorem for your toolchest.\n"
+"\n"
+"## New Theorem: `abs_of_nonneg`.\n"
+"If you have a hypothesis `h : 0 ≤ X` in your toolchest,\n"
+"then you can prove that `|X| = X` via:\n"
+"\n"
+"`have factName : |X| = X := by apply abs_of_nonneg h`."
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Since 1 / ε < N, we get N > 0: `have Npos : (0 : ℝ) < N := by linarith [f3, eps_inv_lt_N]`. Again we need to be specific about the casting."
 msgstr ""
@@ -641,6 +679,12 @@ msgstr ""
 
 #: Game
 msgid "A First Course in Real Analysis"
+msgstr ""
+
+#: Game.Levels.L3PsetIntro
+msgid "# Problem Set 3\n"
+"\n"
+"Good luck!"
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -731,6 +775,11 @@ msgstr ""
 msgid "# Problem 1"
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "If `a n = 1 / n`, then `SeqLim a 0`; that is, the sequence\n"
+"`1 / n` converges to zero."
+msgstr ""
+
 #: Game
 msgid "An Introduction to (Formal) Real Analysis"
 msgstr ""
@@ -761,6 +810,7 @@ msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset2
 #: Game.Levels.L2Pset.L2Pset2
+#: Game.Levels.L3Pset.L3Pset2
 msgid "Problem 2"
 msgstr ""
 
@@ -898,6 +948,7 @@ msgid "Combine everything with `linarith [eps_inv_lt_N, f4]`"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset4
+#: Game.Levels.L3Pset.L3Pset4
 msgid "Problem 4"
 msgstr ""
 
@@ -1034,10 +1085,6 @@ msgid "# A First Course in Real Analysis\n"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
-msgid "Simplify the absolute value: `have f2 : |1 / (n : ℝ)| = 1 / n := by bound`. Note the explicit casting to the reals, so this is not a statement about natural numbers!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
 msgid "Also clear denominators in our key inequality: `field_simp at eps_inv_lt_N`"
 msgstr ""
 
@@ -1165,6 +1212,19 @@ msgstr ""
 msgid "Therefore `n > 0`; try: `have npos : (0 : ℝ) < n := by linarith [Npos, N_le_n]`"
 msgstr ""
 
+#: Game.Levels.L3Pset.L3Pset1
+msgid "# Problem 1\n"
+"\n"
+"The \"full\" Archimedean Property is this:\n"
+"Take two positive real numbers `x` and `y`. No matter\n"
+"how large `y` may be, and how small `x` may be,\n"
+"if we add `x` to itself enough times (that is, multiply it by some natural number), we can always get that to exceed `y`."
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset4
+msgid "Usage: given hypothesis `h : 0 ≤ X`, you can prove: `have : |X| = X := by apply abs_of_nonneg h`"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "# Universal statements\n"
 "\n"
@@ -1209,6 +1269,10 @@ msgstr ""
 #: Game.Levels.L1Pset.L1Pset5
 #: Game.Levels.L2Pset.L2Pset1
 #: Game.Levels.L2Pset.L2Pset2
+#: Game.Levels.L3Pset.L3Pset1
+#: Game.Levels.L3Pset.L3Pset2
+#: Game.Levels.L3Pset.L3Pset3
+#: Game.Levels.L3Pset.L3Pset4
 msgid "Done."
 msgstr ""
 
@@ -1581,6 +1645,7 @@ msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
 #: Game.Levels.L2Pset.L2Pset1
+#: Game.Levels.L3Pset.L3Pset1
 msgid "Problem 1"
 msgstr ""
 
@@ -1602,6 +1667,17 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory
 msgid "Lecture 1: The Story of Real Analysis"
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset3
+msgid "# Problem 3\n"
+"\n"
+"Determine what the limit of the sequence `1 / n ^ 2` is, and prove it.\n"
+"\n"
+"Hints you may find useful:\n"
+"- We have yet to learn about dealing with the square-root function.\n"
+"So see if you can be even lazier in your choice of parameters...\n"
+"- If you know that `h : 0 < N` holds in the *natural* numbers, then you can prove that that `1 ≤ N` simply by `apply`ing `h`, that is: `have h' : 1 ≤ N := by apply h`. (This would not work for an inequality in the real numbers, since it's in general not true!)"
 msgstr ""
 
 #: Game.Levels.L2Pset.L2Pset1
@@ -1642,6 +1718,10 @@ msgid "Great! You've learned the `rewrite` tactic.\n"
 "- `rewrite [hypothesis_name]` when you want to use an equality to rewrite your goal\n"
 "\n"
 "The `rewrite` tactic is incredibly powerful and you'll use it constantly in real analysis!"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Simplify the absolute value: `have f2 : |1 / (n : ℝ)| = 1 / n := by bound`. Note the explicit casting to the reals, so that this is not a statement about natural numbers!"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
@@ -1685,6 +1765,10 @@ msgid "# 🎉 Excellent Work! 🎉\n"
 "\n"
 "Therefore, for any $n \\geq N$, we have $|a(n) - L| = 0 < \\varepsilon$, which proves convergence.\n"
 "**QED**"
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset4
+msgid "Prove this."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
