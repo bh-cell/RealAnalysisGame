@@ -15,7 +15,7 @@ if we add `x` to itself enough times (that is, multiply it by some natural numbe
 /-- Prove the full Archimedean Property. -/
 Statement (x y : ℝ) (x_pos : 0 < x) (y_pos : 0 < y) : ∃ (N : ℕ), y < x * N  := by
   use ⌈y / x⌉₊ + 1
-  have : y / x ≤ ⌈ y / x ⌉₊ := by bound
+  have : y / x ≤ ⌈y / x⌉₊ := by bound
   field_simp at this
   push_cast
   linarith [this, x_pos]

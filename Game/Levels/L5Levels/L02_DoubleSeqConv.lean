@@ -1,7 +1,7 @@
-import Game.Levels.L3Levels.L03_NonConverge
+import Game.Levels.L4Levels.L01_NonConverge
 
-World "Lecture3"
-Level 4
+World "Lecture4"
+Level 2
 Title "Doubling a Convergent Sequence"
 
 Introduction "
