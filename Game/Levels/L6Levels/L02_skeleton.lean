@@ -1,7 +1,7 @@
-import Game.Levels.L4Levels.L02_DoubleSeqConv
+import Game.Levels.L5Levels.L01_DoubleSeqConv
 
-World "Lecture4"
-Level 3
+World "Lecture5"
+Level 2
 Title "Big Boss: The Sum of Convergent Sequences"
 
 Introduction ""

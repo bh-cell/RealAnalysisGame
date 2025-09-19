@@ -6,13 +6,13 @@ import Game.Levels.L3Lecture
 import Game.Levels.L3PsetIntro
 import Game.Levels.L4Lecture
 import Game.Levels.L4PsetIntro
---import Game.Levels.L5Lecture
+import Game.Levels.L5Lecture
 
 Dependency NewtonsCalculationOfPi → L2Pset
 
 Dependency NewtonsCalculationOfPi → Lecture3
 
---Dependency Lecture4 → Lecture5
+Dependency Lecture4 → Lecture5
 
 -- Here's what we'll put on the title screen
 Title "An Introduction to (Formal) Real Analysis"

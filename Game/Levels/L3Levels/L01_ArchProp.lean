@@ -19,7 +19,7 @@ Our goal will be to prove the following:
 
 **Theorem (ArchProp)**: For any `ε : ℝ` with `0 < ε`, there exists `N : ℕ` such that `1 / ε < N`.
 
-This is mathematically \"obvious\" to most people—if you have a positive number ε, no matter how small, you can always find a natural number large enough that 1 / ε is smaller than it. But how do you actually formalize this in Lean?
+This is mathematically \"obvious\" to most people—if you have a positive number ε, no matter how small, you can always find a natural number large enough that 1 / ε is smaller than it. (At least it seems obvious, and perhaps becomes less so once you remember that we don't yet know what the real numbers actually *are*... We'll continue postponing the construction for some time.) But how do you actually formalize this in Lean?
 
 ## The Natural Language Proof Strategy
 
