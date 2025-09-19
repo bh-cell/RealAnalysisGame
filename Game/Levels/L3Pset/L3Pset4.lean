@@ -8,7 +8,7 @@ Title "Problem 4"
 
 Introduction "# Problem 4
 
-Here's an even more involved limit problem. We've had luck getting `bound` to prove `|X| ≤ X`, especially when there's a hypothesis `h : 0 ≤ X` already available in the list of assumptions. But I've found it not to be reliable, unfortunately. So let me give you one more theorem for your toolchest.
+Here's an even more involved limit problem. We've had luck getting `bound` to prove `|X| = X`, especially when there's a hypothesis `h : 0 ≤ X` already available in the list of assumptions. But I've found it not to be reliable, unfortunately. So let me give you one more theorem for your toolchest.
 
 ## New Theorem: `abs_of_nonneg`.
 If you have a hypothesis `h : 0 ≤ X` in your toolchest,

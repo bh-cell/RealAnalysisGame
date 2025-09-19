@@ -139,36 +139,37 @@ def SeqConv (a : ℕ → ℝ) : Prop :=
 
 /-- Prove that the sequence `1`, `-1`, `1`, `-1`,... diverges.
 -/
-Statement (a : ℕ → ℝ) (ha : ∀ n, a n = (-1) ^ n) : ¬ SeqConv a := by
-change SeqConv a → False
-intro h
-change ∃ L, SeqLim a L at h
-choose L hL using h
-change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - L| < ε at hL
-specialize hL (1/2)
-have whatever : (0 : ℝ) < 1/2 := by norm_num
-specialize hL whatever
-choose N hN using hL
-have h2N : N ≤ 2 * N := by bound
-have h2Np1 : N ≤ 2 * N + 1 := by bound
-have f1 : |a (2 * N) - L| < 1 / 2 := by apply hN (2 * N) h2N
-have f2 : |a (2 * N + 1) - L| < 1 / 2 := by apply hN (2 * N + 1) h2Np1
-have f3 : a (2 * N) = (-1) ^ (2 * N) := by apply ha (2 * N)
-have f4 : a (2 * N + 1) = (-1) ^ (2 * N + 1) := by apply ha (2 * N + 1)
-rewrite [f3] at f1
-rewrite [f4] at f2
-have f5 : (-1 : ℝ) ^ (2 * N) = 1 := by bound
-rewrite [f5] at f1
-have f6 : (-1 : ℝ) ^ (2 * N + 1) = -1 := by bound
-rewrite [f6] at f2
-have f7 : (2 : ℝ) = |2| := by norm_num
-have f8 : |(2 : ℝ)| = |1 - (-1)| := by ring_nf
-have f9 : |1 - (-1)| = |(1 - L) + (L - (-1))| := by ring_nf
-have f10 : |(1 - L) + (L - (-1))| ≤ |(1 - L)| + |(L - (-1))| := by apply abs_add
-have f11 : |(L - (-1))| = |-((-1) - L)| := by ring_nf
-have f12 : |-((-1) - L)| = |((-1) - L)| := by apply abs_neg
-have f13 : (2 : ℝ) < 1/2 + 1/2 := by linarith [f8, f9, f10, f11, f12, f7, f1, f2]
-norm_num at f13
+Statement (a : ℕ → ℝ) (ha : ∀ n, a n = (-1) ^ n) :
+  ¬ SeqConv a := by
+  change SeqConv a → False
+  intro h
+  change ∃ L, SeqLim a L at h
+  choose L hL using h
+  change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - L| < ε at hL
+  specialize hL (1/2)
+  have whatever : (0 : ℝ) < 1/2 := by norm_num
+  specialize hL whatever
+  choose N hN using hL
+  have h2N : N ≤ 2 * N := by bound
+  have h2Np1 : N ≤ 2 * N + 1 := by bound
+  have f1 : |a (2 * N) - L| < 1 / 2 := by apply hN (2 * N) h2N
+  have f2 : |a (2 * N + 1) - L| < 1 / 2 := by apply hN (2 * N + 1) h2Np1
+  have f3 : a (2 * N) = (-1) ^ (2 * N) := by apply ha (2 * N)
+  have f4 : a (2 * N + 1) = (-1) ^ (2 * N + 1) := by apply ha (2 * N + 1)
+  rewrite [f3] at f1
+  rewrite [f4] at f2
+  have f5 : (-1 : ℝ) ^ (2 * N) = 1 := by bound
+  rewrite [f5] at f1
+  have f6 : (-1 : ℝ) ^ (2 * N + 1) = -1 := by bound
+  rewrite [f6] at f2
+  have f7 : (2 : ℝ) = |2| := by norm_num
+  have f8 : |(2 : ℝ)| = |1 - (-1)| := by ring_nf
+  have f9 : |1 - (-1)| = |(1 - L) + (L - (-1))| := by ring_nf
+  have f10 : |(1 - L) + (L - (-1))| ≤ |(1 - L)| + |(L - (-1))| := by apply abs_add
+  have f11 : |(L - (-1))| = |-((-1) - L)| := by ring_nf
+  have f12 : |-((-1) - L)| = |((-1) - L)| := by apply abs_neg
+  have f13 : (2 : ℝ) < 1/2 + 1/2 := by linarith [f8, f9, f10, f11, f12, f7, f1, f2]
+  norm_num at f13
 
 Conclusion " Step 3:
 Once more, in natural language.
@@ -186,9 +187,13 @@ Once more, in natural language.
    - `a (2N) = (-1)²ᴺ = 1`, so `|1 - L| < 1 / 2`
    - `a (2N+1) = (-1)²ᴺ⁺¹ = -1`, so `|-1 - L| < 1 / 2`.
 5. But then:
+
    `2 = |1 - (-1)| = |(1 - L) + (L + 1)|`
+
      `≤ |1 - L| + |L + 1|`     [triangle inequality]
+
      `= |1 - L| + |-1 - L|`    [algebraic manipulation]
+
      `< 1/2 + 1/2 = 1`         [from steps above]
 6. This gives us `2 < 1`, which is impossible. QED
 
