@@ -13,10 +13,10 @@ Let `a (n)` be a sequence that alternates between
 **Hint:** You may wish to argue using `N` that's slightly
 larger than the smallest possible value.
 
-**Hint 2:** If your desired `have` is a consequence of two facts put together, you can separate them by a semicolon. For example, if you know that `h : X = Y` and `h' : |1 + Y| ≤ Z`,
-and you want to add a hypothesis `h'' : |X + 1| ≤ Y`, which is a combination of rewriting at `h'` by `h` and a ring operation, then you can say:
+**Hint 2:** If your desired `have` is a consequence of two facts put together, you can separate them by a semicolon. For example, if you know that `h : X = Y + Z`,
+and you want to add a hypothesis `h' : |X - Y| = |Z|`, which is a combination of rewriting by `h` and a ring operation, then you can say:
 
-`have h'' : |X + 1| ≤ Z := by rewrite [h]; ring_nf`.
+`have h' : |X - Y| = |Z| := by rewrite [h]; ring_nf`.
 
 This might come in handy!...
 "
