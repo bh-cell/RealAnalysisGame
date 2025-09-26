@@ -1,17 +1,17 @@
-import Game.Levels.L5Levels.L01_DoubleSeqConv
+import Game.Levels.L5Lecture
 
-World "Lecture5"
-Level 2
+World "Lecture6"
+Level 1
 Title "Big Boss: The Sum of Convergent Sequences"
 
 Introduction "
-# Lecture 3 **Big Boss**: Adding Convergent Sequences
+# Level 1 **Big Boss**: Adding Convergent Sequences
 
 Now that we've had some experience with the definition of convergence, let's tackle this world's Big Boss. One of the most fundamental ideas in analysis is that 'nice operations preserve convergence.' If two sequences each converge, then their sum also converges, and converges to the sum of their limits.
 
 This might seem obvious at first -- after all, if $a(n)$ is getting close to $L$ and $b(n)$ is getting close to $M$, shouldn't $a(n) + b(n)$ get close to $L + M$? While the intuition is correct, making this rigorous requires some clever maneuvering with our epsilon-N definition.
 
-**Lecture 3 Big Boss**
+**Big Boss**
 Here's the key insight: if an engineer demands that our combined output be within $\\varepsilon$ of the target $L + M$, we can't just demand that each factory independently meet the full tolerance $\\varepsilon$. Instead, we need to be clever about how we allocate our 'tolerance budget.'
 
 Think of it this way: if the first factory can guarantee its output is within $\\varepsilon/2$ of $L$, and the second factory can guarantee its output is within $\\varepsilon/2$ of $M$, then by the triangle inequality, their sum will be within $\\varepsilon$ of $L + M$. This is the heart of the proof!

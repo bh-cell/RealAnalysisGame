@@ -1,12 +1,19 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19\n"
+"POT-Creation-Date: 2025-09-26\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
+
+#: Game.Levels.L6Pset.L6Pset3
+msgid "# Problem 3\n"
+"\n"
+"You are given that a sequence `a : ℕ → ℝ` converges to 5.\n"
+"Prove that it is eventually positive."
+msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "Prove the \\\"Archimedean Property\\\"\n"
@@ -21,19 +28,6 @@ msgid "Did you end up using `huv`?\n"
 "`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
 msgstr ""
 
-#: Game.Levels.L3Lecture
-msgid "Lecture 3: More fun with Sequences"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants."
-msgstr ""
-
-#: Game.Levels.L3Levels.L01_ArchProp
-msgid "This is a good time to record the fact that `1 / ε ≤ ⌈1 / ε⌉₊`.\n"
-"You can do that with: `have fact : 1 / ε ≤ ⌈1 / ε⌉₊ := by bound`. The `bound` tactic can solve inequalities like this."
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "The `field_simp` tactic tries to clear denominators, if it can figure out that the denominators are non-zero (or in the case of inequalities, positive)."
 msgstr ""
@@ -42,25 +36,8 @@ msgstr ""
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#: Game.Levels.L3Levels.L01_ArchProp
-msgid "You might think that the `bound` tactic\n"
-"would also be able to solve `1 / ε < ↑(⌈1 / ε⌉₊ + 1)`, but No!\n"
-"That's because the addition `⌈1 / ε⌉₊ + 1` happens as **natural numbers**, and only then is the result cast to the reals; so the\n"
-"`fact` that was just proved is not useful to `bound`. Instead try: `push_cast` to get the casting to push down as far as possible.\n"
-"The Goal will change to `1 / ε < ↑⌈1 / ε⌉₊ + 1`, where now the\n"
-"ceiling is cast to the reals, and then the real number `1` is added."
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "The `use` tactic provides a specific value to prove an existence statement."
-msgstr ""
-
-#: Game.Levels.L5Lecture
-msgid "Lecture 5: Algebraic Limit Theorem, Part I"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L07_specialize
-msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset2
@@ -75,6 +52,984 @@ msgstr ""
 
 #: Game
 msgid "Learn real analysis through the historical crises that forced mathematicians to rebuild calculus from the ground up in the 19th century."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Given `ε` and the fact that `0 < ε`, the theorem `ArchProp` claims the existence of `N : ℕ` so that `1 / ε < N`. This is a formalization of the classical Archimedean Property."
+msgstr ""
+
+#: Game.Levels.L6Levels.L04_Cases'
+msgid "When have a hypothesis `h : P ∨ Q`, you can say `cases' h with h1 h2`; this will make two new Game Boards, one with an extra hypothesis `h1 : P`, and the other with the hypothesis `h2 : Q`. You'll have to solve both to solve the original Goal!"
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "# Level 1: Doubling Convergence\n"
+"\n"
+"After conquering the constant sequence, let's up our game: if a sequence converges, then doubling that sequence also converges, and converges to double the original limit.\n"
+"\n"
+"## The Factory Scaling Challenge\n"
+"\n"
+"Imagine our Machinist receives a challenge from the Engineer: 'Please double all the lengths, but maintain the same quality standards.' How should the Machinist respond?\n"
+"\n"
+"If the Engineer demands the doubled lengths be within $\\varepsilon$ of $2L$, the Machinist can't just demand that the original process meet the original tolerance $\\varepsilon$, because\n"
+"\n"
+"`|2 * a (n) - 2 * L| < 2 * ε`,\n"
+"\n"
+"not `ε`. Instead, we must be more clever. Can you think of what to do?\n"
+"\n"
+"That's right, the `ε` in the original process\n"
+"is *arbitrary*, so we can play with it!\n"
+"If we could get the original process can guarantee output within $\\varepsilon/2$ of $L$, then doubling that output will be within $\\varepsilon$ of $2L$.\n"
+"\n"
+"This is the key insight: **when scaling by a constant, we need to scale our tolerance demands inversely**.\n"
+"\n"
+"## The Mathematical Setup\n"
+"\n"
+"Suppose we have:\n"
+"- A sequence $a : \\mathbb{N} \\to \\mathbb{R}$ that converges to $L$\n"
+"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ with the property that $b(n) = 2 \\cdot a(n)$ for all $n$\n"
+"\n"
+"We want to prove that $b$ converges to $2 \\cdot L$.\n"
+"\n"
+"## Key Insight: Inverse Tolerance Scaling\n"
+"\n"
+"The crucial observation is that:\n"
+"\n"
+"$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = 2 \\cdot |a(n) - L|$\n"
+"\n"
+"So if we want $|b(n) - 2L| < \\varepsilon$, we need $2 \\cdot |a(n) - L| < \\varepsilon$, which means $|a(n) - L| < \\varepsilon/2$.\n"
+"\n"
+"This is exactly what we can get from the convergence of $a$!\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"**Absolute Value of Products**:\n"
+"You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:\n"
+"\n"
+"$|x \\cdot y| = |x| \\cdot |y|$.\n"
+"\n"
+"To use this theorem, you may find it convenient to\n"
+"make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,\n"
+"\n"
+"`have NewFact : |Something * SomethingElse| =\n"
+"|Something| * |SomethingElse| :=\n"
+"by apply abs_mul`\n"
+"\n"
+"and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).\n"
+"\n"
+"## Your Strategic Approach\n"
+"\n"
+"1. Unfold the definition of convergence for the goal\n"
+"2. Given any $\\varepsilon > 0$, use the convergence of $a$ with tolerance $\\varepsilon/2$. You may find it useful to separately prove the inequality `0 < ε / 2` -- which\n"
+"tactic do you think will help with that?\n"
+"3. Extract the witness $N$ from the convergence of $a$\n"
+"4. Use the same $N$ for your sequence $b$\n"
+"5. Apply the scaling hypothesis and use `abs_mul` to relate $|b(n) - 2L|$ to $|a(n) - L|$\n"
+"6. Use the convergence bound for $a$ to conclude\n"
+"\n"
+"## Why This Pattern Matters\n"
+"\n"
+"This proof introduces the important technique of **inverse scaling** for tolerances. When you scale a sequence by a constant $c$, you need to scale your tolerance demands by $1/c$. This principle will appear again when you study:\n"
+"- Products of sequences (where both factors contribute to the error)\n"
+"- Derivatives (where the limit definition involves scaling by $h$)\n"
+"- Integration (where Riemann sums involve scaling by partition widths)\n"
+"\n"
+"The ability to manage how constants affect convergence is fundamental to all of analysis!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "The `rfl` tactic proves goals of the form `A = A` where both sides are *identical*."
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "The `linarith` tactic won't work\n"
+"yet, because it'll get stuck on that `|2|`; do you remember what to do\n"
+"to normalize the numerical value to just `2`?"
+msgstr ""
+
+#: Game.Levels.L6Levels.L00_SumOfSeqs
+msgid "Prove that the sum of two convergent sequences converges to the sum of their limits.\n"
+"This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!'"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Now we need `1 / n < ε`. First establish that everything is positive. Start with: `have f3 : 0 < 1 / ε := by bound`"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "And now the `bound` tactic will do the trick."
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
+msgstr ""
+
+#: Game.Levels.L6Levels.L03_DotNotation
+msgid "# Level 4: Dot Notation - Accessing Parts of Complex Information\n"
+"\n"
+"Now that you've learned to construct \"and\" statements with `split_ands` and make strategic choices with \"or\" statements using `left` and `right`, it's time to learn how to efficiently extract information from complex hypotheses you already have.\n"
+"\n"
+"Often in mathematics, you'll be given a hypothesis that contains multiple pieces of information bundled together. For instance, you might know that \"x = 2 AND y = 3\" but only need the fact that \"y = 3\" for your current goal. Rather than using lengthy tactics to unpack this information, Lean provides an elegant shorthand: dot notation.\n"
+"\n"
+"Think of dot notation like accessing specific files in a well-organized filing cabinet. If you have a folder labeled `h` that contains multiple documents, you can quickly grab the second document with `h.2` instead of having to open the folder, sort through all the papers, and extract what you need manually.\n"
+"\n"
+"This notation becomes especially powerful when dealing with complex mathematical objects. In real analysis, we often work with properties that have multiple components—a sequence might be both bounded AND monotonic, or a function might be both continuous AND differentiable. Dot notation lets us access exactly the property we need, when we need it.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"**Dot notation**: When you have a hypothesis `h : P ∧ Q`, you can access the first part with `h.1` (which gives you `P`) and the second part with `h.2` (which gives you `Q`).\n"
+"\n"
+"Note that for longer conjunctions like `P ∧ Q ∧ R`, `h.1` gives `P` as expected, but\n"
+"`h.2` gives `Q ∧ R`. That's because there are hidden parentheses: `P ∧ Q ∧ R = P ∧ (Q ∧ R)`. So how do you get to `Q` alone? Easy: dot notation! Writing `h.2.1` gives `Q`, and `h.2.2` gives `R`."
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset2
+msgid "Prove that the sequence `(n + 1) / n` has a limit `L` and determine what it is."
+msgstr ""
+
+#: Game.Levels.L4PsetIntro
+msgid "# Problem Set 4\n"
+"\n"
+"Good luck!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "Write `ring_nf` to expand and simplify both sides algebraically."
+msgstr ""
+
+#: Game.Levels.L6PsetIntro
+msgid "# Problem Set 6\n"
+"\n"
+"Good luck!"
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.\n"
+"This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!'"
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi
+msgid "Lecture 2: Newton's Computation of π"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L09_big_boss
+msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "The `exact_mod_cast` tactic is similar to `apply`, except it automatically handles type coercions that would otherwise require manual casting."
+msgstr ""
+
+#: Game.Levels.L6Levels.L00_SumOfSeqs
+msgid "# 🎉 Outstanding! 🎉\n"
+"\n"
+"You've just proven one of the fundamental theorems of analysis! Let's celebrate what you accomplished and understand why this result is so powerful.\n"
+"\n"
+"**Why This Matters:**\n"
+"This theorem and others like it are the foundation for all of calculus! Every time we differentiate or integrate a sum, we're implicitly using arguments of this kind.\n"
+"\n"
+"**The Deeper Insight:**\n"
+"Notice how the proof required more than just intuition. The 'obvious' fact that sums of convergent sequences converge needed careful epsilon management. This is the hallmark of rigorous analysis: making intuitive ideas completely precise.\n"
+"\n"
+"## Check in, in Natural Language\n"
+"\n"
+"Yet again, let's step back from the formal Lean proof and understand what we just proved in plain English.\n"
+"\n"
+"**Theorem (in natural language):** If two sequences of real numbers converge to their respective limits, then the sequence formed by adding corresponding terms also converges, and its limit is the sum of the original limits.\n"
+"\n"
+"**Proof:** Suppose sequences $a(n)$ and $b(n)$ converge to $L$ and $M$ respectively, and we want to show that $c(n) = a(n) + b(n)$ converges to $L + M$.\n"
+"\n"
+"By definition, we need to show that for any tolerance $\\varepsilon > 0$, we can find a point $N$ such that for all $n \\geq N$, we have $|c(n) - (L + M)| < \\varepsilon$.\n"
+"\n"
+"Since $a(n)$ converges to $L$, we can find $N_1$ such that $|a(n) - L| < \\varepsilon/2$ for all $n \\geq N_1$.\n"
+"Since $b(n)$ converges to $M$, we can find $N_2$ such that $|b(n) - M| < \\varepsilon/2$ for all $n \\geq N_2$.\n"
+"\n"
+"Let $N = N_1 + N_2$ (any number that's at least as large as both $N_1$ and $N_2$ would work). Then for any $n \\geq N$:\n"
+"\n"
+"$$|c(n) - (L + M)| = |(a(n) + b(n)) - (L + M)| = |(a(n) - L) + (b(n) - M)|$$\n"
+"\n"
+"By the triangle inequality, this is at most:\n"
+"$$|a(n) - L| + |b(n) - M| < \\frac{\\varepsilon}{2} + \\frac{\\varepsilon}{2} = \\varepsilon$$\n"
+"\n"
+"Therefore, $c(n)$ converges to $L + M$. **QED**"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
+msgstr ""
+
+#: Game
+msgid "# Welcome to Real Analysis, The Game!\n"
+"\n"
+"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
+"or better yet, post a PR/issue to\n"
+"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"\n"
+"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
+"and basic Point-Set Topology.\n"
+"\n"
+"To get started, click on\n"
+"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Clear denominators in the goal: `field_simp`"
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset1
+msgid "Prove the full Archimedean Property."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "Excellent! You've learned the `choose` tactic for working with existence in hypotheses.\n"
+"\n"
+"Notice the complete pattern:\n"
+"1. `choose c hc using h` unpacked the hypothesis into a specific value `c` and proof `hc : f c = 2`\n"
+"2. `use c` provided this same value as our witness for the goal\n"
+"3. `rewrite [hc]` rewrote `f c` as `2` in the goal, changing it to `2^2 = 4`\n"
+"4. `ring_nf` verified that `2 ^ 2 = 4`\n"
+"\n"
+"The symmetry is beautiful:\n"
+"- `use` when you have `∃` in the goal (\"here's my specific example\")\n"
+"- `choose` when you have `∃` in a hypothesis (\"let me unpack this existence claim\")\n"
+"\n"
+"This completes your basic logical toolkit! In real analysis, you'll use `choose` constantly when working with:\n"
+"- Limit definitions (\"given ε > 0, there exists δ > 0...\")\n"
+"- Intermediate Value Theorem (\"there exists c such that f(c) = 0\")\n"
+"- Existence theorems throughout analysis\n"
+"\n"
+"You're now ready to tackle real mathematical proofs!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "Perfect! You've completed your first Lean proof involving real numbers.\n"
+"\n"
+"Remember: the `apply` tactic is used when you have what you need to prove the goal. Look at the top right: your list of tactics now includes `apply`, and if you forget how it works or what it does, just click on it for a reminder."
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset3
+msgid "Determine what the limit of the sequence `1 / n ^ 2` is, and prove it."
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "Doubling a Convergent Sequence"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
+msgid "There exists a real number that makes this binomial expansion work."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "The `rewrite` tactic replaces the left-hand side of an equality with the right-hand side in the goal. The syntax is `rewrite [hypothesis_name1, hypothesis_name2, etc]`."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "Excellent! You've learned the `ring_nf` tactic.\n"
+"\n"
+"This tactic is incredibly powerful for algebraic manipulations. It automatically handles all the tedious algebra that would take many steps to do by hand.\n"
+"\n"
+"Your toolkit now includes:\n"
+"- `apply hypothesis_name` for when a hypothesis matches your goal\n"
+"- `rfl` for proving something equals itself\n"
+"- `rewrite [hypothesis_name]` for rewriting using equalities\n"
+"- `ring_nf` for algebraic simplifications and expansions\n"
+"\n"
+"As we move into real analysis proper, you'll find that `ring_nf` is invaluable for dealing with polynomial expressions, which appear everywhere in calculus!"
+msgstr ""
+
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+msgid "The `norm_num` tactic can normalize numerical constants and functions of them."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Since 1 / ε < N, we get N > 0: `have Npos : (0 : ℝ) < N := by linarith [f3, eps_inv_lt_N]`. Again we need to be specific about the casting."
+msgstr ""
+
+#: Game.Levels.L6Pset.L6Pset2
+msgid "# Problem 2\n"
+"\n"
+"You know that `h : x = 2 ∧ y = 3 ∧ z = 4`.\n"
+"Your goal is to show that: `z = 4`."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset2
+msgid "Show that there exists a constant `c` so that, for any real numbers `x` and `y` with `x ^ 2 + y ^ 2 = 2` and `x * y = 1`, we have `(x + y) ^ 2 = c`."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "Introduction to Lean"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "The specialize tactic"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Try `use ⌈1 / ε⌉₊ + 1`. Of course you can use other values of `N`, but then I won't be able to give you more hints..."
+msgstr ""
+
+#: Game.Levels.L4PsetIntro
+msgid "Pset 4"
+msgstr ""
+
+#: Game
+msgid "A First Course in Real Analysis"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "The rw tactic"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "Let's compare now to the purely natural language proof:\n"
+"\n"
+"## Natural Language Proof of the Archimedean Property\n"
+"\n"
+"**Theorem**: For any positive real number ε > 0, there exists a natural number N such that 1 / ε < N.\n"
+"\n"
+"**Proof**:\n"
+"Let ε > 0 be given. We need to find a natural number N such that 1 / ε < N.\n"
+"\n"
+"Use the value N = ⌈1 / ε⌉₊ + 1, where ⌈·⌉₊ denotes the natural number ceiling function.\n"
+"\n"
+"Since ε > 0, we have 1 / ε > 0. By the definition of the natural number ceiling function, we know that:\n"
+"\n"
+"1 / ε ≤ ⌈1 / ε⌉₊\n"
+"\n"
+"Now, since ⌈1 / ε⌉₊ is a natural number and N = ⌈1 / ε⌉₊ + 1, we have:\n"
+"\n"
+"⌈1 / ε⌉₊ < ⌈1 / ε⌉₊ + 1 = N\n"
+"\n"
+"Combining these inequalities, we get that:\n"
+"\n"
+"1 / ε ≤ ⌈1 / ε⌉₊ < N\n"
+"\n"
+"Therefore, 1 / ε < N, which completes the proof. □\n"
+"\n"
+"**Significance**: The Archimedean Property is fundamental to analysis because it ensures that the real numbers have no \"infinite\" or \"infinitesimal\" elements. It guarantees that we can always find natural numbers large enough to dominate any given positive real number when we take their reciprocals. This property is essential for many limit processes and is equivalent to the completeness of the real numbers in certain formulations of real analysis.\n"
+"\n"
+"## Review of Common Pitfalls\n"
+"\n"
+"- **Don't use the regular ceiling function `⌈·⌉`** - it returns integers, not natural numbers!\n"
+"- **Watch out for casting issues** - if `bound` isn't working, try `push_cast` first\n"
+"- **The addition `⌈1 / ε⌉₊ + 1` happens in `ℕ`**, then gets cast to `ℝ` - this is why we need `push_cast`\n"
+"\n"
+"**Historical Note**: While often attributed to Archimedes (c. 287-212 BCE), this property was likely known to Eudoxus (c. 408-355 BCE) and appears in Euclid's *Elements*. Archimedes used a version of this principle in his method of exhaustion, particularly in calculating areas and volumes by approximating them with polygons of increasing numbers of sides."
+msgstr ""
+
+#: Game.Levels.L3PsetIntro
+msgid "# Problem Set 3\n"
+"\n"
+"Good luck!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "If we know that $x = 5$, then we can prove that $x = 5$."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Presumably you know that you\n"
+"should `choose N hN using f1` at this stage. But maybe you'd like to give `hN` a more descriptive name (so that I can keep giving you hints). Try `choose N eps_inv_lt_N using f1`."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "The choose tactic"
+msgstr ""
+
+#: Game
+msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
+"\n"
+"## About this Course\n"
+"\n"
+"This course follows the historical crises that forced mathematicians to rebuild\n"
+"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
+"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
+"\n"
+"## Credits\n"
+"\n"
+"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
+"* **Interactive Implementation:** Lean 4 Game Engine\n"
+"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc."
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
+msgstr ""
+
+#: Game
+msgid "An Introduction to (Formal) Real Analysis"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "The `apply` tactic solves a goal when one of the hypotheses is the same as the goal. The syntax is `apply hypothesis_name`"
+msgstr ""
+
+#: Game.Levels.L6Pset.L6Pset5
+msgid "Done. (Hopefully you didn't do that by hand, but rather quoted -- twice -- a theorem that we recently proved?)"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset2
+#: Game.Levels.L2Pset.L2Pset2
+#: Game.Levels.L3Pset.L3Pset2
+#: Game.Levels.L6Pset.L6Pset2
+msgid "Problem 2"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L08_choose
+msgid "# Extracting information from existential quantifiers\n"
+"\n"
+"Now let's learn the counterpart to `use`. You know that if you have `∃` in the goal, you write `use` to provide a specific value.\n"
+"\n"
+"But suppose you have a *hypothesis* that says \"there exists a real number `c` such that `f (c) = 2`\". In Lean, this looks like:\n"
+"`h : ∃ (c : ℝ), f c = 2`\n"
+"\n"
+"And say you want to prove that \"there exists a real number `c` such that `(f c)^2 = 4`\".\n"
+"\n"
+"Again, you can't just say `apply h` because these are different statements.\n"
+"If you know from `h` that at least one such `c` exists, how do you *choose* one?\n"
+" The name of this command is... `choose`.\n"
+"\n"
+"The syntax for `choose` is as follows:\n"
+"\n"
+"`choose c hc using h`.\n"
+"\n"
+"You need to give a name to both the value of `c`, and to the hypothesis with which `c` is bundled. Here we named it `hc` (a hypothesis about `c`).\n"
+"\n"
+"You should be able to figure out how to solve the goal from here."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset2
+msgid "# Problem 2\n"
+"\n"
+"In this problem you are asked to show that there is some `c` so that `(x + y) ^ 2 = c`, given that\n"
+"`x * y = 1` and `x ^ 2 + y ^ 2 = 2`.\n"
+"\n"
+"You will likely have a hard time solving this problem as is.\n"
+"You surely can work out what value of\n"
+"`c` you need. But if you try\n"
+"`ring_nf`, you won't have control over\n"
+"how the \"normal form\" chooses to\n"
+"express things. In fact, the\n"
+"left-hand side, `(x + y) ^ 2` will\n"
+"turn into `x * y * 2 + x ^ 2 + y ^ 2`,\n"
+"which is parsed in this order:\n"
+"\n"
+"`(((x * y) * 2) + x ^ 2) + y ^ 2`\n"
+"\n"
+"This means that you *will* be able to\n"
+"`rewrite [h2]` successfully,\n"
+"but then you will *not* be able to rewrite by `h1`, because the (invisible) parentheses  go the wrong way. (Hint: If you want to know how things are grouped but don't see parentheses, you can hover your cursor over the text in the Goal State, and Lean will show you the groupings. Try it!)\n"
+"\n"
+"Now, in natural language, there are times when you might want to\n"
+"record an auxiliary fact: \"let's\n"
+"*have* the fact that such and such ...\". The Lean\n"
+"syntax for this is as follows:\n"
+"\n"
+"`have NewFactName (Assumptions) : Conclusion := by Proof`\n"
+"\n"
+"That is, you first write `have`; then give\n"
+"the new hypothesis a name; then include any\n"
+"assumptions, like `(x : ℝ)`, meaning, `x`\n"
+"is a real number, etc (the symbol `ℝ` is written with a backslash, then capital `R`, then space); then you put a colon,\n"
+"and then state the conclusion; then you\n"
+"put a colon-equals and the word `by`; and finally you give the proof.\n"
+"\n"
+"For example, if you wanted to declare\n"
+"the new fact that, say, for any real `u` and `v`,\n"
+"\n"
+"`(u + v) ^ 2 = (u ^ 2 + v ^ 2) + 2 * (u * v)`\n"
+"\n"
+"and you wanted to call this fact `huv` (a hypothesis on `u` and `v`),\n"
+"and you wanted to prove this fact by\n"
+"invoking the ring normal form tactic,\n"
+" then you would give Lean the command:\n"
+"\n"
+"`have huv (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v) := by ring_nf`\n"
+"\n"
+"This will add to your list of hypotheses\n"
+"the fact: `huv : ∀ (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v)`.\n"
+"\n"
+"Something like this (if not exactly this)\n"
+"will be useful to you in solving this problem."
+msgstr ""
+
+#: Game.Levels.L6Levels.L06_Squeeze
+msgid "Big Boss : Squeeze Theorem"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "The binomial expansion: $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Combine everything with `linarith [eps_inv_lt_N, f4]`"
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset4
+#: Game.Levels.L3Pset.L3Pset4
+#: Game.Levels.L6Pset.L6Pset4
+msgid "Problem 4"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "# Level 2: Our First Real Limit\n"
+"\n"
+"*Congratulations!* You've just proved the Archimedean Property. Now let's use it to prove something genuinely interesting: our first non-trivial limit.\n"
+"\n"
+"## The Goal: Proving that `1 / n → 0`\n"
+"\n"
+"We want to prove that the sequence `a(n) = 1 / n` converges to `0` as `n` approaches infinity. This is intuitively obvious—as `n` gets larger, `1 / n` gets smaller and approaches `0`. But how do we make this rigorous using the `ε`-`N` definition of limits?\n"
+"\n"
+"**Theorem**: The sequence `a(n) = 1 / n` converges to `0`.\n"
+"\n"
+"This might seem straightforward, but let's see it as a test of the definition.\n"
+"\n"
+"## Recall: The Definition of Sequential Convergence\n"
+"\n"
+"A sequence `a : ℕ → ℝ` converges to a limit `L` (written `SeqLim a L`) if:\n"
+"\n"
+"**For every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, `|a(n) - L| < ε`**\n"
+"\n"
+"In formal notation: `∀ ε > 0, ∃ N, ∀ n ≥ N, |a(n) - L| < ε`\n"
+"\n"
+"For our specific case with `a(n) = 1 / n` and `L = 0`, this becomes:\n"
+"`∀ ε > 0, ∃ N, ∀ n ≥ N, |1 / n - 0| < ε`\n"
+"\n"
+"## The Natural Language Proof Strategy\n"
+"\n"
+"Here's how we'll prove this step by step:\n"
+"\n"
+"**Step 1**: Let `ε > 0` be given. (This will correspond to `intro ε hε`)\n"
+"\n"
+"**Step 2**: We need to find `N` such that for all `n ≥ N`, we have `1 / n < ε`.\n"
+"\n"
+"**Key insight**: We need `1 / n < ε`, which is equivalent to `1 / ε < n` (since both sides are positive). So we need `n` to be larger than `1 / ε`.\n"
+"When our Engineer requests the tolerance of `ε = 1/100`, the Machinist replies, ok, I can do that, but I'll need `N = 1 / ε = 100` days in my factory.\n"
+"\n"
+"\n"
+"**Step 3**: That's exactly why we developed the Archimedean Property! It tells us that there exists some natural number `N` such that `1 / ε < N`.\n"
+"Rather than reproving that from scratch, we can simply quote this fact;\n"
+"then\n"
+"we'll choose such an `N` and use it.\n"
+"\n"
+"**Step 4**: Now let `n ≥ N` be given. We have:\n"
+"- `1 / ε < N` (by our choice of `N`)\n"
+"- `N ≤ n` (by assumption)\n"
+"- Therefore: `1 / ε < N ≤ n`, so `1 / ε < n`\n"
+"- Taking reciprocals (and flipping the inequality): `1 / n < ε`\n"
+"\n"
+"**Step 5**: Since `|1 / n - 0| = |1 / n| = 1 / n < ε`, we're done! □\n"
+"\n"
+"## The Lean Implementation Challenges\n"
+"\n"
+"### Challenge 1: Cross-Multiplying Fractions\n"
+"Our key step is showing that `1 / n < ε`. In paper mathematics, we'd simply cross-multiply to get `1 < n * ε`. But Lean is very careful about division by zero, so we can't just cross-multiply willy-nilly.\n"
+"\n"
+"**The Problem**: We want to go from `1 / n < ε` to `1 < n * ε`, but this is only valid if `n > 0` and `ε > 0`.\n"
+"\n"
+"**Solution**: The `field_simp` tactic handles this automatically! It will clear denominators by cross-multiplying, but only after it can verify that all denominators are positive (or at least non-zero).\n"
+"\n"
+"### Challenge 2: Linear Arithmetic\n"
+"Once we've cleared the fractions, we need to combine various inequalities like:\n"
+"- `1 / ε < N` (from the Archimedean Property)\n"
+"- `N ≤ n` (our assumption)\n"
+"- `1 < n * ε` (our goal after clearing denominators)\n"
+"\n"
+"For some reason, the `bound` tactic doesn't always handle these linear combinations well, especially when they involve multiplication by variables.\n"
+"\n"
+"**Solution**: The `linarith` tactic is specifically designed for linear arithmetic. It can take a list of hypotheses and solve goals that follow from linear combinations of those hypotheses.\n"
+"\n"
+"### Challenge 3: Explicit Type Casting\n"
+"Remember those mysterious up arrows `↑` from the last level? They're back! When we write `1 / n`, Lean sees this as `1 / ↑n` where `n` starts as a natural number but needs to be cast as a real number.\n"
+"\n"
+"Sometimes we have to be specific about what type of casting to use. The expression `1 / ↑n` could be ambiguous—are we casting to integers, rationals, reals, or something else?\n"
+"\n"
+"**Solution**: Instead of an up arrow, we can specify the casting explicitly with this syntax: `(n : ℝ)`. This tells Lean exactly what type we want to cast `n` to, in this case, the reals. This eliminates ambiguity and makes your proofs more precise.\n"
+"\n"
+"### Challenge 4: Casting in Tactic Applications\n"
+"Sometimes you want to apply a tactic or theorem, but the types don't quite match because of casting issues. For example, you might have the hypothesis that `N ≤ n` where `n, N` are naturals, but `bound` or `linarith` are searching for a proof that `(N : ℝ) ≤ (n : ℝ)` as reals.\n"
+"\n"
+"**Solution**: The `exact_mod_cast` tactic is like `apply`, but it automatically handles the type coercions for you. If you're trying to prove `(N : ℝ) ≤ (n : ℝ)`, and you have the hypothesis `h : N ≤ n` (as naturals), then you can write: `exact_mod_cast h`. Lean will look at `h`\n"
+"and realize, oh it's exactly what you're trying to prove, but just\n"
+"cast to a different number system; and it'll figure out the proof from there.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"- **`field_simp`**: Clears denominators by cross-multiplying, but only when it can prove the denominators are non-zero. This is the key to handling fractional inequalities safely.\n"
+"\n"
+"- **Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful, general tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,\n"
+"if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
+"and your Goal is to prove that `2 * X ≤ Z`, then\n"
+"simply calling `linarith [h₁, h₂]` will do the trick. So add as many inequality hypotheses to your Game Board as you may need, and then call `linarith` on them to prove a Goal. I find that `linarith` is best called at the very end, when you've assembled all your facts and are ready to close a Goal (but it has many other uses as well, as you'll see).\n"
+"\n"
+"- **Explicit casting `(n : ℝ)`**: Tells Lean exactly what type to use, eliminating ambiguity in expressions like `1 / n`. You only need to cast\n"
+"once in any expression, and Lean will automatically cast everything else.\n"
+"For example, you can say `(0 : ℝ) < N`, and Lean will figure out that\n"
+"the `0` you mean is a real number, and so, to compare that with `N`,\n"
+"the latter too must be cast to the reals.\n"
+"\n"
+"- **`exact_mod_cast`**: Automatically handles type coercions between different number types (ℕ, ℤ, ℚ, ℝ), when the Goal is *exactly*\n"
+"what you're trying to prove, just needs to get coerced.\n"
+"\n"
+"\n"
+"## Pro Tips for This Level\n"
+"\n"
+"1. **Use `change`** to convert `SeqLim a 0` to its definition\n"
+"2. **Apply the Archimedean Property** to get the existence of an `N`\n"
+"3. **Use `choose`** to extract the `N` from the existential statement\n"
+"4. **Establish positivity first** before using `field_simp`\n"
+"5. **Work step by step** - don't try to do everything at once!\n"
+"\n"
+"## What Makes This Non-Trivial?\n"
+"\n"
+"Unlike the constant sequence (which was essentially definitional), this proof requires:\n"
+"- **The Archimedean Property** to find a suitable `N`\n"
+"- **Careful type management** between `ℕ` and `ℝ`\n"
+"- **Positivity arguments** to handle division\n"
+"- **Inequality manipulation** to connect our bounds\n"
+"\n"
+"This is a perfect example of how even \"obvious\" mathematical facts require sophisticated machinery to prove rigorously!"
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset1
+msgid "# Problem 1\n"
+"\n"
+"The \"full\" Archimedean Property is this:\n"
+"Take two positive real numbers `x` and `y`. No matter\n"
+"how large `y` may be, and how small `x` may be,\n"
+"if we add `x` to itself enough times (that is, multiply it by some natural number), we can always get that to exceed `y`."
+msgstr ""
+
+#: Game.Levels.L6Levels.L06_Squeeze
+msgid "If `a c : ℕ → ℝ`, with `a` and `c` both converging to `L`,\n"
+"and `b` is another sequence, squeezed between `a` and `c`, then `b` also converges to `L`."
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset4
+msgid "Usage: given hypothesis `h : 0 ≤ X`, you can prove: `have : |X| = X := by apply abs_of_nonneg h`"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Start by converting to the definition of sequential convergence using `change`."
+msgstr ""
+
+#: Game.Levels.L1Pset.L1Pset1
+#: Game.Levels.L1Pset.L1Pset3
+#: Game.Levels.L1Pset.L1Pset4
+#: Game.Levels.L1Pset.L1Pset5
+#: Game.Levels.L2Pset.L2Pset1
+#: Game.Levels.L2Pset.L2Pset2
+#: Game.Levels.L3Pset.L3Pset1
+#: Game.Levels.L3Pset.L3Pset2
+#: Game.Levels.L3Pset.L3Pset3
+#: Game.Levels.L3Pset.L3Pset4
+#: Game.Levels.L4Pset.L4Pset1
+#: Game.Levels.L6Pset.L6Pset1
+#: Game.Levels.L6Pset.L6Pset2
+#: Game.Levels.L6Pset.L6Pset3
+#: Game.Levels.L6Pset.L6Pset4
+msgid "Done."
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "First Real Limit"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L00_the_problem
+msgid "Write `apply h` since the hypothesis `h` is  what we want to prove."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "# Algebraic manipulations\n"
+"\n"
+"Now let's learn about algebraic simplification. Suppose you need to prove that $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$.\n"
+"\n"
+"This is true by the basic laws of algebra - expanding the left side using the distributive law, commutativity, associativity, etc. But doing this by hand would be extremely tedious.\n"
+"\n"
+"Fortunately, Lean has a powerful tactic called `ring_nf` (\"ring normal form\") that can automatically perform algebraic manipulations like:\n"
+"- Expanding products\n"
+"- Collecting like terms\n"
+"- Rearranging using commutativity and associativity\n"
+"- Applying the distributive law\n"
+"\n"
+"When you have an algebraic identity involving addition, subtraction, and multiplication, `ring_nf` can often prove it automatically.\n"
+"\n"
+"Try it out on this classic binomial expansion!"
+msgstr ""
+
+#: Game.Levels.L6Pset.L6Pset5
+msgid "# Problem 5\n"
+"\n"
+"You are given five sequences `a b c d e : ℕ → ℝ`, and you know that\n"
+"`a`, `c`, and `e` converge to `L`, and that, for all `n`, `a n ≤ b n ≤ c n ≤ d n ≤ e n`.\n"
+"Prove that both `b` and `d` also converge to `L`."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "If a function of `x` always equals `x²`, then it equals `t²` when evaluated at `t`."
+msgstr ""
+
+#: Game.Levels.L3Pset.L3Pset4
+msgid "# Problem 4\n"
+"\n"
+"Here's an even more involved limit problem. We've had luck getting `bound` to prove `|X| = X`, especially when there's a hypothesis `h : 0 ≤ X` already available in the list of assumptions. But I've found it not to be reliable, unfortunately. So let me give you one more theorem for your toolchest.\n"
+"\n"
+"## New Theorem: `abs_of_nonneg`.\n"
+"If you have a hypothesis `h : 0 ≤ X` in your toolchest,\n"
+"then you can prove that `|X| = X` via:\n"
+"\n"
+"`have factName : |X| = X := by apply abs_of_nonneg h`."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "Type `rewrite [Bob]` to replace `x` with `2` in the goal. Then what?"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "The `ring_nf` tactic puts both sides of an equation into a standard algebraic form and checks if they're equal."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory
+msgid "Lecture 1: The Story of Real Analysis"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L06_intro
+msgid "Use `intro ε` to introduce the variable, then `intro hε` to introduce the hypothesis `ε > 0`. Then how do you solve the goal?"
+msgstr ""
+
+#: Game.Levels.L2Pset.L2Pset1
+#: Game.Levels.L2Pset.L2Pset2
+msgid "Find the correct constant."
+msgstr ""
+
+#: Game.Levels.L6Levels.L00_SumOfSeqs
+msgid "Big Boss: The Sum of Convergent Sequences"
+msgstr ""
+
+#: Game.Levels.L6Levels.L02_LeftRight
+msgid "# 🎯 Strategic Decision-Making Mastered! 🎯\n"
+"\n"
+"Excellent! You've now learned how to navigate the fundamental logical choice points in mathematical proof. The `left` and `right` tactics represent one of the most elegant aspects of mathematical reasoning: sometimes proving less is actually more efficient.\n"
+"\n"
+"**Why This Matters:**\n"
+"\"Or\" statements are everywhere in mathematics. Existence proofs often have this flavor -- \"there exists an `x` such that `P(x)` or `Q(x)`\" -— and being able to choose the right branch can dramatically simplify your proof strategy.\n"
+"\n"
+"**The Art of Mathematical Choice:**\n"
+"Notice how in our example, we had information about both `x` and `y`, but we chose to go `right` and use the fact about `y`. This wasn't arbitrary -- it was the path that led directly to our goal. Learning to recognize these opportunities is a key skill in mathematical reasoning.\n"
+"\n"
+"**Looking Forward:**\n"
+"As we continue developing our proof techniques for analysis, you'll find that `left` and `right` combine powerfully with our convergence arguments. Often we'll need to prove statements like \"either the sequence is eventually positive, or it's eventually negative,\" and these tactics will be essential tools in our arsenal.\n"
+"\n"
+"Mathematics is as much about knowing when to commit to a path as it is about following that path to its conclusion. You're building the judgment to make these strategic choices wisely."
+msgstr ""
+
+#: Game.Levels.L6Lecture
+msgid "Lecture 6: Algebraic Limit Theorem, Part II"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "Great! You've learned the `rewrite` tactic.\n"
+"\n"
+"Notice what happened: after you typed `rewrite [Bob]`, the goal changed from `x + y = 2 + y` to `2 + y = 2 + y`. Then you needed to type `rfl` to finish the proof, since both sides were now identical.\n"
+"\n"
+"So far you've learned:\n"
+"- `apply hypothesis_name` when a hypothesis matches your goal\n"
+"- `rfl` when you need to prove something equals itself\n"
+"- `rewrite [hypothesis_name]` when you want to use an equality to rewrite your goal\n"
+"\n"
+"The `rewrite` tactic is incredibly powerful and you'll use it constantly in real analysis!"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
+msgid "The ring_nf tactic"
+msgstr ""
+
+#: Game.Levels.L4Pset.L4Pset1
+msgid "# Problem 1\n"
+"\n"
+"Let `a (n)` be a sequence that alternates between\n"
+"`3 - 1 / n` and `1 + 1 / n`. Prove that this sequence diverges.\n"
+"\n"
+"**Hint:** You may wish to argue using `N` that's slightly\n"
+"larger than the smallest possible value.\n"
+"\n"
+"**Hint 2:** If your desired `have` is a consequence of two facts put together, you can separate them by a semicolon. For example, if you know that `h : X = Y + Z`,\n"
+"and you want to add a hypothesis `h' : |X - Y| = |Z|`, which is a combination of rewriting by `h` and a ring operation, then you can say:\n"
+"\n"
+"`have h' : |X - Y| = |Z| := by rewrite [h]; ring_nf`.\n"
+"\n"
+"This might come in handy!..."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
+msgstr ""
+
+#: Game.Levels.L6Levels.L05_AbsLt
+msgid "# Level 6: AbsLe - Working with Absolute Values in Convergence\n"
+"\n"
+"Now that you've mastered the complete And/Or toolkit, it's time to apply these skills to a fundamental aspect of real analysis: working with absolute values in the context of sequence convergence. This level introduces you to one of the most useful tools for manipulating absolute value inequalities.\n"
+"\n"
+"You now have the full And/Or matrix \"Cheat Sheet\":\n"
+"\n"
+"|           | ∧        | ∨      |\n"
+"|-----------|----------|--------|\n"
+"| **Goal**  | `split_ands`    | `left`/`right`  |\n"
+"| **Hypothesis** | `h.1`, `h.2` | `cases'` |\n"
+"\n"
+"Remember our definition of sequence convergence: `SeqLim a L` means that for any `ε > 0`, there exists an `N` such that for all `n ≥ N`, we have `|a n - L| < ε`. The absolute value here captures the idea that the sequence terms can approach the limit from either direction—they might be slightly above L or slightly below L, but either way, they're getting close.\n"
+"\n"
+"However, sometimes we need to extract more specific information from this absolute value condition. We might need to know that the sequence terms are not just close to L, but specifically that they're bounded below by `L - ε` or bounded above by `L + ε`. This is where the `abs_lt` theorem becomes invaluable.\n"
+"\n"
+"The key insight is that `|x| < y` is equivalent to saying both `-y < x` AND `x < y`. This gives us a way to \"unpack\" absolute value statements into more manageable pieces that we can work with using our And/Or toolkit.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"**`abs_lt`**: This theorem states that `|x| < y` if and only if `-y < x ∧ x < y`. This allows you to convert between absolute value inequalities and conjunction of regular inequalities, making them easier to work with in proofs."
+msgstr ""
+
+#: Game.Levels.L6Levels.L04_Cases'
+msgid "# Level 5: Cases' - Handling All Possibilities\n"
+"\n"
+"You've now mastered creating \"or\" statements with `left` and `right`, but what happens when you're given an \"or\" statement as a hypothesis and need to work with it? This is where the `cases'` tactic becomes essential—it's the perfect complement to the choice-making tactics you've already learned.\n"
+"\n"
+"When you have a hypothesis like `h : P ∨ Q`, you know that either `P` is true or `Q` is true, but you don't know which one. To proceed with your proof, you need to consider both possibilities systematically. The `cases'` tactic does exactly this: it splits your proof into two separate cases, one for each possibility.\n"
+"\n"
+"Think of this like a lawyer preparing for trial. If you know \"either the defendant was at home OR the defendant was at work\" during the time of the incident, you need to prepare your argument for both scenarios. You can't just pick one and hope for the best—you need a strategy that works regardless of which turns out to be true.\n"
+"\n"
+"In mathematical analysis, this pattern appears constantly. You might know that a sequence is either eventually positive or eventually negative, and need to prove something that holds in both cases. Or you might know that a function achieves its maximum either in the interior of an interval or at one of the endpoints.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"**`cases'`**: When you have a hypothesis `h : P ∨ Q`, you can say `cases' h with h1 h2`. This creates two separate goals:\n"
+"- In the first goal, you get a new hypothesis `h1 : P`\n"
+"- In the second goal, you get a new hypothesis `h2 : Q`\n"
+"\n"
+"You must solve both goals to complete your proof. This ensures you've covered all logical possibilities."
+msgstr ""
+
+#: Game.Levels.L6Levels.L06_Squeeze
+msgid "# Level 7 Big Boss: Squeeze Theorem\n"
+"\n"
+"Welcome to another Big Boss level! You're about to prove one of the most elegant and powerful theorems in real analysis: the Squeeze Theorem (also known as the Sandwich Theorem or Pinching Theorem). This theorem beautifully captures the intuitive idea that if you trap a sequence between two other sequences that both converge to the same limit, then the trapped sequence must also converge to that limit.\n"
+"\n"
+"The Squeeze Theorem is a perfect showcase for how the logical tools you've been developing—working with conjunctions, absolute values, and inequalities—come together to prove deep mathematical results. You'll need to orchestrate all your skills: extracting information from convergence conditions, managing multiple epsilon-N arguments simultaneously, and combining inequalities with absolute value manipulations.\n"
+"\n"
+"**The Intuitive Picture:**\n"
+"Imagine three runners on a track. Runner A and Runner C are both heading to the same finish line L, and Runner B is always between them. No matter how A and C weave back and forth, as long as they both end up at L and B stays between them, B must also end up at L. There's simply nowhere else for B to go!\n"
+"\n"
+"**The Mathematical Challenge:**\n"
+"The formal proof requires careful epsilon management. Given any tolerance `ε`, you need to show that `b (n)` gets within `ε` of `L`. Since `a (n)` and `c (n)` both get within `ε` of `L`, and `b (n)` is squeezed between them, you can use the transitivity of inequalities to show that `b (n)` is also within `ε` of `L`."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "Excellent! You've learned the `rfl` tactic.\n"
+"\n"
+"The key difference:\n"
+"- Use `apply hypothesis_name` when you have a hypothesis that matches your goal\n"
+"- Use `rfl` when you need to prove that something equals itself\n"
+"\n"
+"These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
+msgstr ""
+
+#: Game.Levels.L4Levels.L01_NonConverge
+msgid "A sequence `a : N → ℝ` converges (`SeqConv a` holds) if there exists some\n"
+"`L : ℝ` so that `a → L`, that is, `SeqLim a L` holds."
+msgstr ""
+
+#: Game.Levels.L6Lecture
+msgid "# More on sequences\n"
+"\n"
+"Welcome to Lecture 6, where we continue our deep dive into the fundamental theorems of real analysis.\n"
+"\n"
+"This lecture focuses on two essential aspects of mathematical reasoning: **logical structure** and **practical techniques**. You'll master the fundamental logical operations that appear everywhere in mathematics—working with \"and\" statements, \"or\" statements, and the connections between them. These aren't just abstract logical exercises; they're the building blocks that make complex proofs manageable and clear.\n"
+"\n"
+"**What You'll Accomplish:**\n"
+"\n"
+"First, you'll develop fluency with Lean's logical tactics: constructing conjunctions with `split_ands`, making strategic choices with `left` and `right`, extracting information with dot notation, and handling case analysis with `cases'`. These form a complete toolkit for navigating the logical landscape of mathematical proof.\n"
+"\n"
+"Then you'll apply these tools to prove one of the most elegant and powerful results in analysis: the **Squeeze Theorem**. This theorem beautifully demonstrates how logical reasoning and analytical insight combine to create mathematical magic. When you trap a sequence between two others that converge to the same limit, the trapped sequence has no choice but to converge there too!\n"
+"\n"
+"**The Mathematical Journey:**\n"
+"\n"
+"You'll see how the abstract logical operations you learn connect directly to concrete analytical reasoning. The same `split_ands` technique that helps you break down complex goals will help you extract bounds from convergence conditions. The `abs_lt` theorem will bridge the gap between absolute value statements and ordinary inequalities, giving you the tools to work with epsilon-N definitions effectively.\n"
+"\n"
+"By the end of this lecture, you'll have not just learned individual techniques, but gained the ability to orchestrate them in sophisticated mathematical arguments. You're building the foundation for all of real analysis—and developing the logical clarity that distinguishes excellent mathematical reasoning from merely correct calculations.\n"
+"\n"
+"Let's begin this journey from logical fundamentals to analytical mastery!"
+msgstr ""
+
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "Also try unfolding the definition in `h`: `change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h`"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L05_use
+msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
+"\n"
+"Notice what happened:\n"
+"1. `use 6` told Lean that $c = 6$ is our proposed value\n"
+"2. The goal changed to proving $(x + y)^4 = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4$\n"
+"3. `ring_nf` verified that this algebraic identity is correct\n"
+"\n"
+"The `use` tactic is fundamental in real analysis. You'll need it to:\n"
+"- Find specific values of $\\varepsilon$ and $\\delta$ in limit proofs\n"
+"- Construct witnesses for existence theorems\n"
+"- Provide counterexamples\n"
+"\n"
+"Your growing toolkit:\n"
+"- `apply`, `rfl`, `rewrite` for basic equality reasoning\n"
+"- `ring_nf` for algebraic manipulation\n"
+"- `use` for existence proofs"
+msgstr ""
+
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants."
+msgstr ""
+
+#: Game.Levels.L3Lecture
+msgid "Lecture 3: More fun with Sequences"
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "This is a good time to record the fact that `1 / ε ≤ ⌈1 / ε⌉₊`.\n"
+"You can do that with: `have fact : 1 / ε ≤ ⌈1 / ε⌉₊ := by bound`. The `bound` tactic can solve inequalities like this."
+msgstr ""
+
+#: Game.Levels.L6Levels.L05_AbsLt
+msgid "This says that `|x| < y` if and only if `-y < x ∧ x < y`."
+msgstr ""
+
+#: Game.Levels.L3Levels.L01_ArchProp
+msgid "You might think that the `bound` tactic\n"
+"would also be able to solve `1 / ε < ↑(⌈1 / ε⌉₊ + 1)`, but No!\n"
+"That's because the addition `⌈1 / ε⌉₊ + 1` happens as **natural numbers**, and only then is the result cast to the reals; so the\n"
+"`fact` that was just proved is not useful to `bound`. Instead try: `push_cast` to get the casting to push down as far as possible.\n"
+"The Goal will change to `1 / ε < ↑⌈1 / ε⌉₊ + 1`, where now the\n"
+"ceiling is cast to the reals, and then the real number `1` is added."
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L07_specialize
+msgid "Write `specialize hf t` to apply the universal statement to the specific value t."
+msgstr ""
+
+#: Game.Levels.L5Lecture
+msgid "Lecture 5: Algebraic Limit Theorem, Part I"
 msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge
@@ -185,10 +1140,6 @@ msgid "# A Great Debate\n"
 "followed by a minus sign, `abs_neg` won't work!"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_choose
-msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
-msgstr ""
-
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "# 🎉 Brilliant Work! 🎉\n"
 "\n"
@@ -227,10 +1178,6 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
 msgid "Big Boss: The Ultimate Tactic Challenge"
-msgstr ""
-
-#: Game.Levels.L3Levels.L01_ArchProp
-msgid "Given `ε` and the fact that `0 < ε`, the theorem `ArchProp` claims the existence of `N : ℕ` so that `1 / ε < N`. This is a formalization of the classical Archimedean Property."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
@@ -297,93 +1244,48 @@ msgid "# Problem 4\n"
 "Now you should be able to solve this problem."
 msgstr ""
 
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "# Level 1: Doubling Convergence\n"
+#: Game.Levels.L6Levels.L00_SumOfSeqs
+msgid "For two sequences `a b : ℕ → ℝ` and real numbers `L M : ℝ`, with the hypotheses that `SeqLim a L` and `SeqLim b M`, the theorem `SumLim` says that if\n"
+"there is a third sequence `c : ℕ → ℝ` so that for all `n`, `c n = a n + b n` (that is, `c` is the sum of the sequences), then `SeqLim c (L + M)` holds."
+msgstr ""
+
+#: Game.Levels.L6Levels.L00_SumOfSeqs
+msgid "# Level 1 **Big Boss**: Adding Convergent Sequences\n"
 "\n"
-"After conquering the constant sequence, let's up our game: if a sequence converges, then doubling that sequence also converges, and converges to double the original limit.\n"
+"Now that we've had some experience with the definition of convergence, let's tackle this world's Big Boss. One of the most fundamental ideas in analysis is that 'nice operations preserve convergence.' If two sequences each converge, then their sum also converges, and converges to the sum of their limits.\n"
 "\n"
-"## The Factory Scaling Challenge\n"
+"This might seem obvious at first -- after all, if $a(n)$ is getting close to $L$ and $b(n)$ is getting close to $M$, shouldn't $a(n) + b(n)$ get close to $L + M$? While the intuition is correct, making this rigorous requires some clever maneuvering with our epsilon-N definition.\n"
 "\n"
-"Imagine our Machinist receives a challenge from the Engineer: 'Please double all the lengths, but maintain the same quality standards.' How should the Machinist respond?\n"
+"**Big Boss**\n"
+"Here's the key insight: if an engineer demands that our combined output be within $\\varepsilon$ of the target $L + M$, we can't just demand that each factory independently meet the full tolerance $\\varepsilon$. Instead, we need to be clever about how we allocate our 'tolerance budget.'\n"
 "\n"
-"If the Engineer demands the doubled lengths be within $\\varepsilon$ of $2L$, the Machinist can't just demand that the original process meet the original tolerance $\\varepsilon$, because\n"
-"\n"
-"`|2 * a (n) - 2 * L| < 2 * ε`,\n"
-"\n"
-"not `ε`. Instead, we must be more clever. Can you think of what to do?\n"
-"\n"
-"That's right, the `ε` in the original process\n"
-"is *arbitrary*, so we can play with it!\n"
-"If we could get the original process can guarantee output within $\\varepsilon/2$ of $L$, then doubling that output will be within $\\varepsilon$ of $2L$.\n"
-"\n"
-"This is the key insight: **when scaling by a constant, we need to scale our tolerance demands inversely**.\n"
+"Think of it this way: if the first factory can guarantee its output is within $\\varepsilon/2$ of $L$, and the second factory can guarantee its output is within $\\varepsilon/2$ of $M$, then by the triangle inequality, their sum will be within $\\varepsilon$ of $L + M$. This is the heart of the proof!\n"
 "\n"
 "## The Mathematical Setup\n"
 "\n"
 "Suppose we have:\n"
 "- A sequence $a : \\mathbb{N} \\to \\mathbb{R}$ that converges to $L$\n"
-"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ with the property that $b(n) = 2 \\cdot a(n)$ for all $n$\n"
+"- A sequence $b : \\mathbb{N} \\to \\mathbb{R}$ that converges to $M$\n"
+"- A sequence $c : \\mathbb{N} \\to \\mathbb{R}$ with the property that $c(n) = a(n) + b(n)$ for all $n$\n"
 "\n"
-"We want to prove that $b$ converges to $2 \\cdot L$.\n"
+"We want to prove that $c$ converges to $L + M$.\n"
 "\n"
-"## Key Insight: Inverse Tolerance Scaling\n"
-"\n"
-"The crucial observation is that:\n"
-"\n"
-"$|b(n) - 2L| = |2 \\cdot a(n) - 2L| = 2 \\cdot |a(n) - L|$\n"
-"\n"
-"So if we want $|b(n) - 2L| < \\varepsilon$, we need $2 \\cdot |a(n) - L| < \\varepsilon$, which means $|a(n) - L| < \\varepsilon/2$.\n"
-"\n"
-"This is exactly what we can get from the convergence of $a$!\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"**Absolute Value of Products**:\n"
-"You'll need the new theorem `abs_mul` which states that for any real numbers $x$ and $y$:\n"
-"\n"
-"$|x \\cdot y| = |x| \\cdot |y|$.\n"
-"\n"
-"To use this theorem, you may find it convenient to\n"
-"make a new hypothesis using `have` and then `rewrite` by that hypothesis. That is, you can say,\n"
-"\n"
-"`have NewFact : |Something * SomethingElse| =\n"
-"|Something| * |SomethingElse| :=\n"
-"by apply abs_mul`\n"
-"\n"
-"and then `rewrite [NewFact]` will replace `|Something * SomethingElse|` by `|Something| * |SomethingElse|` (either at the Goal, or `at` a hypothesis, if you so specify).\n"
 "\n"
 "## Your Strategic Approach\n"
 "\n"
-"1. Unfold the definition of convergence for the goal\n"
-"2. Given any $\\varepsilon > 0$, use the convergence of $a$ with tolerance $\\varepsilon/2$. You may find it useful to separately prove the inequality `0 < ε / 2` -- which\n"
-"tactic do you think will help with that?\n"
-"3. Extract the witness $N$ from the convergence of $a$\n"
-"4. Use the same $N$ for your sequence $b$\n"
-"5. Apply the scaling hypothesis and use `abs_mul` to relate $|b(n) - 2L|$ to $|a(n) - L|$\n"
-"6. Use the convergence bound for $a$ to conclude\n"
+"- Start by unfolding the definitions of `SeqLim` in the Goal and hypotheses. I recommend you give your dummy variables different names, so as not to get confused later.\n"
+"- Given any `ε > 0`, use the convergence of `a` to get an `Na` that works for `ε / 2`.\n"
+"- Similarly, use the convergence of `b` to get an `Nb` that works for `ε / 2`\n"
+"- You might think that it would be a good idea at this point to `use max Na Nb`, that is, take the larger of the two for `N`. But we don't care how big `N` is! Can you\n"
+"think of another way to achieve the same objective? (Hint:\n"
+" I haven't told you how to use the `max` function, but I bet you can come up with another function for which you already have everything you need at your disposal...)\n"
+"- Use the triangle inequality to combine the two half-tolerances\n"
 "\n"
-"## Why This Pattern Matters\n"
-"\n"
-"This proof introduces the important technique of **inverse scaling** for tolerances. When you scale a sequence by a constant $c$, you need to scale your tolerance demands by $1/c$. This principle will appear again when you study:\n"
-"- Products of sequences (where both factors contribute to the error)\n"
-"- Derivatives (where the limit definition involves scaling by $h$)\n"
-"- Integration (where Riemann sums involve scaling by partition widths)\n"
-"\n"
-"The ability to manage how constants affect convergence is fundamental to all of analysis!"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L02_rfl
-msgid "The `rfl` tactic proves goals of the form `A = A` where both sides are *identical*."
+"This proof embodies a fundamental principle in analysis: when dealing with sums, we often need to 'divide and conquer' by splitting our error tolerance between the components."
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed with warnings… 🎭"
-msgstr ""
-
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "The `linarith` tactic won't work\n"
-"yet, because it'll get stuck on that `|2|`; do you remember what to do\n"
-"to normalize the numerical value to just `2`?"
 msgstr ""
 
 #: Game.Levels.L2PsetIntro
@@ -392,21 +1294,8 @@ msgid "# Problem Set 2\n"
 "This is problem set 2."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Now we need `1 / n < ε`. First establish that everything is positive. Start with: `have f3 : 0 < 1 / ε := by bound`"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "The intro tactic"
-msgstr ""
-
-#: Game.Levels.L3Pset.L3Pset2
-msgid "# Problem 2\n"
-"\n"
-"Prove that the sequence `(n + 1) / n` has a limit, say, `L`, and determine what it is.\n"
-"\n"
-"We haven't yet learned a good way to use the theorem `OneOverNLimZero`\n"
-"that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
@@ -431,6 +1320,15 @@ msgid "Great! You've learned the `specialize` tactic.\n"
 "Last lesson in Lecture 1 coming up."
 msgstr ""
 
+#: Game.Levels.L3Pset.L3Pset2
+msgid "# Problem 2\n"
+"\n"
+"Prove that the sequence `(n + 1) / n` has a limit, say, `L`, and determine what it is.\n"
+"\n"
+"We haven't yet learned a good way to use the theorem `OneOverNLimZero`\n"
+"that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "Excellent! You've learned the `intro` tactic for universal statements.\n"
 "\n"
@@ -452,6 +1350,10 @@ msgid "Excellent! You've learned the `intro` tactic for universal statements.\n"
 "- Work with function definitions\n"
 "\n"
 "This pattern of `intro` followed by algebraic manipulation is everywhere in analysis!"
+msgstr ""
+
+#: Game.Levels.L6Levels.L05_AbsLt
+msgid "AbsLe"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
@@ -572,55 +1474,38 @@ msgstr ""
 msgid "Start by unfolding the definition: `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |b n - 2 * L| < ε`"
 msgstr ""
 
-#: Game.Levels.L3Levels.L01_ArchProp
-msgid "And now the `bound` tactic will do the trick."
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "Write `rfl` since we're proving that something equals itself."
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
-msgstr ""
-
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "The rfl tactic"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L06_intro
-msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
-msgstr ""
-
 #: Game.Levels.L4Lecture
 msgid "# More on sequences"
 msgstr ""
 
-#: Game.Levels.L3Pset.L3Pset2
-msgid "Prove that the sequence `(n + 1) / n` has a limit `L` and determine what it is."
-msgstr ""
-
-#: Game.Levels.L4PsetIntro
-msgid "# Problem Set 4\n"
+#: Game.Levels.L6Levels.L03_DotNotation
+msgid "# 🔍 Information Extraction Mastered! 🔍\n"
 "\n"
-"Good luck!"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
-msgid "Write `ring_nf` to expand and simplify both sides algebraically."
-msgstr ""
-
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.\n"
-"This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!'"
+"Perfect! You've just learned one of the most practical and time-saving techniques in Lean. Dot notation might seem like a small detail, but it's the kind of efficiency that makes complex proofs much more readable and manageable.\n"
+"\n"
+"**Why This Matters:**\n"
+"As mathematical statements become more complex, they often involve multiple conditions or properties. Being able to quickly extract the specific piece of information you need is essential for maintaining clarity in your proofs.\n"
+"\n"
+"**The Power of Precision:**\n"
+"Notice how `h.2` gave us exactly what we needed—no more, no less. This precision is crucial in mathematics, where we want to use exactly the right tool for each step of our argument.\n"
+"\n"
+"**Looking Forward:**\n"
+"As we dive deeper into analysis, you'll encounter hypotheses with multiple convergence conditions, boundedness properties, and continuity requirements all bundled together. Dot notation will be your key to navigating these rich mathematical structures efficiently.\n"
+"\n"
+"Elegant mathematics isn't just about reaching the right conclusion—it's about getting there with style and clarity. You're building that elegance, one notation at a time."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
 #: Game.Levels.L3Pset.L3Pset3
+#: Game.Levels.L6Pset.L6Pset3
 msgid "Problem 3"
 msgstr ""
 
@@ -633,24 +1518,40 @@ msgstr ""
 msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L09_big_boss
-msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi
-msgid "Lecture 2: Newton's Computation of π"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "The `exact_mod_cast` tactic is similar to `apply`, except it automatically handles type coercions that would otherwise require manual casting."
+#: Game.Levels.L6Levels.L01_SplitAnds
+#: Game.Levels.L6Levels.L02_LeftRight
+#: Game.Levels.L6Levels.L03_DotNotation
+#: Game.Levels.L6Levels.L04_Cases'
+#: Game.Levels.L6Levels.L05_AbsLt
+#: Game.Levels.L6Levels.L06_Squeeze
+msgid "Prove this"
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "The `push_cast` tactic handles coercions between number types, particularly useful when working with natural numbers that need to be treated as real numbers (or integers, or rationals)."
+msgstr ""
+
+#: Game.Levels.L6Levels.L02_LeftRight
+msgid "# Level 3: Left and Right - Making Choices in Mathematics\n"
+"\n"
+"After mastering `split_ands` to handle situations where we need to prove multiple things simultaneously, we now turn to a fundamentally different scenario: proving that at least one of several possibilities is true. This is the world of \"or\" statements (`∨`), and it requires a completely different strategic approach.\n"
+"\n"
+"While `split_ands` was about being comprehensive—proving every part of a conjunction—proving an \"or\" statement (\"disjunction\") is about making a strategic choice. When faced with proving \"P or Q,\" you don't need to prove both `P` and `Q`. You just need to prove one of them! This might seem easier, but it requires good mathematical judgment: which path should you choose?\n"
+"\n"
+"Think of this like a detective solving a case. To prove \"the butler did it OR the gardener did it,\" you don't need to prove both are guilty -- you just need solid evidence against *one* of them. The `left` and `right` tactics are your way of saying \"I'm going to focus my investigation on this suspect.\"\n"
+"\n"
+"In mathematical analysis, this choice-making appears everywhere. For instance, when proving that a sequence is bounded, you might show either that it's bounded above by some constant, or bounded below by another constant, or both. Sometimes one direction is much easier to establish than the other.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"- `left` and `right` tactics\n"
+"\n"
+"When your goal is to prove an \"Or\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `P`, then say `left`, and the Goal will turn into `P`.\n"
+" If you want to prove `Q`, then say `right`, and the Goal will turn into `Q`."
 msgstr ""
 
 #: Game.Levels.L3PsetIntro
@@ -693,22 +1594,33 @@ msgid "Step 3:\n"
 "This proof exemplifies how rigorous definitions resolve historical mathematical debates and provide clear criteria for convergence."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_choose
-msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
+#: Game.Levels.L6PsetIntro
+msgid "Pset 6"
 msgstr ""
 
-#: Game
-msgid "# Welcome to Real Analysis, The Game!\n"
+#: Game.Levels.L2Pset.L2Pset1
+msgid "# Problem 1\n"
 "\n"
-"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
-"or better yet, post a PR/issue to\n"
-"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"We found in Lecture 2 that Newton's Binomial Theorem gave the expansion\n"
 "\n"
-"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
-"and basic Point-Set Topology.\n"
+"$\n"
+"\\sqrt{1+x}\\approx\n"
+"1\n"
+"+\\frac{1}{2}x\n"
+"-\\frac{1}{8}x^2\n"
+"+\\frac{1}{16}x^3\n"
+"-\\frac{5 x^4}{128}+\\cdots\n"
+"$\n"
 "\n"
-"To get started, click on\n"
-"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+"to fourth order.\n"
+"Work out the next term in the expansion. This will be a constant `c` with the property that the polynomial\n"
+"\n"
+"$\\left(1  +\\frac{1}{2}x\n"
+"-\\frac{1}{8}x^2\n"
+"+\\frac{1}{16}x^3\n"
+"-\\frac{5 x^4}{128} + c \\cdot x^5 \\right)^2 - (1 + x)$\n"
+"\n"
+"only has terms $x ^ 6$ or higher. (We don't *yet* have a way of saying that in Lean, so I have to give you the expansion explicitly.)"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi
@@ -1017,31 +1929,6 @@ msgid "# The Mathematical Revolution of 1666\n"
 "**SIMPLICIO:** Ok, ok; you've convinced me! On with some actual Real Analysis please."
 msgstr ""
 
-#: Game.Levels.L2Pset.L2Pset1
-msgid "# Problem 1\n"
-"\n"
-"We found in Lecture 2 that Newton's Binomial Theorem gave the expansion\n"
-"\n"
-"$\n"
-"\\sqrt{1+x}\\approx\n"
-"1\n"
-"+\\frac{1}{2}x\n"
-"-\\frac{1}{8}x^2\n"
-"+\\frac{1}{16}x^3\n"
-"-\\frac{5 x^4}{128}+\\cdots\n"
-"$\n"
-"\n"
-"to fourth order.\n"
-"Work out the next term in the expansion. This will be a constant `c` with the property that the polynomial\n"
-"\n"
-"$\\left(1  +\\frac{1}{2}x\n"
-"-\\frac{1}{8}x^2\n"
-"+\\frac{1}{16}x^3\n"
-"-\\frac{5 x^4}{128} + c \\cdot x^5 \\right)^2 - (1 + x)$\n"
-"\n"
-"only has terms $x ^ 6$ or higher. (We don't *yet* have a way of saying that in Lean, so I have to give you the expansion explicitly.)"
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "As usual, compare to what's written in textbooks:\n"
 "\n"
@@ -1073,12 +1960,12 @@ msgid "As usual, compare to what's written in textbooks:\n"
 "4. **The bridge between intuition and formality**: The intuitive idea that \"`1 / n` gets arbitrarily small\" becomes a precise mathematical statement."
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Clear denominators in the goal: `field_simp`"
+#: Game.Levels.L6Levels.L03_DotNotation
+msgid "Dot Notation"
 msgstr ""
 
-#: Game.Levels.L3Pset.L3Pset1
-msgid "Prove the full Archimedean Property."
+#: Game.Levels.L1PsetIntro
+msgid "Pset 1"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
@@ -1112,37 +1999,8 @@ msgid "# Problem 3\n"
 "Now you should be able to solve this problem!"
 msgstr ""
 
-#: Game.Levels.L1PsetIntro
-msgid "Pset 1"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L07_specialize
-msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Multiply the inequality `N ≤ n` by ε: `have f4 : N * ε ≤ n * ε := by bound`"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L08_choose
-msgid "Excellent! You've learned the `choose` tactic for working with existence in hypotheses.\n"
-"\n"
-"Notice the complete pattern:\n"
-"1. `choose c hc using h` unpacked the hypothesis into a specific value `c` and proof `hc : f c = 2`\n"
-"2. `use c` provided this same value as our witness for the goal\n"
-"3. `rewrite [hc]` rewrote `f c` as `2` in the goal, changing it to `2^2 = 4`\n"
-"4. `ring_nf` verified that `2 ^ 2 = 4`\n"
-"\n"
-"The symmetry is beautiful:\n"
-"- `use` when you have `∃` in the goal (\"here's my specific example\")\n"
-"- `choose` when you have `∃` in a hypothesis (\"let me unpack this existence claim\")\n"
-"\n"
-"This completes your basic logical toolkit! In real analysis, you'll use `choose` constantly when working with:\n"
-"- Limit definitions (\"given ε > 0, there exists δ > 0...\")\n"
-"- Intermediate Value Theorem (\"there exists c such that f(c) = 0\")\n"
-"- Existence theorems throughout analysis\n"
-"\n"
-"You're now ready to tackle real mathematical proofs!"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
@@ -1150,14 +2008,11 @@ msgid "The `change` tactic changes a goal to something definitionally equal to i
 "do this at a hypothesis; if you have a hypothesis `h : X`, you can write `change Y at h`, and `h` will change to `h : Y`."
 msgstr ""
 
-#: Game.Levels.L3Pset.L3Pset3
-msgid "Determine what the limit of the sequence `1 / n ^ 2` is, and prove it."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L00_the_problem
-msgid "Perfect! You've completed your first Lean proof involving real numbers.\n"
+#: Game.Levels.L6Pset.L6Pset1
+msgid "# Problem 1\n"
 "\n"
-"Remember: the `apply` tactic is used when you have what you need to prove the goal. Look at the top right: your list of tactics now includes `apply`, and if you forget how it works or what it does, just click on it for a reminder."
+"You know that `hx : x = 2`, `hy : y = 3`, and that `hz : z = 4`.\n"
+"Your goal is to show that: `x = 2 ∧ y = 3 ∧ z = 4`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
@@ -1200,16 +2055,12 @@ msgid "# The Final Challenge\n"
 "An LLM could easily work through all these Lean levels by pattern matching and logical manipulation - just as you could solve multiplication problems by plugging them into a calculator instead of memorizing your times tables. But that completely defeats the purpose of the exercise, which is to rewire your brain and build mathematical intuition. It's like deciding that you want to bench press 200 pounds, loading up the bar, and then using a forklift to lift it for you while you stand underneath - you might have moved the weight, but you haven't gotten any stronger. The real value isn't in producing correct proofs, it's in the cognitive transformation that happens when you *struggle* through the reasoning yourself, building the mental pathways that let you see mathematical structure intuitively."
 msgstr ""
 
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "Doubling a Convergent Sequence"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L05_use
-msgid "There exists a real number that makes this binomial expansion work."
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "We need to find `N`. Use the Archimedean Property: there exists `N` such that `1 / ε < N`. Try: `have f1 : ∃ (N : ℕ), 1 / ε < N := by apply ArchProp hε`"
+msgstr ""
+
+#: Game.Levels.L6Levels.L01_SplitAnds
+msgid "Split Ands"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
@@ -1221,130 +2072,39 @@ msgstr ""
 msgid "The use tactic"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "The `rewrite` tactic replaces the left-hand side of an equality with the right-hand side in the goal. The syntax is `rewrite [hypothesis_name1, hypothesis_name2, etc]`."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
-msgid "Excellent! You've learned the `ring_nf` tactic.\n"
+#: Game.Levels.L6Levels.L01_SplitAnds
+msgid "🎯 Tactical Mastery Achieved! 🎯\n"
 "\n"
-"This tactic is incredibly powerful for algebraic manipulations. It automatically handles all the tedious algebra that would take many steps to do by hand.\n"
+"Perfect! You've just learned one of the most practical tactics in your Lean toolkit. The `split_ands` tactic might seem simple, but it's incredibly powerful for organizing complex proofs.\n"
 "\n"
-"Your toolkit now includes:\n"
-"- `apply hypothesis_name` for when a hypothesis matches your goal\n"
-"- `rfl` for proving something equals itself\n"
-"- `rewrite [hypothesis_name]` for rewriting using equalities\n"
-"- `ring_nf` for algebraic simplifications and expansions\n"
+"## Why This Matters:\n"
 "\n"
-"As we move into real analysis proper, you'll find that `ring_nf` is invaluable for dealing with polynomial expressions, which appear everywhere in calculus!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Since 1 / ε < N, we get N > 0: `have Npos : (0 : ℝ) < N := by linarith [f3, eps_inv_lt_N]`. Again we need to be specific about the casting."
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-msgid "The `norm_num` tactic can normalize numerical constants and functions of them."
+"Many important mathematical theorems have conclusions that are conjunctions—statements of the form \"A and B and C\". Being able to break these down systematically makes proofs much more manageable and readable.\n"
+"\n"
+"## Looking Ahead:\n"
+"\n"
+"As we continue building our arsenal of proof techniques, you'll find that `split_ands` combines beautifully with the convergence arguments we've been developing. Often in analysis, we need to prove that multiple sequences converge, or that a single sequence satisfies multiple properties simultaneously.\n"
+"The beauty of mathematical proof lies not just in reaching the destination, but in breaking the journey into clear, logical steps. `split_ands` is your tool for taking that first crucial step: turning one complex goal into several simpler ones."
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`."
 msgstr ""
 
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L07_specialize
-msgid "The specialize tactic"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L00_the_problem
-msgid "Introduction to Lean"
-msgstr ""
-
-#: Game.Levels.L1Pset.L1Pset2
-msgid "Show that there exists a constant `c` so that, for any real numbers `x` and `y` with `x ^ 2 + y ^ 2 = 2` and `x * y = 1`, we have `(x + y) ^ 2 = c`."
-msgstr ""
-
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "Archimedean Property"
 msgstr ""
 
-#: Game.Levels.L4PsetIntro
-msgid "Pset 4"
-msgstr ""
-
-#: Game.Levels.L3Levels.L01_ArchProp
-msgid "Try `use ⌈1 / ε⌉₊ + 1`. Of course you can use other values of `N`, but then I won't be able to give you more hints..."
-msgstr ""
-
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
+msgid "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "The `choose` tactic extracts a witness from an existence statement in a hypothesis."
 msgstr ""
 
-#: Game
-msgid "A First Course in Real Analysis"
-msgstr ""
-
-#: Game.Levels.L3PsetIntro
-msgid "# Problem Set 3\n"
-"\n"
-"Good luck!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L01_ArchProp
-msgid "Let's compare now to the purely natural language proof:\n"
-"\n"
-"## Natural Language Proof of the Archimedean Property\n"
-"\n"
-"**Theorem**: For any positive real number ε > 0, there exists a natural number N such that 1 / ε < N.\n"
-"\n"
-"**Proof**:\n"
-"Let ε > 0 be given. We need to find a natural number N such that 1 / ε < N.\n"
-"\n"
-"Use the value N = ⌈1 / ε⌉₊ + 1, where ⌈·⌉₊ denotes the natural number ceiling function.\n"
-"\n"
-"Since ε > 0, we have 1 / ε > 0. By the definition of the natural number ceiling function, we know that:\n"
-"\n"
-"1 / ε ≤ ⌈1 / ε⌉₊\n"
-"\n"
-"Now, since ⌈1 / ε⌉₊ is a natural number and N = ⌈1 / ε⌉₊ + 1, we have:\n"
-"\n"
-"⌈1 / ε⌉₊ < ⌈1 / ε⌉₊ + 1 = N\n"
-"\n"
-"Combining these inequalities, we get that:\n"
-"\n"
-"1 / ε ≤ ⌈1 / ε⌉₊ < N\n"
-"\n"
-"Therefore, 1 / ε < N, which completes the proof. □\n"
-"\n"
-"**Significance**: The Archimedean Property is fundamental to analysis because it ensures that the real numbers have no \"infinite\" or \"infinitesimal\" elements. It guarantees that we can always find natural numbers large enough to dominate any given positive real number when we take their reciprocals. This property is essential for many limit processes and is equivalent to the completeness of the real numbers in certain formulations of real analysis.\n"
-"\n"
-"## Review of Common Pitfalls\n"
-"\n"
-"- **Don't use the regular ceiling function `⌈·⌉`** - it returns integers, not natural numbers!\n"
-"- **Watch out for casting issues** - if `bound` isn't working, try `push_cast` first\n"
-"- **The addition `⌈1 / ε⌉₊ + 1` happens in `ℕ`**, then gets cast to `ℝ` - this is why we need `push_cast`\n"
-"\n"
-"**Historical Note**: While often attributed to Archimedes (c. 287-212 BCE), this property was likely known to Eudoxus (c. 408-355 BCE) and appears in Euclid's *Elements*. Archimedes used a version of this principle in his method of exhaustion, particularly in calculating areas and volumes by approximating them with polygons of increasing numbers of sides."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "The rw tactic"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L00_the_problem
-msgid "If we know that $x = 5$, then we can prove that $x = 5$."
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Presumably you know that you\n"
-"should `choose N hN using f1` at this stage. But maybe you'd like to give `hN` a more descriptive name (so that I can keep giving you hints). Try `choose N eps_inv_lt_N using f1`."
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
@@ -1361,28 +2121,11 @@ msgid "# When things are identical to themselves\n"
 "Try it out!"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L08_choose
-msgid "The choose tactic"
-msgstr ""
-
-#: Game
-msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
+#: Game.Levels.L6Pset.L6Pset4
+msgid "# Problem 4\n"
 "\n"
-"## About this Course\n"
-"\n"
-"This course follows the historical crises that forced mathematicians to rebuild\n"
-"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
-"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
-"\n"
-"## Credits\n"
-"\n"
-"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
-"* **Interactive Implementation:** Lean 4 Game Engine\n"
-"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc."
-msgstr ""
-
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
+"You are given that a sequence `a : ℕ → ℝ` with the property that it takes arbitrarily large values exceeding 10 in absolute value.\n"
+"Prove that cannot have a limit less than 5."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
@@ -1392,14 +2135,6 @@ msgstr ""
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "If `a n = 1 / n`, then `SeqLim a 0`; that is, the sequence\n"
 "`1 / n` converges to zero."
-msgstr ""
-
-#: Game
-msgid "An Introduction to (Formal) Real Analysis"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L00_the_problem
-msgid "The `apply` tactic solves a goal when one of the hypotheses is the same as the goal. The syntax is `apply hypothesis_name`"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -1422,38 +2157,16 @@ msgid "# Theorem Prover Software\n"
 "To solve that goal, the syntax is to write `apply`, then a space, and then the name of the hypothesis which matches the goal."
 msgstr ""
 
-#: Game.Levels.L1Pset.L1Pset2
-#: Game.Levels.L2Pset.L2Pset2
-#: Game.Levels.L3Pset.L3Pset2
-msgid "Problem 2"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L08_choose
-msgid "# Extracting information from existential quantifiers\n"
-"\n"
-"Now let's learn the counterpart to `use`. You know that if you have `∃` in the goal, you write `use` to provide a specific value.\n"
-"\n"
-"But suppose you have a *hypothesis* that says \"there exists a real number `c` such that `f (c) = 2`\". In Lean, this looks like:\n"
-"`h : ∃ (c : ℝ), f c = 2`\n"
-"\n"
-"And say you want to prove that \"there exists a real number `c` such that `(f c)^2 = 4`\".\n"
-"\n"
-"Again, you can't just say `apply h` because these are different statements.\n"
-"If you know from `h` that at least one such `c` exists, how do you *choose* one?\n"
-" The name of this command is... `choose`.\n"
-"\n"
-"The syntax for `choose` is as follows:\n"
-"\n"
-"`choose c hc using h`.\n"
-"\n"
-"You need to give a name to both the value of `c`, and to the hypothesis with which `c` is bundled. Here we named it `hc` (a hypothesis about `c`).\n"
-"\n"
-"You should be able to figure out how to solve the goal from here."
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Prove that the sequence `a(n) = 1 / n` converges to 0.\n"
 "This is our first substantive limit proof, requiring the Archimedean Property."
+msgstr ""
+
+#: Game.Levels.L1PsetIntro
+msgid "# Problem Set 1\n"
+"\n"
+"Just because it's a problem set doesn't mean\n"
+"you can't learn new things..."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset3
@@ -1462,11 +2175,10 @@ msgstr ""
 msgid "Solve the problem"
 msgstr ""
 
-#: Game.Levels.L1PsetIntro
-msgid "# Problem Set 1\n"
-"\n"
-"Just because it's a problem set doesn't mean\n"
-"you can't learn new things..."
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+msgid "For any sequence `a : ℕ → ℝ` and constant `L : ℝ`, and\n"
+"hypothesis `h : ∀ n, a n = L`, the theorem `ConstLim`\n"
+"proves that `SeqLim a L`, that is, the (constant) sequence `a` converges to `L`."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset5
@@ -1488,90 +2200,56 @@ msgid "# Problem 5\n"
 "You may (or may not) find that useful in this problem."
 msgstr ""
 
-#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-msgid "For any sequence `a : ℕ → ℝ` and constant `L : ℝ`, and\n"
-"hypothesis `h : ∀ n, a n = L`, the theorem `ConstLim`\n"
-"proves that `SeqLim a L`, that is, the (constant) sequence `a` converges to `L`."
+#: Game.Levels.L6Levels.L05_AbsLt
+msgid "# 📐 Absolute Value Mastery Achieved! 📐\n"
+"\n"
+"Outstanding! You've just completed a proof that demonstrates the power of combining logical reasoning with analytical techniques. This type of argument—extracting bounds from convergence conditions—is absolutely fundamental in real analysis.\n"
+"\n"
+"**Why This Matters:**\n"
+"What you just proved is that any convergent sequence is eventually bounded below (relative to its limit). This might seem like a small technical detail, but it's actually a building block for many major theorems. For instance, this type of reasoning is crucial in proving that convergent sequences are bounded, and that continuous functions on compact sets achieve their minima.\n"
+"\n"
+"**The Strategic Breakdown:**\n"
+"Notice the elegant flow of your proof: you started with the abstract convergence condition, chose a specific `ε` (namely `1`), extracted the absolute value condition, unpacked it using `abs_lt` to get both bounds, and then focused on just the bound you needed. This is mathematical reasoning at its finest—systematic, precise, and efficient.\n"
+"\n"
+"**Technical Insight:**\n"
+"The `abs_lt` theorem is your gateway between the world of absolute values (which are natural for expressing \"closeness\") and the world of ordinary inequalities (which are easier to manipulate algebraically). Learning to move fluently between these representations is a key skill in analysis.\n"
+"\n"
+"**Looking Forward:**\n"
+"As we progress to more advanced topics, you'll find yourself using this pattern repeatedly: taking convergence hypotheses, specializing them to specific epsilons, and then extracting the directional information you need. The techniques you've mastered here will be essential for proving results about monotonic sequences, bounded sequences, and much more.\n"
+"\n"
+"You're not just learning tactics—you're developing the analytical intuition that separates novice proof-writers from experienced mathematicians. Keep building on these foundations!"
 msgstr ""
 
-#: Game.Levels.L1Pset.L1Pset2
-msgid "# Problem 2\n"
+#: Game.Levels.L6Levels.L04_Cases'
+msgid "# 🔄 Case Analysis Mastered! 🔄\n"
 "\n"
-"In this problem you are asked to show that there is some `c` so that `(x + y) ^ 2 = c`, given that\n"
-"`x * y = 1` and `x ^ 2 + y ^ 2 = 2`.\n"
+"Excellent! You've just learned one of the most powerful proof techniques in mathematics: case analysis. The `cases'` tactic embodies a fundamental principle of logical reasoning—when you don't know which of several possibilities is true, you prove your result holds in every case.\n"
 "\n"
-"You will likely have a hard time solving this problem as is.\n"
-"You surely can work out what value of\n"
-"`c` you need. But if you try\n"
-"`ring_nf`, you won't have control over\n"
-"how the \"normal form\" chooses to\n"
-"express things. In fact, the\n"
-"left-hand side, `(x + y) ^ 2` will\n"
-"turn into `x * y * 2 + x ^ 2 + y ^ 2`,\n"
-"which is parsed in this order:\n"
+"**Why This Matters:**\n"
+"Case analysis is everywhere in mathematics. From proving that every integer is either even or odd, to showing that continuous functions on closed intervals achieve their extrema, the ability to systematically consider all possibilities is crucial for rigorous reasoning.\n"
 "\n"
-"`(((x * y) * 2) + x ^ 2) + y ^ 2`\n"
+"**The Beauty of Completeness:**\n"
+"Notice how `cases'` forced you to handle both scenarios completely. This isn't just a formal requirement—it ensures that your proof is truly bulletproof. No matter which case actually occurs, your argument will hold.\n"
 "\n"
-"This means that you *will* be able to\n"
-"`rewrite [h2]` successfully,\n"
-"but then you will *not* be able to rewrite by `h1`, because the (invisible) parentheses  go the wrong way. (Hint: If you want to know how things are grouped but don't see parentheses, you can hover your cursor over the text in the Goal State, and Lean will show you the groupings. Try it!)\n"
+"**Strategic Insight:**\n"
+"In our example, both cases led to the same algebraic manipulation (`ring_nf`), but that won't always be true. Often, different cases require entirely different approaches. Learning to adapt your strategy to each case while keeping sight of the overall goal is a key mathematical skill.\n"
 "\n"
-"Now, in natural language, there are times when you might want to\n"
-"record an auxiliary fact: \"let's\n"
-"*have* the fact that such and such ...\". The Lean\n"
-"syntax for this is as follows:\n"
+"**Looking Forward:**\n"
+"As we continue with convergence proofs and other analysis topics, you'll find `cases'` invaluable for handling statements like \"either the sequence is bounded above or below\" or \"either the limit exists or the sequence diverges.\" The systematic approach you've learned here will serve you well in these more complex scenarios.\n"
 "\n"
-"`have NewFactName (Assumptions) : Conclusion := by Proof`\n"
-"\n"
-"That is, you first write `have`; then give\n"
-"the new hypothesis a name; then include any\n"
-"assumptions, like `(x : ℝ)`, meaning, `x`\n"
-"is a real number, etc (the symbol `ℝ` is written with a backslash, then capital `R`, then space); then you put a colon,\n"
-"and then state the conclusion; then you\n"
-"put a colon-equals and the word `by`; and finally you give the proof.\n"
-"\n"
-"For example, if you wanted to declare\n"
-"the new fact that, say, for any real `u` and `v`,\n"
-"\n"
-"`(u + v) ^ 2 = (u ^ 2 + v ^ 2) + 2 * (u * v)`\n"
-"\n"
-"and you wanted to call this fact `huv` (a hypothesis on `u` and `v`),\n"
-"and you wanted to prove this fact by\n"
-"invoking the ring normal form tactic,\n"
-" then you would give Lean the command:\n"
-"\n"
-"`have huv (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v) := by ring_nf`\n"
-"\n"
-"This will add to your list of hypotheses\n"
-"the fact: `huv : ∀ (u v : ℝ), (u ^ 2 + v ^ 2) + 2 * (u * v)`.\n"
-"\n"
-"Something like this (if not exactly this)\n"
-"will be useful to you in solving this problem."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
-msgid "The binomial expansion: $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$."
+"Mathematics is about leaving no stone unturned, no possibility unconsidered. With `cases'`, you now have the tools to be completely thorough in your logical investigations."
 msgstr ""
 
 #: Game.Levels.L2PsetIntro
 msgid "Pset 2"
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Combine everything with `linarith [eps_inv_lt_N, f4]`"
-msgstr ""
-
-#: Game.Levels.L1Pset.L1Pset4
-#: Game.Levels.L3Pset.L3Pset4
-msgid "Problem 4"
+#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
+msgid "While you may see `0 < ε` in the goal and `ε > 0` in the hypothesis `hε`, Lean will still know that these two things are exactly the same..."
 msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge
 msgid "Prove that the sequence `1`, `-1`, `1`, `-1`,... diverges."
-msgstr ""
-
-#: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
-msgid "While you may see `0 < ε` in the goal and `ε > 0` in the hypothesis `hε`, Lean will still know that these two things are exactly the same..."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory
@@ -1707,140 +2385,7 @@ msgid "Also clear denominators in our key inequality: `field_simp at eps_inv_lt_
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
-msgid "# Level 2: Our First Real Limit\n"
-"\n"
-"*Congratulations!* You've just proved the Archimedean Property. Now let's use it to prove something genuinely interesting: our first non-trivial limit.\n"
-"\n"
-"## The Goal: Proving that `1 / n → 0`\n"
-"\n"
-"We want to prove that the sequence `a(n) = 1 / n` converges to `0` as `n` approaches infinity. This is intuitively obvious—as `n` gets larger, `1 / n` gets smaller and approaches `0`. But how do we make this rigorous using the `ε`-`N` definition of limits?\n"
-"\n"
-"**Theorem**: The sequence `a(n) = 1 / n` converges to `0`.\n"
-"\n"
-"This might seem straightforward, but let's see it as a test of the definition.\n"
-"\n"
-"## Recall: The Definition of Sequential Convergence\n"
-"\n"
-"A sequence `a : ℕ → ℝ` converges to a limit `L` (written `SeqLim a L`) if:\n"
-"\n"
-"**For every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, `|a(n) - L| < ε`**\n"
-"\n"
-"In formal notation: `∀ ε > 0, ∃ N, ∀ n ≥ N, |a(n) - L| < ε`\n"
-"\n"
-"For our specific case with `a(n) = 1 / n` and `L = 0`, this becomes:\n"
-"`∀ ε > 0, ∃ N, ∀ n ≥ N, |1 / n - 0| < ε`\n"
-"\n"
-"## The Natural Language Proof Strategy\n"
-"\n"
-"Here's how we'll prove this step by step:\n"
-"\n"
-"**Step 1**: Let `ε > 0` be given. (This will correspond to `intro ε hε`)\n"
-"\n"
-"**Step 2**: We need to find `N` such that for all `n ≥ N`, we have `1 / n < ε`.\n"
-"\n"
-"**Key insight**: We need `1 / n < ε`, which is equivalent to `1 / ε < n` (since both sides are positive). So we need `n` to be larger than `1 / ε`.\n"
-"When our Engineer requests the tolerance of `ε = 1/100`, the Machinist replies, ok, I can do that, but I'll need `N = 1 / ε = 100` days in my factory.\n"
-"\n"
-"\n"
-"**Step 3**: That's exactly why we developed the Archimedean Property! It tells us that there exists some natural number `N` such that `1 / ε < N`.\n"
-"Rather than reproving that from scratch, we can simply quote this fact;\n"
-"then\n"
-"we'll choose such an `N` and use it.\n"
-"\n"
-"**Step 4**: Now let `n ≥ N` be given. We have:\n"
-"- `1 / ε < N` (by our choice of `N`)\n"
-"- `N ≤ n` (by assumption)\n"
-"- Therefore: `1 / ε < N ≤ n`, so `1 / ε < n`\n"
-"- Taking reciprocals (and flipping the inequality): `1 / n < ε`\n"
-"\n"
-"**Step 5**: Since `|1 / n - 0| = |1 / n| = 1 / n < ε`, we're done! □\n"
-"\n"
-"## The Lean Implementation Challenges\n"
-"\n"
-"### Challenge 1: Cross-Multiplying Fractions\n"
-"Our key step is showing that `1 / n < ε`. In paper mathematics, we'd simply cross-multiply to get `1 < n * ε`. But Lean is very careful about division by zero, so we can't just cross-multiply willy-nilly.\n"
-"\n"
-"**The Problem**: We want to go from `1 / n < ε` to `1 < n * ε`, but this is only valid if `n > 0` and `ε > 0`.\n"
-"\n"
-"**Solution**: The `field_simp` tactic handles this automatically! It will clear denominators by cross-multiplying, but only after it can verify that all denominators are positive (or at least non-zero).\n"
-"\n"
-"### Challenge 2: Linear Arithmetic\n"
-"Once we've cleared the fractions, we need to combine various inequalities like:\n"
-"- `1 / ε < N` (from the Archimedean Property)\n"
-"- `N ≤ n` (our assumption)\n"
-"- `1 < n * ε` (our goal after clearing denominators)\n"
-"\n"
-"For some reason, the `bound` tactic doesn't always handle these linear combinations well, especially when they involve multiplication by variables.\n"
-"\n"
-"**Solution**: The `linarith` tactic is specifically designed for linear arithmetic. It can take a list of hypotheses and solve goals that follow from linear combinations of those hypotheses.\n"
-"\n"
-"### Challenge 3: Explicit Type Casting\n"
-"Remember those mysterious up arrows `↑` from the last level? They're back! When we write `1 / n`, Lean sees this as `1 / ↑n` where `n` starts as a natural number but needs to be cast as a real number.\n"
-"\n"
-"Sometimes we have to be specific about what type of casting to use. The expression `1 / ↑n` could be ambiguous—are we casting to integers, rationals, reals, or something else?\n"
-"\n"
-"**Solution**: Instead of an up arrow, we can specify the casting explicitly with this syntax: `(n : ℝ)`. This tells Lean exactly what type we want to cast `n` to, in this case, the reals. This eliminates ambiguity and makes your proofs more precise.\n"
-"\n"
-"### Challenge 4: Casting in Tactic Applications\n"
-"Sometimes you want to apply a tactic or theorem, but the types don't quite match because of casting issues. For example, you might have the hypothesis that `N ≤ n` where `n, N` are naturals, but `bound` or `linarith` are searching for a proof that `(N : ℝ) ≤ (n : ℝ)` as reals.\n"
-"\n"
-"**Solution**: The `exact_mod_cast` tactic is like `apply`, but it automatically handles the type coercions for you. If you're trying to prove `(N : ℝ) ≤ (n : ℝ)`, and you have the hypothesis `h : N ≤ n` (as naturals), then you can write: `exact_mod_cast h`. Lean will look at `h`\n"
-"and realize, oh it's exactly what you're trying to prove, but just\n"
-"cast to a different number system; and it'll figure out the proof from there.\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"- **`field_simp`**: Clears denominators by cross-multiplying, but only when it can prove the denominators are non-zero. This is the key to handling fractional inequalities safely.\n"
-"\n"
-"- **Arithmetic with inequalities**: You might also find the `linarith` tactic helpful. It is a very powerful, general tactic like `ring_nf`, but instead of proving algebraic *identities*, it proves *inequalities* involving \"linear arithmetic\" on the specified hypotheses. For example,\n"
-"if you have as hypotheses: `h₁ : X ≤ Y`, `h₂ : 2 * Y ≤ Z`,\n"
-"and your Goal is to prove that `2 * X ≤ Z`, then\n"
-"simply calling `linarith [h₁, h₂]` will do the trick. So add as many inequality hypotheses to your Game Board as you may need, and then call `linarith` on them to prove a Goal. I find that `linarith` is best called at the very end, when you've assembled all your facts and are ready to close a Goal (but it has many other uses as well, as you'll see).\n"
-"\n"
-"- **Explicit casting `(n : ℝ)`**: Tells Lean exactly what type to use, eliminating ambiguity in expressions like `1 / n`. You only need to cast\n"
-"once in any expression, and Lean will automatically cast everything else.\n"
-"For example, you can say `(0 : ℝ) < N`, and Lean will figure out that\n"
-"the `0` you mean is a real number, and so, to compare that with `N`,\n"
-"the latter too must be cast to the reals.\n"
-"\n"
-"- **`exact_mod_cast`**: Automatically handles type coercions between different number types (ℕ, ℤ, ℚ, ℝ), when the Goal is *exactly*\n"
-"what you're trying to prove, just needs to get coerced.\n"
-"\n"
-"\n"
-"## Pro Tips for This Level\n"
-"\n"
-"1. **Use `change`** to convert `SeqLim a 0` to its definition\n"
-"2. **Apply the Archimedean Property** to get the existence of an `N`\n"
-"3. **Use `choose`** to extract the `N` from the existential statement\n"
-"4. **Establish positivity first** before using `field_simp`\n"
-"5. **Work step by step** - don't try to do everything at once!\n"
-"\n"
-"## What Makes This Non-Trivial?\n"
-"\n"
-"Unlike the constant sequence (which was essentially definitional), this proof requires:\n"
-"- **The Archimedean Property** to find a suitable `N`\n"
-"- **Careful type management** between `ℕ` and `ℝ`\n"
-"- **Positivity arguments** to handle division\n"
-"- **Inequality manipulation** to connect our bounds\n"
-"\n"
-"This is a perfect example of how even \"obvious\" mathematical facts require sophisticated machinery to prove rigorously!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
 msgid "Therefore `n > 0`; try: `have npos : (0 : ℝ) < n := by linarith [Npos, N_le_n]`"
-msgstr ""
-
-#: Game.Levels.L3Pset.L3Pset1
-msgid "# Problem 1\n"
-"\n"
-"The \"full\" Archimedean Property is this:\n"
-"Take two positive real numbers `x` and `y`. No matter\n"
-"how large `y` may be, and how small `x` may be,\n"
-"if we add `x` to itself enough times (that is, multiply it by some natural number), we can always get that to exceed `y`."
-msgstr ""
-
-#: Game.Levels.L3Pset.L3Pset4
-msgid "Usage: given hypothesis `h : 0 ≤ X`, you can prove: `have : |X| = X := by apply abs_of_nonneg h`"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
@@ -1871,14 +2416,6 @@ msgid "# Universal statements\n"
 "\n"
 "If you want to be really slick, you can combine the two `intro` commands into\n"
 "one: `intro ε hε`. But don't feel obliged."
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Start by converting to the definition of sequential convergence using `change`."
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "First Real Limit"
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -1946,20 +2483,6 @@ msgid "# Level 1: The Archimedean Property\n"
 "If you get stuck and don't see a Hint, try backtracking until you do."
 msgstr ""
 
-#: Game.Levels.L1Pset.L1Pset1
-#: Game.Levels.L1Pset.L1Pset3
-#: Game.Levels.L1Pset.L1Pset4
-#: Game.Levels.L1Pset.L1Pset5
-#: Game.Levels.L2Pset.L2Pset1
-#: Game.Levels.L2Pset.L2Pset2
-#: Game.Levels.L3Pset.L3Pset1
-#: Game.Levels.L3Pset.L3Pset2
-#: Game.Levels.L3Pset.L3Pset3
-#: Game.Levels.L3Pset.L3Pset4
-#: Game.Levels.L4Pset.L4Pset1
-msgid "Done."
-msgstr ""
-
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "The Convergence of a Sequence"
 msgstr ""
@@ -1987,38 +2510,12 @@ msgstr ""
 msgid "Cast the inequality `n ≥ N` to reals, so that `linarith` can see and access it: `have N_le_n : (N : ℝ) ≤ n := by exact_mod_cast n_ge_N`"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L00_the_problem
-msgid "Write `apply h` since the hypothesis `h` is  what we want to prove."
-msgstr ""
-
 #: Game.Levels.L4Levels.L01_NonConverge
 msgid "NonConvergence"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
-msgid "# Algebraic manipulations\n"
-"\n"
-"Now let's learn about algebraic simplification. Suppose you need to prove that $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$.\n"
-"\n"
-"This is true by the basic laws of algebra - expanding the left side using the distributive law, commutativity, associativity, etc. But doing this by hand would be extremely tedious.\n"
-"\n"
-"Fortunately, Lean has a powerful tactic called `ring_nf` (\"ring normal form\") that can automatically perform algebraic manipulations like:\n"
-"- Expanding products\n"
-"- Collecting like terms\n"
-"- Rearranging using commutativity and associativity\n"
-"- Applying the distributive law\n"
-"\n"
-"When you have an algebraic identity involving addition, subtraction, and multiplication, `ring_nf` can often prove it automatically.\n"
-"\n"
-"Try it out on this classic binomial expansion!"
-msgstr ""
-
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "This is where you might find it useful to call `norm_num` and normalize `|0|` to `0`."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L07_specialize
-msgid "If a function of `x` always equals `x²`, then it equals `t²` when evaluated at `t`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
@@ -2029,47 +2526,63 @@ msgstr ""
 msgid "Determine the limit `L` of the sequence `a (n) = (3n + 8) / (2n + 5)`, and prove that `a` indeed converges to `L`."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L02_rfl
-msgid "Every mathematical expression equals itself."
+#: Game.Levels.L6Pset.L6Pset1
+#: Game.Levels.L6Pset.L6Pset2
+#: Game.Levels.L6Pset.L6Pset3
+#: Game.Levels.L6Pset.L6Pset4
+#: Game.Levels.L6Pset.L6Pset5
+msgid "Prove the statement."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
 #: Game.Levels.L2Pset.L2Pset1
 #: Game.Levels.L3Pset.L3Pset1
 #: Game.Levels.L4Pset.L4Pset1
+#: Game.Levels.L6Pset.L6Pset1
 msgid "Problem 1"
 msgstr ""
 
-#: Game.Levels.L3Pset.L3Pset4
-msgid "# Problem 4\n"
-"\n"
-"Here's an even more involved limit problem. We've had luck getting `bound` to prove `|X| = X`, especially when there's a hypothesis `h : 0 ≤ X` already available in the list of assumptions. But I've found it not to be reliable, unfortunately. So let me give you one more theorem for your toolchest.\n"
-"\n"
-"## New Theorem: `abs_of_nonneg`.\n"
-"If you have a hypothesis `h : 0 ≤ X` in your toolchest,\n"
-"then you can prove that `|X| = X` via:\n"
-"\n"
-"`have factName : |X| = X := by apply abs_of_nonneg h`."
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "Every mathematical expression equals itself."
+msgstr ""
+
+#: Game.Levels.L6Levels.L01_SplitAnds
+msgid "The `split_ands` tactic breaks apart \\\"and\\\" Goals into individual pieces. If your goal is `h₁ ∧ h₂ ∧ h₃`, then calling `split_ands` will break that into three separate goals, the first being\n"
+"`h₁`, the second `h₂`, and of course `h₃`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "Write `use 42`, but with `42` replaced by the correct answer. Then how should you finish?"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "Type `rewrite [Bob]` to replace `x` with `2` in the goal. Then what?"
+#: Game.Levels.L6Levels.L02_LeftRight
+msgid "When your goal is to prove an \\\"Or\\\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `P`, then say `left`, and the Goal will turn into `P`."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
-msgid "The `ring_nf` tactic puts both sides of an equation into a standard algebraic form and checks if they're equal."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L06_intro
-msgid "Use `intro ε` to introduce the variable, then `intro hε` to introduce the hypothesis `ε > 0`. Then how do you solve the goal?"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory
-msgid "Lecture 1: The Story of Real Analysis"
+#: Game.Levels.L6Levels.L06_Squeeze
+msgid "# 🏆 Squeeze Theorem Conquered! 🏆\n"
+"\n"
+"Magnificent! The Squeeze Theorem is not just mathematically beautiful—it's also incredibly practical and will serve you throughout your mathematical journey.\n"
+"\n"
+"**Why This Is a Big Deal:**\n"
+"The Squeeze Theorem is a workhorse of mathematical analysis. It's the tool that lets us prove challenging convergence results by reducing them to easier problems. Can't directly show that a complex sequence converges? Find two simpler sequences that squeeze it, and you're done!\n"
+"\n"
+"**Technical Mastery:**\n"
+"Notice how your proof elegantly combined multiple techniques: epsilon-N arguments, absolute value manipulation with `abs_lt`, logical decomposition with `split_ands`, and inequality reasoning. This synthesis of tools is what makes advanced mathematical proof possible.\n"
+"\n"
+"**The Power of Transitivity:**\n"
+"The heart of your proof was recognizing that if `L - ε < a(n) ≤ b(n) ≤ c(n) < L + ε`, then by transitivity, `L - ε < b(n) < L + ε`, which is exactly what we needed. This kind of inequality chaining is fundamental to analysis.\n"
+"\n"
+"**Real-World Applications:**\n"
+"This theorem proves convergence for sequences that would be nearly impossible to handle directly. For example:\n"
+"- `sin(1/n) → 0` (squeezed between `-1/n` and `1/n`)\n"
+"- Recursive sequences where exact formulas are intractable\n"
+"- Sequences defined by complex geometric or probabilistic processes\n"
+"\n"
+"**Looking Forward:**\n"
+"The Squeeze Theorem will reappear throughout analysis: in proving continuity results, establishing uniform convergence, and even in advanced topics like measure theory. You've now mastered not just the theorem itself, but the proof techniques that make it work.\n"
+"\n"
+"You're developing the kind of mathematical sophistication that allows you to see structure and opportunity where others see only complexity. That's the mark of a true mathematician!"
 msgstr ""
 
 #: Game.Levels.L3Pset.L3Pset3
@@ -2081,11 +2594,6 @@ msgid "# Problem 3\n"
 "- We have yet to learn about dealing with the square-root function.\n"
 "So see if you can be even lazier in your choice of parameters...\n"
 "- If you know that `h : 0 < N` holds in the *natural* numbers, then you can prove that that `1 ≤ N` simply by `apply`ing `h`, that is: `have h' : 1 ≤ N := by apply h`. (This would not work for an inequality in the real numbers, since it's in general not true!)"
-msgstr ""
-
-#: Game.Levels.L2Pset.L2Pset1
-#: Game.Levels.L2Pset.L2Pset2
-msgid "Find the correct constant."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
@@ -2110,21 +2618,8 @@ msgid "# Rewriting with equalities\n"
 "Try it out!"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "Great! You've learned the `rewrite` tactic.\n"
-"\n"
-"Notice what happened: after you typed `rewrite [Bob]`, the goal changed from `x + y = 2 + y` to `2 + y = 2 + y`. Then you needed to type `rfl` to finish the proof, since both sides were now identical.\n"
-"\n"
-"So far you've learned:\n"
-"- `apply hypothesis_name` when a hypothesis matches your goal\n"
-"- `rfl` when you need to prove something equals itself\n"
-"- `rewrite [hypothesis_name]` when you want to use an equality to rewrite your goal\n"
-"\n"
-"The `rewrite` tactic is incredibly powerful and you'll use it constantly in real analysis!"
-msgstr ""
-
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "Simplify the absolute value: `have f2 : |1 / (n : ℝ)| = 1 / n := by bound`. Note the explicit casting to the reals, so that this is not a statement about natural numbers!"
+#: Game.Levels.L6Levels.L02_LeftRight
+msgid "Left and Right"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
@@ -2170,29 +2665,12 @@ msgid "# 🎉 Excellent Work! 🎉\n"
 "**QED**"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L04_ring_nf
-msgid "The ring_nf tactic"
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "Simplify the absolute value: `have f2 : |1 / (n : ℝ)| = 1 / n := by bound`. Note the explicit casting to the reals, so that this is not a statement about natural numbers!"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
 msgid "Given that `f (u) = 2 * u + 1` for all `u`, prove that there exists some `a` such that `f (3) = a`."
-msgstr ""
-
-#: Game.Levels.L4Pset.L4Pset1
-msgid "# Problem 1\n"
-"\n"
-"Let `a (n)` be a sequence that alternates between\n"
-"`3 - 1 / n` and `1 + 1 / n`. Prove that this sequence diverges.\n"
-"\n"
-"**Hint:** You may wish to argue using `N` that's slightly\n"
-"larger than the smallest possible value.\n"
-"\n"
-"**Hint 2:** If your desired `have` is a consequence of two facts put together, you can separate them by a semicolon. For example, if you know that `h : X = Y + Z`,\n"
-"and you want to add a hypothesis `h' : |X - Y| = |Z|`, which is a combination of rewriting by `h` and a ring operation, then you can say:\n"
-"\n"
-"`have h' : |X - Y| = |Z| := by rewrite [h]; ring_nf`.\n"
-"\n"
-"This might come in handy!..."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L05_use
@@ -2223,8 +2701,8 @@ msgid "# Proving existence\n"
 "Try writing `use`, then a space, and then a number. Do you see what to do after that?"
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
+#: Game.Levels.L6Levels.L04_Cases'
+msgid "Cases'"
 msgstr ""
 
 #: Game.Levels.L5Lecture
@@ -2274,6 +2752,10 @@ msgstr ""
 msgid "Usage: `have factName : |x + y| ≤ |x| + |y| := by apply abs_add`"
 msgstr ""
 
+#: Game.Levels.L6Levels.L02_LeftRight
+msgid "When your goal is to prove an \\\"Or\\\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `Q`, then say `right`, and the Goal will turn into `Q`."
+msgstr ""
+
 #: Game.Levels.L2Pset.L2Pset2
 msgid "# Problem 2\n"
 "\n"
@@ -2287,52 +2769,32 @@ msgid "# Problem 2\n"
 "and separate the answers by a comma, like so: `use 6, 7, 42` (in place of: `use 6`, then `use 7`, then `use 42`)."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L02_rfl
-msgid "Excellent! You've learned the `rfl` tactic.\n"
-"\n"
-"The key difference:\n"
-"- Use `apply hypothesis_name` when you have a hypothesis that matches your goal\n"
-"- Use `rfl` when you need to prove that something equals itself\n"
-"\n"
-"These are two of the most fundamental tactics in Lean. As we progress through real analysis, you'll see that many complex proofs ultimately come down to showing that two expressions are identical."
-msgstr ""
-
 #: Game.Levels.L4Levels.L01_NonConverge
 msgid "Usage: `have factName : |-x| = |x| := by apply abs_neg`"
-msgstr ""
-
-#: Game.Levels.L4Levels.L01_NonConverge
-msgid "A sequence `a : N → ℝ` converges (`SeqConv a` holds) if there exists some\n"
-"`L : ℝ` so that `a → L`, that is, `SeqLim a L` holds."
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "The `bound` tactic can solve many \\\"trivial\\\" inequalities involving standard functions and basic arithmetic."
 msgstr ""
 
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "Also try unfolding the definition in `h`: `change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h`"
+#: Game.Levels.L6Levels.L01_SplitAnds
+msgid "# Level 2: Split Ands - Breaking Down Complex Goals\n"
+"\n"
+"Now that you've conquered the Big Boss and proven that sums of convergent sequences converge, you've experienced firsthand how mathematical proofs often require us to establish multiple related facts simultaneously. In our previous proof, we needed to show that both individual sequences satisfied their epsilon conditions, and then combine these results.\n"
+"\n"
+"This pattern -- needing to prove several statements at once -- appears constantly in mathematics. Fortunately, Lean provides us with powerful tools to handle such situations elegantly. When your goal involves proving multiple statements connected by \"and\" (`∧`), the `split_ands` tactic becomes your best friend.\n"
+"\n"
+"Think of `split_ands` as a way to break down a complex manufacturing specification into individual quality checks. Instead of trying to verify that a product meets three different standards all at once, we can tackle each standard separately and systematically.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"- `split_ands`\n"
+"\n"
+"The `split_ands` tactic breaks apart \"and\" Goals into individual pieces. If your goal is `h₁ ∧ h₂ ∧ h₃`, then calling `split_ands` will break that into three separate goals, the first being\n"
+"`h₁`, the second `h₂`, and of course `h₃`"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset5
+#: Game.Levels.L6Pset.L6Pset5
 msgid "Problem 5"
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L05_use
-msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
-"\n"
-"Notice what happened:\n"
-"1. `use 6` told Lean that $c = 6$ is our proposed value\n"
-"2. The goal changed to proving $(x + y)^4 = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4$\n"
-"3. `ring_nf` verified that this algebraic identity is correct\n"
-"\n"
-"The `use` tactic is fundamental in real analysis. You'll need it to:\n"
-"- Find specific values of $\\varepsilon$ and $\\delta$ in limit proofs\n"
-"- Construct witnesses for existence theorems\n"
-"- Provide counterexamples\n"
-"\n"
-"Your growing toolkit:\n"
-"- `apply`, `rfl`, `rewrite` for basic equality reasoning\n"
-"- `ring_nf` for algebraic manipulation\n"
-"- `use` for existence proofs"
 msgstr ""
