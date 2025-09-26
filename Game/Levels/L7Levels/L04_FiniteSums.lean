@@ -1,29 +1,15 @@
-import Game.Levels.L5Levels.L03_SeqInvLim
+import Game.Levels.L7Levels.L03_SeqInvLim
 
 open Finset
 
-World "Lecture5"
-Level 4
+World "Lecture7"
+Level 5
 Title "Finite Sums"
 
 
 
 Introduction "
-# Level 4
-
-Existing tools:
-`apply`
-`change`
-`choose`
-`have`
-`intro`
-`norm_num`
-`rewrite`
-`rfl`
-`ring_nf`
-`specialize`
-`use`
-
+# Level 5
 
 ## New Tools You'll Need
 
@@ -42,11 +28,12 @@ If all terms positive, sum exceeds any term.
 
 -- `by_cases`
 
+-- `induction'` ----- NO, need to go slower here...
+
 
 /-- If `a : ℕ → ℝ` is a sequence, then any term `|a n|`
 for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`. -/
 TheoremDoc TermLtSum as "TermLtSum" in "Theorems"
-
 
 /-- Prove this
 -/

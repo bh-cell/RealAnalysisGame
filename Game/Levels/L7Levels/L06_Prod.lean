@@ -1,32 +1,18 @@
-import Game.Levels.L5Levels.L05_BddOfConv
+import Game.Levels.L7Levels.L05_BddOfConv
 
 open Finset
 
-World "Lecture5"
-Level 6
+World "Lecture7"
+Level 7
 Title "Big Boss : Product of Sequences"
 
 
 
 Introduction "
-# Level 6
-
-Existing tools:
-`apply`
-`change`
-`choose`
-`have`
-`intro`
-`norm_num`
-`rewrite`
-`rfl`
-`ring_nf`
-`specialize`
-`use`
+# Level 7
 
 
 ## New Tools You'll Need
-
 
 "
 /--

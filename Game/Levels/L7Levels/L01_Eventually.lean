@@ -1,11 +1,11 @@
-import Game.Levels.L4Lecture
+import Game.Levels.L7Levels.L00_Uniqueness
 
-World "Lecture5"
-Level 1
+World "Lecture7"
+Level 2
 Title "Eventually"
 
 Introduction "
-# Level 1
+# Level 2
 
 Existing tools:
 `apply`
@@ -20,21 +20,9 @@ Existing tools:
 `specialize`
 `use`
 
-
 ## New Tools You'll Need
 
-`pos_of_nonzero`
-
 "
-
-theorem abs_pos_of_nonzero {x : ℝ} (h : x ≠ 0) : 0 < |x| :=
-abs_pos.mpr h
-
-/-- If `x ≠ 0`, then `0 < |x|`. -/
-TheoremDoc abs_pos_of_nonzero as "abs_pos_of_nonzero" in "Theorems"
-
-NewTheorem abs_pos_of_nonzero
-
 
 /-- If `a : ℕ → ℝ` converges to `L`, then there is an `N` so that
 for all `n ≥ N`, `|a n| ≥ |L| / 2`. -/
@@ -59,3 +47,5 @@ have l4 : |-(a n - L)| = |(a n - L)| := by apply abs_neg
 linarith [l1, l2, l3, l4, hN]
 
 Conclusion ""
+
+-- Exercise: same but `|a n| ≤ 3 |L| / 2`. Check that it doesn't require `L ≠ 0`...

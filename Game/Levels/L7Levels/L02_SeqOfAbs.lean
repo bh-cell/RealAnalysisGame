@@ -1,11 +1,11 @@
-import Game.Levels.L5Levels.L01_Eventually
+import Game.Levels.L7Levels.L01_Eventually
 
-World "Lecture5"
-Level 2
+World "Lecture7"
+Level 3
 Title "Eventually"
 
 Introduction "
-# Level 2
+# Level 3
 
 Existing tools:
 `apply`
@@ -23,12 +23,19 @@ Existing tools:
 
 ## New Tools You'll Need
 
-`abs_abs_sub_abs_le` ??? Hopefully not
+`abs_Lipschitz`
 "
 
-/-- If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its absolute value, `b n = |a n|` for all `n`, then `b` converges to `L`. -/
-TheoremDoc AbsLim as "AbsLim" in "Theorems"
+theorem abs_Lipschitz {x y : ℝ} : |(|x| - |y|)| ≤ |x - y| :=
+by apply abs_abs_sub_abs_le
 
+/-- The absolute value function is Lipschitz with constant 1. -/
+TheoremDoc abs_Lipschitz as "abs_Lipschitz" in "Theorems"
+
+NewTheorem abs_Lipschitz
+
+/-- If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its absolute value, `b n = |a n|` for all `n`, then `b` converges to `|L|`. -/
+TheoremDoc AbsLim as "AbsLim" in "Theorems"
 
 /-- Prove this
 -/
@@ -43,7 +50,11 @@ intro n hn
 specialize hN n hn
 specialize bEqAbsa n
 rewrite [bEqAbsa]
-have : |(|a n|) - (|L|)| ≤ |a n - L| := by apply abs_abs_sub_abs_le -- bound FAILS
+have : |(|a n|) - (|L|)| ≤ |a n - L| := by apply abs_Lipschitz
 bound
 
+
+
 Conclusion ""
+
+-- Exercise : prove `abs_Lipschitz`

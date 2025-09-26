@@ -8,6 +8,10 @@ msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
+#: Game.Levels.L7Lecture
+msgid "Lecture 7: Algebraic Limit Theorem, Part III"
+msgstr ""
+
 #: Game.Levels.L6Pset.L6Pset3
 msgid "# Problem 3\n"
 "\n"
@@ -21,11 +25,20 @@ msgid "Prove the \\\"Archimedean Property\\\"\n"
 "there is always a natural number `N` with `1 / ε < N`."
 msgstr ""
 
+#: Game.Levels.L7Levels.L03_SeqInvLim
+msgid "SeqInvLim"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset2
 msgid "Did you end up using `huv`?\n"
 "And then `specialize`ing it with `u` and `v` replaced, respectively, by `x` and `y`?\n"
 "Or did you think of going via the more direct route:\n"
 "`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
+msgstr ""
+
+#: Game.Levels.L7Levels.L01_Eventually
+msgid "If `a : ℕ → ℝ` converges to `L`, then there is an `N` so that\n"
+"for all `n ≥ N`, `|a n| ≥ |L| / 2`."
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -34,6 +47,10 @@ msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
+msgstr ""
+
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "The absolute value function is Lipschitz with constant 1."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L05_use
@@ -141,6 +158,15 @@ msgid "# Level 1: Doubling Convergence\n"
 "The ability to manage how constants affect convergence is fundamental to all of analysis!"
 msgstr ""
 
+#: Game.Levels.L7Levels.L05_BddOfConv
+msgid "# Level 6\n"
+"\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"`SeqBdd`"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "The `rfl` tactic proves goals of the form `A = A` where both sides are *identical*."
 msgstr ""
@@ -228,6 +254,10 @@ msgstr ""
 msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
 msgstr ""
 
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "Uniqueness of Limits"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "The `exact_mod_cast` tactic is similar to `apply`, except it automatically handles type coercions that would otherwise require manual casting."
 msgstr ""
@@ -284,6 +314,11 @@ msgid "# Welcome to Real Analysis, The Game!\n"
 "**\"Level 1: The Story of Real Analysis\"**, and good luck!"
 msgstr ""
 
+#: Game.Levels.L7Levels.L05_BddOfConv
+msgid "A sequence `a : N → ℝ` is bounded (`SeqBdd` holds) if there exists some positive\n"
+"`M : ℝ` so that `|a n| ≤ M`, for all `n`."
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Clear denominators in the goal: `field_simp`"
 msgstr ""
@@ -333,6 +368,14 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "There exists a real number that makes this binomial expansion work."
+msgstr ""
+
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its absolute value, `b n = |a n|` for all `n`, then `b` converges to `|L|`."
+msgstr ""
+
+#: Game.Levels.L7Levels.L03_SeqInvLim
+msgid "If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its inverse, `b n = 1 / a n` for all `n`, then `b` converges to `1 / L`, provided `L ≠ 0`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
@@ -587,6 +630,15 @@ msgstr ""
 msgid "Problem 4"
 msgstr ""
 
+#: Game.Levels.L7Levels.L04_FiniteSums
+msgid "If `a : ℕ → ℝ` is a sequence, then any term `|a n|`\n"
+"for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`."
+msgstr ""
+
+#: Game.Levels.L7Levels.L04_FiniteSums
+msgid "Finite Sums"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "# Level 2: Our First Real Limit\n"
 "\n"
@@ -771,6 +823,16 @@ msgid "# Algebraic manipulations\n"
 "When you have an algebraic identity involving addition, subtraction, and multiplication, `ring_nf` can often prove it automatically.\n"
 "\n"
 "Try it out on this classic binomial expansion!"
+msgstr ""
+
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "# Level 1\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"`by_contra` and hypothesis name\n"
+"\n"
+"`abs_pos_of_nonzero`"
 msgstr ""
 
 #: Game.Levels.L6Pset.L6Pset5
@@ -996,6 +1058,35 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `apply`, `rfl`, `rewrite` for basic equality reasoning\n"
 "- `ring_nf` for algebraic manipulation\n"
 "- `use` for existence proofs"
+msgstr ""
+
+#: Game.Levels.L7Levels.L00_Uniqueness
+#: Game.Levels.L7Levels.L01_Eventually
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+#: Game.Levels.L7Levels.L03_SeqInvLim
+#: Game.Levels.L7Levels.L04_FiniteSums
+#: Game.Levels.L7Levels.L05_BddOfConv
+#: Game.Levels.L7Levels.L06_Prod
+msgid ""
+msgstr ""
+
+#: Game.Levels.L7Levels.L01_Eventually
+msgid "# Level 2\n"
+"\n"
+"Existing tools:\n"
+"`apply`\n"
+"`change`\n"
+"`choose`\n"
+"`have`\n"
+"`intro`\n"
+"`norm_num`\n"
+"`rewrite`\n"
+"`rfl`\n"
+"`ring_nf`\n"
+"`specialize`\n"
+"`use`\n"
+"\n"
+"## New Tools You'll Need"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -1329,6 +1420,10 @@ msgid "# Problem 2\n"
 "that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)"
 msgstr ""
 
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "Prove that limits are unique."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "Excellent! You've learned the `intro` tactic for universal statements.\n"
 "\n"
@@ -1483,6 +1578,7 @@ msgid "The rfl tactic"
 msgstr ""
 
 #: Game.Levels.L4Lecture
+#: Game.Levels.L7Lecture
 msgid "# More on sequences"
 msgstr ""
 
@@ -1503,6 +1599,12 @@ msgid "# 🔍 Information Extraction Mastered! 🔍\n"
 "Elegant mathematics isn't just about reaching the right conclusion—it's about getting there with style and clarity. You're building that elegance, one notation at a time."
 msgstr ""
 
+#: Game.Levels.L7Levels.L03_SeqInvLim
+msgid "# Level 4\n"
+"\n"
+"## New Tools You'll Need"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset3
 #: Game.Levels.L3Pset.L3Pset3
 #: Game.Levels.L6Pset.L6Pset3
@@ -1518,6 +1620,13 @@ msgstr ""
 msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
 
+#: Game.Levels.L7Levels.L06_Prod
+msgid "# Level 7\n"
+"\n"
+"\n"
+"## New Tools You'll Need"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
@@ -1528,6 +1637,12 @@ msgstr ""
 #: Game.Levels.L6Levels.L04_Cases'
 #: Game.Levels.L6Levels.L05_AbsLt
 #: Game.Levels.L6Levels.L06_Squeeze
+#: Game.Levels.L7Levels.L01_Eventually
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+#: Game.Levels.L7Levels.L03_SeqInvLim
+#: Game.Levels.L7Levels.L04_FiniteSums
+#: Game.Levels.L7Levels.L05_BddOfConv
+#: Game.Levels.L7Levels.L06_Prod
 msgid "Prove this"
 msgstr ""
 
@@ -1960,6 +2075,10 @@ msgid "As usual, compare to what's written in textbooks:\n"
 "4. **The bridge between intuition and formality**: The intuitive idea that \"`1 / n` gets arbitrarily small\" becomes a precise mathematical statement."
 msgstr ""
 
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "If `a : ℕ → ℝ` converges to `L` and `M`, then `L = M`."
+msgstr ""
+
 #: Game.Levels.L6Levels.L03_DotNotation
 msgid "Dot Notation"
 msgstr ""
@@ -2072,6 +2191,11 @@ msgstr ""
 msgid "The use tactic"
 msgstr ""
 
+#: Game.Levels.L7Levels.L01_Eventually
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "Eventually"
+msgstr ""
+
 #: Game.Levels.L6Levels.L01_SplitAnds
 msgid "🎯 Tactical Mastery Achieved! 🎯\n"
 "\n"
@@ -2105,6 +2229,14 @@ msgstr ""
 
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
+msgstr ""
+
+#: Game.Levels.L7Levels.L05_BddOfConv
+msgid "If `a : ℕ → ℝ` is a sequence which converges, then it is bounded."
+msgstr ""
+
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "If `x ≠ 0`, then `0 < |x|`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
@@ -2157,9 +2289,28 @@ msgid "# Theorem Prover Software\n"
 "To solve that goal, the syntax is to write `apply`, then a space, and then the name of the hypothesis which matches the goal."
 msgstr ""
 
+#: Game.Levels.L7Levels.L06_Prod
+msgid "`ProdLim`"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Prove that the sequence `a(n) = 1 / n` converges to 0.\n"
 "This is our first substantive limit proof, requiring the Archimedean Property."
+msgstr ""
+
+#: Game.Levels.L7Levels.L04_FiniteSums
+msgid "# Level 5\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"`∑ k ∈ range N,`\n"
+"\n"
+"Finite Sums.\n"
+"If all terms positive, sum exceeds any term.\n"
+"\n"
+"`sum_range_succ`\n"
+"\n"
+"`by_cases`"
 msgstr ""
 
 #: Game.Levels.L1PsetIntro
@@ -2506,6 +2657,10 @@ msgstr ""
 msgid "level completed! 🎉"
 msgstr ""
 
+#: Game.Levels.L7Levels.L06_Prod
+msgid "Big Boss : Product of Sequences"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Cast the inequality `n ≥ N` to reals, so that `linarith` can see and access it: `have N_le_n : (N : ℝ) ≤ n := by exact_mod_cast n_ge_N`"
 msgstr ""
@@ -2797,4 +2952,30 @@ msgstr ""
 #: Game.Levels.L1Pset.L1Pset5
 #: Game.Levels.L6Pset.L6Pset5
 msgid "Problem 5"
+msgstr ""
+
+#: Game.Levels.L7Levels.L05_BddOfConv
+msgid "Bounded"
+msgstr ""
+
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "# Level 3\n"
+"\n"
+"Existing tools:\n"
+"`apply`\n"
+"`change`\n"
+"`choose`\n"
+"`have`\n"
+"`intro`\n"
+"`norm_num`\n"
+"`rewrite`\n"
+"`rfl`\n"
+"`ring_nf`\n"
+"`specialize`\n"
+"`use`\n"
+"\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"`abs_Lipschitz`"
 msgstr ""

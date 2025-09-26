@@ -1,32 +1,18 @@
-import Game.Levels.L5Levels.L04_FiniteSums
+import Game.Levels.L7Levels.L04_FiniteSums
 
 open Finset
 
-World "Lecture5"
-Level 5
+World "Lecture7"
+Level 6
 Title "Bounded"
 
-
-
 Introduction "
-# Level 5
-
-Existing tools:
-`apply`
-`change`
-`choose`
-`have`
-`intro`
-`norm_num`
-`rewrite`
-`rfl`
-`ring_nf`
-`specialize`
-`use`
+# Level 6
 
 
 ## New Tools You'll Need
 
+`SeqBdd`
 
 "
 

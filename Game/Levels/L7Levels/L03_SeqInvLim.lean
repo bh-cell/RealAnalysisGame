@@ -1,34 +1,18 @@
-import Game.Levels.L5Levels.L02_SeqOfAbs
+import Game.Levels.L7Levels.L02_SeqOfAbs
 
-World "Lecture5"
-Level 3
+World "Lecture7"
+Level 4
 Title "SeqInvLim"
 
 Introduction "
-# Level 3
-
-Existing tools:
-`apply`
-`change`
-`choose`
-`have`
-`intro`
-`norm_num`
-`rewrite`
-`rfl`
-`ring_nf`
-`specialize`
-`use`
-
+# Level 4
 
 ## New Tools You'll Need
-
 
 "
 
 /-- If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its inverse, `b n = 1 / a n` for all `n`, then `b` converges to `1 / L`, provided `L ≠ 0`. -/
 TheoremDoc InvLim as "InvLim" in "Theorems"
-
 
 /-- Prove this
 -/
@@ -67,5 +51,6 @@ have := calc
   _                 = ε * |L| / 2 / |a n| := by field_simp
   _                 ≤ ε := by field_simp; bound
 apply this
+
 
 Conclusion ""
