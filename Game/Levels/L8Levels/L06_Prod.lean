@@ -9,7 +9,7 @@ Title "Big Boss : Product of Sequences"
 
 
 Introduction "
-# Level 7
+# Level 7: Big Boss
 
 
 ## New Tools You'll Need

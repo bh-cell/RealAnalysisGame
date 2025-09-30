@@ -5,14 +5,51 @@ Level 1
 Title "Uniqueness of Limits"
 
 Introduction "
-# Level 1
+# Level 1: Uniqueness of Limits
+
+One of the fundamental properties of convergent sequences is that they converge to a
+**unique** limit. This might seem obvious at first glance—after all, how could a sequence
+be getting arbitrarily close to two different numbers? But as with many intuitive facts
+in analysis, the rigorous proof requires careful reasoning with our epsilon-N definitions.
+
+The key to proving uniqueness is **proof by contradiction**. We'll assume a sequence
+converges to two different limits `L` and `M`, and show this leads to an impossibility.
+The strategy involves choosing epsilon to be half the distance between `L` and `M`, then
+showing the sequence can't simultaneously stay that close to both limits.
 
 ## New Tools You'll Need
 
-`by_contra` and hypothesis name
+### Proof by Contradiction: `by_contra`
 
-`abs_pos_of_nonzero`
+The `by_contra` tactic allows us to prove a statement by assuming its negation and deriving
+a contradiction. The syntax is `by_contra h`, which adds a hypothesis `h` containing the
+negation of the current goal and changes the goal to `False`.
+
+### `abs_pos_of_nonzero`
+
+If `x ≠ 0`, then `0 < |x|`. This theorem is essential for working with distances between
+distinct points.
+
+## The Strategy
+
+Here's how the proof works:
+
+1. Assume for contradiction that `L ≠ M`
+2. Then `|L - M| > 0`, so we can use `ε := |L - M| / 2` as our tolerance
+3. Apply the convergence condition to get `N₁` and `N₂` for sequences converging to `L` and `M`
+4. Take `N = N₁ + N₂` and evaluate at `n = N`
+5. Use the triangle inequality to show `|L - M| ≤ |a N - L| + |a N - M| < ε + ε = |L - M|`
+6. This gives the contradiction: `|L - M| < |L - M|`
+
+The algebra in step 5 is the key: we write `L - M = (L - a(N)) + (a(N) - M)` and apply
+the triangle inequality to get the impossible conclusion.
 "
+
+
+/-- To give a proof by contradiction, the syntax is : `by_contra h`, which adds a hypothesis with the name `h` (or whatever you want), which is the negation of the current Goal, and changes the goal to `false`. -/
+TacticDoc by_contra
+
+NewTactic by_contra
 
 theorem abs_pos_of_nonzero {x : ℝ} (h : x ≠ 0) : 0 < |x| :=
 abs_pos.mpr h
@@ -48,4 +85,34 @@ have f7 : |(L - a (N1+N2))| = |-(a (N1+N2) - L)| := by ring_nf
 have f8 : |-(a (N1+N2) - L)| = |(a (N1+N2) - L)| := by apply abs_neg
 linarith [f5, f6, f7, f8, hN1, hN2]
 
-Conclusion ""
+
+Conclusion "
+## What You've Proven
+
+Congratulations! You've just established one of the most important foundational results in
+analysis: **limits are unique**.
+
+This theorem justifies our use of the definite article—we can speak of \"**the** limit\"
+of a sequence rather than \"**a** limit.\" Without uniqueness, the entire theory of limits
+would be ambiguous and potentially inconsistent.
+
+## Why Uniqueness Matters
+
+The uniqueness of limits is fundamental to the entire edifice of analysis. It ensures that:
+
+- When we define continuous functions using limits, the definitions are unambiguous
+- Limit notation like `lim_{n→∞} a(n) = L` is well-defined
+- We can safely use limits in computations without worrying about multiple possible values
+- Many standard theorems that rely on \"the limit\" make sense
+
+## The Power of Contradiction
+
+This proof also showcased the power of **proof by contradiction** (`by_contra`). When
+direct proof seems difficult, assuming the opposite and deriving an impossibility can be
+an elegant and effective strategy. You'll use this technique many times throughout
+analysis.
+
+The key insight was geometric: if two points are separated by distance `d`, then no third
+point can be within distance `d/2` of both. This simple observation, made rigorous through
+epsilon-N arguments, gave us our contradiction.
+"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26\n"
+"POT-Creation-Date: 2025-09-30\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -34,11 +34,6 @@ msgid "Did you end up using `huv`?\n"
 "And then `specialize`ing it with `u` and `v` replaced, respectively, by `x` and `y`?\n"
 "Or did you think of going via the more direct route:\n"
 "`have hxy : (x + y) ^ 2 = (x ^ 2 + y ^ 2) + 2 * (x * y) := by ring_nf`?"
-msgstr ""
-
-#: Game.Levels.L7Levels.L01_Eventually
-msgid "If `a : ℕ → ℝ` converges to `L`, then there is an `N` so that\n"
-"for all `n ≥ N`, `|a n| ≥ |L| / 2`."
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -158,15 +153,6 @@ msgid "# Level 1: Doubling Convergence\n"
 "The ability to manage how constants affect convergence is fundamental to all of analysis!"
 msgstr ""
 
-#: Game.Levels.L7Levels.L05_BddOfConv
-msgid "# Level 6\n"
-"\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"`SeqBdd`"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "The `rfl` tactic proves goals of the form `A = A` where both sides are *identical*."
 msgstr ""
@@ -180,6 +166,10 @@ msgstr ""
 #: Game.Levels.L6Levels.L00_SumOfSeqs
 msgid "Prove that the sum of two convergent sequences converges to the sum of their limits.\n"
 "This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!'"
+msgstr ""
+
+#: Game.Levels.L7Levels.L03_SeqInvLim
+msgid "If `0 < |x|`, then `x ≠ 0`."
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -225,6 +215,32 @@ msgstr ""
 msgid "Prove that the sequence `(n + 1) / n` has a limit `L` and determine what it is."
 msgstr ""
 
+#: Game.Levels.L7Levels.L01_Eventually
+msgid "## What You've Proven\n"
+"\n"
+"Excellent work! You've proven that convergent sequences with nonzero limits are\n"
+"**eventually bounded away from zero**. This is more than just a technical lemma—it's\n"
+"a deep insight about the behavior of convergent sequences.\n"
+"\n"
+"## The Reverse Triangle Inequality in Action\n"
+"\n"
+"This proof showcased a powerful technique: using the triangle inequality \"in reverse\"\n"
+"to establish lower bounds rather than upper bounds. The key manipulation was:\n"
+"\n"
+"$$|L| = |a (n) + (L - a (n))| \\leq |a (n)| + |L - a (n)|$$\n"
+"\n"
+"This allowed us to isolate `|a (n)|` and bound it from below.\n"
+"\n"
+"## Looking Ahead\n"
+"\n"
+"This result is the crucial prerequisite for proving that reciprocals preserve convergence.\n"
+"When we want to show that `1/a (n) → 1/L`, we need to ensure that the denominators `a (n)`\n"
+"don't get too small. This theorem guarantees exactly that: eventually, `|a (n)| ≥ |L|/2 > 0`,\n"
+"so the reciprocals `1/a (n)` are well-defined and bounded.\n"
+"\n"
+"You now have the key tool needed for the next major theorem!"
+msgstr ""
+
 #: Game.Levels.L4PsetIntro
 msgid "# Problem Set 4\n"
 "\n"
@@ -252,6 +268,37 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L09_big_boss
 msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
+msgstr ""
+
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "## What You've Proven\n"
+"\n"
+"Congratulations! You've just established one of the most important foundational results in\n"
+"analysis: **limits are unique**.\n"
+"\n"
+"This theorem justifies our use of the definite article—we can speak of \"**the** limit\"\n"
+"of a sequence rather than \"**a** limit.\" Without uniqueness, the entire theory of limits\n"
+"would be ambiguous and potentially inconsistent.\n"
+"\n"
+"## Why Uniqueness Matters\n"
+"\n"
+"The uniqueness of limits is fundamental to the entire edifice of analysis. It ensures that:\n"
+"\n"
+"- When we define continuous functions using limits, the definitions are unambiguous\n"
+"- Limit notation like `lim_{n→∞} a(n) = L` is well-defined\n"
+"- We can safely use limits in computations without worrying about multiple possible values\n"
+"- Many standard theorems that rely on \"the limit\" make sense\n"
+"\n"
+"## The Power of Contradiction\n"
+"\n"
+"This proof also showcased the power of **proof by contradiction** (`by_contra`). When\n"
+"direct proof seems difficult, assuming the opposite and deriving an impossibility can be\n"
+"an elegant and effective strategy. You'll use this technique many times throughout\n"
+"analysis.\n"
+"\n"
+"The key insight was geometric: if two points are separated by distance `d`, then no third\n"
+"point can be within distance `d/2` of both. This simple observation, made rigorous through\n"
+"epsilon-N arguments, gave us our contradiction."
 msgstr ""
 
 #: Game.Levels.L7Levels.L00_Uniqueness
@@ -312,11 +359,6 @@ msgid "# Welcome to Real Analysis, The Game!\n"
 "\n"
 "To get started, click on\n"
 "**\"Level 1: The Story of Real Analysis\"**, and good luck!"
-msgstr ""
-
-#: Game.Levels.L7Levels.L05_BddOfConv
-msgid "A sequence `a : N → ℝ` is bounded (`SeqBdd` holds) if there exists some positive\n"
-"`M : ℝ` so that `|a n| ≤ M`, for all `n`."
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -630,15 +672,6 @@ msgstr ""
 msgid "Problem 4"
 msgstr ""
 
-#: Game.Levels.L7Levels.L04_FiniteSums
-msgid "If `a : ℕ → ℝ` is a sequence, then any term `|a n|`\n"
-"for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`."
-msgstr ""
-
-#: Game.Levels.L7Levels.L04_FiniteSums
-msgid "Finite Sums"
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "# Level 2: Our First Real Limit\n"
 "\n"
@@ -825,16 +858,6 @@ msgid "# Algebraic manipulations\n"
 "Try it out on this classic binomial expansion!"
 msgstr ""
 
-#: Game.Levels.L7Levels.L00_Uniqueness
-msgid "# Level 1\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"`by_contra` and hypothesis name\n"
-"\n"
-"`abs_pos_of_nonzero`"
-msgstr ""
-
 #: Game.Levels.L6Pset.L6Pset5
 msgid "# Problem 5\n"
 "\n"
@@ -986,6 +1009,46 @@ msgid "# Level 5: Cases' - Handling All Possibilities\n"
 "You must solve both goals to complete your proof. This ensures you've covered all logical possibilities."
 msgstr ""
 
+#: Game.Levels.L7Levels.L01_Eventually
+msgid "# Level 2: Eventually—Convergent Sequences Stay Near Their Limits\n"
+"\n"
+"When a sequence converges to a nonzero limit, it doesn't just get arbitrarily close to\n"
+"that limit—it **eventually stays away from zero** as well. This \"eventually bounded away\n"
+"from zero\" property is crucial for many theorems involving quotients and reciprocals.\n"
+"\n"
+"The intuition is straightforward: if a sequence is converging to some nonzero value `L`,\n"
+"then eventually the sequence terms must be at least half as large (in absolute value) as\n"
+"`L` itself. They can't simultaneously be approaching `L` and shrinking toward zero.\n"
+"\n"
+"## What We're Proving\n"
+"\n"
+"**Theorem:** If `a : ℕ → ℝ` converges to `L` with `L ≠ 0`, then there exists `N` such\n"
+"that for all `n ≥ N`, we have `|a (n)| ≥ |L| / 2`.\n"
+"\n"
+"In other words, once `n` is large enough, the sequence stays at least half as far from\n"
+"zero as the limit is.\n"
+"\n"
+"## The Strategy\n"
+"\n"
+"The key is to use the convergence condition with `ε = |L| / 2`:\n"
+"\n"
+"1. Since `L ≠ 0`, we have `|L| > 0`, so `ε = |L| / 2` is a valid positive epsilon\n"
+"2. Convergence gives us `N` such that `|a (n) - L| < |L| / 2` for all `n ≥ N`\n"
+"3. This means `a (n)` is within distance `|L| / 2` of `L`\n"
+"4. By the reverse triangle inequality, this forces `|a (n)| ≥ |L| / 2`\n"
+"\n"
+"The algebraic key is recognizing that:\n"
+"$$|L| = |a (n) + (L - a (n))| \\leq |a (n)| + |L - a (n)| < |a (n)| + \\frac{|L|}{2}$$\n"
+"\n"
+"Rearranging gives us `|a (n)| > |L| / 2`.\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"This result is essential for the next level, where we'll prove that reciprocals of\n"
+"convergent sequences converge. We need to know that the denominators don't approach zero,\n"
+"which would cause the reciprocals to blow up. This theorem provides exactly that guarantee!"
+msgstr ""
+
 #: Game.Levels.L6Levels.L06_Squeeze
 msgid "# Level 7 Big Boss: Squeeze Theorem\n"
 "\n"
@@ -1060,33 +1123,8 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `use` for existence proofs"
 msgstr ""
 
-#: Game.Levels.L7Levels.L00_Uniqueness
-#: Game.Levels.L7Levels.L01_Eventually
-#: Game.Levels.L7Levels.L02_SeqOfAbs
 #: Game.Levels.L7Levels.L03_SeqInvLim
-#: Game.Levels.L7Levels.L04_FiniteSums
-#: Game.Levels.L7Levels.L05_BddOfConv
-#: Game.Levels.L7Levels.L06_Prod
 msgid ""
-msgstr ""
-
-#: Game.Levels.L7Levels.L01_Eventually
-msgid "# Level 2\n"
-"\n"
-"Existing tools:\n"
-"`apply`\n"
-"`change`\n"
-"`choose`\n"
-"`have`\n"
-"`intro`\n"
-"`norm_num`\n"
-"`rewrite`\n"
-"`rfl`\n"
-"`ring_nf`\n"
-"`specialize`\n"
-"`use`\n"
-"\n"
-"## New Tools You'll Need"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -1620,13 +1658,6 @@ msgstr ""
 msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
 
-#: Game.Levels.L7Levels.L06_Prod
-msgid "# Level 7\n"
-"\n"
-"\n"
-"## New Tools You'll Need"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
@@ -1640,9 +1671,6 @@ msgstr ""
 #: Game.Levels.L7Levels.L01_Eventually
 #: Game.Levels.L7Levels.L02_SeqOfAbs
 #: Game.Levels.L7Levels.L03_SeqInvLim
-#: Game.Levels.L7Levels.L04_FiniteSums
-#: Game.Levels.L7Levels.L05_BddOfConv
-#: Game.Levels.L7Levels.L06_Prod
 msgid "Prove this"
 msgstr ""
 
@@ -1671,6 +1699,47 @@ msgstr ""
 
 #: Game.Levels.L3PsetIntro
 msgid "Pset 3"
+msgstr ""
+
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "# Level 1: Uniqueness of Limits\n"
+"\n"
+"One of the fundamental properties of convergent sequences is that they converge to a\n"
+"**unique** limit. This might seem obvious at first glance—after all, how could a sequence\n"
+"be getting arbitrarily close to two different numbers? But as with many intuitive facts\n"
+"in analysis, the rigorous proof requires careful reasoning with our epsilon-N definitions.\n"
+"\n"
+"The key to proving uniqueness is **proof by contradiction**. We'll assume a sequence\n"
+"converges to two different limits `L` and `M`, and show this leads to an impossibility.\n"
+"The strategy involves choosing epsilon to be half the distance between `L` and `M`, then\n"
+"showing the sequence can't simultaneously stay that close to both limits.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"### Proof by Contradiction: `by_contra`\n"
+"\n"
+"The `by_contra` tactic allows us to prove a statement by assuming its negation and deriving\n"
+"a contradiction. The syntax is `by_contra h`, which adds a hypothesis `h` containing the\n"
+"negation of the current goal and changes the goal to `False`.\n"
+"\n"
+"### `abs_pos_of_nonzero`\n"
+"\n"
+"If `x ≠ 0`, then `0 < |x|`. This theorem is essential for working with distances between\n"
+"distinct points.\n"
+"\n"
+"## The Strategy\n"
+"\n"
+"Here's how the proof works:\n"
+"\n"
+"1. Assume for contradiction that `L ≠ M`\n"
+"2. Then `|L - M| > 0`, so we can use `ε := |L - M| / 2` as our tolerance\n"
+"3. Apply the convergence condition to get `N₁` and `N₂` for sequences converging to `L` and `M`\n"
+"4. Take `N = N₁ + N₂` and evaluate at `n = N`\n"
+"5. Use the triangle inequality to show `|L - M| ≤ |a N - L| + |a N - M| < ε + ε = |L - M|`\n"
+"6. This gives the contradiction: `|L - M| < |L - M|`\n"
+"\n"
+"The algebra in step 5 is the key: we write `L - M = (L - a(N)) + (a(N) - M)` and apply\n"
+"the triangle inequality to get the impossible conclusion."
 msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge
@@ -2127,6 +2196,11 @@ msgid "The `change` tactic changes a goal to something definitionally equal to i
 "do this at a hypothesis; if you have a hypothesis `h : X`, you can write `change Y at h`, and `h` will change to `h : Y`."
 msgstr ""
 
+#: Game.Levels.L7Levels.L01_Eventually
+msgid "If `a : ℕ → ℝ` converges to `L`, then there is an `N` so that\n"
+"for all `n ≥ N`, `|a (n)| ≥ |L| / 2`."
+msgstr ""
+
 #: Game.Levels.L6Pset.L6Pset1
 msgid "# Problem 1\n"
 "\n"
@@ -2231,10 +2305,6 @@ msgstr ""
 msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
 
-#: Game.Levels.L7Levels.L05_BddOfConv
-msgid "If `a : ℕ → ℝ` is a sequence which converges, then it is bounded."
-msgstr ""
-
 #: Game.Levels.L7Levels.L00_Uniqueness
 msgid "If `x ≠ 0`, then `0 < |x|`."
 msgstr ""
@@ -2289,8 +2359,49 @@ msgid "# Theorem Prover Software\n"
 "To solve that goal, the syntax is to write `apply`, then a space, and then the name of the hypothesis which matches the goal."
 msgstr ""
 
-#: Game.Levels.L7Levels.L06_Prod
-msgid "`ProdLim`"
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "# Level 3: Continuity of Absolute Value—Sequences of Absolute Values\n"
+"\n"
+"The absolute value function behaves extremely well with respect to limits—if a sequence\n"
+"converges, then the sequence of absolute values converges to the absolute value of the\n"
+"limit. This is a manifestation of the **continuity** of the absolute value function.\n"
+"\n"
+"The key property we'll use is that absolute value is **Lipschitz continuous** with\n"
+"constant 1, meaning `||x| - |y|| ≤ |x - y|` for all real numbers `x` and `y`. This\n"
+"inequality captures the idea that absolute value doesn't increase distances.\n"
+"\n"
+"## What We're Proving\n"
+"\n"
+"**Theorem:** If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is defined by\n"
+"`b n = |a n|` for all `n`, then `b` converges to `|L|`.\n"
+"\n"
+"In other words: taking absolute values preserves convergence.\n"
+"\n"
+"## New Tool: `abs_Lipschitz`\n"
+"\n"
+"A function `f : ℝ → ℝ` is called \"Lipschitz\"  (with constant `K`) if we have `|f(x) - f(y)| ≤ K · |x - y|` for all `x` and `y`. This means the function can't change too rapidly—the output values can't get farther apart than `K` times the input distance.  The theorem `abs_Lipschitz`  states that for any real numbers `x` and `y`:\n"
+"$$||x| - |y|| \\leq |x - y|$$\n"
+"that is, the absolute value function is Lipschitz with constant `K = 1`. This means taking absolute values is non-expansive: it never increases distances between points, and often decreases them.\n"
+"\n"
+"(This is also sometimes called the **reverse triangle inequality for absolute values**.)\n"
+"\n"
+"## The Strategy\n"
+"\n"
+"This proof is remarkably clean compared to our previous results:\n"
+"\n"
+"1. Given `ε > 0`, use convergence of `a` to get `N` such that `|a n - L| < ε` for `n ≥ N`\n"
+"2. For `n ≥ N`, observe that `b n = |a n|`\n"
+"3. Apply `abs_Lipschitz`: `||a n| - |L|| ≤ |a n - L| < ε`\n"
+"4. Therefore `|b n - |L|| < ε`, proving `b n → |L|`\n"
+"\n"
+"The Lipschitz property does all the heavy lifting for us!\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"This theorem is a special case of a much more general principle: **continuous functions\n"
+"preserve limits**. The absolute value function is continuous everywhere, so it maps\n"
+"convergent sequences to convergent sequences. This principle extends to all continuous\n"
+"functions and is fundamental to mathematical analysis."
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -2298,19 +2409,8 @@ msgid "Prove that the sequence `a(n) = 1 / n` converges to 0.\n"
 "This is our first substantive limit proof, requiring the Archimedean Property."
 msgstr ""
 
-#: Game.Levels.L7Levels.L04_FiniteSums
-msgid "# Level 5\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"`∑ k ∈ range N,`\n"
-"\n"
-"Finite Sums.\n"
-"If all terms positive, sum exceeds any term.\n"
-"\n"
-"`sum_range_succ`\n"
-"\n"
-"`by_cases`"
+#: Game.Levels.L7Levels.L03_SeqInvLim
+msgid "For any real numbers `x` and `y`, we have `|x / y| = |x| / |y|`."
 msgstr ""
 
 #: Game.Levels.L1PsetIntro
@@ -2535,6 +2635,34 @@ msgstr ""
 msgid "Also clear denominators in our key inequality: `field_simp at eps_inv_lt_N`"
 msgstr ""
 
+#: Game.Levels.L7Levels.L02_SeqOfAbs
+msgid "## What You've Proven\n"
+"\n"
+"Great work! You've proven that the absolute value function **preserves convergence**: if\n"
+"`a n → L`, then `|a n| → |L|`. This is one of the cleanest and most elegant proofs in\n"
+"the course so far.\n"
+"\n"
+"## The Power of Lipschitz Continuity\n"
+"\n"
+"The key insight was that because absolute value is Lipschitz continuous with constant 1,\n"
+"we have `||a n| - |L|| ≤ |a n - L|`. This single inequality immediately gives us the\n"
+"convergence we need—no complicated epsilon manipulations, no splitting cases, just a\n"
+"direct application of the Lipschitz property.\n"
+"\n"
+"## The Bigger Picture\n"
+"\n"
+"This theorem is your first glimpse of a profound principle in analysis: **continuous\n"
+"functions preserve limits**. We've just proven this for one specific continuous function\n"
+"(absolute value), but the same idea works for all continuous functions. If `f` is\n"
+"continuous and `a n → L`, then `f(a n) → f(L)`. This is why calculus works the way it\n"
+"does—you can \"pass limits through\" continuous functions like polynomials, exponentials,\n"
+"trigonometric functions, and more.\n"
+"\n"
+"The Lipschitz property is even stronger than continuity—it gives us quantitative control\n"
+"over how fast the function can change. This makes Lipschitz functions particularly\n"
+"well-behaved and useful throughout analysis, differential equations, and optimization."
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Therefore `n > 0`; try: `have npos : (0 : ℝ) < n := by linarith [Npos, N_le_n]`"
 msgstr ""
@@ -2657,10 +2785,6 @@ msgstr ""
 msgid "level completed! 🎉"
 msgstr ""
 
-#: Game.Levels.L7Levels.L06_Prod
-msgid "Big Boss : Product of Sequences"
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Cast the inequality `n ≥ N` to reals, so that `linarith` can see and access it: `have N_le_n : (N : ℝ) ≤ n := by exact_mod_cast n_ge_N`"
 msgstr ""
@@ -2708,6 +2832,10 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "Write `use 42`, but with `42` replaced by the correct answer. Then how should you finish?"
+msgstr ""
+
+#: Game.Levels.L7Levels.L00_Uniqueness
+msgid "To give a proof by contradiction, the syntax is : `by_contra h`, which adds a hypothesis with the name `h` (or whatever you want), which is the negation of the current Goal, and changes the goal to `false`."
 msgstr ""
 
 #: Game.Levels.L6Levels.L02_LeftRight
@@ -2952,30 +3080,4 @@ msgstr ""
 #: Game.Levels.L1Pset.L1Pset5
 #: Game.Levels.L6Pset.L6Pset5
 msgid "Problem 5"
-msgstr ""
-
-#: Game.Levels.L7Levels.L05_BddOfConv
-msgid "Bounded"
-msgstr ""
-
-#: Game.Levels.L7Levels.L02_SeqOfAbs
-msgid "# Level 3\n"
-"\n"
-"Existing tools:\n"
-"`apply`\n"
-"`change`\n"
-"`choose`\n"
-"`have`\n"
-"`intro`\n"
-"`norm_num`\n"
-"`rewrite`\n"
-"`rfl`\n"
-"`ring_nf`\n"
-"`specialize`\n"
-"`use`\n"
-"\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"`abs_Lipschitz`"
 msgstr ""

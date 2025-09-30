@@ -3,16 +3,16 @@ import Game.Levels.L7Levels.L04_FiniteSums
 open Finset
 
 World "Lecture7"
-Level 6
+Level 7
 Title "Bounded"
 
 Introduction "
-# Level 6
+# Level 7
 
 
 ## New Tools You'll Need
 
-`SeqBdd`
+def: `SeqBdd`
 
 "
 

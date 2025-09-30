@@ -1,35 +1,41 @@
-import Game.Levels.L7Levels.L03_SeqInvLim
+import Game.Levels.L7Levels.L03a_Induction'
 
 open Finset
 
 World "Lecture7"
-Level 5
+Level 6
 Title "Finite Sums"
 
-
-
 Introduction "
-# Level 5
+# Level 6
+
+Finite Sums.
+The sum of absolute values exceeds any one absolute value.
 
 ## New Tools You'll Need
 
-`∑ k ∈ range N,`
-
-Finite Sums.
-If all terms positive, sum exceeds any term.
+Summation notation: `∑ k ∈ range N` which means sum as `k` goes from `0` to `N-1` (which has `N` terms!)
 
 `sum_range_succ`
 
-`by_cases`
-
 "
 
--- `sum_range_succ`
+/-- If your hypotheses lead to a contradiction, then the `contradiction` tactic closes any goal. -/
+TacticDoc contradiction
 
--- `by_cases`
+NewTactic contradiction
 
--- `induction'` ----- NO, need to go slower here...
+/-- Given a function `f : ℕ → ℝ` and a natural number `N`, `sum_range_succ f n` says that:
+`∑ n ∈ range (N + 1), f n = ∑ n ∈ range N, f n + f N`. -/
+TheoremDoc Finset.sum_range_succ as "sum_range_succ" in "Theorems"
 
+
+/-- If a function is nonnegative, then its sum is also. -/
+TheoremDoc Finset.sum_nonneg as "sum_nonneg" in "Theorems"
+
+
+
+NewTheorem Finset.sum_range_succ Finset.sum_nonneg
 
 /-- If `a : ℕ → ℝ` is a sequence, then any term `|a n|`
 for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`. -/
@@ -41,8 +47,7 @@ Statement TermLtSum (a : ℕ → ℝ) (N : ℕ) :
     ∀ n, n < N → |a n| ≤ ∑ k ∈ range N, |a k| := by
 induction' N with N hN
 intro n hn
-exfalso
-exact Nat.not_succ_le_zero n hn -- NEEDS WORK!
+contradiction
 intro n hn
 have : ∑ k ∈ range (N + 1), |a k| = (∑ k ∈ range N, |a k|) + |a N| := by apply sum_range_succ
 rewrite [this]
