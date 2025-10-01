@@ -126,7 +126,16 @@ Unlike the constant sequence (which was essentially definitional), this proof re
 This is a perfect example of how even \"obvious\" mathematical facts require sophisticated machinery to prove rigorously!
 "
 
-/-- The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants. -/
+/-- The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants.
+- ✅ **Linear:** `2*x + y - 3`, `z / 5`
+- ❌ **Not Linear:** `x*y`, `x^2`, `|x|`, `1/x`
+
+Example Usage:
+h1 : x < y
+h2 : y ≤ z
+Goal: x < z + 1
+linarith [h1, h2]
+-/
 TacticDoc linarith
 
 /-- The `field_simp` tactic tries to clear denominators, if it can figure out that the denominators are non-zero (or in the case of inequalities, positive). -/
