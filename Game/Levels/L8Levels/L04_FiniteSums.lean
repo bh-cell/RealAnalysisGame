@@ -1,16 +1,19 @@
-import Game.Levels.L7Levels.L03a_Induction'
+import Game.Levels.L8Levels.L03_Induction'
 
 open Finset
 
-World "Lecture7"
-Level 6
+World "Lecture8"
+Level 2
 Title "Finite Sums"
 
 Introduction "
-# Level 6
+# Level 2
 
 Finite Sums.
 The sum of absolute values exceeds any one absolute value.
+
+Big Hint: Even though the Goal starts with: `∀ n < N`, I suggest you *not* start with
+`intro n hn`. Instead, run induction on `N` right from the beginning!
 
 ## New Tools You'll Need
 
@@ -18,9 +21,13 @@ Summation notation: `∑ k ∈ range N` which means sum as `k` goes from `0` to 
 
 `sum_range_succ`
 
+`sum_nonneg`
+
+`contradiction`
+
 "
 
-/-- If your hypotheses lead to a contradiction, then the `contradiction` tactic closes any goal. -/
+/-- If your hypotheses lead to a contradiction, (for example: if one of your hypotheses is that `h : n < 0` where `n : ℕ` is a natural number) then the `contradiction` tactic closes the goal. -/
 TacticDoc contradiction
 
 NewTactic contradiction
@@ -29,11 +36,8 @@ NewTactic contradiction
 `∑ n ∈ range (N + 1), f n = ∑ n ∈ range N, f n + f N`. -/
 TheoremDoc Finset.sum_range_succ as "sum_range_succ" in "Theorems"
 
-
 /-- If a function is nonnegative, then its sum is also. -/
 TheoremDoc Finset.sum_nonneg as "sum_nonneg" in "Theorems"
-
-
 
 NewTheorem Finset.sum_range_succ Finset.sum_nonneg
 
@@ -44,21 +48,21 @@ TheoremDoc TermLtSum as "TermLtSum" in "Theorems"
 /-- Prove this
 -/
 Statement TermLtSum (a : ℕ → ℝ) (N : ℕ) :
-    ∀ n, n < N → |a n| ≤ ∑ k ∈ range N, |a k| := by
+    ∀ n < N, |a n| ≤ ∑ k ∈ range N, |a k| := by
 induction' N with N hN
 intro n hn
 contradiction
 intro n hn
-have : ∑ k ∈ range (N + 1), |a k| = (∑ k ∈ range N, |a k|) + |a N| := by apply sum_range_succ
-rewrite [this]
+have f1 : ∑ k ∈ range (N + 1), |a k| = (∑ k ∈ range N, |a k|) + |a N| := by apply sum_range_succ
+rewrite [f1]
 by_cases hn' : n < N
 specialize hN n hn'
-have : 0 ≤ |a N| := by bound
-bound
-have : n = N := by bound
-rewrite [this]
-have : ∀ k ∈ range N, 0 ≤ |a k| := by bound
-have : 0 ≤ ∑ k ∈ range N, |a k| := by apply sum_nonneg this
-bound
+have f1' : 0 ≤ |a N| := by bound
+linarith [f1', hN]
+have f2 : n = N := by bound
+rewrite [f2]
+have f3 : ∀ k ∈ range N, 0 ≤ |a k| := by bound
+have f4 : 0 ≤ ∑ k ∈ range N, |a k| := by apply sum_nonneg f3
+linarith [f4]
 
 Conclusion ""

@@ -1,20 +1,19 @@
-import Game.Levels.L7Levels.L03_SeqInvLim
+import Game.Levels.L7PsetIntro
 
-World "Lecture7"
-Level 5
+World "Lecture8"
+Level 1
 Title "NotEven"
 
 Introduction "
-# Level 5
+# Level 1
 
 ## New Tools You'll Need
 
 `induction'`
 
-`by_cases`
+`ge_one_of_nonzero`
 
 "
-
 
 theorem ge_one_of_nonzero {n : ℕ} (h : n ≠ 0) : 1 ≤ n :=
 by omega
@@ -29,13 +28,7 @@ variable `n`, use `k` for the new dummy variable (which could be `n` itself), an
 the induction hypothesis on `k`. -/
 TacticDoc induction'
 
-/-- The `by_cases` tactic has syntax `by_cases h : fact`, where `h` is your name for a new hypothesis,
-and `fact` is the fact claimed in the hypothesis. Calling `by_cases` creates two subgoals, one with
-the additional hypothesis `h : fact`, and the second has the hypothesis `h : ¬ fact`. -/
-TacticDoc by_cases
-
-NewTactic induction' by_cases
-
+NewTactic induction'
 
 /-- Prove this
 -/
@@ -47,7 +40,7 @@ rewrite [hk0]
 norm_num
 have : 1 ≤ k := by apply ge_one_of_nonzero hk0
 have f1 : k + 1 ≤ 2 * k := by bound
-have f2 : 2 * k < 2 * 2 ^ k := by bound
+have f2 : 2 * k < 2 * 2 ^ k := by linarith [hk]
 have f3 : 2 * 2 ^ k = 2 ^ (k + 1) := by ring_nf
 linarith [f1, f2, f3]
 

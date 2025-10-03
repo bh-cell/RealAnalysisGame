@@ -44,13 +44,13 @@ convergent sequences converge. We need to know that the denominators don't appro
 which would cause the reciprocals to blow up. This theorem provides exactly that guarantee!
 "
 
-/-- If `a : ℕ → ℝ` converges to `L`, then there is an `N` so that
+/-- If `a : ℕ → ℝ` converges to `L` and `L ≠ 0`, then there is an `N` so that
 for all `n ≥ N`, `|a (n)| ≥ |L| / 2`. -/
-TheoremDoc EventuallyGeHalfLim as "EventuallyGeHalfLim" in "Theorems"
+TheoremDoc EventuallyGeHalfLimPos as "EventuallyGeHalfLimPos" in "Theorems"
 
 /-- Prove this
 -/
-Statement EventuallyGeHalfLim (a : ℕ → ℝ) (L : ℝ) (aToL : SeqLim a L) (LneZero: L ≠ 0) :
+Statement EventuallyGeHalfLimPos (a : ℕ → ℝ) (L : ℝ) (aToL : SeqLim a L) (LneZero: L ≠ 0) :
     ∃ N, ∀ n ≥ N, |L| / 2 ≤ |a (n)| := by
 specialize aToL (|L| / 2)
 have : 0 < |L| := by apply abs_pos_of_nonzero LneZero

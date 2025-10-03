@@ -62,7 +62,7 @@ TheoremDoc InvLim as "InvLim" in "Theorems"
 Statement InvLim (a : ℕ → ℝ) (L : ℝ) (aToL : SeqLim a L) (LneZero : L ≠ 0) (b : ℕ →
 ℝ) (bEqInva : ∀ n, b n = 1 / a n) :
     SeqLim b (1 / L) := by
-choose NhalfL hNhalfL using EventuallyGeHalfLim a L aToL LneZero
+choose NhalfL hNhalfL using EventuallyGeHalfLimPos a L aToL LneZero
 intro ε hε
 have : 0 < |L| := by apply abs_pos_of_nonzero LneZero
 specialize aToL (ε * |L| * |L| / 2) (by bound)
@@ -82,7 +82,7 @@ have l2 :  |(L - a n) / (a n * L)| =  |(L - a n)| / |(a n * L)| := by apply abs_
 have l3 : |(L - a n)| / |(a n * L)| = |(L - a n)| / (|a n| * |L|) := by bound
 have l4 : |L - a n| = |-(a n - L)| := by ring_nf
 have l5 : |-(a n - L)| = |(a n - L)| := by apply abs_neg
-have l6 : |a n - L| / (|a n| * |L|) < (ε * |L| * |L| / 2) / (|a n| * |L|) := by field_simp; nlinarith
+have l6 : |a n - L| / (|a n| * |L|) < (ε * |L| * |L| / 2) / (|a n| * |L|) := by field_simp; bound
 have l10 : |(L - a n)| / (|a n| * |L|) = |-(a n - L)| / (|a n| * |L|) := by rewrite [l4]; rfl
 have l11 : |-(a n - L)| / (|a n| * |L|) = |(a n - L)| / (|a n| * |L|) := by rewrite [l5]; rfl
 have l13 : ε * |L| * |L| / 2 / (|a n| * |L|) = ε * |L| / 2 / |a n| := by field_simp
