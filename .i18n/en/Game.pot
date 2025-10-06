@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03\n"
+"POT-Creation-Date: 2025-10-06\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -80,6 +80,26 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L04_Cases'
 msgid "When have a hypothesis `h : P ∨ Q`, you can say `cases' h with h1 h2`; this will make two new Game Boards, one with an extra hypothesis `h1 : P`, and the other with the hypothesis `h2 : Q`. You'll have to solve both to solve the original Goal!"
+msgstr ""
+
+#: Game.Levels.L9Levels.L04_FiniteSums
+msgid "# Level 1\n"
+"\n"
+"Finite Sums.\n"
+"The sum of absolute values exceeds any one absolute value.\n"
+"\n"
+"Big Hint: Even though the Goal starts with: `∀ n < N`, I suggest you *not* start with\n"
+"`intro n hn`. Instead, run induction on `N` right from the beginning!\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"Summation notation: `∑ k ∈ range N` which means sum as `k` goes from `0` to `N-1` (which has `N` terms!)\n"
+"\n"
+"`sum_range_succ`\n"
+"\n"
+"`sum_nonneg`\n"
+"\n"
+"`contradiction`"
 msgstr ""
 
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
@@ -180,7 +200,7 @@ msgstr ""
 msgid "Now we need `1 / n < ε`. First establish that everything is positive. Start with: `have f3 : 0 < 1 / ε := by bound`"
 msgstr ""
 
-#: Game.Levels.L8Levels.L04_FiniteSums
+#: Game.Levels.L9Levels.L04_FiniteSums
 msgid "If your hypotheses lead to a contradiction, (for example: if one of your hypotheses is that `h : n < 0` where `n : ℕ` is a natural number) then the `contradiction` tactic closes the goal."
 msgstr ""
 
@@ -256,6 +276,18 @@ msgid "## What You've Proven\n"
 "You now have the key tool needed for the next major theorem!"
 msgstr ""
 
+#: Game.Levels.L3Levels.L02_OneOverN
+msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants.\n"
+"- ✅ **Linear:** `2*x + y - 3`, `z / 5`\n"
+"- ❌ **Not Linear:** `x*y`, `x^2`, `|x|`, `1/x`\n"
+"\n"
+"Example Usage:\n"
+"h1 : x < y\n"
+"h2 : y ≤ z\n"
+"Goal: x < z + 1\n"
+"linarith [h1, h2]"
+msgstr ""
+
 #: Game.Levels.L4PsetIntro
 msgid "# Problem Set 4\n"
 "\n"
@@ -264,6 +296,16 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
 msgid "Write `ring_nf` to expand and simplify both sides algebraically."
+msgstr ""
+
+#: Game.Levels.L8Pset.L8Pset2
+msgid "# Problem 2\n"
+"\n"
+"We proved in class that `n < 2 ^ n`. It's even true that `n ^ 2 ≤ 2 ^ n`, but only for `n` sufficiently large (how large?).\n"
+"\n"
+"Look at the problem statement. Note how we've implemented induction starting somewhere other than zero: by shifting the argument by that amount.\n"
+"\n"
+"Hint: The result from Problem 1 might come in handy..."
 msgstr ""
 
 #: Game.Levels.L6PsetIntro
@@ -275,6 +317,10 @@ msgstr ""
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.\n"
 "This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!'"
+msgstr ""
+
+#: Game.Levels.L8Pset.L8Pset1
+msgid "For all `n : ℕ`, `2 * n + 9 ≤ 2 ^ (n + 4)`."
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi
@@ -376,12 +422,12 @@ msgid "# Welcome to Real Analysis, The Game!\n"
 "**\"Level 1: The Story of Real Analysis\"**, and good luck!"
 msgstr ""
 
-#: Game.Levels.L8Levels.L05_BddOfConv
+#: Game.Levels.L9Levels.L05_BddOfConv
 msgid "A sequence `a : N → ℝ` is bounded (`SeqBdd` holds) if there exists some positive\n"
 "`M : ℝ` so that `|a n| ≤ M`, for all `n`."
 msgstr ""
 
-#: Game.Levels.L8Levels.L04_FiniteSums
+#: Game.Levels.L9Levels.L04_FiniteSums
 msgid "Given a function `f : ℕ → ℝ` and a natural number `N`, `sum_range_succ f n` says that:\n"
 "`∑ n ∈ range (N + 1), f n = ∑ n ∈ range N, f n + f N`."
 msgstr ""
@@ -443,6 +489,12 @@ msgstr ""
 msgid "Doubling a Convergent Sequence"
 msgstr ""
 
+#: Game.Levels.L8Pset.L8Pset3
+msgid "# Problem 3\n"
+"\n"
+"Prove that `n (n + 1) (2 n + 1)` is always divisible by `6`. (Hint: induction.)"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L05_use
 msgid "There exists a real number that makes this binomial expansion work."
 msgstr ""
@@ -483,6 +535,16 @@ msgid "# Level 4: Reciprocals of Convergent Sequences — Big Boss Level\n"
 "\n"
 "The key is finding the right epsilon and carefully managing the algebraic manipulations\n"
 "involving fractions. You have all the tools you need—now it's time to put them together!"
+msgstr ""
+
+#: Game.Levels.L9Levels.L05_BddOfConv
+msgid "# Level 2\n"
+"\n"
+"The case `L = 0` will be done in the exercises.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"def: `SeqBdd`"
 msgstr ""
 
 #: Game.Levels.L7Levels.L02_SeqOfAbs
@@ -678,12 +740,128 @@ msgstr ""
 msgid "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
 msgstr ""
 
+#: Game.Levels.L7Levels.L04_ByCases
+msgid "# Level 5: Case Analysis Without Existing Hypotheses\n"
+"\n"
+"## The Need for `by_cases`\n"
+"\n"
+"You've already learned how to use `cases'` to handle disjunctions when you have a hypothesis\n"
+"`h : P ∨ Q`. This allows you to split your proof into two branches: one where you assume `P`\n"
+"is true, and another where you assume `Q` is true.\n"
+"\n"
+"But what if you need to perform case analysis on a statement that isn't already among your\n"
+"hypotheses? Sometimes you need to consider whether a certain proposition is true or false,\n"
+"even when you haven't been explicitly told which case holds.\n"
+"\n"
+"This is where the **law of excluded middle** comes in: for any proposition `P`, either `P` is\n"
+"true or `¬P` is true. The `by_cases` tactic allows you to exploit this fundamental logical\n"
+"principle directly in your proofs.\n"
+"\n"
+"Just so you know: the law of excluded middle is somewhat controversial in certain mathematical\n"
+"circles. \"Constructivist\" mathematicians argue that to prove `P ∨ ¬P`, you should need to either\n"
+"construct a proof of `P` or construct a proof of `¬P`, not merely assert that one of these must be true.\n"
+"However, among mainstream mathematicians (and in classical logic, which Lean allows),\n"
+"the law of excluded middle is accepted without question. For our purposes in real analysis,\n"
+"we'll use it freely, as it's an incredibly powerful and natural tool for organizing proofs.\n"
+"\n"
+"## How by_cases Works\n"
+"\n"
+"The `by_cases` tactic has the syntax:\n"
+"\n"
+"`by_cases h : fact`\n"
+"\n"
+"where `h` is the name you choose for the new hypothesis, and `fact` is the proposition you\n"
+"want to analyze. This creates two subgoals:\n"
+"- **First subgoal:** Assume `fact` is true, giving you hypothesis `h : fact`\n"
+"- **Second subgoal:** Assume `fact` is false, giving you hypothesis `h : ¬fact`\n"
+"\n"
+"You must prove your goal in both cases.\n"
+"\n"
+"## When to Use by_cases\n"
+"\n"
+"Use `by_cases` when:\n"
+"- You need to consider whether some condition holds, but it's not already a hypothesis\n"
+"- Different proof strategies apply depending on whether a statement is true or false\n"
+"- You need to handle edge cases (like checking if a number equals zero)\n"
+"- You want to prove a theorem with weaker assumptions by splitting into cases\n"
+"\n"
+"## A Motivating Example\n"
+"\n"
+"In this level, we'll prove a generalization of `EventuallyGeHalfLimPos`. The previous version\n"
+"required the assumption `L ≠ 0`. But what if we want to prove the result without that\n"
+"assumption? We can use `by_cases` to split into two cases:\n"
+"- If `L = 0`, the result is trivially true (since `|L|/2 = 0`)\n"
+"- If `L ≠ 0`, we can apply our previous theorem\n"
+"\n"
+"This demonstrates how `by_cases` allows us to handle all possibilities systematically, making\n"
+"our theorems more general and our proofs more robust.\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"### `by_cases`\n"
+"The `by_cases` tactic allows you to split a proof into two cases based on whether a\n"
+"proposition is true or false.\n"
+"\n"
+"**Syntax:** `by_cases h : P`\n"
+"- Creates two subgoals\n"
+"- First subgoal has hypothesis `h : P`\n"
+"- Second subgoal has hypothesis `h : ¬P`"
+msgstr ""
+
 #: Game
 msgid "An Introduction to (Formal) Real Analysis"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "The `apply` tactic solves a goal when one of the hypotheses is the same as the goal. The syntax is `apply hypothesis_name`"
+msgstr ""
+
+#: Game.Levels.L8Levels.L03_Induction'
+msgid "# Level 1: Induction\n"
+"\n"
+"In this level, you'll prove your first theorem by mathematical induction: for all natural numbers `n`, we have `n < 2^n`. This captures the fundamental fact that exponential functions grow faster than linear functions.\n"
+"\n"
+"## Proof Strategy\n"
+"\n"
+"The proof follows the standard induction template:\n"
+"\n"
+"**Base Case (`n = 0`):** Show that `0 < 2^0 = 1`. This is straightforward.\n"
+"\n"
+"**Inductive Step:** Assume `k < 2^k` (the inductive hypothesis `hk`). Prove that `k + 1 < 2^(k+1)`.\n"
+"\n"
+"The key challenge is connecting `k + 1` to `2^(k+1) = 2 · 2^k`. While the inductive hypothesis gives us `k < 2^k`, we need to show `k + 1 < 2 · 2^k`.\n"
+"\n"
+"If we can show that `k + 1 ≤ 2k`, then we'd have:\n"
+"\n"
+"`k + 1 ≤ 2k < 2 · 2^k = 2^(k+1)`\n"
+"\n"
+"However, `k + 1 ≤ 2k` is only true when `k ≥ 1`. This means you'll need to handle two cases in the inductive step:\n"
+"- When `k = 0`: Check directly that `1 < 2`\n"
+"- When `k ≠ 0`: Use the inequality `k + 1 ≤ 2k`\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"### `induction'`\n"
+"The syntax for induction is: `induction' n with k hk`\n"
+"- Apply induction on the variable `n`\n"
+"- Use `k` as the dummy variable in the inductive step\n"
+"- Use `hk` as the name for the induction hypothesis\n"
+"\n"
+"This creates two goals:\n"
+"1. **Base case:** Prove the statement for `n = 0`\n"
+"2. **Inductive step:** With hypothesis `hk : (statement for k)`, prove the statement for `k + 1`\n"
+"\n"
+"### `ge_one_of_nonzero`\n"
+"If `n : ℕ` and `n ≠ 0`, then `1 ≤ n`. Apply this with `apply ge_one_of_nonzero` when you have a hypothesis that `n ≠ 0`.\n"
+"\n"
+"## Hints\n"
+"\n"
+"- Use `induction' n with k hk` to begin\n"
+"- The base case should be handled with `norm_num`\n"
+"- In the inductive step, use `by_cases hk0 : k = 0` to split into two cases\n"
+"- When `k = 0`, use `rewrite [hk0]` and `norm_num`\n"
+"- When `k ≠ 0`, use `ge_one_of_nonzero` to get `1 ≤ k`, then build a chain of inequalities with `bound` and `linarith`\n"
+"- Use `ring_nf` to simplify `2 * 2^k = 2^(k+1)`"
 msgstr ""
 
 #: Game.Levels.L6Pset.L6Pset5
@@ -695,6 +873,7 @@ msgstr ""
 #: Game.Levels.L3Pset.L3Pset2
 #: Game.Levels.L6Pset.L6Pset2
 #: Game.Levels.L7Pset.L7Pset2
+#: Game.Levels.L8Pset.L8Pset2
 msgid "Problem 2"
 msgstr ""
 
@@ -794,23 +973,86 @@ msgstr ""
 msgid "Problem 4"
 msgstr ""
 
-#: Game.Levels.L8Levels.L04_FiniteSums
+#: Game.Levels.L9Levels.L04_FiniteSums
 msgid "If `a : ℕ → ℝ` is a sequence, then any term `|a n|`\n"
 "for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`."
 msgstr ""
 
-#: Game.Levels.L8Levels.L04_FiniteSums
-msgid "Finite Sums"
+#: Game.Levels.L8Lecture
+msgid "# Lecture 8: Mathematical Induction\n"
+"\n"
+"**SIMPLICIO:** Hey Socrates, I've been thinking about something that's been bothering me. When we prove things in mathematics, we usually prove a specific statement. But what if I want to prove something is true for *all* natural numbers? Like, how do I prove a statement for 0, 1, 2, 3, 4, and so on... forever?\n"
+"\n"
+"**SOCRATES:** Ah, an excellent question! You're right that we can't just check each case one by one—that would take infinitely long. Tell me, Simplicio, have you ever climbed a ladder?\n"
+"\n"
+"**SIMPLICIO:** Of course! What does that have to do with anything?\n"
+"\n"
+"**SOCRATES:** Well, imagine an infinitely tall ladder reaching up to the sky. If I wanted to convince you that you *could* climb to any rung on this ladder, what would I need to show you?\n"
+"\n"
+"**SIMPLICIO:** Hmm... I guess you'd need to show me that I can reach the bottom-most rung?\n"
+"\n"
+"**SOCRATES:** Good start! And what else?\n"
+"\n"
+"**SIMPLICIO:** Well, if I'm standing on any particular rung, I'd need to know I can reach the next one up. So if I can always step from one rung to the next...\n"
+"\n"
+"**SOCRATES:** Exactly! So if you can reach the first rung, and you can always step from rung `k` to rung `k+1`, then what can you conclude?\n"
+"\n"
+"**SIMPLICIO:** Oh! Then I can reach *any* rung I want! If I want to reach rung 100, I just start at rung 0, step to rung 1, then to rung 2, and keep going until I reach rung 100. And the same works for any number!\n"
+"\n"
+"**SOCRATES:** Precisely! This is the essence of **mathematical induction**. To prove something is true for all natural numbers `n`, you need exactly two things:\n"
+"- A **base case**: prove it's true for `n = 0`\n"
+"- An **inductive step**: prove that *if* it's true for `n = k`, *then* it's true for `n = k + 1`\n"
+"\n"
+"**SIMPLICIO:** Wait, but in the inductive step, aren't we assuming what we're trying to prove? Isn't that circular reasoning?\n"
+"\n"
+"**SOCRATES:** An astute observation! But no, it's not circular. We're not assuming the statement is true for all `n`. We're only assuming it's true for one particular value `k`, and using that assumption to prove that it's true for `k + 1`. We're proving an implication: \"if `P(k)` then `P(k+1)`\". Combined with the base case, this creates a chain reaction that reaches any natural number.\n"
+"\n"
+"**SIMPLICIO:** Hmm, I think I see. So the assumption \"it's true for `k`\" is called the inductive hypothesis?\n"
+"\n"
+"**SOCRATES:** Exactly! And that hypothesis is your most powerful tool. It's like having a foothold on rung `k` that you can push off from to reach rung `k + 1`.\n"
+"\n"
+"**SIMPLICIO:** But why does this work? I mean, why should I believe this principle?\n"
+"\n"
+"**SOCRATES:** Ah, a deep question! It comes from the very definition of the natural numbers themselves. How do you think the natural numbers are constructed?\n"
+"\n"
+"**SIMPLICIO:** Well... I guess we start with 0. And then we have 1, which is 0 + 1. And 2 is 1 + 1. So each number is the \"successor\" of the previous one?\n"
+"\n"
+"**SOCRATES:** Beautiful! The natural numbers are defined by exactly this process:\n"
+"- Zero is a natural number\n"
+"- If `k` is a natural number, then `k + 1` is also a natural number\n"
+"- These are the *only* natural numbers\n"
+"\n"
+"Do you see how this mirrors the structure of induction?\n"
+"\n"
+"**SIMPLICIO:** Oh wow! The base case corresponds to \"zero is a natural number,\" and the inductive step corresponds to \"if `k` is a natural number, then so is `k + 1`.\" Induction is just the construction of the natural numbers turned into a proof technique!\n"
+"\n"
+"**SOCRATES:** Precisely! There are no \"gaps\" in the natural numbers—no number that can't be reached by starting at 0 and repeatedly adding 1. This is why induction works.\n"
+"\n"
+"In fact, this is not just a philosophical observation—this is *literally* how the natural numbers are implemented in Lean! In Lean's type theory, a natural number is defined inductively as either:\n"
+"- `zero : ℕ`, the base case, or\n"
+"- `succ n : ℕ`, the successor of another natural number `n`\n"
+"\n"
+"Here's how this looks in the core of Lean:\n"
+"\n"
+"`inductive Nat where`\n"
+"- `| zero : Nat`\n"
+"- `| succ (n : Nat) : Nat`\n"
+"\n"
+"You simply declare the existence of a natural number called `zero`, and then we declare that, given any natural number `n`, there's another one called `succ n`. (The word `succ` is here just a name for this constructor; we could have called it `Alice` instead. The important thing is that we're giving a way to construct a new natural number from a previously existing one.)\n"
+"\n"
+"So the number 3, for instance, is literally represented as `succ (succ (succ zero))`. The principle of induction doesn't just *resemble* this construction, it directly exploits it! When you prove something by induction in Lean, you're working with the actual computational structure of how natural numbers exist in the system.\n"
+"\n"
+"**SIMPLICIO:** That's amazing! So induction isn't just a proof technique—it's baked into the very fabric of how Lean understands numbers?\n"
+"\n"
+"**SOCRATES:** Exactly. The principle of mathematical induction is a theorem in many mathematical frameworks, but in type theory, it's a fundamental consequence of how the natural numbers are defined.\n"
+"\n"
+"**SIMPLICIO:** Okay, I'm convinced this is a legitimate proof technique. Can you give me an example?\n"
+"\n"
+"**SOCRATES:** Certainly."
 msgstr ""
 
-#: Game.Levels.L8Levels.L03_Induction'
-msgid "# Level 1\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"`induction'`\n"
-"\n"
-"`ge_one_of_nonzero`"
+#: Game.Levels.L9Levels.L04_FiniteSums
+msgid "Finite Sums"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -1118,18 +1360,12 @@ msgid "# Problem 1\n"
 "This might come in handy!..."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
+#: Game.Levels.L9Lecture
+msgid "Lecture 9: Algebraic Limit Theorem, Part IV"
 msgstr ""
 
-#: Game.Levels.L8Levels.L05_BddOfConv
-msgid "# Level 3\n"
-"\n"
-"The case `L = 0` will be done in the exercises.\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"def: `SeqBdd`"
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
 msgstr ""
 
 #: Game.Levels.L6Levels.L05_AbsLt
@@ -1273,6 +1509,10 @@ msgid "# More on sequences\n"
 "Let's begin this journey from logical fundamentals to analytical mastery!"
 msgstr ""
 
+#: Game.Levels.L8Lecture
+msgid "Lecture 8: Induction"
+msgstr ""
+
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "Also try unfolding the definition in `h`: `change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h`"
 msgstr ""
@@ -1296,16 +1536,45 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `use` for existence proofs"
 msgstr ""
 
-#: Game.Levels.L7Levels.L04_ByCases
-#: Game.Levels.L8Levels.L03_Induction'
-#: Game.Levels.L8Levels.L04_FiniteSums
-#: Game.Levels.L8Levels.L05_BddOfConv
-#: Game.Levels.L8Levels.L06_Prod
+#: Game.Levels.L8PsetIntro
+msgid "Pset 8"
+msgstr ""
+
+#: Game.Levels.L8Pset.L8Pset1
+#: Game.Levels.L8Pset.L8Pset2
+#: Game.Levels.L8Pset.L8Pset3
+#: Game.Levels.L9Levels.L04_FiniteSums
+#: Game.Levels.L9Levels.L05_BddOfConv
+#: Game.Levels.L9Levels.L06_Prod
 msgid ""
 msgstr ""
 
-#: Game.Levels.L3Levels.L02_OneOverN
-msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants."
+#: Game.Levels.L8Levels.L03_Induction'
+msgid "## Your First Induction Proof Complete!\n"
+"\n"
+"You've successfully proven that `n < 2^n` for all natural numbers using mathematical induction. This demonstrates a fundamental principle: exponential functions grow faster than linear functions.\n"
+"\n"
+"## What You Learned\n"
+"\n"
+"This proof introduced several key techniques:\n"
+"\n"
+"**Combining Proof Methods:** You used `induction'` as the overall structure, but within the inductive step, you needed `by_cases` to handle different scenarios. This is a common pattern: induction provides the framework, but you often need other tactics to complete the argument.\n"
+"\n"
+"**Handling Edge Cases:** The `k = 0` case required separate treatment because the inequality `k + 1 ≤ 2k` doesn't hold when `k = 0`. Recognizing when to split cases is an essential skill in mathematical proof.\n"
+"\n"
+"**Building Inequality Chains:** In the `k ≠ 0` case, you constructed a chain of inequalities: `k + 1 ≤ 2k < 2 · 2^k = 2^(k+1)`. Using the inductive hypothesis `k < 2^k` along with `1 ≤ k` allowed you to bridge from `k + 1` to `2^(k+1)`.\n"
+"\n"
+"## The Power of Induction\n"
+"\n"
+"Mathematical induction is one of the most versatile proof techniques. It's essential for:\n"
+"- Proving formulas like `∑(i=1 to n) i = n(n+1)/2`\n"
+"- Establishing inequalities involving factorials, exponentials, and recursive sequences\n"
+"- Verifying properties of recursively defined structures\n"
+"- Proving algorithm correctness in computer science\n"
+"\n"
+"## Key Insight\n"
+"\n"
+"The key insight to remember: induction transforms an infinite problem (proving something for all `n`) into two finite problems (the base case and the inductive step). Master this technique, and you'll have access to a vast collection of provable theorems."
 msgstr ""
 
 #: Game.Levels.L3Lecture
@@ -1643,6 +1912,12 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
+#: Game.Levels.L9Levels.L06_Prod
+msgid "# Level 3: Big Boss\n"
+"\n"
+"Good luck!"
+msgstr ""
+
 #: Game.Levels.L2PsetIntro
 msgid "# Problem Set 2\n"
 "\n"
@@ -1682,26 +1957,6 @@ msgid "# Problem 2\n"
 "\n"
 "We haven't yet learned a good way to use the theorem `OneOverNLimZero`\n"
 "that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)"
-msgstr ""
-
-#: Game.Levels.L8Levels.L04_FiniteSums
-msgid "# Level 2\n"
-"\n"
-"Finite Sums.\n"
-"The sum of absolute values exceeds any one absolute value.\n"
-"\n"
-"Big Hint: Even though the Goal starts with: `∀ n < N`, I suggest you *not* start with\n"
-"`intro n hn`. Instead, run induction on `N` right from the beginning!\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"Summation notation: `∑ k ∈ range N` which means sum as `k` goes from `0` to `N-1` (which has `N` terms!)\n"
-"\n"
-"`sum_range_succ`\n"
-"\n"
-"`sum_nonneg`\n"
-"\n"
-"`contradiction`"
 msgstr ""
 
 #: Game.Levels.L7Levels.L00_Uniqueness
@@ -1863,7 +2118,7 @@ msgstr ""
 
 #: Game.Levels.L4Lecture
 #: Game.Levels.L7Lecture
-#: Game.Levels.L8Lecture
+#: Game.Levels.L9Lecture
 msgid "# More on sequences"
 msgstr ""
 
@@ -1888,6 +2143,7 @@ msgstr ""
 #: Game.Levels.L3Pset.L3Pset3
 #: Game.Levels.L6Pset.L6Pset3
 #: Game.Levels.L7Pset.L7Pset3
+#: Game.Levels.L8Pset.L8Pset3
 msgid "Problem 3"
 msgstr ""
 
@@ -1914,9 +2170,9 @@ msgstr ""
 #: Game.Levels.L7Levels.L02_SeqOfAbs
 #: Game.Levels.L7Levels.L03_SeqInvLim
 #: Game.Levels.L8Levels.L03_Induction'
-#: Game.Levels.L8Levels.L04_FiniteSums
-#: Game.Levels.L8Levels.L05_BddOfConv
-#: Game.Levels.L8Levels.L06_Prod
+#: Game.Levels.L9Levels.L04_FiniteSums
+#: Game.Levels.L9Levels.L05_BddOfConv
+#: Game.Levels.L9Levels.L06_Prod
 msgid "Prove this"
 msgstr ""
 
@@ -2511,7 +2767,7 @@ msgstr ""
 msgid "Eventually"
 msgstr ""
 
-#: Game.Levels.L8Levels.L04_FiniteSums
+#: Game.Levels.L9Levels.L04_FiniteSums
 msgid "If a function is nonnegative, then its sum is also."
 msgstr ""
 
@@ -2550,7 +2806,7 @@ msgstr ""
 msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
 
-#: Game.Levels.L8Levels.L05_BddOfConv
+#: Game.Levels.L9Levels.L05_BddOfConv
 msgid "If `a : ℕ → ℝ` is a sequence which converges, then it is bounded."
 msgstr ""
 
@@ -2580,6 +2836,7 @@ msgid "# Problem 4\n"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
+#: Game.Levels.L8Pset.L8Pset1
 msgid "# Problem 1"
 msgstr ""
 
@@ -2608,7 +2865,7 @@ msgid "# Theorem Prover Software\n"
 "To solve that goal, the syntax is to write `apply`, then a space, and then the name of the hypothesis which matches the goal."
 msgstr ""
 
-#: Game.Levels.L8Levels.L06_Prod
+#: Game.Levels.L9Levels.L06_Prod
 msgid "`ProdLim`"
 msgstr ""
 
@@ -2667,21 +2924,6 @@ msgid "# Problem 5\n"
 "You may (or may not) find that useful in this problem."
 msgstr ""
 
-#: Game.Levels.L7Levels.L04_ByCases
-msgid "# Level 5\n"
-"\n"
-"When you already have a hypothesis `h : P ∨ Q`, you can use `cases' h with hP hQ` to\n"
-"break the goal into two subgoals, the first with the added hypothesis `hP : P` (that `P` is true)\n"
-"and the second `hQ : Q`.\n"
-"\n"
-"But how do you break into cases when you don't already have a hypothesis `h`? That's where the `by_cases`\n"
-"tactic comes in.\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"`by_cases`"
-msgstr ""
-
 #: Game.Levels.L6Levels.L05_AbsLt
 msgid "# 📐 Absolute Value Mastery Achieved! 📐\n"
 "\n"
@@ -2720,12 +2962,6 @@ msgid "# 🔄 Case Analysis Mastered! 🔄\n"
 "As we continue with convergence proofs and other analysis topics, you'll find `cases'` invaluable for handling statements like \"either the sequence is bounded above or below\" or \"either the limit exists or the sequence diverges.\" The systematic approach you've learned here will serve you well in these more complex scenarios.\n"
 "\n"
 "Mathematics is about leaving no stone unturned, no possibility unconsidered. With `cases'`, you now have the tools to be completely thorough in your logical investigations."
-msgstr ""
-
-#: Game.Levels.L8Levels.L06_Prod
-msgid "# Level 4: Big Boss\n"
-"\n"
-"Good luck!"
 msgstr ""
 
 #: Game.Levels.L2PsetIntro
@@ -3028,12 +3264,55 @@ msgstr ""
 msgid "level completed! 🎉"
 msgstr ""
 
-#: Game.Levels.L8Levels.L06_Prod
+#: Game.Levels.L9Levels.L06_Prod
 msgid "Big Boss : Product of Sequences"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Cast the inequality `n ≥ N` to reals, so that `linarith` can see and access it: `have N_le_n : (N : ℝ) ≤ n := by exact_mod_cast n_ge_N`"
+msgstr ""
+
+#: Game.Levels.L7Levels.L04_ByCases
+msgid "## Case Analysis Mastered!\n"
+"\n"
+"You've now learned how to perform case analysis even when you don't have an existing hypothesis\n"
+"to split on. The `by_cases` tactic is a powerful addition to your proof toolkit.\n"
+"\n"
+"## What You Accomplished\n"
+"\n"
+"In this level, you proved `EventuallyGeHalfLim` without assuming `L ≠ 0`, making it strictly\n"
+"more general than `EventuallyGeHalfLimPos`. The proof was elegant:\n"
+"- When `L = 0`, the inequality becomes trivial since both sides equal zero\n"
+"- When `L ≠ 0`, you could invoke your earlier theorem\n"
+"\n"
+"This pattern -- handling edge cases separately, then applying more powerful results in the main\n"
+"case -- is ubiquitous throughout mathematics.\n"
+"\n"
+"## The Power of Case Analysis\n"
+"\n"
+"The `by_cases` tactic allows you to:\n"
+"- **Prove more general theorems** by removing unnecessary assumptions and handling special cases\n"
+"- **Organize complex proofs** by separating different scenarios that require different strategies\n"
+"- **Handle edge cases systematically** rather than hoping they don't arise\n"
+"- **Make logical structure explicit** by formally splitting on conditions that matter\n"
+"\n"
+"## When to Reach for `by_cases`\n"
+"\n"
+"You'll find `by_cases` particularly useful when:\n"
+"- Your proof strategy differs significantly based on whether some condition holds\n"
+"- You need to handle a potential edge case (like zero denominators, empty sets, etc.)\n"
+"- You want to generalize a theorem by removing a hypothesis and treating it as a case\n"
+"- The problem naturally divides into distinct scenarios\n"
+"\n"
+"## Looking Ahead\n"
+"\n"
+"Combined with `cases'` for existing hypotheses and `split_ands` for conjunctions, you now\n"
+"have a complete toolkit for working with logical connectives in Lean. These techniques will\n"
+"serve you throughout your journey in formal mathematics, from basic analysis to abstract\n"
+"algebra and beyond.\n"
+"\n"
+"The ability to systematically handle all cases is what makes mathematical proofs rigorous and\n"
+"complete. You're well on your way to mastering the art of formal proof!"
 msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge
@@ -3060,6 +3339,9 @@ msgstr ""
 #: Game.Levels.L7Pset.L7Pset1
 #: Game.Levels.L7Pset.L7Pset2
 #: Game.Levels.L7Pset.L7Pset3
+#: Game.Levels.L8Pset.L8Pset1
+#: Game.Levels.L8Pset.L8Pset2
+#: Game.Levels.L8Pset.L8Pset3
 msgid "Prove the statement."
 msgstr ""
 
@@ -3074,6 +3356,7 @@ msgstr ""
 #: Game.Levels.L4Pset.L4Pset1
 #: Game.Levels.L6Pset.L6Pset1
 #: Game.Levels.L7Pset.L7Pset1
+#: Game.Levels.L8Pset.L8Pset1
 msgid "Problem 1"
 msgstr ""
 
@@ -3096,6 +3379,12 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L02_LeftRight
 msgid "When your goal is to prove an \\\"Or\\\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `P`, then say `left`, and the Goal will turn into `P`."
+msgstr ""
+
+#: Game.Levels.L8PsetIntro
+msgid "# Problem Set 8\n"
+"\n"
+"Good luck!"
 msgstr ""
 
 #: Game.Levels.L6Levels.L06_Squeeze
@@ -3344,10 +3633,6 @@ msgstr ""
 msgid "Problem 5"
 msgstr ""
 
-#: Game.Levels.L8Levels.L05_BddOfConv
+#: Game.Levels.L9Levels.L05_BddOfConv
 msgid "Bounded"
-msgstr ""
-
-#: Game.Levels.L8Lecture
-msgid "Lecture 8: Algebraic Limit Theorem, Part IV"
 msgstr ""

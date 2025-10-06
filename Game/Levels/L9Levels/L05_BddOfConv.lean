@@ -1,13 +1,13 @@
-import Game.Levels.L8Levels.L04_FiniteSums
+import Game.Levels.L9Levels.L04_FiniteSums
 
 open Finset
 
-World "Lecture8"
-Level 3
+World "Lecture9"
+Level 2
 Title "Bounded"
 
 Introduction "
-# Level 3
+# Level 2
 
 The case `L = 0` will be done in the exercises.
 

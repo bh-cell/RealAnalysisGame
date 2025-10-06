@@ -12,6 +12,8 @@ import Game.Levels.L6PsetIntro
 import Game.Levels.L7Lecture
 import Game.Levels.L7PsetIntro
 import Game.Levels.L8Lecture
+import Game.Levels.L8PsetIntro
+import Game.Levels.L9Lecture
 
 Dependency NewtonsCalculationOfPi → L2Pset
 

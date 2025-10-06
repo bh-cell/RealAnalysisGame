@@ -1,15 +1,15 @@
-import Game.Levels.L8Levels.L05_BddOfConv
+import Game.Levels.L9Levels.L05_BddOfConv
 
 open Finset
 
-World "Lecture8"
-Level 4
+World "Lecture9"
+Level 3
 Title "Big Boss : Product of Sequences"
 
 
 
 Introduction "
-# Level 4: Big Boss
+# Level 3: Big Boss
 
 Good luck!
 

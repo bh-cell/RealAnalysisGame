@@ -1,13 +1,13 @@
-import Game.Levels.L8Levels.L03_Induction'
+import Game.Levels.L8Lecture
 
 open Finset
 
-World "Lecture8"
-Level 2
+World "Lecture9"
+Level 1
 Title "Finite Sums"
 
 Introduction "
-# Level 2
+# Level 1
 
 Finite Sums.
 The sum of absolute values exceeds any one absolute value.
