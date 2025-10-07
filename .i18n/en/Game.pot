@@ -216,6 +216,15 @@ msgstr ""
 msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
 msgstr ""
 
+#: Game.Levels.L8Pset.L8Pset4
+msgid "# Problem 4\n"
+"\n"
+"Suppose a sequence `a : ℕ → ℕ` takes values in the\n"
+"*natural numbers* (not reals), and is strictly increasing, that is,\n"
+"if `i < j`, then `a (i) < a (j)`. Prove that\n"
+"`a (n)` grows at least as fast as `n` itself."
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
 msgstr ""
@@ -970,6 +979,7 @@ msgstr ""
 #: Game.Levels.L1Pset.L1Pset4
 #: Game.Levels.L3Pset.L3Pset4
 #: Game.Levels.L6Pset.L6Pset4
+#: Game.Levels.L8Pset.L8Pset4
 msgid "Problem 4"
 msgstr ""
 
@@ -1543,6 +1553,7 @@ msgstr ""
 #: Game.Levels.L8Pset.L8Pset1
 #: Game.Levels.L8Pset.L8Pset2
 #: Game.Levels.L8Pset.L8Pset3
+#: Game.Levels.L8Pset.L8Pset4
 #: Game.Levels.L9Levels.L04_FiniteSums
 #: Game.Levels.L9Levels.L05_BddOfConv
 #: Game.Levels.L9Levels.L06_Prod
@@ -3342,6 +3353,7 @@ msgstr ""
 #: Game.Levels.L8Pset.L8Pset1
 #: Game.Levels.L8Pset.L8Pset2
 #: Game.Levels.L8Pset.L8Pset3
+#: Game.Levels.L8Pset.L8Pset4
 msgid "Prove the statement."
 msgstr ""
 
