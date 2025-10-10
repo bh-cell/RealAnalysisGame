@@ -9,18 +9,23 @@ Title "Problem 1"
 Introduction "
 # Problem 1:
 
-"
-/--
-If sequences `a b : ℕ → ℝ` converge with `a` going to `L` and `b` going to `M`,
-then the sequence `c n = a n * b n` converges to `L * M`.
--/
-TheoremDoc ProdLim as "ProdLim" in "Theorems"
+Assume that the sequence `c` is a suffling of sequences `a` and `b`,
+namely, that `(c 0, c 1, c 2, ...) = (a 0, b 0, a 1, b 1, a 2, b 2,...)`.
+Assume that the sequence `c` converges.
+Prove that the sequences `a` and `b` converge, and to the same thing.
 
+"
 /-- Prove this
 -/
-Statement ProdLim (a b c : ℕ → ℝ) (L M : ℝ) (ha : SeqLim a L)
-    (hb : SeqLim b M) (hc : ∀ n, c n = a n * b n):
-    SeqLim c (L * M) := by
+Statement (a b c : ℕ → ℝ) (hc : ∀ n, c n = if Even n then a (n / 2) else b ((n - 1) / 2))
+        (cConv : SeqConv c) : (∃ L, SeqLim a L ∧ SeqLim b L) := by
+choose L hL using cConv
+use L
+split_ands
+intro ε hε
+choose N hN using hL ε hε
+
+
 sorry
 
 Conclusion ""
