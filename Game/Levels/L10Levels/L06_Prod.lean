@@ -1,27 +1,30 @@
-import Game.Levels.L9Levels.L05_BddOfConv
+import Game.Levels.L9PsetIntro
 
 open Finset
 
-World "Lecture9"
-Level 3
+World "Lecture10"
+Level 1
 Title "Big Boss : Product of Sequences"
 
 
 
 Introduction "
-# Level 3: Big Boss
+# Level 1: Big Boss
 
 Good luck!
 
 "
 /--
-`ProdLim`
+If sequences `a b : ℕ → ℝ` converge with `a` going to `L ≠ 0` and `b` going to `M ≠ 0`,
+
+
+`ProdLimNeNe`
 -/
-TheoremDoc ProdLim as "ProdLim" in "Theorems"
+TheoremDoc ProdLimNeNe as "ProdLimNeNe" in "Theorems"
 
 /-- Prove this
 -/
-Statement ProdLim (a b c : ℕ → ℝ) (L M : ℝ) (hL : L ≠ 0) (hM : M ≠ 0) (ha : SeqLim a L)
+Statement ProdLimNeNe (a b c : ℕ → ℝ) (L M : ℝ) (hL : L ≠ 0) (hM : M ≠ 0) (ha : SeqLim a L)
     (hb : SeqLim b M) (hc : ∀ n, c n = a n * b n):
     SeqLim c (L * M) := by
 intro ε hε

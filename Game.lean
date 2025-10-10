@@ -14,6 +14,9 @@ import Game.Levels.L7PsetIntro
 import Game.Levels.L8Lecture
 import Game.Levels.L8PsetIntro
 import Game.Levels.L9Lecture
+import Game.Levels.L9PsetIntro
+import Game.Levels.L10Lecture
+
 
 Dependency NewtonsCalculationOfPi → L2Pset
 
@@ -37,13 +40,15 @@ Title "An Introduction to (Formal) Real Analysis"
 Introduction "
 # Welcome to Real Analysis, The Game!
 
-This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,
+This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk).
+ Please email alex.kontorovich@rutgers.edu for suggestions/corrections,
 or better yet, post a PR/issue to
 https://github.com/AlexKontorovich/RealAnalysisGame.
 
+For the main course website, go to: https://alexkontorovich.github.io/2025F311H.
+
 This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,
 and basic Point-Set Topology.
-
 To get started, click on
 **\"Level 1: The Story of Real Analysis\"**, and good luck!
 

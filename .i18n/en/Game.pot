@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06\n"
+"POT-Creation-Date: 2025-10-10\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -80,26 +80,6 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L04_Cases'
 msgid "When have a hypothesis `h : P ∨ Q`, you can say `cases' h with h1 h2`; this will make two new Game Boards, one with an extra hypothesis `h1 : P`, and the other with the hypothesis `h2 : Q`. You'll have to solve both to solve the original Goal!"
-msgstr ""
-
-#: Game.Levels.L9Levels.L04_FiniteSums
-msgid "# Level 1\n"
-"\n"
-"Finite Sums.\n"
-"The sum of absolute values exceeds any one absolute value.\n"
-"\n"
-"Big Hint: Even though the Goal starts with: `∀ n < N`, I suggest you *not* start with\n"
-"`intro n hn`. Instead, run induction on `N` right from the beginning!\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"Summation notation: `∑ k ∈ range N` which means sum as `k` goes from `0` to `N-1` (which has `N` terms!)\n"
-"\n"
-"`sum_range_succ`\n"
-"\n"
-"`sum_nonneg`\n"
-"\n"
-"`contradiction`"
 msgstr ""
 
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
@@ -187,6 +167,10 @@ msgid "The `linarith` tactic won't work\n"
 "to normalize the numerical value to just `2`?"
 msgstr ""
 
+#: Game.Levels.L10Levels.L08_Mono
+msgid "If a sequence `a` converges to `L` and `σ` is a subsequence, then `a ∘ σ` also converges to `L`."
+msgstr ""
+
 #: Game.Levels.L6Levels.L00_SumOfSeqs
 msgid "Prove that the sum of two convergent sequences converges to the sum of their limits.\n"
 "This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!'"
@@ -198,6 +182,11 @@ msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Now we need `1 / n < ε`. First establish that everything is positive. Start with: `have f3 : 0 < 1 / ε := by bound`"
+msgstr ""
+
+#: Game.Levels.L9Levels.L05_BddOfConv
+msgid "If `a : ℕ → ℝ` is a sequence which converges to a non-zero limit, then it is bounded.\n"
+"See also `BddOfConv` which assumes nothing about the limit."
 msgstr ""
 
 #: Game.Levels.L9Levels.L04_FiniteSums
@@ -212,17 +201,14 @@ msgstr ""
 msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
 msgstr ""
 
-#: Game.Levels.L5Levels.L01_DoubleSeqConv
-msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
+#: Game.Levels.L9Pset.L9Pset3
+msgid "# Problem 3\n"
+"\n"
+"Prove that `2 * (1 + 2 + ... + N) = N * (N + 1)`."
 msgstr ""
 
-#: Game.Levels.L8Pset.L8Pset4
-msgid "# Problem 4\n"
-"\n"
-"Suppose a sequence `a : ℕ → ℕ` takes values in the\n"
-"*natural numbers* (not reals), and is strictly increasing, that is,\n"
-"if `i < j`, then `a (i) < a (j)`. Prove that\n"
-"`a (n)` grows at least as fast as `n` itself."
+#: Game.Levels.L5Levels.L01_DoubleSeqConv
+msgid "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
@@ -285,6 +271,15 @@ msgid "## What You've Proven\n"
 "You now have the key tool needed for the next major theorem!"
 msgstr ""
 
+#: Game.Levels.L8Pset.L8Pset4
+msgid "# Problem 4\n"
+"\n"
+"Suppose a sequence `σ : ℕ → ℕ` takes values in the\n"
+"*natural numbers* (not reals), and is strictly increasing, that is,\n"
+"if `i < j`, then `σ (i) < σ (j)`. Prove that\n"
+"`σ (n)` grows at least as fast as `n` itself."
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goals that are linear arithmetic combinations of hypotheses `h₁, h₂` involving `≤`, `<`, `=` with addition and multiplication by constants.\n"
 "- ✅ **Linear:** `2*x + y - 3`, `z / 5`\n"
@@ -301,6 +296,10 @@ msgstr ""
 msgid "# Problem Set 4\n"
 "\n"
 "Good luck!"
+msgstr ""
+
+#: Game.Levels.L10Levels.L09_Subseq
+msgid "Subsequence Example"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
@@ -415,20 +414,6 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
-msgstr ""
-
-#: Game
-msgid "# Welcome to Real Analysis, The Game!\n"
-"\n"
-"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk). Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
-"or better yet, post a PR/issue to\n"
-"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
-"\n"
-"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
-"and basic Point-Set Topology.\n"
-"\n"
-"To get started, click on\n"
-"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
 msgstr ""
 
 #: Game.Levels.L9Levels.L05_BddOfConv
@@ -546,16 +531,6 @@ msgid "# Level 4: Reciprocals of Convergent Sequences — Big Boss Level\n"
 "involving fractions. You have all the tools you need—now it's time to put them together!"
 msgstr ""
 
-#: Game.Levels.L9Levels.L05_BddOfConv
-msgid "# Level 2\n"
-"\n"
-"The case `L = 0` will be done in the exercises.\n"
-"\n"
-"## New Tools You'll Need\n"
-"\n"
-"def: `SeqBdd`"
-msgstr ""
-
 #: Game.Levels.L7Levels.L02_SeqOfAbs
 msgid "If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its absolute value, `b n = |a n|` for all `n`, then `b` converges to `|L|`."
 msgstr ""
@@ -566,6 +541,10 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
 msgid "The `rewrite` tactic replaces the left-hand side of an equality with the right-hand side in the goal. The syntax is `rewrite [hypothesis_name1, hypothesis_name2, etc]`."
+msgstr ""
+
+#: Game.Levels.L10Levels.L07_Order
+msgid "# Level 2: Order Limit Theorem"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L04_ring_nf
@@ -745,6 +724,10 @@ msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
 "* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc."
 msgstr ""
 
+#: Game.Levels.L10Levels.L08_Mono
+msgid "A sequence `σ : ℕ → ℕ` is a *subsequence* if `∀ i j, i < j → σ (i) < σ (j)`."
+msgstr ""
+
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
 msgstr ""
@@ -883,6 +866,7 @@ msgstr ""
 #: Game.Levels.L6Pset.L6Pset2
 #: Game.Levels.L7Pset.L7Pset2
 #: Game.Levels.L8Pset.L8Pset2
+#: Game.Levels.L9Pset.L9Pset2
 msgid "Problem 2"
 msgstr ""
 
@@ -981,6 +965,10 @@ msgstr ""
 #: Game.Levels.L6Pset.L6Pset4
 #: Game.Levels.L8Pset.L8Pset4
 msgid "Problem 4"
+msgstr ""
+
+#: Game.Levels.L10Levels.L08_Mono
+msgid "Subsequences"
 msgstr ""
 
 #: Game.Levels.L9Levels.L04_FiniteSums
@@ -1236,6 +1224,44 @@ msgstr ""
 msgid "First Real Limit"
 msgstr ""
 
+#: Game.Levels.L9Levels.L04_FiniteSums
+msgid "# 🎉 Excellent Work!\n"
+"\n"
+"You've just proven a fundamental result about finite sums! This theorem might seem simple, but it's a powerful building block that appears throughout analysis.\n"
+"\n"
+"## What You Accomplished\n"
+"\n"
+"You successfully proved that **every term is bounded by the total sum**:\n"
+"```\n"
+"∀ n < N, |a n| ≤ ∑ k ∈ range N, |a k|\n"
+"```\n"
+"\n"
+"### Key Techniques You Mastered:\n"
+"\n"
+"1. **Strategic induction** - You learned to use induction on `N` *before* introducing the universal quantifier, which made the proof structure much cleaner\n"
+"\n"
+"2. **Working with finite sums** - You used `sum_range_succ` to peel off terms and `sum_nonneg` to establish nonnegativity\n"
+"\n"
+"3. **Case analysis** - You split the proof into two cases (`n < N` vs `n = N`) and handled each appropriately\n"
+"\n"
+"4. **Combining results** - You cleverly used the inductive hypothesis for earlier terms and nonnegativity for the final term\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"This result is essential for the next level! You'll use `TermLeSum` to prove that **convergent sequences are bounded**. Here's the connection:\n"
+"\n"
+"- Every convergent sequence is eventually close to its limit\n"
+"- But what about the finitely many terms *before* it gets close?\n"
+"- That's where your theorem comes in! You can bound those initial terms by their finite sum\n"
+"- Combine this with the eventual bound, and you get a global bound for the entire sequence\n"
+"\n"
+"## Looking Ahead\n"
+"\n"
+"In the next level, you'll prove `BddOfConvNonzero`: convergent sequences with nonzero limits are bounded. This is a cornerstone result in analysis that tells us convergent sequences can't escape to infinity.\n"
+"\n"
+"Ready to see your theorem in action? Let's move on!"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "Write `apply h` since the hypothesis `h` is  what we want to prove."
 msgstr ""
@@ -1368,6 +1394,10 @@ msgid "# Problem 1\n"
 "`have h' : |X - Y| = |Z| := by rewrite [h]; ring_nf`.\n"
 "\n"
 "This might come in handy!..."
+msgstr ""
+
+#: Game.Levels.L9PsetIntro
+msgid "Pset 9"
 msgstr ""
 
 #: Game.Levels.L9Lecture
@@ -1546,17 +1576,71 @@ msgid "Perfect! You've learned the `use` tactic for existence proofs.\n"
 "- `use` for existence proofs"
 msgstr ""
 
+#: Game.Levels.L9Pset.L9Pset2
+msgid "# Problem 2\n"
+"\n"
+"Prove that `N * (N + 1)` is always even."
+msgstr ""
+
 #: Game.Levels.L8PsetIntro
 msgid "Pset 8"
+msgstr ""
+
+#: Game.Levels.L9Levels.L04_FiniteSums
+msgid "# Level 1: Finite Sums\n"
+"\n"
+"Welcome to a new world of mathematics: **finite sums**! In this level, you'll prove that any individual term in a sum of absolute values is bounded by the total sum. This is a fundamental property that bridges discrete and continuous mathematics.\n"
+"\n"
+"## The Goal\n"
+"\n"
+"Prove that for any sequence `a : ℕ → ℝ` and natural number `N`, every term `|a n|` with `n < N` is at most the sum `∑ k ∈ range N, |a k|`.\n"
+"\n"
+"Intuitively: if you're adding up a bunch of nonnegative numbers, no single number can be bigger than the total!\n"
+"\n"
+"## Strategy: Induction from the Start!\n"
+"\n"
+"🎯 **Big Hint:** Even though the goal starts with `∀ n < N`, do **NOT** begin with `intro n hn`. Instead, run **induction on `N`** right from the beginning!\n"
+"\n"
+"This might feel counterintuitive, but trust the process. Induction gives you the perfect structure to peel off one term at a time using `sum_range_succ`.\n"
+"\n"
+"### Your Induction Strategy:\n"
+"- **Base case (`N = 0`):** There are no natural numbers less than 0, so you'll get a `contradiction`\n"
+"- **Inductive step (`N → N + 1`):** Use `sum_range_succ` to write the sum for `N + 1` as the sum for `N` plus the new term `|a N|`\n"
+"  - Split into cases: Is `n < N` (use inductive hypothesis) or `n = N` (use nonnegativity)?\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"### Summation Notation\n"
+"`∑ k ∈ range N` means sum as `k` goes from `0` to `N - 1` (which has `N` terms total!)\n"
+"\n"
+"### `sum_range_succ`\n"
+"Peels off the last term: `∑ k ∈ range (N + 1), f k = (∑ k ∈ range N, f k) + f N`\n"
+"\n"
+"### `sum_nonneg`\n"
+"If each term is nonnegative, so is the sum. Usage: `apply sum_nonneg`, then prove `∀ k ∈ range N, 0 ≤ f k`\n"
+"\n"
+"### `contradiction`\n"
+"If your hypotheses are contradictory (like `n : ℕ` with `n < 0`), this tactic closes the goal immediately.\n"
+"\n"
+"### `by_cases`\n"
+"Split into cases based on a decidable proposition. Usage: `by_cases h : n < N` creates two goals:\n"
+"- One where `h : n < N` holds\n"
+"- One where `h : ¬(n < N)` holds\n"
+"\n"
+"Good luck! Remember: **induction first, then introduce `n`!**"
 msgstr ""
 
 #: Game.Levels.L8Pset.L8Pset1
 #: Game.Levels.L8Pset.L8Pset2
 #: Game.Levels.L8Pset.L8Pset3
 #: Game.Levels.L8Pset.L8Pset4
-#: Game.Levels.L9Levels.L04_FiniteSums
-#: Game.Levels.L9Levels.L05_BddOfConv
-#: Game.Levels.L9Levels.L06_Prod
+#: Game.Levels.L9Pset.L9Pset1
+#: Game.Levels.L9Pset.L9Pset2
+#: Game.Levels.L9Pset.L9Pset3
+#: Game.Levels.L10Levels.L06_Prod
+#: Game.Levels.L10Levels.L07_Order
+#: Game.Levels.L10Levels.L08_Mono
+#: Game.Levels.L10Levels.L09_Subseq
 msgid ""
 msgstr ""
 
@@ -1923,12 +2007,6 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.L9Levels.L06_Prod
-msgid "# Level 3: Big Boss\n"
-"\n"
-"Good luck!"
-msgstr ""
-
 #: Game.Levels.L2PsetIntro
 msgid "# Problem Set 2\n"
 "\n"
@@ -2130,6 +2208,7 @@ msgstr ""
 #: Game.Levels.L4Lecture
 #: Game.Levels.L7Lecture
 #: Game.Levels.L9Lecture
+#: Game.Levels.L10Lecture
 msgid "# More on sequences"
 msgstr ""
 
@@ -2155,6 +2234,7 @@ msgstr ""
 #: Game.Levels.L6Pset.L6Pset3
 #: Game.Levels.L7Pset.L7Pset3
 #: Game.Levels.L8Pset.L8Pset3
+#: Game.Levels.L9Pset.L9Pset3
 msgid "Problem 3"
 msgstr ""
 
@@ -2167,8 +2247,20 @@ msgstr ""
 msgid "For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`."
 msgstr ""
 
+#: Game.Levels.L9Pset.L9Pset1
+msgid "# Problem 1\n"
+"\n"
+"Prove the same theorem as `BddOfConvNonzero`, but without the assumption that `L ≠ 0`. (Hint: break\n"
+"the proof into cases, and the case `L ≠ 0` should just be an appeal to `BddOfConvNonzero`. What\n"
+"do you do in the other case?)"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
+msgstr ""
+
+#: Game.Levels.L9Pset.L9Pset3
+msgid "`1 + 2 + ... + N = N * (N + 1) / 2`."
 msgstr ""
 
 #: Game.Levels.L6Levels.L01_SplitAnds
@@ -2183,7 +2275,10 @@ msgstr ""
 #: Game.Levels.L8Levels.L03_Induction'
 #: Game.Levels.L9Levels.L04_FiniteSums
 #: Game.Levels.L9Levels.L05_BddOfConv
-#: Game.Levels.L9Levels.L06_Prod
+#: Game.Levels.L10Levels.L06_Prod
+#: Game.Levels.L10Levels.L07_Order
+#: Game.Levels.L10Levels.L08_Mono
+#: Game.Levels.L10Levels.L09_Subseq
 msgid "Prove this"
 msgstr ""
 
@@ -2700,6 +2795,10 @@ msgid "# Problem 3\n"
 "Now you should be able to solve this problem!"
 msgstr ""
 
+#: Game.Levels.L8Pset.L8Pset4
+msgid "If a sequence `σ : ℕ → ℕ` is strictly increasing, then it grows at least linearly."
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Multiply the inequality `N ≤ n` by ε: `have f4 : N * ε ≤ n * ε := by bound`"
 msgstr ""
@@ -2782,6 +2881,10 @@ msgstr ""
 msgid "If a function is nonnegative, then its sum is also."
 msgstr ""
 
+#: Game.Levels.L10Lecture
+msgid "Lecture 10: Algebraic Limit Theorem, Part V"
+msgstr ""
+
 #: Game.Levels.L6Levels.L01_SplitAnds
 msgid "🎯 Tactical Mastery Achieved! 🎯\n"
 "\n"
@@ -2817,26 +2920,68 @@ msgstr ""
 msgid "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
 msgstr ""
 
-#: Game.Levels.L9Levels.L05_BddOfConv
+#: Game.Levels.L9Pset.L9Pset2
+msgid "`N * (N + 1)` is always even."
+msgstr ""
+
+#: Game.Levels.L9Pset.L9Pset1
 msgid "If `a : ℕ → ℝ` is a sequence which converges, then it is bounded."
+msgstr ""
+
+#: Game.Levels.L9Levels.L05_BddOfConv
+msgid "# 🎉 Outstanding Achievement!\n"
+"\n"
+"You've just proven one of the **cornerstone theorems of real analysis**: convergent sequences with nonzero limits are bounded! This is a result you'll use again and again throughout your journey in analysis.\n"
+"\n"
+"## What You Accomplished\n"
+"\n"
+"You proved that convergence implies boundedness:\n"
+"```\n"
+"SeqLim a L → L ≠ 0 → SeqBdd a\n"
+"```\n"
+"\n"
+"This tells us something profound: **convergent sequences can't escape to infinity**. They must remain trapped in a finite region of the real line.\n"
+"\n"
+"### Key Techniques You Mastered:\n"
+"\n"
+"1. **Two-region strategy** - You split the natural numbers into two parts:\n"
+"   - Eventually (n ≥ N): where convergence gives you control\n"
+"   - Initially (n < N): where you used your TermLtSum theorem\n"
+"\n"
+"2. **Constructing clever bounds** - You built `M = 2*|L| + ∑ k ∈ range N, |a k|`, which elegantly captures both regions in a single expression\n"
+"\n"
+"3. **Case analysis** - You used `by_cases` to handle the two regions separately, applying the appropriate bound for each\n"
+"\n"
+"4. **Connecting theorems** - You saw how `TermLtSum` from Level 1 became an essential tool for handling finitely many terms\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"The boundedness of convergent sequences is fundamental throughout mathematics:\n"
+"\n"
+"- **Bolzano-Weierstrass Theorem**: Every bounded sequence has a convergent subsequence (you've proven half of this!)\n"
+"- **Uniform Convergence**: Bounded sequences are essential for proving uniform convergence results\n"
+"- **Compactness**: This result is key to understanding compactness in metric spaces\n"
+"- **Practical Analysis**: Knowing a sequence stays bounded helps with error analysis and numerical computations\n"
+"\n"
+"## The Missing Piece: L = 0\n"
+"\n"
+"Notice we assumed `L ≠ 0` in this proof. The case where `L = 0` is left as an exercise, but the idea is similar:\n"
+"- Use convergence with `ε = 1` to bound terms eventually by `1`\n"
+"- Handle the finitely many initial terms with TermLtSum\n"
+"- The bound becomes `M = 1 + ∑ k ∈ range N, |a k|`\n"
+"\n"
+"## Looking Ahead\n"
+"\n"
+"You now understand that convergent sequences live in a bounded world. This prepares you for deeper results:\n"
+"- Sequences that are bounded but don't converge (like `(-1)^n`)\n"
+"- The relationship between boundedness, monotonicity, and convergence\n"
+"- Cauchy sequences and completeness of the reals\n"
+"\n"
+"Congratulations on mastering this essential theorem! You're building the foundation for advanced analysis. Keep going! 🚀"
 msgstr ""
 
 #: Game.Levels.L7Levels.L00_Uniqueness
 msgid "If `x ≠ 0`, then `0 < |x|`."
-msgstr ""
-
-#: Game.Levels.L1RealAnalysisStory.L02_rfl
-msgid "# When things are identical to themselves\n"
-"\n"
-"Sometimes in mathematics, we need to prove that something equals itself. For example, we might need to prove that $x^2 + 2y = x^2 + 2y$.\n"
-"\n"
-"This isn't quite the same as our previous exercise. There, we had a hypothesis `h` that told us `x = 5`, and we used `apply h` to prove the goal `x = 5`.\n"
-"\n"
-"But now we don't have any hypothesis that says `x^2 + 2y = x^2 + 2y`. We're just being asked to prove that some expression equals itself. We can't say `apply something` because there's no `something`.\n"
-"\n"
-"Instead, we will use what mathematicians call the *reflexive property* of equality: everything is equal to itself. In Lean, if you get to a situation where you're trying to prove an equality, and the two things on both sides are *identical*, then the syntax is to give the command `rfl` (short for \"reflexivity\").\n"
-"\n"
-"Try it out!"
 msgstr ""
 
 #: Game.Levels.L6Pset.L6Pset4
@@ -2844,6 +2989,29 @@ msgid "# Problem 4\n"
 "\n"
 "You are given that a sequence `a : ℕ → ℝ` with the property that it takes arbitrarily large values exceeding 10 in absolute value.\n"
 "Prove that cannot have a limit less than 5."
+msgstr ""
+
+#: Game.Levels.L10Levels.L06_Prod
+msgid "If sequences `a b : ℕ → ℝ` converge with `a` going to `L ≠ 0` and `b` going to `M ≠ 0`,\n"
+"\n"
+"\n"
+"`ProdLimNeNe`"
+msgstr ""
+
+#: Game
+msgid "# Welcome to Real Analysis, The Game!\n"
+"\n"
+"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk).\n"
+" Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
+"or better yet, post a PR/issue to\n"
+"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"\n"
+"For the main course website, go to: https://alexkontorovich.github.io/2025F311H.\n"
+"\n"
+"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
+"and basic Point-Set Topology.\n"
+"To get started, click on\n"
+"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
@@ -2854,6 +3022,12 @@ msgstr ""
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "If `a n = 1 / n`, then `SeqLim a 0`; that is, the sequence\n"
 "`1 / n` converges to zero."
+msgstr ""
+
+#: Game.Levels.L10Levels.L06_Prod
+msgid "# Level 1: Big Boss\n"
+"\n"
+"Good luck!"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -2876,8 +3050,14 @@ msgid "# Theorem Prover Software\n"
 "To solve that goal, the syntax is to write `apply`, then a space, and then the name of the hypothesis which matches the goal."
 msgstr ""
 
-#: Game.Levels.L9Levels.L06_Prod
-msgid "`ProdLim`"
+#: Game.Levels.L10Levels.L09_Subseq
+msgid "# Level 4: Subsequence Example\n"
+"\n"
+"New: the `let` tactic (create something new and name it)\n"
+"\n"
+"To make a function, the special word is `fun`:\n"
+"\n"
+"`let f : ℝ → ℝ := fun x ↦ x ^ 2`"
 msgstr ""
 
 #: Game.Levels.L7PsetIntro
@@ -2977,6 +3157,20 @@ msgstr ""
 
 #: Game.Levels.L2PsetIntro
 msgid "Pset 2"
+msgstr ""
+
+#: Game.Levels.L10Levels.L08_Mono
+msgid "# Level 3: Subsequence Theorem\n"
+"\n"
+"definition: `Subseq`\n"
+"\n"
+"A sequence `σ : ℕ → ℕ` is a *subsequence* if it's strictly increasing: `∀ i j, i < j → σ (i) < σ (j)`\n"
+"\n"
+"(Saw this in Problem 4 of Lecture 8 Pset.)"
+msgstr ""
+
+#: Game.Levels.L10Levels.L07_Order
+msgid "Order Limit Theorem"
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
@@ -3153,8 +3347,30 @@ msgid "## What You've Proven\n"
 "well-behaved and useful throughout analysis, differential equations, and optimization."
 msgstr ""
 
+#: Game.Levels.L1RealAnalysisStory.L02_rfl
+msgid "# When things are identical to themselves\n"
+"\n"
+"Sometimes in mathematics, we need to prove that something equals itself. For example, we might need to prove that $x ^ 2 + 2 * y = x ^ 2 + 2 * y$.\n"
+"\n"
+"This isn't quite the same as our previous exercise. There, we had a hypothesis `h` that told us `x = 5`, and we used `apply h` to prove the goal `x = 5`.\n"
+"\n"
+"But now we don't have any hypothesis that says `x ^ 2 + 2 * y = x ^ 2 + 2 * y`. We're just being asked to prove that some expression equals itself. We can't say `apply something` because there's no `something`.\n"
+"\n"
+"Instead, we will use what mathematicians call the *reflexive property* of equality: everything is equal to itself. In Lean, if you get to a situation where you're trying to prove an equality, and the two things on both sides are *identical*, then the syntax is to give the command `rfl` (short for \"reflexivity\").\n"
+"\n"
+"Try it out!"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Therefore `n > 0`; try: `have npos : (0 : ℝ) < n := by linarith [Npos, N_le_n]`"
+msgstr ""
+
+#: Game.Levels.L10Levels.L09_Subseq
+msgid "The `let` tactic is like `have`, but for creating variable names or functions."
+msgstr ""
+
+#: Game.Levels.L10Levels.L07_Order
+msgid "If a sequence `a` converges to `L` and `a n ≤ K` for all `n`, then `L ≤ K`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L06_intro
@@ -3275,7 +3491,7 @@ msgstr ""
 msgid "level completed! 🎉"
 msgstr ""
 
-#: Game.Levels.L9Levels.L06_Prod
+#: Game.Levels.L10Levels.L06_Prod
 msgid "Big Boss : Product of Sequences"
 msgstr ""
 
@@ -3354,6 +3570,9 @@ msgstr ""
 #: Game.Levels.L8Pset.L8Pset2
 #: Game.Levels.L8Pset.L8Pset3
 #: Game.Levels.L8Pset.L8Pset4
+#: Game.Levels.L9Pset.L9Pset1
+#: Game.Levels.L9Pset.L9Pset2
+#: Game.Levels.L9Pset.L9Pset3
 msgid "Prove the statement."
 msgstr ""
 
@@ -3369,6 +3588,7 @@ msgstr ""
 #: Game.Levels.L6Pset.L6Pset1
 #: Game.Levels.L7Pset.L7Pset1
 #: Game.Levels.L8Pset.L8Pset1
+#: Game.Levels.L9Pset.L9Pset1
 msgid "Problem 1"
 msgstr ""
 
@@ -3391,6 +3611,12 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L02_LeftRight
 msgid "When your goal is to prove an \\\"Or\\\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `P`, then say `left`, and the Goal will turn into `P`."
+msgstr ""
+
+#: Game.Levels.L9PsetIntro
+msgid "# Problem Set 9\n"
+"\n"
+"Good luck!"
 msgstr ""
 
 #: Game.Levels.L8PsetIntro
@@ -3617,6 +3843,54 @@ msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge
 msgid "Usage: `have factName : |-x| = |x| := by apply abs_neg`"
+msgstr ""
+
+#: Game.Levels.L9Levels.L05_BddOfConv
+msgid "# Level 2: Bounded\n"
+"\n"
+"Welcome to one of the most fundamental results in real analysis: **convergent sequences are bounded**! This theorem tells us that if a sequence converges to a limit, it can't wander off to infinity—it must stay within some finite region.\n"
+"\n"
+"## The Goal\n"
+"\n"
+"Prove that if `a : ℕ → ℝ` converges to a nonzero limit `L`, then `a` is bounded (i.e., there exists some `M > 0` such that `|a n| ≤ M` for all `n`).\n"
+"\n"
+"**Note:** The case `L = 0` will be handled in the exercises. For now, we focus on nonzero limits.\n"
+"\n"
+"## The Big Idea\n"
+"\n"
+"Think about what convergence means: eventually, all terms get close to `L`. So for large `n`, we have `|a n| ≤ 2|L|` (approximately).\n"
+"\n"
+"But what about the **finitely many terms before** the sequence gets close to `L`? That's where your `TermLeSum` theorem from Level 1 comes in! You can bound those initial terms by their finite sum.\n"
+"\n"
+"### The Strategy:\n"
+"\n"
+"1. **Eventually bounded:** Use `EventuallyBdd_of_SeqConv` to find an `N` such that `|a n| ≤ 2|L|` for all `n ≥ N`\n"
+"\n"
+"2. **Initially bounded:** For `n < N`, use `TermLeSum` to show `|a n| ≤ ∑ k ∈ range N, |a k|`\n"
+"\n"
+"3. **Global bound:** Combine both parts with:\n"
+"   ```\n"
+"   M = 2 * |L| + ∑ k ∈ range N, |a k|\n"
+"   ```\n"
+"\n"
+"   This works because:\n"
+"   - For `n ≥ N`: the term `|a n|` is covered by `2|L|`\n"
+"   - For `n < N`: the term `|a n|` is covered by the sum\n"
+"\n"
+"4. **Prove `M > 0`:** Show that your bound is positive (needed for the definition of `SeqBdd`)\n"
+"\n"
+"5. **Prove `∀ n, |a n| ≤ M`:** Split into cases based on whether `n ≥ N` or `n < N`\n"
+"\n"
+"## New Tools You'll Need\n"
+"\n"
+"### `SeqBdd`\n"
+"Definition: A sequence `a : ℕ → ℝ` is **bounded** if `∃ M > 0, ∀ n, |a n| ≤ M`\n"
+"\n"
+"## Your Mission\n"
+"\n"
+"Construct the bound `M`, prove it's positive, then verify it works for all terms by splitting into the two cases. Let your `TermLeSum` theorem shine!\n"
+"\n"
+"Good luck! 🚀"
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp

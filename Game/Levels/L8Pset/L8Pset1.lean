@@ -1,5 +1,4 @@
 import Game.Levels.L8Lecture
-import Mathlib.Data.Nat.Factorial.Basic
 
 World "L8Pset"
 Level 1
