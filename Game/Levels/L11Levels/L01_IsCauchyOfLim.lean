@@ -8,10 +8,36 @@ Title "Big Boss : Limits are Cauchy"
 Introduction "
 # Level 1: Big Boss - Limits are Cauchy
 
-## New Definition: `IsCauchy`
+Now that we understand what a Cauchy sequence is, let's prove our first major theorem: **every convergent sequence is Cauchy**.
 
-## New Theorem: `abs_sub_comm` : `|x - y| = |y - x|` (subtraction is commutative inside absolute values)
+This might seem obvious at first—if a sequence converges to some limit `L`, then the terms should eventually be close to each other. But making this intuition rigorous requires careful epsilon management!
 
+## The Key Insight
+
+If `aₙ → L`, then for large `n` and `m`, both `aₙ` and `aₘ` are close to `L`. By the triangle inequality, this means they must be close to *each other*:
+
+`|aₙ - aₘ| = |(aₙ - L) + (L - aₘ)| ≤ |aₙ - L| + |L - aₘ|`
+
+## Strategy
+
+1. **Extract the limit**: Since the sequence converges, use `choose` to get the limit `L`
+2. **Clever epsilon choice**: Apply the definition of `aₙ → L` with `ε/2` (not `ε`!)
+3. **Rewrite the goal**: Express `|aₙ - aₘ|` in terms of differences from `L`
+4. **Apply triangle inequality**: Split the absolute value of a sum
+5. **Use symmetry**: Apply `abs_sub_comm` to get `|L - aₘ| = |aₘ - L|`
+6. **Finish with arithmetic**: Both pieces are less than `ε/2`, so the sum is less than `ε`
+
+## New Definition
+
+**`IsCauchy a`**: A sequence `a : ℕ → ℝ` is Cauchy if
+`∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, |a m - a n| < ε`
+
+## New Theorem
+
+**`abs_sub_comm`**: `|x - y| = |y - x|`
+(Subtraction is commutative inside absolute values)
+
+This is your first Big Boss level working with the Cauchy definition. Take your time, and remember: when in doubt, divide epsilon by 2!
 "
 
 /--
@@ -51,4 +77,28 @@ have f1 : |(a n - L) + (L - a m)| ≤ |a n - L| + |L - a m| := by apply abs_add
 have f2 : |L - a m| = |a m - L| := by apply abs_sub_comm
 linarith [f1, f2, hn', hm']
 
-Conclusion ""
+Conclusion "
+# Congratulations! You've proven that convergence implies Cauchy!
+
+This is one of the most fundamental results in analysis. You've just shown that the \"self-referential\" Cauchy property is a *necessary condition* for convergence.
+
+## What you've learned
+
+- How to work with the Cauchy definition using multiple indices `m` and `n`
+- The power of the `ε/2` trick to make inequalities work out
+- How to use `abs_sub_comm` to flip differences inside absolute values
+- How to connect a sequence to itself rather than to an external limit
+
+## The Big Question
+
+You've proven: **convergence ⟹ Cauchy**
+
+But what about the converse? Is every Cauchy sequence convergent?
+
+- **For rational sequences**: NO! The sequence `1, 1.4, 1.41, 1.414, ...` is Cauchy in ℚ but doesn't converge to a rational number.
+- **For real sequences**: This is the *Cauchy Completeness Theorem*, and it's **YES**! But we'll need to carefully construct the real numbers first to prove it.
+
+This is why Cauchy sequences are so important—they give us a way to *define* the real numbers as the completion of the rationals!
+
+Onward to the next level!
+"

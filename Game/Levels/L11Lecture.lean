@@ -12,7 +12,7 @@ Introduction "
 
 **SIMPLICIO:** Yeah, so what?
 
-**SOCRATES:** And we saw that there can be sequences which do not themselves converge -- for example, `(-1)^n` -- but which are bounded and have subsequences that do converge. The even-indexed terms, for instance, are all equal 1.
+**SOCRATES:** And we saw that there can be sequences which do not themselves converge -- for example, $(-1)^n$ -- but which are bounded and have subsequences that do converge. The even-indexed terms, in this example, are all equal 1.
 
 **SIMPLICIO:** What are you getting at?
 
@@ -22,20 +22,19 @@ Introduction "
 
 **SOCRATES:** Yes, something like that. Can you elaborate?
 
-**SIMPLICIO:** Okay, I'll play along. You're trying to get me to formulate some kind of converse. If a sequence is bounded, then... it converges? No, that can't be right -- a bounded sequence can bounce around without converging, like `(-1)^n` itself.
+**SIMPLICIO:** Okay, I'll play along. You're trying to get me to formulate some kind of converse. If a sequence is bounded, then... it converges? No, that can't be right -- a bounded sequence can bounce around without converging, like $(-1)^n$ itself.
 
 Ah, but maybe there's always *some* subsequence that converges? Hmm, but that can't be right either, since the sequence `aₙ = n` has no convergent subsequence -- it just escapes to infinity.
 
-Oh! But wait, that sequence isn't bounded. Are you saying that if a sequence *is* bounded, then there's always a subsequence that converges?
+Oh! But wait, that sequence isn't bounded. Are you saying that if all I know about a sequence is that it's bounded, then there's always *some* subsequence that converges?
 
-**SOCRATES:** Well, here's where it gets **really** subtle. Think about the sequence of fractions: `a (0) = 1 / 1`, `a (1) = 14 / 10`, `a (2) = 141 / 100`, `a (3) = 1414 / 1000`, ... getting closer and closer to $1.4142\\dots = \\sqrt 2$. The sequence is bounded (by $2$, to be crude), and even increasing, but its limit is not a rational number! So, as I warned you long ago, we'll have to eventually face the fact that we don't even know what the real numbers *are*. I think that time is now.
+**SOCRATES:** Yes, precisely! This important fact is called the \"Bolzano-Weierstrauss theorem\". But here's where it gets **really** subtle. Think about the sequence of fractions: `a (0) = 1 / 1`, `a (1) = 14 / 10`, `a (2) = 141 / 100`, `a (3) = 1414 / 1000`, ... getting closer and closer to $1.4142\\dots = \\sqrt 2$. The sequence is bounded (by $2$, to be crude), and even increasing, but its limit is not a rational number! So the Bolzno-Weierstrauss theorem is not true for the rationals. As I warned you long ago, we'll have to eventually face the fact that we don't even know what the real numbers *are*. I think that time is now.
 
 **SIMPLICIO:** Fine, I'm ready; tell me what they are.
 
+**SOCRATES:** Unfortunately, it's rather complicated, and it'll take us some time to arrive at the answer, and to see why it *is* the answer. Let's take a step back. What would you *like* to be able to say about the real numbers?
 
-**SOCRATES:** Unfortunately, it's rather complicated, and it'll take us some time to arrive at the answer, and to see why it *is* the answer. Let's take a step back. What would you *like* to say about the real numbers?
-
-**SIMPLICIO:** Well, I'd like to say they're the limits of rational sequences. Like, $\\sqrt{2}$ is the limit of that sequence you just mentioned: $1, 1.4, 1.41, 1.414, \\dots$
+**SIMPLICIO:** Well, I guess I'd like to say something like: they're the limits of their decimal expansions. So they're limits of rational sequences. Like, $\\sqrt{2}$ is the limit of that sequence you just mentioned: $1, 1.4, 1.41, 1.414, \\dots$
 
 **SOCRATES:** Good! So you want to define a real number as \"the limit of a sequence of rationals.\" But remind me, what does it mean for a sequence to have a limit?
 
@@ -73,7 +72,10 @@ Oh! But wait, that sequence isn't bounded. Are you saying that if a sequence *is
 
 `∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, |a m - a n| < ε`
 
-Before we return to the real numbers, let's first get more familiar
+This is one of the most important definitions in **all of mathematics**.
+It appears not only here in real analysis, but also in higher arithmetic when building the p-adic numbers, in functional analysis when studying Banach spaces and Hilbert spaces, and in topology and geometry when \"completing\" metric spaces. Anywhere mathematicians want to talk about  \"convergence\" but without knowing *a priori* where things converge *to*, they reach for a version of Cauchy's definition.
+
+But before we return to the real numbers, let's first get more familiar
 with this definition and what it can do.
 
 **SIMPLICIO:** I like it; let's go!
@@ -81,3 +83,4 @@ with this definition and what it can do.
 "
 
 -- exercise : the sequence `a n = n` has no convergent subsequence
+-- exercise : why not `|a n - a (n + 1)|`?
