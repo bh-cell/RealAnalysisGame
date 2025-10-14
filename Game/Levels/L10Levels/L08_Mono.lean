@@ -1,7 +1,5 @@
 import Game.Levels.L10Levels.L07_Order
 
-open Finset
-
 World "Lecture10"
 Level 3
 Title "Subsequences"
@@ -126,5 +124,3 @@ The concept generalizes to metric spaces and topological spaces, where it's cruc
 
 **Exercise:** Prove that if a sequence has two subsequences converging to different limits, then the sequence diverges. (Hint: use proof by contradiction—assume the sequence converges and derive that the two limits must be equal.)
 "
-
--- exercise: If there are two subsequences converging to different limits, then the sequence doesn't converge!

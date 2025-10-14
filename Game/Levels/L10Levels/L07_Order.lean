@@ -1,7 +1,5 @@
 import Game.Levels.L10Levels.L06_Prod
 
-open Finset
-
 World "Lecture10"
 Level 2
 Title "Order Limit Theorem"
@@ -50,7 +48,6 @@ NewDefinition SeqBddBy
 def SeqBddBy (a : ℕ → ℝ) (M : ℝ) : Prop :=
   ∀ n, a n ≤ M
 
-
 /--
 If a sequence `a` converges to `L` and `a n ≤ K` for all `n`, then `L ≤ K`.
 -/
@@ -67,7 +64,7 @@ choose N hN using ha (L - K) hLK
 specialize hN N (by bound)
 rewrite [abs_lt] at hN
 have f1 : L - (L - K) < a N := by linarith [hN.1]
-have f2 : K ≤ L - (L - K) := by linarith [hL']
+have f2 : K = L - (L - K) := by ring_nf
 specialize hK N
 linarith [f2, hK, f1]
 
@@ -107,5 +104,3 @@ The Order Limit Theorem is the foundation for:
 
 This theorem lets us compare sequences and transfer information about one sequence to another via inequalities. Very powerful!
 "
-
--- OrderLimGe in exercises

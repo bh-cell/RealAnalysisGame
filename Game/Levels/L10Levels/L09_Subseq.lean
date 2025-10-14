@@ -1,7 +1,5 @@
 import Game.Levels.L10Levels.L08_Mono
 
-open Finset
-
 World "Lecture10"
 Level 4
 Title "Subsequence Example"
@@ -140,5 +138,3 @@ Subsequences let us zoom in on specific patterns and behaviors that might be obs
 
 Great work on completing Lecture 10! You now have the complete Algebraic Limit Theorem, order properties of limits, and the power of subsequences at your disposal.
 "
-
--- OrderLimGe in exercises

@@ -1,7 +1,5 @@
 import Game.Levels.L9PsetIntro
 
-open Finset
-
 World "Lecture10"
 Level 1
 Title "Big Boss : Product of Sequences"
@@ -37,10 +35,7 @@ Good luck!
 "
 
 /--
-If sequences `a b : ℕ → ℝ` converge with `a` going to `L ≠ 0` and `b` going to `M ≠ 0`,
-
-
-`ProdLimNeNe`
+If sequences `a b : ℕ → ℝ` converge with `a` going to `L ≠ 0` and `b` going to `M ≠ 0`, then `a n * b n` converges to `L * M`.
 -/
 TheoremDoc ProdLimNeNe as "ProdLimNeNe" in "Theorems"
 
@@ -124,7 +119,3 @@ You can build this up step by step using the algebraic limit rules!
 
 **Note:** The case where `L = 0` or `M = 0` is left as an exercise. The proof requires slightly different techniques since you can't divide by `|L|` or ensure `b` is bounded away from zero. Try it yourself!
 "
-
-
--- case `L = 0` in exercises
--- general case in exercises!
