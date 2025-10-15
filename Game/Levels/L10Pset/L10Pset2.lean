@@ -13,7 +13,7 @@ Prove the Theorem `LimZeroTimesBdd`: if a sequence `a n` converges to `0`, and t
 "
 
 /--
-If sequences `a b : ℕ → ℝ` converge with `a` going to `L` and `b` going to `M`, then `a n * b n` converges to `L * M`.
+If sequence `a : ℕ → ℝ` converges to `0` and sequence `b : ℕ → ℝ` is bounded by `M`, then `a n * b n` converges to `0`.
 -/
 TheoremDoc LimZeroTimesBdd as "LimZeroTimesBdd" in "Theorems"
 
