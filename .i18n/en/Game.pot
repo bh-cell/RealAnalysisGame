@@ -364,6 +364,10 @@ msgstr ""
 msgid "The `intro` tactic introduces variables and hypotheses from ∀ statements or implications."
 msgstr ""
 
+#: Game.Levels.L10Pset.L10Pset2
+msgid "If sequence `a : ℕ → ℝ` converges to `0` and sequence `b : ℕ → ℝ` is bounded, then `a n * b n` converges to `0`."
+msgstr ""
+
 #: Game.Levels.L7Pset.L7Pset2
 msgid "# Problem 2\n"
 "\n"
@@ -1994,7 +1998,6 @@ msgstr ""
 msgid "If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is `Monotone` and grows along some subsequences by `ε`, then it eventually grows by `k * ε` for any `k`."
 msgstr ""
 
-#: Game.Levels.L10Pset.L10Pset2
 #: Game.Levels.L10Pset.L10Pset3
 msgid "If sequences `a b : ℕ → ℝ` converge with `a` going to `L` and `b` going to `M`, then `a n * b n` converges to `L * M`."
 msgstr ""
