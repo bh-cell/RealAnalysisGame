@@ -4,7 +4,7 @@ import Game.Levels.L12Levels.L02_SubseqIterate
 import Game.Levels.L12Levels.L03_MonotoneSubseq
 
 World "Lecture12"
-Title "Lecture 12: The Real Numbers I"
+Title "Lecture 12: Cauchy Sequences II"
 
 Introduction "
 # Lecture 12: Cauchy Sequences II

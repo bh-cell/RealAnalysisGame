@@ -45,6 +45,10 @@ Dependency Lecture10 → Lecture11
 
 Dependency Lecture11 → Lecture12
 
+Dependency Lecture11 → L11Pset
+
+Dependency L10Pset → Lecture12
+
 -- Here's what we'll put on the title screen
 Title "An Introduction to (Formal) Real Analysis"
 

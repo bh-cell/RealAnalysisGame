@@ -28,7 +28,7 @@ change |a (σ n)| ≤ M at hM
 rewrite [ha] at hM
 have f1 : n ≤ σ n := by apply SubseqGe σ_subseq
 have f2 : (0 : ℝ) ≤ σ n := by exact_mod_cast (by bound)
-rewrite [show |(σ n : ℝ)| = (σ n) by apply abs_of_nonneg f2] at hM
+rewrite [(by apply abs_of_nonneg f2 : |(σ n : ℝ)| = (σ n))] at hM
 have f3 : (n : ℝ) ≤ σ n := by exact_mod_cast f1
 linarith [f3, hM, hn'']
 

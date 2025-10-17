@@ -129,6 +129,10 @@ msgstr ""
 msgid "Given `ε` and the fact that `0 < ε`, the theorem `ArchProp` claims the existence of `N : ℕ` so that `1 / ε < N`. This is a formalization of the classical Archimedean Property."
 msgstr ""
 
+#: Game.Levels.L12Lecture
+msgid "Lecture 12: Cauchy Sequences II"
+msgstr ""
+
 #: Game.Levels.L10Pset.L10Pset3
 msgid "# Problem 2:\n"
 "\n"
@@ -4358,10 +4362,6 @@ msgid "# More on sequences\n"
 "We also learned how to do something completely trivial with it, namely, show that the constant sequence converges, with that constant as its limit.\n"
 "\n"
 "Let's step it up a notch, shall we?"
-msgstr ""
-
-#: Game.Levels.L12Lecture
-msgid "Lecture 12: The Real Numbers I"
 msgstr ""
 
 #: GameServer.RpcHandlers
