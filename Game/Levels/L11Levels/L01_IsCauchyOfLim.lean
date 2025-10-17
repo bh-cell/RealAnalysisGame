@@ -30,7 +30,7 @@ If `aₙ → L`, then for large `n` and `m`, both `aₙ` and `aₘ` are close to
 ## New Definition
 
 **`IsCauchy a`**: A sequence `a : ℕ → ℝ` is Cauchy if
-`∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, |a m - a n| < ε`
+`∀ ε > 0, ∃ N, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε`
 
 ## New Theorem
 
@@ -47,14 +47,13 @@ TheoremDoc abs_sub_comm as "abs_sub_comm" in "Theorems"
 
 NewTheorem abs_sub_comm
 
-/-- For a sequence `a : ℕ → ℝ` is said to satisfy `IsCauchy` (that is, the sequence \"is Cauchy\") if: for every `ε > 0`, there exists `N : ℕ` such that for all `m, n ≥ N`, we have `|a m - a n| < ε`. -/
+/-- For a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is said to satisfy `IsCauchy` (that is, the sequence \"is Cauchy\") if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N` and `m ≥ n`, we have `|a m - a n| < ε`. -/
 DefinitionDoc IsCauchy as "IsCauchy"
 
 NewDefinition IsCauchy
 
-def IsCauchy (a : ℕ → ℝ) : Prop :=
-  ∀ ε > 0, ∃ N : ℕ, ∀ m ≥ N, ∀ n ≥ N, |a m - a n| < ε
-
+def IsCauchy {X : Type*} [NormedAddGroup X] [Lattice X] (a : ℕ → X) : Prop :=
+  ∀ (ε : X), 0 < ε → ∃ N : ℕ, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε
 
 /--
 If a sequence `a : ℕ → ℝ` converges, then it is Cauchy.
@@ -71,10 +70,10 @@ choose N hN using hL (ε / 2) (by bound)
 use N
 intro n hn m hm
 have hn' : |a n - L| < ε / 2 := by apply hN n hn
-have hm' : |a m - L| < ε / 2 := by apply hN m hm
-rewrite [(by ring_nf : |a n - a m| = |(a n - L) + (L - a m)|)]
-have f1 : |(a n - L) + (L - a m)| ≤ |a n - L| + |L - a m| := by apply abs_add
-have f2 : |L - a m| = |a m - L| := by apply abs_sub_comm
+have hm' : |a m - L| < ε / 2 := by apply hN m (by bound)
+rewrite [(by ring_nf : |a m - a n| = |(a m - L) + (L - a n)|)]
+have f1 : |(a m - L) + (L - a n)| ≤ |a m - L| + |L - a n| := by apply abs_add
+have f2 : |L - a n| = |a n - L| := by apply abs_sub_comm
 linarith [f1, f2, hn', hm']
 
 Conclusion "

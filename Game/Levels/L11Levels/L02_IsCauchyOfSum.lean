@@ -26,21 +26,13 @@ This proof follows a familiar pattern from the sum of limits theorem:
 
 1. **Split epsilon**: Apply the Cauchy property to both `a` and `b` using `ε/2`
 2. **Take the maximum N**: Use `N₁ + N₂` to ensure both Cauchy conditions hold
-3. **Rewrite the goal**: Express `|(a + b)ₘ - (a + b)ₙ|` as `|(aₘ - aₙ) + (bₘ - bₙ)|`
+3. **Change the goal**: Express `|(a + b)ₘ - (a + b)ₙ|` as `|(aₘ - aₙ) + (bₘ - bₙ)|`
 4. **Triangle inequality**: Split the sum into two pieces
-5. **Combine estimates**: Each piece is less than `ε/2`, so the total is less than `ε`
+5. **Combine estimates**: Each piece is less than `ε / 2`, so the total is less than `ε`
 
 ## Key Insight
 
 The beauty of the Cauchy property is that we don't need to know *where* the sequences converge—we only need to know that their terms get close to *each other*. This self-referential definition makes the proof very similar to the sum of limits, but without ever mentioning a limit!
-
-## Reminder
-
-The Cauchy definition requires **two** quantifiers over indices:
-
-`∀ m ≥ N, ∀ n ≥ N, |a m - a n| < ε`
-
-You'll need to apply this to both `m` and `n` for each sequence.
 
 Let's prove it!
 "
@@ -52,15 +44,15 @@ TheoremDoc IsCauchyOfSum as "IsCauchyOfSum" in "Theorems"
 
 /-- Prove this
 -/
-Statement IsCauchyOfSum (a b : ℕ → ℝ) (ha : IsCauchy a) (hb : IsCauchy b)
+Statement IsCauchyOfSum {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] (a b : ℕ → X) (ha : IsCauchy a) (hb : IsCauchy b)
     : IsCauchy (a + b) := by
 intro ε hε
 choose N1 hN1 using ha (ε / 2) (by bound)
 choose N2 hN2 using hb (ε / 2) (by bound)
 use N1 + N2
-intro m hm n hn
-specialize hN1 m (by bound) n (by bound)
-specialize hN2 m (by bound) n (by bound)
+intro n hn m hm
+specialize hN1 n (by bound) m (by bound)
+specialize hN2 n (by bound) m (by bound)
 change |(a m + b m) - (a n + b n)| < ε
 rewrite [(by ring_nf : |(a m + b m) - (a n + b n)| = |(a m - a n) + (b m - b n)|)]
 have f1 : |a m - a n + (b m - b n)| ≤ |a m - a n| + |(b m - b n)| := by apply abs_add
@@ -82,7 +74,7 @@ This theorem shows that the Cauchy property is **preserved by addition**. This i
 ## The Pattern
 
 Notice how similar this proof was to proving that sums of convergent sequences converge:
-- Split `ε` into `ε/2` for each sequence
+- Split `ε` into `ε / 2` for each sequence
 - Use the triangle inequality to separate the sum
 - Combine the estimates
 

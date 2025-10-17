@@ -18,7 +18,10 @@ import Game.Levels.L9PsetIntro
 import Game.Levels.L10Lecture
 import Game.Levels.L10PsetIntro
 import Game.Levels.L11Lecture
+import Game.Levels.L11PsetIntro
+import Game.Levels.L12Lecture
 
+-- exercise : why not `|a n - a (n + 1)|`?
 
 Dependency NewtonsCalculationOfPi → L2Pset
 
@@ -53,7 +56,7 @@ https://github.com/AlexKontorovich/RealAnalysisGame.
 
 For the main course website, go to: https://alexkontorovich.github.io/2025F311H.
 
-This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,
+This course takes you through an Introduction to the Real Numbers, rigorous `ε`-`δ` Calculus,
 and basic Point-Set Topology.
 To get started, click on
 **\"Level 1: The Story of Real Analysis\"**, and good luck!
@@ -67,13 +70,14 @@ Info "
 
 This course follows the historical crises that forced mathematicians to rebuild
 mathematics from the ground up in the 19th century. You'll learn why concepts
-like ε-δ definitions became necessary and how to use them to do advanced calculus.
+like `ε`-`δ` definitions became necessary and how to use them to do advanced calculus.
 
 ## Credits
 
 * **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu
 * **Interactive Implementation:** Lean 4 Game Engine
 * **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc.
+* **Many thanks to:** Jon Eugster, Heather Macbeth, Michael Stoll, and the students of 311H for a lot of technical support, encouragement, and many great suggestions for improvement!
 "
 
 /-! Information to be displayed on the servers landing page. -/

@@ -51,7 +51,6 @@ Statement SumLim (a b c : ℕ → ℝ) (L M : ℝ)
     SeqLim c (L + M) := by
   change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |c n - (L + M)| < ε
   intro ε hε
-  unfold SeqLim at ha
   change ∀ ε₁ > 0, ∃ Na : ℕ, ∀ n ≥ Na, |a n - L| < ε₁ at ha
   change ∀ ε₂ > 0, ∃ Nb : ℕ, ∀ n ≥ Nb, |b n - M| < ε₂ at hb
   specialize ha (ε / 2)

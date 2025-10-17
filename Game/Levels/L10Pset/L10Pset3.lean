@@ -29,7 +29,7 @@ apply LimZeroTimesBdd a b c ha f hc
 by_cases hM : M = 0
 have f : SeqBdd a := by apply BddOfConv a L ha
 rewrite [hM] at hb ⊢
-rewrite [(by ring : L * 0 = 0)]
+rewrite [(by ring_nf : L * 0 = 0)]
 have hc' : ∀ n, c n = b n * a n := by intro n; rewrite [hc]; ring_nf
 apply LimZeroTimesBdd b a c hb f hc'
 apply ProdLimNeNe a b c L M hL hM ha hb hc

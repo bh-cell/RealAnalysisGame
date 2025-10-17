@@ -54,13 +54,13 @@ Construct the bound `M`, prove it's positive, then verify it works for all terms
 Good luck! 🚀
 "
 
-/-- A sequence `a : N → ℝ` is bounded (`SeqBdd` holds) if there exists some positive
-`M : ℝ` so that `|a n| ≤ M`, for all `n`. -/
+/-- A sequence `a : N → X` (where `X` could be `ℚ` or `ℝ`) is bounded (`SeqBdd` holds) if there exists some positive
+`M : X` so that `|a n| ≤ M`, for all `n`. -/
 DefinitionDoc SeqBdd as "SeqBdd"
 
 NewDefinition SeqBdd
 
-def SeqBdd (a : ℕ → ℝ) : Prop :=
+def SeqBdd {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] (a : ℕ → X) : Prop :=
   ∃ M > 0, ∀ n, |a n| ≤ M
 
 /-- If `a : ℕ → ℝ` is a sequence which converges to a non-zero limit, then it is bounded.

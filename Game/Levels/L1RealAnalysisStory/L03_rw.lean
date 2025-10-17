@@ -2,7 +2,7 @@ import Game.Metadata
 
 World "RealAnalysisStory"
 Level 3
-Title "The rw tactic"
+Title "The `rewrite` tactic"
 
 Introduction "
 # Rewriting with equalities

@@ -81,6 +81,3 @@ with this definition and what it can do.
 **SIMPLICIO:** I like it; let's go!
 
 "
-
--- exercise : the sequence `a n = n` has no convergent subsequence
--- exercise : why not `|a n - a (n + 1)|`?

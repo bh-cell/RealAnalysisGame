@@ -23,9 +23,9 @@ Prove: `a` is bounded (i.e., `∃ M, ∀ n, |a n| ≤ M`)
 
 ## The Key Insight
 
-If a sequence is Cauchy, then eventually all terms are clustered together. Specifically, if we use `ε = 1` in the Cauchy definition, then for all `n ≥ N`, we have:
+If a sequence is Cauchy, then eventually all terms are clustered together. Specifically, if we use `ε = 1` in the Cauchy definition, then for all `m ≥ N`, we have:
 
-$|a_n - a_N| < 1$
+$|a_m - a_N| < 1$
 
 This means all terms after `N` stay within distance 1 of $a_N$, so they're all bounded by $|a_N| + 1$.
 
@@ -34,10 +34,10 @@ But what about the finitely many terms *before* `N`? We just take their maximum 
 ## Strategy
 
 1. **Apply Cauchy with `ε = 1`**: Get an `N` such that all terms after `N` are within distance 1 of $a_N$
-2. **Bound the tail**: Show that for `n ≥ N`, we have $|a_n| ≤ |a_N| + 1$ using the triangle inequality
+2. **Bound the tail**: Show that for `m ≥ N`, we have $|a_m| ≤ |a_N| + 1$ using the triangle inequality
 3. **Bound the initial segment**: The terms $a_0, a_1, ..., a_{N-1}$ are finitely many, so their sum of absolute values bounds each one
 4. **Combine**: Take $M = |a_N| + 1 + \\sum_{k < N} |a_k|$ as your overall bound
-5. **Case split**: Use `by_cases` to handle `n < N` versus `n ≥ N` separately
+5. **Case split**: Use `by_cases` to handle `m < N` versus `m ≥ N` separately
 
 Good luck!
 "
@@ -49,7 +49,7 @@ TheoremDoc IsBddOfCauchy as "IsBddOfCauchy" in "Theorems"
 
 /-- Prove this
 -/
-Statement IsBddOfCauchy (a : ℕ → ℝ) (ha : IsCauchy a)
+Statement IsBddOfCauchy {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] (a : ℕ → X) (ha : IsCauchy a)
     : SeqBdd a := by
 choose N hN using ha 1 (by bound)
 use |a N| + 1 + ∑ k ∈ range N, |a k|
@@ -58,15 +58,14 @@ have sumNonneg : 0 ≤ ∑ k ∈ range N, |a k| := by apply sum_nonneg (by bound
 have f1 : ∀ n < N, |a n| ≤ ∑ k ∈ range N, |a k| := by apply TermLeSum a N
 split_ands
 linarith [aNnonneg, sumNonneg]
-intro n
-specialize hN N (by bound) n
-by_cases hn : n < N
-specialize f1 n hn
+intro m
+specialize hN N (by bound) m
+by_cases hm : m < N
+specialize f1 m hm
 linarith [f1, aNnonneg]
 specialize hN (by bound)
-have f2 : |a n| = |(a n - a N) + a N| := by ring_nf
-have f3 : |(a n - a N) + a N| ≤ |a n - a N| + |a N| := by apply abs_add
-rewrite [(by apply abs_sub_comm : |a n - a N| = |a N - a n|)] at f3
+have f2 : |a m| = |(a m - a N) + a N| := by ring_nf
+have f3 : |(a m - a N) + a N| ≤ |a m - a N| + |a N| := by apply abs_add
 linarith [f2, f3, hN, sumNonneg]
 
 Conclusion "
@@ -94,8 +93,8 @@ This theorem is absolutely crucial for the theory of real numbers:
 ## The technique you mastered
 
 The key technique here was splitting into cases:
-- **Finitely many terms** (`n < N`): Handled by taking a maximum
-- **Infinitely many terms** (`n ≥ N`): Handled by the Cauchy property
+- **Finitely many terms** (`m < N`): Handled by taking a maximum
+- **Infinitely many terms** (`m ≥ N`): Handled by the Cauchy property
 
 This \"finite + infinite\" splitting technique appears throughout analysis!
 

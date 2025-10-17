@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14\n"
+"POT-Creation-Date: 2025-10-17\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -97,6 +97,32 @@ msgstr ""
 
 #: Game.Levels.L7Levels.L04_ByCases
 msgid "ByCases"
+msgstr ""
+
+#: Game.Levels.L11Levels.L01_IsCauchyOfLim
+msgid "# Congratulations! You've proven that convergence implies Cauchy!\n"
+"\n"
+"This is one of the most fundamental results in analysis. You've just shown that the \"self-referential\" Cauchy property is a *necessary condition* for convergence.\n"
+"\n"
+"## What you've learned\n"
+"\n"
+"- How to work with the Cauchy definition using multiple indices `m` and `n`\n"
+"- The power of the `ε/2` trick to make inequalities work out\n"
+"- How to use `abs_sub_comm` to flip differences inside absolute values\n"
+"- How to connect a sequence to itself rather than to an external limit\n"
+"\n"
+"## The Big Question\n"
+"\n"
+"You've proven: **convergence ⟹ Cauchy**\n"
+"\n"
+"But what about the converse? Is every Cauchy sequence convergent?\n"
+"\n"
+"- **For rational sequences**: NO! The sequence `1, 1.4, 1.41, 1.414, ...` is Cauchy in ℚ but doesn't converge to a rational number.\n"
+"- **For real sequences**: This is the *Cauchy Completeness Theorem*, and it's **YES**! But we'll need to carefully construct the real numbers first to prove it.\n"
+"\n"
+"This is why Cauchy sequences are so important—they give us a way to *define* the real numbers as the completion of the rationals!\n"
+"\n"
+"Onward to the next level!"
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -249,6 +275,14 @@ msgid "Prove that the sum of two convergent sequences converges to the sum of th
 "This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!'"
 msgstr ""
 
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "Monotone Subsequence"
+msgstr ""
+
+#: Game.Levels.L12Levels.L01_MonotoneBdd
+msgid "If a sequence `a : ℕ → X` (where `X` can be `ℚ` or `ℝ`) is monotone and bounded, then it is Cauchy."
+msgstr ""
+
 #: Game.Levels.L10Pset.L10Pset7
 msgid "Problem 6"
 msgstr ""
@@ -274,12 +308,46 @@ msgstr ""
 msgid "If your hypotheses lead to a contradiction, (for example: if one of your hypotheses is that `h : n < 0` where `n : ℕ` is a natural number) then the `contradiction` tactic closes the goal."
 msgstr ""
 
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "If `¬ (m ≤ n)`, then `n < m`."
+msgstr ""
+
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "# Level 4 **Big Boss:**  Monotone Subsequence\n"
+"\n"
+"## New definitions:\n"
+"\n"
+"- `IsAPeak`: Standing at `a n`, you can look down at all future values.\n"
+"\n"
+"`def IsAPeak {X : Type*} [LinearOrder X] (a : ℕ → X) (n : ℕ) : Prop := ∀ m > n, a m ≤ a n`\n"
+"\n"
+"- A sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) satisfies `UnBddPeaks` if there are arbitrarily large peaks.\n"
+"\n"
+"`def UnBddPeaks {X : Type*} [LinearOrder X] (a : ℕ → X) : Prop := ∀ k, ∃ n > k, IsAPeak a n`\n"
+"\n"
+"## The Goal\n"
+"\n"
+"Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that it then has a `Monotone` subsequence. (In the homework, you will show the opposite: if the sequence *does* have `UnBddPeaks`, then it has an `Antitone` -- that is, non-increasing -- subsequence.)\n"
+"\n"
+"## New theorems:\n"
+"\n"
+"- `lt_of_not_ge`\n"
+"\n"
+"It says: If `¬ (m ≤ n)`, then `n < m`.\n"
+"\n"
+"- `Monotone_of_succ` If `a m ≤ a (m+1)` holds for all `m`, then `a` is `Monotone`."
+msgstr ""
+
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "And now the `bound` tactic will do the trick."
 msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
+msgstr ""
+
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) does not have unbounded peaks, then it has a `Monotone` subsequence."
 msgstr ""
 
 #: Game.Levels.L9Pset.L9Pset3
@@ -373,6 +441,31 @@ msgid "The `linarith` tactic, with syntax `linarith [h₁, h₂]`, can solve goa
 "linarith [h1, h2]"
 msgstr ""
 
+#: Game.Levels.L11Levels.L02_IsCauchyOfSum
+msgid "# Excellent work! Cauchy sequences are closed under addition!\n"
+"\n"
+"You've just proven that the set of Cauchy sequences forms a well-behaved algebraic structure—they can be added together and the result is still Cauchy.\n"
+"\n"
+"## What this means\n"
+"\n"
+"This theorem shows that the Cauchy property is **preserved by addition**. This is crucial because:\n"
+"\n"
+"- We can build more complex Cauchy sequences from simpler ones\n"
+"- When we eventually construct the real numbers as equivalence classes of Cauchy sequences, we'll need to know that addition is well-defined\n"
+"- The Cauchy sequences form what algebraists call a **vector space** (or at least a subspace of all sequences)\n"
+"\n"
+"## The Pattern\n"
+"\n"
+"Notice how similar this proof was to proving that sums of convergent sequences converge:\n"
+"- Split `ε` into `ε / 2` for each sequence\n"
+"- Use the triangle inequality to separate the sum\n"
+"- Combine the estimates\n"
+"\n"
+"The key difference? **No limits appeared anywhere!** The Cauchy property is entirely self-contained.\n"
+"\n"
+"Ready for the next level!"
+msgstr ""
+
 #: Game.Levels.L4PsetIntro
 msgid "# Problem Set 4\n"
 "\n"
@@ -457,6 +550,11 @@ msgstr ""
 msgid "**BIG BOSS LEVEL**: This problem requires all the tactics you've learned!"
 msgstr ""
 
+#: Game.Levels.L12Levels.L02_SubseqIterate
+msgid "If a sequence `σ : ℕ → ℕ` grows faster than the identity, `n < σ n`,\n"
+"then the orbit of any base point `n₀ : ℕ` under `σ` -- this means the sequence `n₀, σ n₀, σ^[2] n₀, ...` -- is a `Subseq`, that is, is strictly increasing."
+msgstr ""
+
 #: Game.Levels.L10Pset.L10Pset7
 msgid "If a sequence `a : ℕ → ℝ` has two convergent subsequences, `a ∘ σ` converges to `L` and `a ∘ τ` converges to `M ≠ L`, then `a` is not convergent."
 msgstr ""
@@ -538,9 +636,9 @@ msgstr ""
 msgid "If there exists a point where f equals 2, then there exists a point where f² equals 4."
 msgstr ""
 
-#: Game.Levels.L9Levels.L05_BddOfConv
-msgid "A sequence `a : N → ℝ` is bounded (`SeqBdd` holds) if there exists some positive\n"
-"`M : ℝ` so that `|a n| ≤ M`, for all `n`."
+#: Game.Levels.L9Levels.L04_FiniteSums
+msgid "For a natural number `N`, `range N` represents the numbers from\n"
+"`0` to `N-1` (there are `N` of them)."
 msgstr ""
 
 #: Game.Levels.L9Levels.L04_FiniteSums
@@ -562,6 +660,10 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "Now write `specialize hf t_pos` feed in the proof that `t > 0`; then you should be able to finish it yourself."
+msgstr ""
+
+#: Game.Levels.L12Lecture
+msgid "# Lecture 12: Cauchy Sequences II"
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
@@ -657,8 +759,28 @@ msgid "# Level 4: Reciprocals of Convergent Sequences — Big Boss Level\n"
 "involving fractions. You have all the tools you need—now it's time to put them together!"
 msgstr ""
 
+#: Game
+msgid "# Welcome to Real Analysis, The Game!\n"
+"\n"
+"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk).\n"
+" Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
+"or better yet, post a PR/issue to\n"
+"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
+"\n"
+"For the main course website, go to: https://alexkontorovich.github.io/2025F311H.\n"
+"\n"
+"This course takes you through an Introduction to the Real Numbers, rigorous `ε`-`δ` Calculus,\n"
+"and basic Point-Set Topology.\n"
+"To get started, click on\n"
+"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+msgstr ""
+
 #: Game.Levels.L10PsetIntro
 msgid "Pset 10"
+msgstr ""
+
+#: Game.Levels.L1RealAnalysisStory.L03_rw
+msgid "The `rewrite` tactic"
 msgstr ""
 
 #: Game.Levels.L7Levels.L02_SeqOfAbs
@@ -911,10 +1033,6 @@ msgid "# Level 2: Order Limit Theorem\n"
 "This theorem can also be used to prove the **Squeeze Theorem** (which we already did directly)."
 msgstr ""
 
-#: Game.Levels.L1RealAnalysisStory.L03_rw
-msgid "The rw tactic"
-msgstr ""
-
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "Let's compare now to the purely natural language proof:\n"
 "\n"
@@ -956,6 +1074,10 @@ msgstr ""
 msgid "# Problem Set 3\n"
 "\n"
 "Good luck!"
+msgstr ""
+
+#: Game.Levels.L12Levels.L00_IterateGap
+msgid "For a function `σ : ℕ → ℕ`, we have that: `σ (σ^[k]) = σ^[k+1]`."
 msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
@@ -1015,24 +1137,17 @@ msgstr ""
 msgid "The choose tactic"
 msgstr ""
 
-#: Game
-msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
-"\n"
-"## About this Course\n"
-"\n"
-"This course follows the historical crises that forced mathematicians to rebuild\n"
-"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
-"like ε-δ definitions became necessary and how to use them to do advanced calculus.\n"
-"\n"
-"## Credits\n"
-"\n"
-"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
-"* **Interactive Implementation:** Lean 4 Game Engine\n"
-"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc."
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "For a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`) and `n : ℕ`, we say that `IsAPeak a n` if: `∀ m > n, a m ≤ a n`."
 msgstr ""
 
 #: Game.Levels.L10Levels.L08_Mono
 msgid "A sequence `σ : ℕ → ℕ` is a *subsequence* if `∀ i j, i < j → σ (i) < σ (j)`."
+msgstr ""
+
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "We say that a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`)\n"
+"satisfies `UnBddPeaks a`, if its set of peaks is unbounded."
 msgstr ""
 
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
@@ -1284,13 +1399,12 @@ msgid "# Problem 1:\n"
 "`a * b` converges to `0`."
 msgstr ""
 
-#: Game.Levels.L10Levels.L08_Mono
-msgid "Subsequences"
+#: Game.Levels.L12Levels.L01_MonotoneBdd
+msgid "Monotone and Bounded Implies Cauchy"
 msgstr ""
 
-#: Game.Levels.L9Levels.L04_FiniteSums
-msgid "If `a : ℕ → ℝ` is a sequence, then any term `|a n|`\n"
-"for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`."
+#: Game.Levels.L10Levels.L08_Mono
+msgid "Subsequences"
 msgstr ""
 
 #: Game.Levels.L8Lecture
@@ -1490,6 +1604,14 @@ msgid "# Level 2: Our First Real Limit\n"
 "This is a perfect example of how even \"obvious\" mathematical facts require sophisticated machinery to prove rigorously!"
 msgstr ""
 
+#: Game.Levels.L11PsetIntro
+msgid "# Problem Set 11\n"
+"\n"
+"(Lighter than usual; study for the quiz!)\n"
+"\n"
+"Good luck!"
+msgstr ""
+
 #: Game.Levels.L7Levels.L04_ByCases
 msgid "Prove `EventuallyGeHalfLimPos`, but without the assumption that `L ≠ 0`."
 msgstr ""
@@ -1540,6 +1662,7 @@ msgstr ""
 #: Game.Levels.L10Pset.L10Pset5
 #: Game.Levels.L10Pset.L10Pset6
 #: Game.Levels.L10Pset.L10Pset7
+#: Game.Levels.L11Pset.L11Pset1
 msgid "Done."
 msgstr ""
 
@@ -1585,6 +1708,42 @@ msgid "# 🎉 Excellent Work!\n"
 "Ready to see your theorem in action? Let's move on!"
 msgstr ""
 
+#: Game.Levels.L11Levels.L01_IsCauchyOfLim
+msgid "For a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is said to satisfy `IsCauchy` (that is, the sequence \\\"is Cauchy\\\") if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N` and `m ≥ n`, we have `|a m - a n| < ε`."
+msgstr ""
+
+#: Game.Levels.L11Levels.L02_IsCauchyOfSum
+msgid "# Level 2: Sums of Cauchy Sequences\n"
+"\n"
+"Now that we know convergent sequences are Cauchy, let's explore how Cauchy sequences behave under arithmetic operations. Just like we proved that sums of convergent sequences converge, we'll show that sums of Cauchy sequences are Cauchy.\n"
+"\n"
+"This theorem is important because it shows that the Cauchy property is preserved by addition—a crucial fact we'll need when we eventually define the real numbers!\n"
+"\n"
+"## The Setup\n"
+"\n"
+"Given:\n"
+"- `a : ℕ → ℝ` is Cauchy\n"
+"- `b : ℕ → ℝ` is Cauchy\n"
+"\n"
+"Prove: `a + b` is Cauchy\n"
+"\n"
+"## Strategy\n"
+"\n"
+"This proof follows a familiar pattern from the sum of limits theorem:\n"
+"\n"
+"1. **Split epsilon**: Apply the Cauchy property to both `a` and `b` using `ε/2`\n"
+"2. **Take the maximum N**: Use `N₁ + N₂` to ensure both Cauchy conditions hold\n"
+"3. **Change the goal**: Express `|(a + b)ₘ - (a + b)ₙ|` as `|(aₘ - aₙ) + (bₘ - bₙ)|`\n"
+"4. **Triangle inequality**: Split the sum into two pieces\n"
+"5. **Combine estimates**: Each piece is less than `ε / 2`, so the total is less than `ε`\n"
+"\n"
+"## Key Insight\n"
+"\n"
+"The beauty of the Cauchy property is that we don't need to know *where* the sequences converge—we only need to know that their terms get close to *each other*. This self-referential definition makes the proof very similar to the sum of limits, but without ever mentioning a limit!\n"
+"\n"
+"Let's prove it!"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L00_the_problem
 msgid "Write `apply h` since the hypothesis `h` is  what we want to prove."
 msgstr ""
@@ -1615,6 +1774,10 @@ msgid "# Problem 5\n"
 "Prove that both `b` and `d` also converge to `L`."
 msgstr ""
 
+#: Game.Levels.L12Levels.L00_IterateGap
+msgid "Iterated Gaps"
+msgstr ""
+
 #: Game.Levels.L7Pset.L7Pset3
 msgid "# Problem 3\n"
 "\n"
@@ -1627,59 +1790,32 @@ msgstr ""
 msgid "If a function of `x` always equals `x²`, then it equals `t²` when evaluated at `t`."
 msgstr ""
 
-#: Game.Levels.L10Levels.L08_Mono
-msgid "# Level 3: Subsequence Theorem\n"
+#: Game.Levels.L12Levels.L00_IterateGap
+msgid "# Level 1: Iterated Gaps\n"
 "\n"
-"A **subsequence** is what you get when you drop out some terms from a sequence and slide everyone left.\n"
+"In the next level, we'll prove that if a sequence is monotone (that is, non-decreasing) and bounded above, then it is Cauchy. As a warmup to that, let's prove the following. Suppose that we are given a `Monotone` sequence `a : ℕ → ℝ` and two subsequences, `σ τ : ℕ → ℕ`\n"
+"with the properties:\n"
+"- `σ` grows faster than `τ`: `σ n ≥ τ n` for all `n`,\n"
+"- `τ` grows faster than the identity function: `τ n ≥ n` for all `n`,\n"
+"- and there is some positive `ε` so that: `ε ≤ |a (σ n) - a (τ n)|`,\n"
+"that is, the value of `a` on `σ` versus `τ` differs by at least `ε`.\n"
 "\n"
-"**Two Perspectives on Subsequences:**\n"
+"Then the goal is to show that if we iterate `σ` `k` times -- written in Lean as `σ^[k]` -- then we'll grow by at least `k * ε` from the initial value, that is:\n"
 "\n"
-"Most textbooks write `a_{σ(n)}` and call this \"the subsequence of `a`.\" But we prefer to think of **`σ` itself as the subsequence**—it's the function `σ : ℕ → ℕ` that tells us which terms to keep.\n"
+"Goal: `∀ k, k * ε ≤ a (σ^[k] 0) - a 0`.\n"
 "\n"
-"**The Geometric Picture:**\n"
+"## New definition: `Monotone`\n"
 "\n"
-"Imagine the graph of `a n`. To form a subsequence:\n"
-"1. Drop out some terms (say, keep only positions 0, 2, 5, 7, 11, ...)\n"
-"2. Slide everyone left so every index has a value\n"
-"3. The new sequence is indexed 0, 1, 2, 3, 4, ...\n"
+"## New tactic: `show` Syntax: `show fact by proof`, for example, if\n"
+"you want to rewrite by the fact that `|x - y| = |y - x|` without\n"
+"a separate `have` declaration, you can write:\n"
 "\n"
-"The function `σ` encodes this relabeling:\n"
-"- `σ(0) = 0` (keep term 0)\n"
-"- `σ(1) = 2` (skip term 1, keep term 2)\n"
-"- `σ(2) = 5` (skip terms 3,4, keep term 5)\n"
-"- etc.\n"
+"`rewrite [show |x - y| = |y - x| by apply abs_sub_comm]`\n"
 "\n"
-"**Definition: `Subseq σ`**\n"
+"## New theorem: `succ_iterate`\n"
 "\n"
-"A function `σ : ℕ → ℕ` is a subsequence if it's **strictly monotone increasing**:\n"
-"```\n"
-"∀ i j, i < j → σ(i) < σ(j)\n"
-"```\n"
-"\n"
-"This ensures we preserve the original ordering—we can't rearrange terms, only delete some!\n"
-"\n"
-"**Key Lemma: `SubseqGe`**\n"
-"\n"
-"If `σ` is a subsequence, then `n ≤ σ(n)` for all `n`.\n"
-"\n"
-"Intuition: as you drop terms and relabel, indices can only \"spread out,\" never compress. The new index `n` corresponds to some original index `σ(n) ≥ n`. (You already proved this in Problem Set 8, Exercise 4.)\n"
-"\n"
-"**The Theorem:** If `a n → L` and `σ` is a subsequence, then `(a ∘ σ) n → L`.\n"
-"\n"
-"Translation: **every subsequence of a convergent sequence converges to the same limit**.\n"
-"\n"
-"**Proof Strategy:**\n"
-"\n"
-"This one is surprisingly simple! Given `ε > 0`:\n"
-"- Use convergence of `a` to find `N` such that `|a m - L| < ε` for all `m ≥ N`\n"
-"- For any `n ≥ N`, note that `σ(n) ≥ n ≥ N` (by `SubseqGe`)\n"
-"- Therefore `|a(σ(n)) - L| < ε`\n"
-"\n"
-"Done! The same `N` works for both the sequence and all its subsequences.\n"
-"\n"
-"**Powerful Consequence:**\n"
-"\n"
-"If a sequence has two subsequences converging to **different limits**, then the sequence itself **does not converge**! This gives us a new way to prove divergence. (See Lecture 10 Exercises.)"
+"While `σ^[k] (σ n) = σ^[k+1] (n)` is true by definition, it takes\n"
+"an argument by induction to show that `σ (σ^[k] n) = σ^[k+1] n`. I'll spare you that argument, and give you the theorem `succ_iterate`."
 msgstr ""
 
 #: Game.Levels.L3Pset.L3Pset4
@@ -1717,6 +1853,10 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L00_SumOfSeqs
 msgid "Big Boss: The Sum of Convergent Sequences"
+msgstr ""
+
+#: Game.Levels.L12Levels.L02_SubseqIterate
+msgid "Iterated Subsequence"
 msgstr ""
 
 #: Game.Levels.L6Levels.L02_LeftRight
@@ -1757,10 +1897,6 @@ msgstr ""
 msgid "The ring_nf tactic"
 msgstr ""
 
-#: Game.Levels.L11Levels.L01_IsCauchyOfLim
-msgid "For a sequence `a : ℕ → ℝ` is said to satisfy `IsCauchy` (that is, the sequence \\\"is Cauchy\\\") if: for every `ε > 0`, there exists `N : ℕ` such that for all `m, n ≥ N`, we have `|a m - a n| < ε`."
-msgstr ""
-
 #: Game.Levels.L4Pset.L4Pset1
 msgid "# Problem 1\n"
 "\n"
@@ -1778,6 +1914,10 @@ msgid "# Problem 1\n"
 "This might come in handy!..."
 msgstr ""
 
+#: Game.Levels.L12Levels.L00_IterateGap
+msgid "A sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`) is said to be `Monotone` if `a n ≤ a m` whenever `n ≤ m`."
+msgstr ""
+
 #: Game.Levels.L9PsetIntro
 msgid "Pset 9"
 msgstr ""
@@ -1788,6 +1928,43 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L03_rw
 msgid "If we know that $x = 2$, then we can prove that $x + y = 2 + y$."
+msgstr ""
+
+#: Game.Levels.L11Levels.L03_IsBddOfCauchy
+msgid "# Outstanding! You've proven that Cauchy sequences are bounded!\n"
+"\n"
+"This was a challenging proof involving case analysis, finite sums, and careful bookkeeping—but you did it! You've shown that the self-referential Cauchy property is powerful enough to guarantee boundedness.\n"
+"\n"
+"## What you've accomplished\n"
+"\n"
+"You've now proven that Cauchy sequences share two key properties with convergent sequences:\n"
+"1. **They're bounded** (this level)\n"
+"2. **They're closed under addition** (previous level)\n"
+"\n"
+"And you did all this **without ever mentioning where they converge**!\n"
+"\n"
+"## Why this matters\n"
+"\n"
+"This theorem is absolutely crucial for the theory of real numbers:\n"
+"\n"
+"- In the rationals `ℚ`, there are Cauchy sequences that don't converge (like the decimal approximations to `√2`)\n"
+"- But they're still *bounded*, which means they're not escaping to infinity\n"
+"- This boundedness will be essential when we prove the **Bolzano-Weierstrauss theorem**: every bounded sequence has a convergent subsequence\n"
+"- Eventually, we'll use these facts to show that in `ℝ` (but not in `ℚ`), every Cauchy sequence *does* converge—this is called **completeness**\n"
+"\n"
+"## The technique you mastered\n"
+"\n"
+"The key technique here was splitting into cases:\n"
+"- **Finitely many terms** (`m < N`): Handled by taking a maximum\n"
+"- **Infinitely many terms** (`m ≥ N`): Handled by the Cauchy property\n"
+"\n"
+"This \"finite + infinite\" splitting technique appears throughout analysis!\n"
+"\n"
+"## Looking ahead\n"
+"\n"
+"You've now built up the basic theory of Cauchy sequences. Next, we'll start connecting this back to the real numbers and exploring what it means for ℝ to be **complete**—the property that makes real analysis work!\n"
+"\n"
+"Congratulations on completing this lecture!"
 msgstr ""
 
 #: Game.Levels.L6Levels.L05_AbsLt
@@ -1811,6 +1988,10 @@ msgid "# Level 6: AbsLe - Working with Absolute Values in Convergence\n"
 "## New Tools You'll Need\n"
 "\n"
 "**`abs_lt`**: This theorem states that `|x| < y` if and only if `-y < x ∧ x < y`. This allows you to convert between absolute value inequalities and conjunction of regular inequalities, making them easier to work with in proofs."
+msgstr ""
+
+#: Game.Levels.L12Levels.L00_IterateGap
+msgid "If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is `Monotone` and grows along some subsequences by `ε`, then it eventually grows by `k * ε` for any `k`."
 msgstr ""
 
 #: Game.Levels.L10Pset.L10Pset2
@@ -1973,6 +2154,11 @@ msgid "# Problem 2\n"
 "Prove that `N * (N + 1)` is always even."
 msgstr ""
 
+#: Game.Levels.L9Levels.L05_BddOfConv
+msgid "A sequence `a : N → X` (where `X` could be `ℚ` or `ℝ`) is bounded (`SeqBdd` holds) if there exists some positive\n"
+"`M : X` so that `|a n| ≤ M`, for all `n`."
+msgstr ""
+
 #: Game.Levels.L8PsetIntro
 msgid "Pset 8"
 msgstr ""
@@ -2028,9 +2214,10 @@ msgstr ""
 #: Game.Levels.L9Pset.L9Pset1
 #: Game.Levels.L9Pset.L9Pset2
 #: Game.Levels.L9Pset.L9Pset3
-#: Game.Levels.L11Levels.L01_IsCauchyOfLim
-#: Game.Levels.L11Levels.L02_IsCauchyOfSum
-#: Game.Levels.L11Levels.L03_IsBddOfCauchy
+#: Game.Levels.L12Levels.L00_IterateGap
+#: Game.Levels.L12Levels.L01_MonotoneBdd
+#: Game.Levels.L12Levels.L02_SubseqIterate
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
 msgid ""
 msgstr ""
 
@@ -2069,10 +2256,6 @@ msgstr ""
 #: Game.Levels.L3Levels.L01_ArchProp
 msgid "This is a good time to record the fact that `1 / ε ≤ ⌈1 / ε⌉₊`.\n"
 "You can do that with: `have fact : 1 / ε ≤ ⌈1 / ε⌉₊ := by bound`. The `bound` tactic can solve inequalities like this."
-msgstr ""
-
-#: Game.Levels.L11Levels.L03_IsBddOfCauchy
-msgid "# Level 3: Cauchy Implies Bounded"
 msgstr ""
 
 #: Game.Levels.L6Levels.L05_AbsLt
@@ -2401,6 +2584,41 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
+#: Game.Levels.L11Levels.L01_IsCauchyOfLim
+msgid "# Level 1: Big Boss - Limits are Cauchy\n"
+"\n"
+"Now that we understand what a Cauchy sequence is, let's prove our first major theorem: **every convergent sequence is Cauchy**.\n"
+"\n"
+"This might seem obvious at first—if a sequence converges to some limit `L`, then the terms should eventually be close to each other. But making this intuition rigorous requires careful epsilon management!\n"
+"\n"
+"## The Key Insight\n"
+"\n"
+"If `aₙ → L`, then for large `n` and `m`, both `aₙ` and `aₘ` are close to `L`. By the triangle inequality, this means they must be close to *each other*:\n"
+"\n"
+"`|aₙ - aₘ| = |(aₙ - L) + (L - aₘ)| ≤ |aₙ - L| + |L - aₘ|`\n"
+"\n"
+"## Strategy\n"
+"\n"
+"1. **Extract the limit**: Since the sequence converges, use `choose` to get the limit `L`\n"
+"2. **Clever epsilon choice**: Apply the definition of `aₙ → L` with `ε/2` (not `ε`!)\n"
+"3. **Rewrite the goal**: Express `|aₙ - aₘ|` in terms of differences from `L`\n"
+"4. **Apply triangle inequality**: Split the absolute value of a sum\n"
+"5. **Use symmetry**: Apply `abs_sub_comm` to get `|L - aₘ| = |aₘ - L|`\n"
+"6. **Finish with arithmetic**: Both pieces are less than `ε/2`, so the sum is less than `ε`\n"
+"\n"
+"## New Definition\n"
+"\n"
+"**`IsCauchy a`**: A sequence `a : ℕ → ℝ` is Cauchy if\n"
+"`∀ ε > 0, ∃ N, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε`\n"
+"\n"
+"## New Theorem\n"
+"\n"
+"**`abs_sub_comm`**: `|x - y| = |y - x|`\n"
+"(Subtraction is commutative inside absolute values)\n"
+"\n"
+"This is your first Big Boss level working with the Cauchy definition. Take your time, and remember: when in doubt, divide epsilon by 2!"
+msgstr ""
+
 #: Game.Levels.L2PsetIntro
 msgid "# Problem Set 2\n"
 "\n"
@@ -2448,10 +2666,6 @@ msgid "# Problem 2\n"
 "\n"
 "We haven't yet learned a good way to use the theorem `OneOverNLimZero`\n"
 "that we already proved, so just adapt the proof of that, rather than trying to quote it. (It's good practice!)"
-msgstr ""
-
-#: Game.Levels.L11Levels.L02_IsCauchyOfSum
-msgid "# Level 2: Sums of Cauchy Sequences"
 msgstr ""
 
 #: Game.Levels.L7Levels.L00_Uniqueness
@@ -2607,16 +2821,63 @@ msgstr ""
 msgid "Write `rfl` since we're proving that something equals itself."
 msgstr ""
 
-#: Game.Levels.L11Levels.L01_IsCauchyOfLim
-msgid "# Level 1: Big Boss - Limits are Cauchy\n"
-"\n"
-"## New Definition: `IsCauchy`\n"
-"\n"
-"## New Theorem: `abs_sub_comm` : `|x - y| = |y - x|` (subtraction is commutative inside absolute values)"
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L02_rfl
 msgid "The rfl tactic"
+msgstr ""
+
+#: Game.Levels.L10Levels.L08_Mono
+msgid "# Level 3: Subsequence Theorem\n"
+"\n"
+"A **subsequence** is what you get when you drop out some terms from a sequence and slide everyone left.\n"
+"\n"
+"**Two Perspectives on Subsequences:**\n"
+"\n"
+"Most textbooks write $a_{\\sigma(n)}$ and call this \"the subsequence of `a`.\" But we prefer to think of **`σ` itself as the subsequence**—it's the function `σ : ℕ → ℕ` that tells us which terms to keep.\n"
+"\n"
+"**The Geometric Picture:**\n"
+"\n"
+"Imagine the graph of `a n`. To form a subsequence:\n"
+"1. Drop out some terms (say, keep only positions 0, 2, 5, 7, 11, ...)\n"
+"2. Slide everyone left so every index has a value\n"
+"3. The new sequence is indexed 0, 1, 2, 3, 4, ...\n"
+"\n"
+"The function `σ` encodes this relabeling:\n"
+"- `σ(0) = 0` (keep term 0)\n"
+"- `σ(1) = 2` (skip term 1, keep term 2)\n"
+"- `σ(2) = 5` (skip terms 3,4, keep term 5)\n"
+"- etc.\n"
+"\n"
+"**Definition: `Subseq σ`**\n"
+"\n"
+"A function `σ : ℕ → ℕ` is a subsequence if it's **strictly monotone increasing**:\n"
+"```\n"
+"∀ i j, i < j → σ(i) < σ(j)\n"
+"```\n"
+"\n"
+"This ensures we preserve the original ordering—we can't rearrange terms, only delete some!\n"
+"\n"
+"**Key Lemma: `SubseqGe`**\n"
+"\n"
+"If `σ` is a subsequence, then `n ≤ σ(n)` for all `n`.\n"
+"\n"
+"Intuition: as you drop terms and relabel, indices can only \"spread out,\" never compress. The new index `n` corresponds to some original index `σ(n) ≥ n`. (You already proved this in Problem Set 8, Exercise 4.)\n"
+"\n"
+"**The Theorem:** If `a n → L` and `σ` is a subsequence, then `(a ∘ σ) n → L`.\n"
+"\n"
+"Translation: **every subsequence of a convergent sequence converges to the same limit**.\n"
+"\n"
+"**Proof Strategy:**\n"
+"\n"
+"This one is surprisingly simple! Given `ε > 0`:\n"
+"- Use convergence of `a` to find `N` such that `|a m - L| < ε` for all `m ≥ N`\n"
+"- For any `n ≥ N`, note that `σ(n) ≥ n ≥ N` (by `SubseqGe`)\n"
+"- Therefore `|a(σ(n)) - L| < ε`\n"
+"\n"
+"Done! The same `N` works for both the sequence and all its subsequences.\n"
+"\n"
+"**Powerful Consequence:**\n"
+"\n"
+"If a sequence has two subsequences converging to **different limits**, then the sequence itself **does not converge**! This gives us a new way to prove divergence. (See Lecture 10 Exercises.)"
 msgstr ""
 
 #: Game.Levels.L4Lecture
@@ -2640,6 +2901,12 @@ msgid "# 🔍 Information Extraction Mastered! 🔍\n"
 "As we dive deeper into analysis, you'll encounter hypotheses with multiple convergence conditions, boundedness properties, and continuity requirements all bundled together. Dot notation will be your key to navigating these rich mathematical structures efficiently.\n"
 "\n"
 "Elegant mathematics isn't just about reaching the right conclusion—it's about getting there with style and clarity. You're building that elegance, one notation at a time."
+msgstr ""
+
+#: Game.Levels.L11Pset.L11Pset1
+msgid "# Problem 1:\n"
+"\n"
+"Prove that the sequence `a n = n` has no convergent subsequence."
 msgstr ""
 
 #: Game.Levels.L10PsetIntro
@@ -2712,6 +2979,11 @@ msgstr ""
 #: Game.Levels.L11Levels.L01_IsCauchyOfLim
 #: Game.Levels.L11Levels.L02_IsCauchyOfSum
 #: Game.Levels.L11Levels.L03_IsBddOfCauchy
+#: Game.Levels.L11Pset.L11Pset1
+#: Game.Levels.L12Levels.L00_IterateGap
+#: Game.Levels.L12Levels.L01_MonotoneBdd
+#: Game.Levels.L12Levels.L02_SubseqIterate
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
 msgid "Prove this"
 msgstr ""
 
@@ -3296,6 +3568,23 @@ msgstr ""
 msgid "Split Ands"
 msgstr ""
 
+#: Game
+msgid "*An Introduction to Formal Real Analysis - Interactive Edition*\n"
+"\n"
+"## About this Course\n"
+"\n"
+"This course follows the historical crises that forced mathematicians to rebuild\n"
+"mathematics from the ground up in the 19th century. You'll learn why concepts\n"
+"like `ε`-`δ` definitions became necessary and how to use them to do advanced calculus.\n"
+"\n"
+"## Credits\n"
+"\n"
+"* **Course Design:** By Alex Kontorovich alex.kontorovich@rutgers.edu\n"
+"* **Interactive Implementation:** Lean 4 Game Engine\n"
+"* **Mathematical Content:** Following Rudin, Stein-Shakarchi, Abbot, etc.\n"
+"* **Many thanks to:** Jon Eugster, Heather Macbeth, Michael Stoll, and the students of 311H for a lot of technical support, encouragement, and many great suggestions for improvement!"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "If you're struggling to prove that `2 ^ 2 = 4`, it's\n"
 "a basic fact in a *ring*..."
@@ -3381,6 +3670,11 @@ msgstr ""
 
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`."
+msgstr ""
+
+#: Game.Levels.L12Levels.L02_SubseqIterate
+msgid "For a function `σ : ℕ → ℕ`, if `σ n < σ (n+1)`, then\n"
+"for any `i < j`, `σ i < σ j` -- that is, `Subseq σ` holds."
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -3519,20 +3813,8 @@ msgid "# Problem 4\n"
 "Prove that cannot have a limit less than 5."
 msgstr ""
 
-#: Game
-msgid "# Welcome to Real Analysis, The Game!\n"
-"\n"
-"This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk).\n"
-" Please email alex.kontorovich@rutgers.edu for suggestions/corrections,\n"
-"or better yet, post a PR/issue to\n"
-"https://github.com/AlexKontorovich/RealAnalysisGame.\n"
-"\n"
-"For the main course website, go to: https://alexkontorovich.github.io/2025F311H.\n"
-"\n"
-"This course takes you through an Introduction to the Real Numbers, rigorous ε-δ Calculus,\n"
-"and basic Point-Set Topology.\n"
-"To get started, click on\n"
-"**\"Level 1: The Story of Real Analysis\"**, and good luck!"
+#: Game.Levels.L12Levels.L01_MonotoneBdd
+msgid "The `push_neg` tactic pushes negations through universal and existential quantifiers, inequalities, etc."
 msgstr ""
 
 #: Game.Levels.L1Pset.L1Pset1
@@ -3949,6 +4231,10 @@ msgstr ""
 msgid "Therefore `n > 0`; try: `have npos : (0 : ℝ) < n := by linarith [Npos, N_le_n]`"
 msgstr ""
 
+#: Game.Levels.L11PsetIntro
+msgid "Pset 11"
+msgstr ""
+
 #: Game.Levels.L10Levels.L09_Subseq
 msgid "The `let` tactic is like `have`, but for creating variable names or functions."
 msgstr ""
@@ -4071,6 +4357,10 @@ msgid "# More on sequences\n"
 "Let's step it up a notch, shall we?"
 msgstr ""
 
+#: Game.Levels.L12Lecture
+msgid "Lecture 12: The Real Numbers I"
+msgstr ""
+
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
 msgstr ""
@@ -4138,6 +4428,14 @@ msgstr ""
 msgid "For all positive real numbers, this algebraic identity holds."
 msgstr ""
 
+#: Game.Levels.L12Levels.L01_MonotoneBdd
+msgid "# Level 2: Monotone and Bounded Implies Cauchy\n"
+"\n"
+"## New tactic: `push_neg`\n"
+"\n"
+"The negation of `∀` is `∃`, and vice-versa. To push a chain of negations through, write `push_neg`."
+msgstr ""
+
 #: Game.Levels.L3Pset.L3Pset4
 msgid "Determine the limit `L` of the sequence `a (n) = (3n + 8) / (2n + 5)`, and prove that `a` indeed converges to `L`."
 msgstr ""
@@ -4174,6 +4472,7 @@ msgstr ""
 #: Game.Levels.L8Pset.L8Pset1
 #: Game.Levels.L9Pset.L9Pset1
 #: Game.Levels.L10Pset.L10Pset2
+#: Game.Levels.L11Pset.L11Pset1
 msgid "Problem 1"
 msgstr ""
 
@@ -4190,6 +4489,28 @@ msgstr ""
 msgid "Write `use 42`, but with `42` replaced by the correct answer. Then how should you finish?"
 msgstr ""
 
+#: Game.Levels.L12Levels.L02_SubseqIterate
+msgid "# Level 3: Iterated Subsequence\n"
+"\n"
+"In the next level, we'll prove a theorem about `Monotone` subsequences\n"
+"of certain sequences, for which this level is a warmup.\n"
+"\n"
+"Here you'll prove the following. Assume that a sequence `σ : ℕ → ℕ` grows faster than the identity, `σ n > n`. For a fixed \"base point\" `n₀ : ℕ`, consider the \"orbit of n₀ under σ\", by which we mean: the sequence:\n"
+"\n"
+"`n₀, σ n₀, σ^[2] n₀, ...`\n"
+"\n"
+"In other words, start with `n₀` and keep applying `σ` iteratively (in Lean, we simply write the function: `fun n ↦ σ^[n] n₀`).\n"
+"\n"
+"Goal: This orbit sequence is strictly increasing, that is, it is a `Subseq`.\n"
+"\n"
+"## New theorem: `subseq_of_succ`\n"
+"\n"
+"If you have a sequence `σ : ℕ → ℕ` and you know that\n"
+"it increases from one term to its successor: `σ n < σ (n + 1)`,\n"
+"then it's always strictly increasing, `i < j → σ i < σ j`; that is,\n"
+"`σ` is a `Subseq`."
+msgstr ""
+
 #: Game.Levels.L10Levels.L06_Prod
 msgid "If sequences `a b : ℕ → ℝ` converge with `a` going to `L ≠ 0` and `b` going to `M ≠ 0`, then `a n * b n` converges to `L * M`."
 msgstr ""
@@ -4200,6 +4521,10 @@ msgstr ""
 
 #: Game.Levels.L6Levels.L02_LeftRight
 msgid "When your goal is to prove an \\\"Or\\\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `P`, then say `left`, and the Goal will turn into `P`."
+msgstr ""
+
+#: Game.Levels.L12Levels.L00_IterateGap
+msgid "The `show` tactic has syntax `show fact by proof`."
 msgstr ""
 
 #: Game.Levels.L9PsetIntro
@@ -4324,6 +4649,41 @@ msgstr ""
 msgid "Simplify the absolute value: `have f2 : |1 / (n : ℝ)| = 1 / n := by bound`. Note the explicit casting to the reals, so that this is not a statement about natural numbers!"
 msgstr ""
 
+#: Game.Levels.L11Levels.L03_IsBddOfCauchy
+msgid "# Level 3: Cauchy Implies Bounded\n"
+"\n"
+"We've seen that convergent sequences are bounded. Now we'll prove that **Cauchy sequences are also bounded**—without ever mentioning a limit!\n"
+"\n"
+"This is a beautiful result because it shows that the Cauchy property alone (terms getting close to *each other*) is strong enough to guarantee boundedness, even though we don't know if the sequence converges or *where* it might converge to.\n"
+"\n"
+"## The Setup\n"
+"\n"
+"Given:\n"
+"- `a : ℕ → ℝ` is Cauchy\n"
+"\n"
+"Prove: `a` is bounded (i.e., `∃ M, ∀ n, |a n| ≤ M`)\n"
+"\n"
+"## The Key Insight\n"
+"\n"
+"If a sequence is Cauchy, then eventually all terms are clustered together. Specifically, if we use `ε = 1` in the Cauchy definition, then for all `m ≥ N`, we have:\n"
+"\n"
+"$|a_m - a_N| < 1$\n"
+"\n"
+"This means all terms after `N` stay within distance 1 of $a_N$, so they're all bounded by $|a_N| + 1$.\n"
+"\n"
+"But what about the finitely many terms *before* `N`? We just take their maximum (or what's technically easier: their sum)!\n"
+"\n"
+"## Strategy\n"
+"\n"
+"1. **Apply Cauchy with `ε = 1`**: Get an `N` such that all terms after `N` are within distance 1 of $a_N$\n"
+"2. **Bound the tail**: Show that for `m ≥ N`, we have $|a_m| ≤ |a_N| + 1$ using the triangle inequality\n"
+"3. **Bound the initial segment**: The terms $a_0, a_1, ..., a_{N-1}$ are finitely many, so their sum of absolute values bounds each one\n"
+"4. **Combine**: Take $M = |a_N| + 1 + \\sum_{k < N} |a_k|$ as your overall bound\n"
+"5. **Case split**: Use `by_cases` to handle `m < N` versus `m ≥ N` separately\n"
+"\n"
+"Good luck!"
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset1
 msgid "Given that `f (u) = 2 * u + 1` for all `u`, prove that there exists some `a` such that `f (3) = a`."
 msgstr ""
@@ -4380,6 +4740,11 @@ msgid "The syntax for induction is: `induction' n with k hk`. This means: apply 
 "the induction hypothesis on `k`."
 msgstr ""
 
+#: Game.Levels.L9Levels.L04_FiniteSums
+msgid "If `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is a sequence, then any term `|a n|`\n"
+"for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`."
+msgstr ""
+
 #: Game.Levels.L1Pset.L1Pset2
 msgid "The `have` tactic has the following\n"
 "syntax: `have NewHypothesisName (Assumptions) : Claim := by GiveTheProof`.\n"
@@ -4428,6 +4793,10 @@ msgid "# Problem 2\n"
 "\n"
 "Hint: when you have multiple existential quantifiers, you can just write a single `use`\n"
 "and separate the answers by a comma, like so: `use 6, 7, 42` (in place of: `use 6`, then `use 7`, then `use 42`)."
+msgstr ""
+
+#: Game.Levels.L12Levels.L03_MonotoneSubseq
+msgid "If `a n ≤ a (n+1)` holds for all `n`, then `a` is `Monotone`."
 msgstr ""
 
 #: Game.Levels.L4Levels.L01_NonConverge

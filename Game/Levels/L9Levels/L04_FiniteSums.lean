@@ -64,13 +64,21 @@ TheoremDoc Finset.sum_nonneg as "sum_nonneg" in "Theorems"
 
 NewTheorem Finset.sum_range_succ Finset.sum_nonneg
 
-/-- If `a : ℕ → ℝ` is a sequence, then any term `|a n|`
+/--
+For a natural number `N`, `range N` represents the numbers from
+`0` to `N-1` (there are `N` of them).
+-/
+DefinitionDoc range as "range"
+
+NewDefinition range
+
+/-- If `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is a sequence, then any term `|a n|`
 for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`. -/
 TheoremDoc TermLeSum as "TermLeSum" in "Theorems"
 
 /-- Prove this
 -/
-Statement TermLeSum (a : ℕ → ℝ) (N : ℕ) :
+Statement TermLeSum {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] (a : ℕ → X) (N : ℕ) :
     ∀ n < N, |a n| ≤ ∑ k ∈ range N, |a k| := by
 induction' N with N hN
 intro n hn

@@ -12,7 +12,7 @@ A **subsequence** is what you get when you drop out some terms from a sequence a
 
 **Two Perspectives on Subsequences:**
 
-Most textbooks write `a_{σ(n)}` and call this \"the subsequence of `a`.\" But we prefer to think of **`σ` itself as the subsequence**—it's the function `σ : ℕ → ℕ` that tells us which terms to keep.
+Most textbooks write $a_{\\sigma(n)}$ and call this \"the subsequence of `a`.\" But we prefer to think of **`σ` itself as the subsequence**—it's the function `σ : ℕ → ℕ` that tells us which terms to keep.
 
 **The Geometric Picture:**
 
