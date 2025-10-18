@@ -45,14 +45,18 @@ Theorem: for any fixed `n₀`, the orbit `n ↦ σ^[n] n₀` is a `Subseq`.
 - `succ_iterate`
 
 While `σ^[k] (σ n) = σ^[k+1] (n)` is true by definition, it takes
-an argument by induction to show that if instead of adding a `σ` on the right, we add it on the left: `σ (σ^[k] n) = σ^[k+1] n`. I'll spare you the proof of that argument, and give you the theorem `succ_iterate`.
+an argument by induction to show that if instead of adding a `σ` on the right, we add it on the left:
+
+`σ (σ^[k] n) = σ^[k+1] n`.
+
+I'll spare you the proof of that argument, and give you the theorem `succ_iterate`.
 
 - `subseq_of_succ`
 
 To prove that `σ` is a `Subseq`, the definition of which speaks of all `i < j`, it's enough to
 do it one step at a time. The theorem `subseq_of_succ` says that
 it's enough to show that `σ n < σ (n+1)` holds for all `n` to conclude `Subseq σ`.
-You can `apply` this fact to reduce showing `Subseq σ` to just showing it for going from `n` to `n+1`.
+You can `apply` this fact to reduce showing `Subseq σ` to just showing that `σ` increases from `n` to `n+1`.
 
 ## New tactic: `show` Syntax: `show fact by proof`, for example, if
 you want to rewrite by the fact that `σ (σ^[n] n₀) = σ^[n+1] n₀` without
@@ -100,6 +104,7 @@ TheoremDoc Subseq_of_Iterate as "Subseq_of_Iterate" in "Theorems"
 -/
 Statement Subseq_of_Iterate (σ : ℕ → ℕ) (hσ : ∀ n, n < σ n) (n₀ : ℕ) :
   Subseq (fun n ↦ σ^[n] n₀) := by
+  Hint (hidden := true) "Try starting your proof with `apply subseq_of_succ`."
   apply subseq_of_succ
   intro n
   specialize hσ (σ^[n] n₀)
