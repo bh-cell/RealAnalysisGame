@@ -1,12 +1,12 @@
-import Game.Levels.L12Levels.L02_SubseqIterate
+import Game.Levels.L12Lecture
 
-World "Lecture12"
-Level 4
+World "Lecture13"
+Level 1
 Title "Monotone Subsequence"
 
 
 Introduction "
-# Level 4 **Big Boss:**  Monotone Subsequence
+# Level 1 **Big Boss:**  Monotone Subsequence
 
 ## New definitions:
 
@@ -28,16 +28,19 @@ Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that 
 
 It says: If `¬ (m ≤ n)`, then `n < m`.
 
-- `Monotone_of_succ` If `a m ≤ a (m+1)` holds for all `m`, then `a` is `Monotone`.
 
 "
 
-/-- For a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`) and `n : ℕ`, we say that `IsAPeak a n` if: `∀ m > n, a m ≤ a n`. -/
+/-- `(a : ℕ → X) (n : ℕ) := ∀ m > n, a m ≤ a n`
+
+For a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`) and `n : ℕ`, we say that `IsAPeak a n` if: `∀ m > n, a m ≤ a n`. -/
 DefinitionDoc IsAPeak as "IsAPeak"
 
 def IsAPeak {X : Type*} [LinearOrder X] (a : ℕ → X) (n : ℕ) : Prop := ∀ m > n, a m ≤ a n
 
-/-- We say that a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`)
+/-- `(a : ℕ → X) := ∀ k, ∃ n > k, IsAPeak a n`
+
+We say that a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`)
 satisfies `UnBddPeaks a`, if its set of peaks is unbounded.-/
 DefinitionDoc UnBddPeaks as "UnBddPeaks"
 
@@ -48,13 +51,7 @@ NewDefinition IsAPeak UnBddPeaks
 /-- If `¬ (m ≤ n)`, then `n < m`. -/
 TheoremDoc lt_of_not_ge as "lt_of_not_ge" in "Theorems"
 
-theorem Monotone_of_succ {X : Type*} [Preorder X] (a : ℕ → X) (ha : ∀ n, a n ≤ a (n + 1)) : Monotone a := by
-exact monotone_nat_of_le_succ ha
-
-/-- If `a n ≤ a (n+1)` holds for all `n`, then `a` is `Monotone`. -/
-TheoremDoc Monotone_of_succ as "Monotone_of_succ" in "Theorems"
-
-NewTheorem lt_of_not_ge Monotone_of_succ
+NewTheorem lt_of_not_ge
 
 /--
 If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) does not have unbounded peaks, then it has a `Monotone` subsequence.

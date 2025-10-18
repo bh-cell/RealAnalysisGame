@@ -61,7 +61,9 @@ If a sequence has two subsequences converging to **different limits**, then the 
 
 "
 
-/-- A sequence `σ : ℕ → ℕ` is a *subsequence* if `∀ i j, i < j → σ (i) < σ (j)`. -/
+/-- `(σ : ℕ → ℕ) := ∀ i j, i < j → σ i < σ j`
+
+A sequence `σ : ℕ → ℕ` is a *subsequence* if `∀ i j, i < j → σ (i) < σ (j)`. -/
 DefinitionDoc Subseq as "Subseq"
 
 NewDefinition Subseq

@@ -1,12 +1,12 @@
-import Game.Levels.L12Levels.L01_MonotoneBdd
+import Game.Levels.L12Lecture
 
-World "Lecture12"
-Level 3
+World "Lecture13"
+Level 1
 Title "Iterated Subsequence"
 
 
 Introduction "
-# Level 3: Iterated Subsequence
+# Level 1: Iterated Subsequence
 
 In the next level, we'll prove a theorem about `Monotone` subsequences
 of certain sequences, for which this level is a warmup.
@@ -28,25 +28,11 @@ then it's always strictly increasing, `i < j → σ i < σ j`; that is,
 
 "
 
-theorem subseq_of_succ (σ : ℕ → ℕ) (hσ : ∀ n, σ n < σ (n + 1)) : Subseq σ := by
-  intro i j hij
-  induction hij with
-  | refl => exact hσ i
-  | step hi h =>
-      specialize hσ m
-      linarith [h, hσ]
-
-/-- For a function `σ : ℕ → ℕ`, if `σ n < σ (n+1)`, then
-for any `i < j`, `σ i < σ j` -- that is, `Subseq σ` holds. -/
-TheoremDoc subseq_of_succ as "subseq_of_succ" in "Theorems"
-
-NewTheorem subseq_of_succ
-
 /--
 If a sequence `σ : ℕ → ℕ` grows faster than the identity, `n < σ n`,
 then the orbit of any base point `n₀ : ℕ` under `σ` -- this means the sequence `n₀, σ n₀, σ^[2] n₀, ...` -- is a `Subseq`, that is, is strictly increasing.
 -/
-TheoremDoc Subseq_of_Iterate as "IsCauchyOfMonotoneBdd" in "Theorems"
+TheoremDoc Subseq_of_Iterate as "Subseq_of_Iterate" in "Theorems"
 
 /-- Prove this
 -/

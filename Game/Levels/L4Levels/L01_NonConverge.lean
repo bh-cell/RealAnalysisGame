@@ -128,7 +128,9 @@ TheoremDoc abs_neg as "abs_neg" in "Theorems"
 
 NewTheorem abs_add abs_neg
 
-/-- A sequence `a : N → ℝ` converges (`SeqConv a` holds) if there exists some
+/-- `(a : ℕ → ℝ) := ∃ L, SeqLim a L`
+
+A sequence `a : N → ℝ` converges (`SeqConv a` holds) if there exists some
 `L : ℝ` so that `a → L`, that is, `SeqLim a L` holds. -/
 DefinitionDoc SeqConv as "SeqConv"
 

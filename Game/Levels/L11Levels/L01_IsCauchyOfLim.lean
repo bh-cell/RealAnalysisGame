@@ -47,7 +47,9 @@ TheoremDoc abs_sub_comm as "abs_sub_comm" in "Theorems"
 
 NewTheorem abs_sub_comm
 
-/-- For a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is said to satisfy `IsCauchy` (that is, the sequence \"is Cauchy\") if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N` and `m ≥ n`, we have `|a m - a n| < ε`. -/
+/-- `(a : ℕ → X) : Prop := ∀ (ε : X), 0 < ε → ∃ N : ℕ, ∀ n ≥ N, ∀ m ≥ n, |a m - a n| < ε`
+
+For a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is said to satisfy `IsCauchy` (that is, the sequence \"is Cauchy\") if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N` and `m ≥ n`, we have `|a m - a n| < ε`. -/
 DefinitionDoc IsCauchy as "IsCauchy"
 
 NewDefinition IsCauchy

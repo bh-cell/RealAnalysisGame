@@ -64,9 +64,12 @@ TheoremDoc Finset.sum_nonneg as "sum_nonneg" in "Theorems"
 
 NewTheorem Finset.sum_range_succ Finset.sum_nonneg
 
-/--
+/-- `range N`
+
 For a natural number `N`, `range N` represents the numbers from
 `0` to `N-1` (there are `N` of them).
+
+Usage: `∑ k ∈ range N, k = N * (N + 1) / 2`.
 -/
 DefinitionDoc range as "range"
 
