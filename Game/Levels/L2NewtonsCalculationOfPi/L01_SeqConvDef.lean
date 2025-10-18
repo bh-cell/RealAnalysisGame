@@ -124,7 +124,9 @@ Ok, get to it!
 do this at a hypothesis; if you have a hypothesis `h : X`, you can write `change Y at h`, and `h` will change to `h : Y`. -/
 TacticDoc change
 
-/-- For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`. -/
+/-- `(a : ℕ → ℝ) (L : ℝ) := ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`
+
+For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`. -/
 DefinitionDoc SeqLim as "SeqLim"
 
 NewDefinition SeqLim

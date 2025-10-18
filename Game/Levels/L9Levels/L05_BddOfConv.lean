@@ -54,7 +54,9 @@ Construct the bound `M`, prove it's positive, then verify it works for all terms
 Good luck! 🚀
 "
 
-/-- A sequence `a : N → X` (where `X` could be `ℚ` or `ℝ`) is bounded (`SeqBdd` holds) if there exists some positive
+/-- `(a : ℕ → X) := ∃ M > 0, ∀ n, |a n| ≤ M`
+
+  A sequence `a : N → X` (where `X` could be `ℚ` or `ℝ`) is bounded (`SeqBdd` holds) if there exists some positive
 `M : X` so that `|a n| ≤ M`, for all `n`. -/
 DefinitionDoc SeqBdd as "SeqBdd"
 
