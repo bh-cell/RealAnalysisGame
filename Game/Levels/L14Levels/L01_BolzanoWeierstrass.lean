@@ -1,12 +1,12 @@
-import Game.Levels.L13Levels.L03_MonotoneSubseq
+import Game.Levels.L13Lecture
 
-World "Lecture13"
-Level 2
+World "Lecture14"
+Level 1
 Title "Bolzano-Weierstass"
 
 
 Introduction "
-# Level 2 **Big Boss:**  Bolzano-Weierstass
+# Level 1 **Big Boss:**  Bolzano-Weierstass
 
 ## New theorems:
 
