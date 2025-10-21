@@ -22,6 +22,10 @@ Introduction "
 
 Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that it then has a `Monotone` subsequence. (In the homework, you will show the opposite: if the sequence *does* have `UnBddPeaks`, then it has an `Antitone` -- that is, non-increasing -- subsequence.)
 
+## New tactics:
+
+- `if` `then` `else`
+
 ## New theorems:
 
 - `lt_of_not_ge`

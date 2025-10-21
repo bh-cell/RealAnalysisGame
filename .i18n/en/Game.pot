@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-20\n"
+"POT-Creation-Date: 2025-10-21\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -252,10 +252,6 @@ msgstr ""
 
 #: Game.Levels.L10Levels.L09_Subseq
 msgid "Subsequence Example"
-msgstr ""
-
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
-msgid "If a sequence `a : ℕ → X` (where `X` can be `ℚ` or `ℝ`) is antitone and bounded, then it is Cauchy."
 msgstr ""
 
 #: Game.Levels.L6PsetIntro
@@ -703,6 +699,12 @@ msgid "# Problem 2\n"
 "will be useful to you in solving this problem."
 msgstr ""
 
+#: Game.Levels.L13PsetIntro
+msgid "# Problem Set 13\n"
+"\n"
+"Good luck!"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Combine everything with `linarith [eps_inv_lt_N, f4]`"
 msgstr ""
@@ -796,6 +798,14 @@ msgstr ""
 #: Game.Levels.L6Levels.L06_Squeeze
 msgid "If `a c : ℕ → ℝ`, with `a` and `c` both converging to `L`,\n"
 "and `b` is another sequence, squeezed between `a` and `c`, then `b` also converges to `L`."
+msgstr ""
+
+#: Game.Levels.L13Pset.L13Pset1
+msgid "# Problem 1:\n"
+"\n"
+"Prove `AntitoneSubseq_of_UnBddPeaks`\n"
+"\n"
+"## New theorem: `Antitone_of_succ`"
 msgstr ""
 
 #: Game.Levels.L3Levels.L02_OneOverN
@@ -1018,18 +1028,6 @@ msgstr ""
 
 #: Game.Levels.L8PsetIntro
 msgid "Pset 8"
-msgstr ""
-
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
-msgid "# Level 2 **Big Boss:**  Bolzano-Weierstass\n"
-"\n"
-"## New theorems:\n"
-"\n"
-"- `abs_le` -- just like `abs_lt` but for `|x| ≤ y` instead of `|x| < y`\n"
-"\n"
-"- `IsCauchyOfAntitoneBdd` (from Pset 12)\n"
-"\n"
-"- `AntitoneSubseq_of_UnBddPeaks` (to be proved in Pset 13)"
 msgstr ""
 
 #: Game.Levels.L8Levels.L03_Induction'
@@ -1482,6 +1480,10 @@ msgid "# 🔍 Information Extraction Mastered! 🔍\n"
 "Elegant mathematics isn't just about reaching the right conclusion—it's about getting there with style and clarity. You're building that elegance, one notation at a time."
 msgstr ""
 
+#: Game.Levels.L13Lecture
+msgid "# Lecture 13: Monotone Subsequence"
+msgstr ""
+
 #: Game.Levels.L1RealAnalysisStory.L07_specialize
 msgid "The `specialize` tactic applies a universal statement in a hypothesis to a specific value."
 msgstr ""
@@ -1517,7 +1519,6 @@ msgstr ""
 #: Game.Levels.L12Levels.L01_MonotoneBdd
 #: Game.Levels.L12Pset.L12Pset2
 #: Game.Levels.L13Levels.L03_MonotoneSubseq
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
 msgid "Prove this"
 msgstr ""
 
@@ -2158,10 +2159,6 @@ msgstr ""
 msgid "# Problem 1"
 msgstr ""
 
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
-msgid "Bolzano-Weierstass"
-msgstr ""
-
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "If `a n = 1 / n`, then `SeqLim a 0`; that is, the sequence\n"
 "`1 / n` converges to zero."
@@ -2602,10 +2599,6 @@ msgstr ""
 msgid "When your goal is to prove an \\\"Or\\\" statement, `P ∨ Q`, you can do that by proving either `P` or `Q`. If you want to prove `Q`, then say `right`, and the Goal will turn into `Q`."
 msgstr ""
 
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
-msgid "`|x| ≤ y ↔ -y ≤ x ≤ y`"
-msgstr ""
-
 #: Game.Levels.L2Pset.L2Pset2
 msgid "# Problem 2\n"
 "\n"
@@ -2617,6 +2610,10 @@ msgid "# Problem 2\n"
 "\n"
 "Hint: when you have multiple existential quantifiers, you can just write a single `use`\n"
 "and separate the answers by a comma, like so: `use 6, 7, 42` (in place of: `use 6`, then `use 7`, then `use 42`)."
+msgstr ""
+
+#: Game.Levels.L13PsetIntro
+msgid "Pset 13"
 msgstr ""
 
 #: Game.Levels.L12Levels.L01_MonotoneBdd
@@ -2709,10 +2706,6 @@ msgstr ""
 
 #: Game.Levels.L1RealAnalysisStory.L08_choose
 msgid "Write `choose c hc using h`, then you should be able to finish it yourself."
-msgstr ""
-
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
-msgid "If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is bounded, then it has a subsequence which is Cauchy."
 msgstr ""
 
 #: Game.Levels.L3Levels.L01_ArchProp
@@ -2835,6 +2828,34 @@ msgstr ""
 msgid "If `¬ (m ≤ n)`, then `n < m`."
 msgstr ""
 
+#: Game.Levels.L13Levels.L03_MonotoneSubseq
+msgid "# Level 1 **Big Boss:**  Monotone Subsequence\n"
+"\n"
+"## New definitions:\n"
+"\n"
+"- `IsAPeak`: Standing at `a n`, you can look down at all future values.\n"
+"\n"
+"`def IsAPeak {X : Type*} [LinearOrder X] (a : ℕ → X) (n : ℕ) : Prop := ∀ m > n, a m ≤ a n`\n"
+"\n"
+"- A sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) satisfies `UnBddPeaks` if there are arbitrarily large peaks.\n"
+"\n"
+"`def UnBddPeaks {X : Type*} [LinearOrder X] (a : ℕ → X) : Prop := ∀ k, ∃ n > k, IsAPeak a n`\n"
+"\n"
+"## The Goal\n"
+"\n"
+"Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that it then has a `Monotone` subsequence. (In the homework, you will show the opposite: if the sequence *does* have `UnBddPeaks`, then it has an `Antitone` -- that is, non-increasing -- subsequence.)\n"
+"\n"
+"## New tactics:\n"
+"\n"
+"- `if` `then` `else`\n"
+"\n"
+"## New theorems:\n"
+"\n"
+"- `lt_of_not_ge`\n"
+"\n"
+"It says: If `¬ (m ≤ n)`, then `n < m`."
+msgstr ""
+
 #: Game.Levels.L2NewtonsCalculationOfPi.L01_SeqConvDef
 msgid "Try starting with `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`"
 msgstr ""
@@ -2864,10 +2885,6 @@ msgid "# Level 4: Dot Notation - Accessing Parts of Complex Information\n"
 "\n"
 "Note that for longer conjunctions like `P ∧ Q ∧ R`, `h.1` gives `P` as expected, but\n"
 "`h.2` gives `Q ∧ R`. That's because there are hidden parentheses: `P ∧ Q ∧ R = P ∧ (Q ∧ R)`. So how do you get to `Q` alone? Easy: dot notation! Writing `h.2.1` gives `Q`, and `h.2.2` gives `R`."
-msgstr ""
-
-#: Game.Levels.L13Lecture
-msgid "Lecture 13: Bolzano-Weierstrass"
 msgstr ""
 
 #: Game.Levels.L11Levels.L02_IsCauchyOfSum
@@ -2957,6 +2974,10 @@ msgstr ""
 msgid "`(a : ℕ → ℝ) (L : ℝ) := ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |a n - L| < ε`\n"
 "\n"
 "For a sequence `a : ℕ → ℝ` and a real number `L : ℝ`, we say that `SeqLim a L` holds if: for every `ε > 0`, there exists `N : ℕ` such that for all `n ≥ N`, we have `|a n - L| < ε`."
+msgstr ""
+
+#: Game.Levels.L13Pset.L13Pset1
+msgid "Prove `AntitoneSubseq_of_UnBddPeaks`"
 msgstr ""
 
 #: Game.Levels.L12Levels.L00_SubseqIterate
@@ -3804,7 +3825,6 @@ msgid "# Level 6: AbsLe - Working with Absolute Values in Convergence\n"
 msgstr ""
 
 #: Game.Levels.L12Levels.L01_MonotoneBdd
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
 msgid "If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is `Monotone` and grows along some subsequences by `ε`, then it eventually grows by `k * ε` for any `k`."
 msgstr ""
 
@@ -3927,7 +3947,7 @@ msgstr ""
 #: Game.Levels.L12Pset.L12Pset1
 #: Game.Levels.L12Pset.L12Pset2
 #: Game.Levels.L13Levels.L03_MonotoneSubseq
-#: Game.Levels.L13Levels.L04_BolzanoWeierstrass
+#: Game.Levels.L13Pset.L13Pset1
 msgid ""
 msgstr ""
 
@@ -3988,10 +4008,6 @@ msgstr ""
 msgid "`(a : ℕ → X) (n : ℕ) := ∀ m > n, a m ≤ a n`\n"
 "\n"
 "For a sequence `a : ℕ → X` (where `X` is `ℚ` or `ℝ`) and `n : ℕ`, we say that `IsAPeak a n` if: `∀ m > n, a m ≤ a n`."
-msgstr ""
-
-#: Game.Levels.L13Lecture
-msgid "# Lecture 13: Bolzano-Weierstrass"
 msgstr ""
 
 #: Game.Levels.L6Levels.L00_SumOfSeqs
@@ -4180,6 +4196,10 @@ msgstr ""
 
 #: Game.Levels.L5Levels.L01_DoubleSeqConv
 msgid "Start by unfolding the definition: `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |b n - 2 * L| < ε`"
+msgstr ""
+
+#: Game.Levels.L13Pset.L13Pset1
+msgid "If `a (n+1) ≤ a n` holds for all `n`, then `a` is `Monotone`."
 msgstr ""
 
 #: Game.Levels.L11Pset.L11Pset1
@@ -4625,6 +4645,10 @@ msgid "Excellent! You've shown that the oscillating sequence `(-1)^n` has a conv
 "Great work on completing Lecture 10! You now have the complete Algebraic Limit Theorem, order properties of limits, and the power of subsequences at your disposal."
 msgstr ""
 
+#: Game.Levels.L13Lecture
+msgid "Lecture 13: Monotone Subsequence"
+msgstr ""
+
 #: Game.Levels.L3Levels.L02_OneOverN
 msgid "Again, you presumably you know\n"
 "now to do `intro n hn`. But let's also give `hn` the more descriptive name `n_ge_N`. So that I can keep giving you hints, try `intro n n_ge_N`."
@@ -4932,30 +4956,6 @@ msgstr ""
 msgid "This is where you might find it useful to call `norm_num` and normalize `|0|` to `0`."
 msgstr ""
 
-#: Game.Levels.L13Levels.L03_MonotoneSubseq
-msgid "# Level 1 **Big Boss:**  Monotone Subsequence\n"
-"\n"
-"## New definitions:\n"
-"\n"
-"- `IsAPeak`: Standing at `a n`, you can look down at all future values.\n"
-"\n"
-"`def IsAPeak {X : Type*} [LinearOrder X] (a : ℕ → X) (n : ℕ) : Prop := ∀ m > n, a m ≤ a n`\n"
-"\n"
-"- A sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) satisfies `UnBddPeaks` if there are arbitrarily large peaks.\n"
-"\n"
-"`def UnBddPeaks {X : Type*} [LinearOrder X] (a : ℕ → X) : Prop := ∀ k, ∃ n > k, IsAPeak a n`\n"
-"\n"
-"## The Goal\n"
-"\n"
-"Assume your sequence `a : ℕ → X` does **not** have `UnBddPeaks`. Prove that it then has a `Monotone` subsequence. (In the homework, you will show the opposite: if the sequence *does* have `UnBddPeaks`, then it has an `Antitone` -- that is, non-increasing -- subsequence.)\n"
-"\n"
-"## New theorems:\n"
-"\n"
-"- `lt_of_not_ge`\n"
-"\n"
-"It says: If `¬ (m ≤ n)`, then `n < m`."
-msgstr ""
-
 #: Game.Levels.L1RealAnalysisStory.L06_intro
 msgid "For all positive real numbers, this algebraic identity holds."
 msgstr ""
@@ -4977,6 +4977,7 @@ msgstr ""
 #: Game.Levels.L10Pset.L10Pset2
 #: Game.Levels.L11Pset.L11Pset1
 #: Game.Levels.L12Pset.L12Pset1
+#: Game.Levels.L13Pset.L13Pset1
 msgid "Problem 1"
 msgstr ""
 
