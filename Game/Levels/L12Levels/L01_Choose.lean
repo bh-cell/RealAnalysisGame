@@ -18,7 +18,7 @@ there is always at least one `n > N` for which `p (n)` holds. We would state the
 
 Now suppose that we have a hypothesis like this, for some abstract property `p` (if you like, you're welcome to keep thinking of `p n` as testing whether `n` is a twin prime). Given that there are arbitrarily large `n`'s for which `p n` holds, how do I get my hands on a subsequence `σ : ℕ → ℕ`, so that, along the subsequence, `p (σ n)` holds, for all `n`?
 
-The idea is that you should interpret `h` as a collection of **functions**. Given `N`, `h` will produce a `n` for you, but that `n` is a function of `N`, so we should really write `n = n (N)`. But that's not all! The hypothesis `h` also contains a *proof* that `n (N) > N` for all `N`. Do you see why the statement of `h` implies
+The idea is that you should interpret `h` as a collection of **functions**. Given a natural number `N`,  the hypothesis `h` will produce a `n` for you, but that `n` is a function of `N`, so we should really write `n = n (N)`. But that's not all! The hypothesis `h` also contains a *proof* that `n (N) > N` for all `N`. Do you see why the statement of `h` implies
 the existence of such a function? And lastly, `h` also gives us a proof of the fact that, for all `N`,
 `p (n (N))` holds. So `n (N)` is (almost) our desired sequence! (Since it's funny to write `n (N)`, let's rename `n` to `τ`, so we can write `τ (N)`.) The way in Lean to go from `h` to these sequences is to invoke a familiar tactic: `choose`! If you write:
 
