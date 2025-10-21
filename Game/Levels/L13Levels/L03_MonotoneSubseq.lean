@@ -89,12 +89,7 @@ have hσ : ∀ n, k < σ n := by
 use σ
 split_ands
 apply Subseq_of_Iterate
-intro n
-by_cases hn : n ≤ k
-rewrite [τ'_eq]
-bound
-rewrite [τ'_eq]
-bound
+apply τ'_gt
 apply Monotone_of_succ
 intro n
 specialize hσ n

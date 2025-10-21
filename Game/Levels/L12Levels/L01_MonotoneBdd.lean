@@ -7,7 +7,7 @@ Title "Monotone and Bounded Implies Cauchy"
 Introduction "
 # Level 3: Monotone and Bounded Implies Cauchy
 
-Now we tackle one of the fundamental theorems of real analysis: every bounded monotone sequence is Cauchy (and hence convergent). This result provides a powerful convergence criterion that doesn't require knowing the limit beforehand.
+Now we tackle one of the fundamental theorems of real analysis: every bounded monotone sequence is Cauchy. This result provides a powerful convergence criterion that doesn't require knowing the limit beforehand.
 
 ## The Intuitive Picture
 
