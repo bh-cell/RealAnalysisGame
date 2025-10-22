@@ -26,7 +26,7 @@ Hint: You don't need to reprove everything from scratch! I'll give you two tools
 
 "
 
-/-- `(a : X → Y) ∀ i j, i ≤ j → a j ≤ a i`
+/-- `(a : X → Y) := ∀ i j, i ≤ j → a j ≤ a i`
 
 A sequence `a : X → Y` is said to be `Antitone` if `a m ≤ a n` whenever `n ≤ m` (note that `n` and `m` were reversed).
  -/
