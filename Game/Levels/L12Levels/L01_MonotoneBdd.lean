@@ -58,7 +58,7 @@ Given a monotone sequence with persistent gaps of size `ε` between subsequences
 `
 "
 
-/-- `(a : X → Y) {i j} (hij : i ≤ j) : a i ≤ a j`
+/-- `(a : X → Y) ∀i j, i ≤ j → a i ≤ a j`
 
 A sequence `a : X → Y` is said to be `Monotone` if `a n ≤ a m` whenever `n ≤ m`. -/
 DefinitionDoc Monotone as "Monotone"
